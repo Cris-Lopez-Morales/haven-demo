@@ -1,0 +1,10 @@
+{
+  "version": "1.1.0",
+  "standalone_sha256": "f83b7f38978edb7526f5ef928442da16ee9b8505778770e24a9c0cf66326ec2e",
+  "catalog_properties": 60,
+  "catalog_cities": 20,
+  "unit_tests_passed": 62,
+  "browser_workflow_checks_passed": 77,
+  "browser_catalog_motion_checks_passed": 36,
+  "browser_mode": "isolated document with in-memory Storage adapter; not native cross-session persistence"
+}

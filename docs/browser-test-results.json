@@ -1,0 +1,314 @@
+{
+  "mode": "isolated-document-with-memory-storage",
+  "checks": [
+    {
+      "name": "Starter workspace renders the first twelve of sixty properties",
+      "passed": true
+    },
+    {
+      "name": "Artwork renders with no external dependencies",
+      "passed": true
+    },
+    {
+      "name": "Empty saved view is actionable",
+      "passed": true
+    },
+    {
+      "name": "Live text search finds all four Lincoln fixtures",
+      "passed": true
+    },
+    {
+      "name": "City filter works",
+      "passed": true
+    },
+    {
+      "name": "Combined city and budget filters work",
+      "passed": true
+    },
+    {
+      "name": "No-results filter state renders",
+      "passed": true
+    },
+    {
+      "name": "Property-type tabs filter the complete catalog",
+      "passed": true
+    },
+    {
+      "name": "Ascending price sorting is correct",
+      "passed": true
+    },
+    {
+      "name": "List-view switch changes the layout",
+      "passed": true
+    },
+    {
+      "name": "Named searches are persisted",
+      "passed": true
+    },
+    {
+      "name": "Saved searches restore their exact filters",
+      "passed": true
+    },
+    {
+      "name": "Saving a home updates the workspace",
+      "passed": true
+    },
+    {
+      "name": "Saved homes restore after app initialization",
+      "passed": true
+    },
+    {
+      "name": "Saved view contains the correct property",
+      "passed": true
+    },
+    {
+      "name": "Notes persist verbatim without executing markup",
+      "passed": true
+    },
+    {
+      "name": "Confirmation is visible inside the native dialog",
+      "passed": true
+    },
+    {
+      "name": "Escape closes the details dialog",
+      "passed": true
+    },
+    {
+      "name": "Notes load on reopening a property",
+      "passed": true
+    },
+    {
+      "name": "Comparison selection persists three properties",
+      "passed": true
+    },
+    {
+      "name": "Comparison enforces the three-property limit",
+      "passed": true
+    },
+    {
+      "name": "Comparison renders all selected property columns",
+      "passed": true
+    },
+    {
+      "name": "Comparison CSV exports actual property data",
+      "passed": true
+    },
+    {
+      "name": "Comparison columns can be removed",
+      "passed": true
+    },
+    {
+      "name": "Calculator loads the selected property",
+      "passed": true
+    },
+    {
+      "name": "Default calculator result matches the model",
+      "passed": true
+    },
+    {
+      "name": "All-cash preset removes the mortgage",
+      "passed": true
+    },
+    {
+      "name": "All-cash cash flow is correct",
+      "passed": true
+    },
+    {
+      "name": "Zero-interest scenario calculates without error",
+      "passed": true
+    },
+    {
+      "name": "Invalid inputs disable report export",
+      "passed": true
+    },
+    {
+      "name": "Valid input restores live calculations",
+      "passed": true
+    },
+    {
+      "name": "Currency inputs accept cents without validation mismatch",
+      "passed": true
+    },
+    {
+      "name": "Fractional loan years are explicitly rejected",
+      "passed": true
+    },
+    {
+      "name": "Low down payment with zero PMI displays a warning",
+      "passed": true
+    },
+    {
+      "name": "Entering PMI clears the missing-premium warning",
+      "passed": true
+    },
+    {
+      "name": "Scenario snapshots persist the assumptions",
+      "passed": true
+    },
+    {
+      "name": "Loading a scenario restores the exact saved inputs",
+      "passed": true
+    },
+    {
+      "name": "Report includes assumptions, amortization and sensitivity",
+      "passed": true
+    },
+    {
+      "name": "Custom property creation works",
+      "passed": true
+    },
+    {
+      "name": "Custom names render as text, not HTML",
+      "passed": true
+    },
+    {
+      "name": "Custom property edits update the displayed data",
+      "passed": true
+    },
+    {
+      "name": "Workspace backup exports custom entries and notes",
+      "passed": true
+    },
+    {
+      "name": "Reset clears personal state and returns to the first twelve sample homes",
+      "passed": true
+    },
+    {
+      "name": "Import requires a review before replacing data",
+      "passed": true
+    },
+    {
+      "name": "Import restores the complete workspace",
+      "passed": true
+    },
+    {
+      "name": "Malformed import does not overwrite existing data",
+      "passed": true
+    },
+    {
+      "name": "Custom deletion also removes its saved reference",
+      "passed": true
+    },
+    {
+      "name": "Saved searches can be deleted",
+      "passed": true
+    },
+    {
+      "name": "Saved scenarios can be deleted",
+      "passed": true
+    },
+    {
+      "name": "Comparison tray can be cleared",
+      "passed": true
+    },
+    {
+      "name": "Saved properties can be removed",
+      "passed": true
+    },
+    {
+      "name": "Failed optional photos fall back to original artwork",
+      "passed": true
+    },
+    {
+      "name": "discover does not overflow at 390px",
+      "passed": true
+    },
+    {
+      "name": "calculator does not overflow at 390px",
+      "passed": true
+    },
+    {
+      "name": "saved does not overflow at 390px",
+      "passed": true
+    },
+    {
+      "name": "custom does not overflow at 390px",
+      "passed": true
+    },
+    {
+      "name": "compare does not overflow at 390px",
+      "passed": true
+    },
+    {
+      "name": "discover does not overflow at 768px",
+      "passed": true
+    },
+    {
+      "name": "calculator does not overflow at 768px",
+      "passed": true
+    },
+    {
+      "name": "saved does not overflow at 768px",
+      "passed": true
+    },
+    {
+      "name": "custom does not overflow at 768px",
+      "passed": true
+    },
+    {
+      "name": "compare does not overflow at 768px",
+      "passed": true
+    },
+    {
+      "name": "discover does not overflow at 1024px",
+      "passed": true
+    },
+    {
+      "name": "calculator does not overflow at 1024px",
+      "passed": true
+    },
+    {
+      "name": "saved does not overflow at 1024px",
+      "passed": true
+    },
+    {
+      "name": "custom does not overflow at 1024px",
+      "passed": true
+    },
+    {
+      "name": "compare does not overflow at 1024px",
+      "passed": true
+    },
+    {
+      "name": "discover does not overflow at 1440px",
+      "passed": true
+    },
+    {
+      "name": "calculator does not overflow at 1440px",
+      "passed": true
+    },
+    {
+      "name": "saved does not overflow at 1440px",
+      "passed": true
+    },
+    {
+      "name": "custom does not overflow at 1440px",
+      "passed": true
+    },
+    {
+      "name": "compare does not overflow at 1440px",
+      "passed": true
+    },
+    {
+      "name": "Mobile navigation drawer opens",
+      "passed": true
+    },
+    {
+      "name": "Mobile drawer closes with Escape and becomes inert",
+      "passed": true
+    },
+    {
+      "name": "Mobile custom-property form fits the viewport",
+      "passed": true
+    },
+    {
+      "name": "No uncaught application errors during all workflows",
+      "passed": true
+    },
+    {
+      "name": "Denied native storage displays session-only mode",
+      "passed": true
+    }
+  ],
+  "uncaught_errors": []
+}

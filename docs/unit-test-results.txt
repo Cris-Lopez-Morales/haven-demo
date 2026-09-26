@@ -1,0 +1,386 @@
+
+> haven-property-workspace@1.1.0 test
+> node --test tests/*.test.mjs
+
+TAP version 13
+# Subtest: catalog contains exactly 60 fictional properties in 20 cities
+ok 1 - catalog contains exactly 60 fictional properties in 20 cities
+  ---
+  duration_ms: 2.221113
+  type: 'test'
+  ...
+# Subtest: all catalog properties satisfy the import and property schemas
+ok 2 - all catalog properties satisfy the import and property schemas
+  ---
+  duration_ms: 4.049812
+  type: 'test'
+  ...
+# Subtest: catalog IDs, names and addresses are unique
+ok 3 - catalog IDs, names and addresses are unique
+  ---
+  duration_ms: 0.247101
+  type: 'test'
+  ...
+# Subtest: original saved IDs and all original financial inputs stay compatible
+ok 4 - original saved IDs and all original financial inputs stay compatible
+  ---
+  duration_ms: 1.489373
+  type: 'test'
+  ...
+# Subtest: all four property types have at least twelve useful examples
+ok 5 - all four property types have at least twelve useful examples
+  ---
+  duration_ms: 0.278381
+  type: 'test'
+  ...
+# Subtest: new cities are searchable without loading earlier pages
+ok 6 - new cities are searchable without loading earlier pages
+  ---
+  duration_ms: 0.959203
+  type: 'test'
+  ...
+# Subtest: complete-catalog descending sort includes the last-page highest price
+ok 7 - complete-catalog descending sort includes the last-page highest price
+  ---
+  duration_ms: 0.480757
+  type: 'test'
+  ...
+# Subtest: every fictional fixture produces finite financial metrics
+ok 8 - every fictional fixture produces finite financial metrics
+  ---
+  duration_ms: 4.6542
+  type: 'test'
+  ...
+# Subtest: separate-entrance tags are used only for duplexes
+ok 9 - separate-entrance tags are used only for duplexes
+  ---
+  duration_ms: 0.750711
+  type: 'test'
+  ...
+# Subtest: first browse page renders 12 cards and a correct progress indicator
+ok 10 - first browse page renders 12 cards and a correct progress indicator
+  ---
+  duration_ms: 49.163283
+  type: 'test'
+  ...
+# Subtest: progressive rendering grows without dropping the first page
+ok 11 - progressive rendering grows without dropping the first page
+  ---
+  duration_ms: 16.993772
+  type: 'test'
+  ...
+# Subtest: pagination applies after filtering and sorting
+ok 12 - pagination applies after filtering and sorting
+  ---
+  duration_ms: 2.524975
+  type: 'test'
+  ...
+# Subtest: the final page has no show-more button or misleading count
+ok 13 - the final page has no show-more button or misleading count
+  ---
+  duration_ms: 41.975619
+  type: 'test'
+  ...
+# Subtest: an empty match set has an actionable empty state and no pagination
+ok 14 - an empty match set has an actionable empty state and no pagination
+  ---
+  duration_ms: 0.48382
+  type: 'test'
+  ...
+# Subtest: old and new favorite IDs round-trip in the existing backup format
+ok 15 - old and new favorite IDs round-trip in the existing backup format
+  ---
+  duration_ms: 0.840254
+  type: 'test'
+  ...
+# Subtest: new facade illustrations are deterministic and type-specific
+ok 16 - new facade illustrations are deterministic and type-specific
+  ---
+  duration_ms: 0.738206
+  type: 'test'
+  ...
+# Subtest: fixed-rate payment agrees with known 200k / 6% / 30-year example
+ok 17 - fixed-rate payment agrees with known 200k / 6% / 30-year example
+  ---
+  duration_ms: 2.974826
+  type: 'test'
+  ...
+# Subtest: zero-interest loan divides principal evenly
+ok 18 - zero-interest loan divides principal evenly
+  ---
+  duration_ms: 0.322758
+  type: 'test'
+  ...
+# Subtest: no principal means no loan payment
+ok 19 - no principal means no loan payment
+  ---
+  duration_ms: 0.293732
+  type: 'test'
+  ...
+# Subtest: tiny positive rates remain numerically stable
+ok 20 - tiny positive rates remain numerically stable
+  ---
+  duration_ms: 0.285357
+  type: 'test'
+  ...
+# Subtest: invalid mortgage inputs fail explicitly
+ok 21 - invalid mortgage inputs fail explicitly
+  ---
+  duration_ms: 2.859183
+  type: 'test'
+  ...
+# Subtest: calculator uses correct loan and down payment
+ok 22 - calculator uses correct loan and down payment
+  ---
+  duration_ms: 0.630153
+  type: 'test'
+  ...
+# Subtest: vacancy reduces rent and management uses collected rent
+ok 23 - vacancy reduces rent and management uses collected rent
+  ---
+  duration_ms: 0.207689
+  type: 'test'
+  ...
+# Subtest: annual taxes convert to monthly; expenses include maintenance
+ok 24 - annual taxes convert to monthly; expenses include maintenance
+  ---
+  duration_ms: 0.158163
+  type: 'test'
+  ...
+# Subtest: NOI excludes debt and capital reserves
+ok 25 - NOI excludes debt and capital reserves
+  ---
+  duration_ms: 0.782697
+  type: 'test'
+  ...
+# Subtest: cash flow subtracts financing and capital reserves
+ok 26 - cash flow subtracts financing and capital reserves
+  ---
+  duration_ms: 0.70093
+  type: 'test'
+  ...
+# Subtest: cash invested includes closing costs and initial repairs
+ok 27 - cash invested includes closing costs and initial repairs
+  ---
+  duration_ms: 0.320206
+  type: 'test'
+  ...
+# Subtest: all-cash financing and mortgage insurance both become zero
+ok 28 - all-cash financing and mortgage insurance both become zero
+  ---
+  duration_ms: 0.189614
+  type: 'test'
+  ...
+# Subtest: mortgage insurance reduces cash flow but not NOI or cap rate
+ok 29 - mortgage insurance reduces cash flow but not NOI or cap rate
+  ---
+  duration_ms: 0.173832
+  type: 'test'
+  ...
+# Subtest: zero invested cash gives null return, never infinity
+ok 30 - zero invested cash gives null return, never infinity
+  ---
+  duration_ms: 0.271291
+  type: 'test'
+  ...
+# Subtest: zero rent and full vacancy remain finite
+ok 31 - zero rent and full vacancy remain finite
+  ---
+  duration_ms: 0.177971
+  type: 'test'
+  ...
+# Subtest: negative and nonfinite inputs are rejected
+ok 32 - negative and nonfinite inputs are rejected
+  ---
+  duration_ms: 41.561956
+  type: 'test'
+  ...
+# Subtest: valid assumptions pass schema validation
+ok 33 - valid assumptions pass schema validation
+  ---
+  duration_ms: 1.115176
+  type: 'test'
+  ...
+# Subtest: all fixtures have valid model assumptions
+ok 34 - all fixtures have valid model assumptions
+  ---
+  duration_ms: 0.370021
+  type: 'test'
+  ...
+# Subtest: amortization reaches zero and conserves original principal
+ok 35 - amortization reaches zero and conserves original principal
+  ---
+  duration_ms: 0.558064
+  type: 'test'
+  ...
+# Subtest: zero-rate amortization has no interest
+ok 36 - zero-rate amortization has no interest
+  ---
+  duration_ms: 0.174999
+  type: 'test'
+  ...
+# Subtest: all-cash amortization is empty
+ok 37 - all-cash amortization is empty
+  ---
+  duration_ms: 0.108204
+  type: 'test'
+  ...
+# Subtest: search matches case-insensitive words across location fields
+ok 38 - search matches case-insensitive words across location fields
+  ---
+  duration_ms: 0.958193
+  type: 'test'
+  ...
+# Subtest: filters compose with AND semantics
+ok 39 - filters compose with AND semantics
+  ---
+  duration_ms: 0.756636
+  type: 'test'
+  ...
+# Subtest: area and cash-flow filters apply actual computed values
+ok 40 - area and cash-flow filters apply actual computed values
+  ---
+  duration_ms: 3.304303
+  type: 'test'
+  ...
+# Subtest: search supports no-results state
+ok 41 - search supports no-results state
+  ---
+  duration_ms: 0.24838
+  type: 'test'
+  ...
+# Subtest: price sort is ascending and does not mutate input
+ok 42 - price sort is ascending and does not mutate input
+  ---
+  duration_ms: 0.45239
+  type: 'test'
+  ...
+# Subtest: cash-flow sort uses computed values, not a seeded score
+ok 43 - cash-flow sort uses computed values, not a seeded score
+  ---
+  duration_ms: 2.810098
+  type: 'test'
+  ...
+# Subtest: cap-rate sort uses NOI divided by price
+ok 44 - cap-rate sort uses NOI divided by price
+  ---
+  duration_ms: 1.934057
+  type: 'test'
+  ...
+# Subtest: median handles even, odd, and empty inputs
+ok 45 - median handles even, odd, and empty inputs
+  ---
+  duration_ms: 0.278976
+  type: 'test'
+  ...
+# Subtest: CSV neutralizes dangerous text while preserving numeric negatives
+ok 46 - CSV neutralizes dangerous text while preserving numeric negatives
+  ---
+  duration_ms: 0.504249
+  type: 'test'
+  ...
+# Subtest: CSV escapes quotes and keeps commas/newlines in cells
+ok 47 - CSV escapes quotes and keeps commas/newlines in cells
+  ---
+  duration_ms: 0.242356
+  type: 'test'
+  ...
+# Subtest: user-controlled HTML is escaped before rendering
+ok 48 - user-controlled HTML is escaped before rendering
+  ---
+  duration_ms: 0.348869
+  type: 'test'
+  ...
+# Subtest: workspace backup round-trips
+ok 49 - workspace backup round-trips
+  ---
+  duration_ms: 5.561732
+  type: 'test'
+  ...
+# Subtest: unsupported backup version is rejected
+ok 50 - unsupported backup version is rejected
+  ---
+  duration_ms: 0.761425
+  type: 'test'
+  ...
+# Subtest: malformed JSON is rejected
+ok 51 - malformed JSON is rejected
+  ---
+  duration_ms: 0.429397
+  type: 'test'
+  ...
+# Subtest: incomplete custom property is rejected
+ok 52 - incomplete custom property is rejected
+  ---
+  duration_ms: 0.35275
+  type: 'test'
+  ...
+# Subtest: duplicate custom IDs cannot overwrite one another
+ok 53 - duplicate custom IDs cannot overwrite one another
+  ---
+  duration_ms: 0.580192
+  type: 'test'
+  ...
+# Subtest: sample IDs are reserved
+ok 54 - sample IDs are reserved
+  ---
+  duration_ms: 0.384221
+  type: 'test'
+  ...
+# Subtest: saved and compared IDs are deduplicated and comparison capped at three
+ok 55 - saved and compared IDs are deduplicated and comparison capped at three
+  ---
+  duration_ms: 0.319207
+  type: 'test'
+  ...
+# Subtest: invalid scenario values are not trusted
+ok 56 - invalid scenario values are not trusted
+  ---
+  duration_ms: 41.186788
+  type: 'test'
+  ...
+# Subtest: prototype keys in imported notes are rejected
+ok 57 - prototype keys in imported notes are rejected
+  ---
+  duration_ms: 0.855517
+  type: 'test'
+  ...
+# Subtest: oversized backup is rejected before parsing
+ok 58 - oversized backup is rejected before parsing
+  ---
+  duration_ms: 1.475909
+  type: 'test'
+  ...
+# Subtest: custom photo URL must be HTTPS or blank
+ok 59 - custom photo URL must be HTTPS or blank
+  ---
+  duration_ms: 0.656401
+  type: 'test'
+  ...
+# Subtest: local storage round-trip uses the versioned key
+ok 60 - local storage round-trip uses the versioned key
+  ---
+  duration_ms: 0.583661
+  type: 'test'
+  ...
+# Subtest: unavailable storage falls back to a working session workspace
+ok 61 - unavailable storage falls back to a working session workspace
+  ---
+  duration_ms: 0.301685
+  type: 'test'
+  ...
+# Subtest: corrupt saved state is preserved as a recovery copy
+ok 62 - corrupt saved state is preserved as a recovery copy
+  ---
+  duration_ms: 0.490335
+  type: 'test'
+  ...
+1..62
+# tests 62
+# suites 0
+# pass 62
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 435.85418

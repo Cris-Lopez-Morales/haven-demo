@@ -1,0 +1,150 @@
+{
+  "mode": "isolated-document-with-memory-storage",
+  "checks": [
+    {
+      "name": "Expanded catalog shows 60 properties and 20 city options",
+      "passed": true
+    },
+    {
+      "name": "Landing page starts with twelve cards",
+      "passed": true
+    },
+    {
+      "name": "Web Animations run on the initial landing page",
+      "passed": true
+    },
+    {
+      "name": "One-shot page animation finishes instead of looping",
+      "passed": true
+    },
+    {
+      "name": "Show more appends twelve new properties",
+      "passed": true
+    },
+    {
+      "name": "Show more preserves the original card nodes",
+      "passed": true
+    },
+    {
+      "name": "Show more moves keyboard focus to the first new home",
+      "passed": true
+    },
+    {
+      "name": "New card artwork is available offline",
+      "passed": true
+    },
+    {
+      "name": "Saving a newly loaded home preserves all loaded results",
+      "passed": true
+    },
+    {
+      "name": "New favorites persist to the workspace",
+      "passed": true
+    },
+    {
+      "name": "Saving does not replay the hero animation",
+      "passed": true
+    },
+    {
+      "name": "Heart feedback is animated on a save",
+      "passed": true
+    },
+    {
+      "name": "Details for newly added properties open correctly",
+      "passed": true
+    },
+    {
+      "name": "Dialog has a finite entrance animation",
+      "passed": true
+    },
+    {
+      "name": "A newly added property can keep notes",
+      "passed": true
+    },
+    {
+      "name": "Progressive loading reaches 36 distinct homes",
+      "passed": true
+    },
+    {
+      "name": "Progressive loading reaches 48 distinct homes",
+      "passed": true
+    },
+    {
+      "name": "Progressive loading reaches 60 distinct homes",
+      "passed": true
+    },
+    {
+      "name": "Show more disappears at the end of the collection",
+      "passed": true
+    },
+    {
+      "name": "City filter searches every page of the catalog",
+      "passed": true
+    },
+    {
+      "name": "Text search finds a property beyond the initial page",
+      "passed": true
+    },
+    {
+      "name": "New properties work in the existing calculator",
+      "passed": true
+    },
+    {
+      "name": "Sorting uses the complete collection before pagination",
+      "passed": true
+    },
+    {
+      "name": "Expanded budget controls filter the highest-price property",
+      "passed": true
+    },
+    {
+      "name": "New cities work in list view",
+      "passed": true
+    },
+    {
+      "name": "Three new properties can be compared",
+      "passed": true
+    },
+    {
+      "name": "New comparison contains real calculations, not placeholders",
+      "passed": true
+    },
+    {
+      "name": "Changing reduced-motion preference cancels current animations",
+      "passed": true
+    },
+    {
+      "name": "Reduced motion never leaves cards hidden",
+      "passed": true
+    },
+    {
+      "name": "Reduced motion suppresses page animations",
+      "passed": true
+    },
+    {
+      "name": "Progressive loading still works with reduced motion",
+      "passed": true
+    },
+    {
+      "name": "Expanded catalog has no mobile horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "Newly saved properties are accessible through mobile navigation",
+      "passed": true
+    },
+    {
+      "name": "Legacy backup format restores both original and new saved homes",
+      "passed": true
+    },
+    {
+      "name": "App remains usable without IntersectionObserver or Web Animations",
+      "passed": true
+    },
+    {
+      "name": "No uncaught errors across new catalog and motion workflows",
+      "passed": true
+    }
+  ],
+  "uncaught_errors": []
+}

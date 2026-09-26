@@ -1,0 +1,1327 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#285440">
+  <meta name="description" content="Haven: a local-first property discovery, comparison, and investment scenario workspace. Fictional starter data. Transparent assumptions.">
+  <title>Haven · Good places. Better possibilities.</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='9' fill='%23285440'/%3E%3Cpath d='m8 19 12-11 12 11v13h-9V21h-6v11H8Z' fill='%23edf3e7'/%3E%3C/svg%3E">
+  <style>
+:root{--ink:#26382f;--muted:#798179;--green:#285440;--deep:#214634;--sage:#eaf0e5;--paper:#fbfcf9;--line:#e4e8df;--white:#fff;--warm:#f5f3eb;--negative:#a75b43;--radius:16px;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:var(--paper);font-synthesis:none;font-size:14px;line-height:1.5}*{box-sizing:border-box}body{margin:0}button,input,select,textarea{font:inherit}button,a,input,select,textarea{-webkit-tap-highlight-color:transparent}button{cursor:pointer;color:inherit}button{background:none;border:none}button:disabled{cursor:not-allowed;opacity:.45}a{color:inherit}button,input,select,textarea{outline-offset:4px}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:2px solid #568868;outline-offset:3px}input,select,textarea{min-width:0}button{transition:background .15s,color .15s,transform .15s}button:active:not(:disabled){transform:translateY(1px)}img{display:block;max-width:100%;object-fit:cover}h1,h2,h3,p{margin:0}h1{font-weight:500;letter-spacing:-1.35px;line-height:1.15}h2{font-size:21px;letter-spacing:-.5px;font-weight:550}h3{font-weight:550}em{font-style:normal}strong{font-weight:600}.icon{display:inline-block;flex:none;width:20px;height:20px;vertical-align:middle}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.skip-link{position:fixed;top:-60px;left:260px;background:var(--green);color:white;padding:10px 20px;z-index:200}.skip-link:focus{top:10px}.sidebar{width:232px;position:fixed;inset:0 auto 0 0;background:#fff;border-right:1px solid var(--line);display:flex;flex-direction:column;padding:35px 20px 14px;z-index:40}.brand{display:flex;align-items:center;gap:10px;text-align:left;width:fit-content;padding:0 12px;color:var(--green)}.brand>svg{width:27px;height:31px}.brand>span{font-size:39px;font-weight:600;letter-spacing:-2px;line-height:1}.brand-dot{color:#90a38b}.sidebar-kicker{font-size:8px;letter-spacing:1.2px;color:#8b938b;padding:14px 11px 44px;font-weight:500}.nav-label{color:#969c94;font-size:9px;letter-spacing:1.5px;font-weight:600;padding:0 13px;margin-bottom:13px}.sidebar nav{display:grid;gap:5px}.nav-item{width:100%;display:flex;align-items:center;gap:12px;border-radius:9px;padding:12px 13px;color:#7a827b;text-align:left;font-size:12px;font-weight:450}.nav-item .icon{width:19px;height:19px}.nav-item:hover{background:#f6f8f3;color:var(--green)}.nav-item.active{background:var(--sage);color:var(--green);font-weight:600}.nav-count{margin-left:auto;display:grid;place-items:center;min-width:22px;height:21px;border:1px solid #e2e7dc;border-radius:5px;background:#fafbf8;font-size:10px;color:#8d978a}.active .nav-count{background:#d8e4d3;border-color:transparent;color:var(--green)}.nav-divider{height:1px;background:var(--line);margin:24px 12px}.sidebar-bottom{margin-top:auto;padding-top:30px}.sidebar-note{border-radius:12px;background:#f3f5ee;padding:18px;margin:0 2px 18px}.note-symbol{display:block;width:29px;height:29px;color:#5d795d;margin-bottom:11px}.note-symbol .icon{width:25px;height:25px}.sidebar-note h3{font-size:15px;line-height:1.45;letter-spacing:-.25px}.sidebar-note p{font-size:10px;line-height:1.7;color:#8a9082;margin:8px 0 17px}.sidebar-note button{display:flex;align-items:center;justify-content:space-between;width:100%;font-size:10px;font-weight:600;padding:0;color:var(--green)}.sidebar-note button .icon{width:15px}.workspace-button{display:flex;gap:10px;align-items:center;width:100%;padding:12px 5px 3px;border-top:1px solid var(--line);text-align:left}.avatar{display:grid;place-items:center;width:32px;height:32px;border-radius:50%;color:#6c775d;background:#e9e8dc;font-size:13px;font-family:Georgia,serif}.workspace-button strong{font-size:10px;display:block;font-weight:550}.workspace-button small{font-size:9px;display:block;color:#989c91;margin-top:3px}.workspace-button>.icon{width:13px;height:13px;margin-left:auto;color:#85907f}.app-body{margin-left:232px;min-height:100vh;display:flex;flex-direction:column}.topbar{height:74px;border-bottom:1px solid var(--line);background:rgba(255,255,255,.88);padding:0 38px;display:flex;align-items:center;justify-content:space-between;gap:15px}.breadcrumb{display:flex;align-items:center;gap:12px;color:#92978d;font-size:11px}.breadcrumb>.icon{width:14px;height:14px}.breadcrumb strong{font-weight:450;color:#566250}.breadcrumb>.icon:nth-of-type(2){width:10px}.topbar-actions{display:flex;align-items:center;gap:16px}.demo-pill{display:flex;align-items:center;gap:6px;padding:5px 9px;border:1px solid #e7e5d4;border-radius:5px;background:#faf9f2;color:#8b8867;font-size:9px;white-space:nowrap}.demo-pill>span,.small-dot{height:5px;width:5px;border-radius:50%;background:#b4ad73}.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:1px solid #dce2d7;background:white;border-radius:7px;padding:11px 16px;font-size:11px;line-height:1.5;font-weight:550;white-space:nowrap;color:#485741}.btn:hover{background:#f4f7ef;border-color:#ccd6c6}.btn.primary{background:var(--green);border-color:var(--green);color:#fff}.btn.primary:hover{background:#1d4432;border-color:#1d4432}.btn.small{padding:8px 12px;font-size:10px}.btn .icon{width:16px;height:16px}.btn.is-on{background:var(--sage);border-color:#ccdbc5}.btn.danger-fill{color:#fff;background:#9f5544;border-color:#9f5544}.btn.danger-fill:hover{background:#864432}.text-button{display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:550;color:var(--green);padding:6px 0;white-space:nowrap}.text-button .icon{width:15px;height:15px}.text-button:hover{color:#4d8060}.icon-button{display:grid;place-items:center;padding:8px;border-radius:7px}.icon-button:hover{background:var(--sage)}.icon-button .icon{width:18px;height:18px}.mobile-menu{display:none}.sidebar-backdrop{display:none}main{width:100%;max-width:1450px;padding:32px 38px 20px;margin:0 auto;outline:none;flex:1}.hero{display:grid;grid-template-columns:1.03fr 1fr;min-height:258px;overflow:hidden;background:#eff2e9;border:1px solid #e8ecdf;border-radius:var(--radius)}.hero-copy{padding:28px 32px;position:relative}.eyebrow{display:flex;align-items:center;gap:7px;font-size:9px;font-weight:600;letter-spacing:1.65px;color:#6f8065}.eyebrow>span{width:5px;height:5px;border-radius:50%;background:#8c9e7b}.hero h1{font-family:Georgia,"Times New Roman",serif;font-size:47px;font-weight:400;letter-spacing:-1.7px;line-height:1.1;margin:17px 0 14px;color:#2e4935}.hero h1 em{color:#72866b}.hero-copy>p{font-size:11px;line-height:1.8;color:#7e8977}.hero-link{display:flex;align-items:center;gap:17px;text-decoration:none;font-size:10px;font-weight:600;width:fit-content;margin-top:17px;color:#456545}.hero-link .icon{width:16px;height:16px}.hero-visual{position:relative;min-width:0;overflow:hidden;background:#dce3d6}.hero-image{width:100%;height:100%;position:absolute;inset:0;object-fit:cover;object-position:55% 50%}.hero-stamp{position:absolute;right:23px;top:23px;width:88px;height:88px;border-radius:50%;background:#eef1df;box-shadow:0 0 0 5px #eef1df55;color:#6e7e60;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:8px;letter-spacing:1.4px;line-height:1.3;transform:rotate(12deg)}.hero-stamp>span{font-family:Georgia,serif;font-style:italic;font-size:12px;letter-spacing:-.3px;margin-top:2px}.hero-stamp svg{width:14px;height:14px;margin-top:7px}.image-credit{position:absolute;right:15px;bottom:12px;font-size:8px;color:#fff;background:#30493372;padding:4px 7px;border-radius:4px;letter-spacing:.3px}.stats-row{display:grid;grid-template-columns:repeat(4,1fr);margin:23px 0 35px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:20px 9px}.stats-row>div{display:flex;align-items:center;justify-content:center;gap:13px;border-right:1px solid var(--line)}.stats-row>div:last-child{border:none}.stat-icon{width:34px;height:34px;background:#f6f8f1;border:1px solid #edf0e7;border-radius:8px;display:grid;place-items:center;color:#8c9c80}.stat-icon .icon{width:17px;height:17px}.stats-row strong{display:block;font-size:18px;line-height:1.2;font-weight:550;letter-spacing:-.4px}.stats-row small{font-size:8px;color:#8a9282;display:block;margin-top:5px}.explore-section{scroll-margin-top:20px}.section-heading{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:19px}.section-heading h2{font-size:20px}.section-heading p{font-size:10px;color:#84907b;margin-top:5px}.section-heading p span{color:#a0a696}.filter-bar{display:flex;gap:0;border:1px solid var(--line);border-radius:9px;background:#fff;align-items:center;padding:8px;min-height:51px}.search-field{display:flex;align-items:center;gap:9px;flex:1;padding:0 12px;min-width:100px}.search-field .icon{width:16px;height:16px;color:#88927d}.search-field input{border:0;background:none;width:100%;height:33px;font-size:11px;color:var(--ink);padding:0}.search-field input::placeholder{color:#a0a597}.filter-select{display:flex;gap:6px;align-items:center;border-left:1px solid var(--line);padding:0 12px}.filter-select .icon{width:14px;height:14px;color:#8a9580}.filter-select select{appearance:none;border:0;background:transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%237c8872' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") right center/10px no-repeat;padding:5px 17px 5px 0;font-size:10px;color:#74816a;cursor:pointer}.filter-button{font-size:10px;padding:7px 10px;margin-left:4px;gap:6px}.filter-button .icon{width:15px;height:15px}.extra-filters{display:flex;gap:24px;align-items:end;background:#f1f4ec;padding:16px;border:1px solid var(--line);border-radius:9px;margin-top:8px}.extra-filters>label:first-child{font-size:10px;display:grid;gap:5px;min-width:160px;color:#75826a}.extra-filters select{border:1px solid #d7dfcf;border-radius:5px;padding:7px;background:white;color:var(--ink);font-size:11px}.checkbox-label{display:flex;gap:9px;align-items:center;font-size:11px;padding-bottom:6px}.checkbox-label input{accent-color:var(--green);width:16px;height:16px}.checkbox-label small{display:block;font-size:9px;color:#8c9582}.extra-filters>.text-button{margin-left:auto}.active-filter-note{display:flex;align-items:center;gap:6px;font-size:9px;color:#819170;margin:11px 1px -4px}.active-filter-note>.icon{width:12px;height:12px}.active-filter-note>button{display:flex;align-items:center;gap:5px;font-size:9px;color:var(--green);text-decoration:underline;margin-left:4px;padding:0}.active-filter-note>button .icon{width:12px;height:12px}.saved-searches{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:15px 0 2px;font-size:9px}.saved-searches>span{display:flex;gap:5px;align-items:center;color:#949c8c;margin-right:4px}.saved-searches>span .icon{width:12px;height:12px}.saved-searches>div{display:flex;align-items:center;border:1px solid #dae2d1;border-radius:5px;background:#f1f6eb}.saved-searches button{font-size:9px;color:#76876a;padding:5px 7px}.saved-searches button .icon{width:10px;height:10px}.browse-toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:22px 0 18px}.type-tabs{display:flex;gap:3px;min-width:0;overflow:auto;scrollbar-width:none}.type-tabs button{border-radius:6px;padding:7px 11px;font-size:10px;color:#8a9380;white-space:nowrap}.type-tabs button:hover{background:#f1f5ec}.type-tabs .selected{color:var(--green);font-weight:600;background:#eaf0e4}.view-controls{display:flex;gap:14px;align-items:center;flex-shrink:0}.sort-label select{border:0;background:transparent;cursor:pointer;font-size:9px;color:#8a947f;max-width:154px}.view-toggle{display:flex;gap:2px;background:#f0f3eb;border:1px solid #e6ebde;border-radius:6px;padding:3px}.view-toggle button{width:27px;height:24px;border-radius:4px;display:grid;place-items:center;color:#98a18e}.view-toggle button .icon{width:13px;height:13px}.view-toggle .active{background:#fff;color:var(--green);box-shadow:0 1px 3px #1c352110}.property-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}.property-card{border:1px solid #e2e7dc;border-radius:12px;background:white;overflow:hidden;transition:box-shadow .2s,border-color .2s}.property-card:hover{border-color:#c8d3bf;box-shadow:0 7px 24px #31452508}.property-media{height:180px;position:relative;overflow:hidden;background:#e0e7d7}.image-link{display:block;width:100%;height:100%;padding:0}.image-link img{width:100%;height:100%;transition:transform .5s;object-fit:cover}.property-card:hover .image-link img{transform:scale(1.025)}.property-type{position:absolute;left:13px;top:13px;background:#fffef2eb;backdrop-filter:blur(8px);font-size:8px;letter-spacing:.2px;color:#65765a;border-radius:4px;padding:5px 8px;pointer-events:none}.save-button{position:absolute;right:12px;top:12px;width:29px;height:29px;display:grid;place-items:center;background:#fffff7ed;backdrop-filter:blur(8px);border-radius:50%;color:#5b6b52}.save-button .icon{width:15px;height:15px}.save-button:hover{background:#fff;transform:scale(1.08)}.save-button.is-saved{color:#446745;background:#eff4e9}.save-button.is-saved .icon{fill:#446745;stroke:#446745}.user-property-badge{position:absolute;left:12px;bottom:12px;background:#365638dd;font-size:8px;color:#fff;border-radius:4px;padding:4px 7px}.property-body{padding:18px 17px 0}.property-price-row{display:flex;align-items:center;justify-content:space-between;gap:5px}.property-price-row>strong{font-size:22px;letter-spacing:-.65px;line-height:1.3;font-weight:550}.property-status{display:flex;align-items:center;gap:4px;font-size:7px;color:#86947b;white-space:nowrap}.property-status>span{display:block;width:4px;height:4px;border-radius:50%;background:#8ba97b}.property-title{display:block;font-size:12px;font-weight:550;padding:0;margin:10px 0 3px;text-align:left;color:#506047;letter-spacing:-.1px}.property-title:hover{text-decoration:underline}.property-location{font-size:9px;color:#96a08b;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.property-specs{display:flex;align-items:center;gap:11px;margin:14px 0 16px;color:#97a08d;font-size:8px;white-space:nowrap}.property-specs>span{display:flex;align-items:center;gap:3px}.property-specs .icon{width:13px;height:13px;margin-right:2px}.property-specs strong{color:#79856f;font-weight:450}.property-numbers{border-top:1px solid #ecf0e6;padding-top:14px;display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}.property-numbers>div:nth-child(2){text-align:right}.property-numbers span{font-size:8px;color:#8e9a82;display:block;margin-bottom:3px}.property-numbers strong{font-size:14px;font-weight:550;letter-spacing:-.25px}.property-numbers small{font-size:8px;color:#9da792;font-weight:400;margin-left:2px}.positive{color:#487b51!important}.negative{color:var(--negative)!important}.card-actions{border-top:1px solid #edf0e6;display:flex;align-items:center;justify-content:space-between;gap:5px;min-height:43px}.card-actions button{font-size:8px;display:flex;align-items:center;gap:4px;padding:7px 0;white-space:nowrap}.card-actions .icon{width:13px;height:13px}.compare-button{color:#9aa38f}.compare-button:hover{color:var(--green)}.compare-button.is-compared{color:#4d754d}.analyze-button{color:#537348;font-weight:550}.analyze-button:hover{color:#264b2d}.assumption-footnote{display:flex;align-items:flex-start;gap:6px;font-size:8px;line-height:1.7;color:#9aa28d;margin-top:22px;flex-wrap:wrap}.assumption-footnote>.icon{width:12px;height:12px;flex-shrink:0}.assumption-footnote button{display:flex;align-items:center;gap:3px;font-size:8px;padding:0;color:#708960}.assumption-footnote button .icon{width:11px;height:11px}.app-footer{display:flex;align-items:center;justify-content:space-between;margin:26px 38px 0;border-top:1px solid #e8ece1;padding:24px 0;color:#a4ab99;font-size:8px}.app-footer strong{font-size:12px;letter-spacing:-.5px;color:#6b7c5b;margin-right:10px}.app-footer button{font-size:8px;display:flex;align-items:center;gap:5px;color:#98a58b}.app-footer button .icon{width:12px;height:12px}.has-tray .app-footer{padding-bottom:95px}.compare-tray{position:fixed;bottom:20px;left:calc(50% + 116px);transform:translateX(-50%);background:#fff;border:1px solid #d5dfcc;box-shadow:0 8px 35px #2b482322;border-radius:12px;z-index:30;padding:12px 15px;display:flex;align-items:center;gap:18px;width:max-content;max-width:calc(100% - 285px)}.tray-leading{display:flex;align-items:center;gap:8px;color:#71805f;font-size:10px;white-space:nowrap}.tray-leading>.icon{width:17px;height:17px}.tray-leading strong{font-weight:500}.tray-properties{display:flex;gap:6px;min-width:0;overflow:hidden}.tray-properties>span{border-radius:4px;background:#f3f6ed;padding:5px 7px;font-size:8px;display:flex;gap:6px;align-items:center;white-space:nowrap;color:#81916f}.tray-properties button{padding:0;display:grid;place-items:center}.tray-properties button .icon{width:11px;height:11px}.list-layout{grid-template-columns:1fr}.list-layout .property-card{display:grid;grid-template-columns:32% 1fr}.list-layout .property-media{height:100%;min-height:210px}.list-layout .property-body{padding:18px 24px 0}.list-layout .property-numbers{max-width:380px}.list-layout .property-price-row>strong{font-size:26px}.list-layout .property-title{font-size:14px}.list-layout .property-specs{font-size:10px}.page-intro{padding:7px 0 31px}.page-intro h1{font-family:Georgia,"Times New Roman",serif;font-size:38px;margin:12px 0 11px;letter-spacing:-1.2px;font-weight:400}.page-intro p{font-size:12px;color:#8a9680}.intro-actions{display:flex;justify-content:space-between;align-items:center;gap:20px}.empty-state{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;min-height:350px;border:1px dashed #dce5d1;background:#f6f8f2;border-radius:14px;padding:40px}.empty-art{width:72px;height:72px;display:grid;place-items:center;border-radius:50%;background:#e9eedf;margin-bottom:22px;color:#7d9667;border:8px solid #eef3e8}.empty-art .icon{width:26px;height:26px}.empty-state h2{font-family:Georgia,serif;font-size:28px;letter-spacing:-.7px;font-weight:400}.empty-state p{font-size:11px;line-height:1.8;color:#8e9b81;max-width:355px;margin:12px 0 25px}.notice{display:flex;align-items:flex-start;gap:10px;padding:14px 16px;background:#f0f5e8;border:1px solid #e3ebd9;border-radius:9px;font-size:11px;color:#7b8b6b;margin-bottom:20px}.notice>.icon{width:16px;height:16px;flex-shrink:0;margin-top:1px}.notice .text-button{padding:0;margin-left:auto;font-size:10px}.notice.warning{background:#f9f5e9;border-color:#eee5cc;color:#998563}.notice.compact-notice{font-size:10px;line-height:1.7;margin-bottom:0}.comparison-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:white}.comparison-table{border-collapse:collapse;width:100%;min-width:620px;text-align:left}.comparison-table th,.comparison-table td{padding:13px 20px;border-right:1px solid #e9ede4;border-bottom:1px solid #edf0e8;font-size:11px;font-weight:400;min-width:190px;vertical-align:middle}.comparison-table th:last-child,.comparison-table td:last-child{border-right:none}.comparison-table tbody tr:last-child th,.comparison-table tbody tr:last-child td{border-bottom:0}.comparison-table tbody th{font-size:10px;color:#8b9980;min-width:185px}.comparison-table thead th{vertical-align:top;padding:20px}.compare-image{height:140px;position:relative;overflow:hidden;border-radius:9px;margin-bottom:17px}.compare-image img{width:100%;height:100%;object-fit:cover}.compare-image button{position:absolute;right:8px;top:8px;background:#fffdf6ed;padding:4px;border-radius:50%}.compare-image button .icon{width:13px;height:13px}.comparison-table h3{font-size:14px;margin-bottom:5px;letter-spacing:-.2px}.comparison-table p{font-size:10px;color:#8f9b84;line-height:1.8}.compare-price{display:block;font-size:23px;font-weight:500;margin-top:12px;letter-spacing:-.7px}.comparison-label>span{display:inline-block;border:1px solid #dce4d4;font-size:10px;padding:3px 8px;border-radius:5px;color:#829672;margin:9px 0 20px}.comparison-label h3{font-family:Georgia,serif;font-size:25px;margin-bottom:12px}.comparison-label .btn{margin-top:24px}.comparison-table .table-section{background:#f7f9f3}.comparison-table .table-section th{font-size:9px;letter-spacing:1px;text-transform:uppercase;color:#6c835c;padding-top:17px;padding-bottom:12px}.comparison-table .highlight-row{background:#f0f5e8}.comparison-table .highlight-row td{font-size:20px;font-weight:550;letter-spacing:-.5px}.small-print{font-size:10px;line-height:1.8;color:#98a28d;margin-top:17px}.calculator-context{display:flex;align-items:center;gap:13px;border:1px solid var(--line);border-radius:11px;padding:15px 18px;background:#fff;margin-bottom:23px}.context-icon{width:39px;height:39px;border-radius:9px;display:grid;place-items:center;background:#f0f4e8;color:#80986d}.context-icon .icon{width:19px;height:19px}.calculator-context>label{display:flex;flex-direction:column;gap:5px;flex:1;min-width:0}.calculator-context>label>span{font-size:8px;letter-spacing:1.2px;color:#9aa58e}.calculator-context select{border:0;width:fit-content;max-width:100%;background:transparent;color:#465e39;font-size:14px;letter-spacing:-.2px;margin-left:-4px}.calculator-context .text-button{font-size:10px}.calculator-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.12fr);gap:23px;align-items:start}.calculator-inputs,.calculator-results{display:flex;flex-direction:column;gap:20px;min-width:0}.panel{border:1px solid var(--line);border-radius:12px;background:#fff;padding:24px}.panel-heading{display:flex;align-items:center;justify-content:space-between;gap:10px}.panel-heading h2{font-size:16px;font-weight:550;letter-spacing:-.35px}.panel-heading>span{font-size:9px;color:#9eaa90;white-space:nowrap}.panel-heading>.icon{width:16px;height:16px;color:#97a585}.panel-heading>.text-button{font-size:9px}.panel-heading>.text-button .icon{width:12px;height:12px}.panel-description{font-size:10px;line-height:1.8;color:#98a28c;margin-top:7px}.scenario-shortcuts{display:flex;flex-wrap:wrap;gap:6px;margin-top:20px}.scenario-shortcuts button{padding:5px 9px;border:1px solid #dee6d3;background:#f6f9f0;border-radius:5px;font-size:9px;color:#80956b}.scenario-shortcuts button:hover{background:#eaf1e0}.form-section-title{display:flex;gap:11px;font-size:10px;margin-top:26px;margin-bottom:16px;color:#aeb7a2;align-items:center;letter-spacing:.3px}.form-section-title>span{font-size:12px;color:#5a704a;letter-spacing:0;font-weight:550}.calc-fields{display:grid;grid-template-columns:1fr 1fr;gap:18px 15px}.calc-field{display:flex;flex-direction:column;gap:7px;min-width:0}.calc-field>span:first-child{font-size:9px;color:#859675}.input-unit{display:flex;border:1px solid #dde5d2;border-radius:6px;align-items:center;background:#fff;overflow:hidden}.input-unit:focus-within{border-color:#769461;box-shadow:0 0 0 2px #edf2e6}.input-unit input{min-width:0;width:100%;border:0;background:none;box-shadow:none;padding:10px 11px;color:#526b41;font-size:12px;outline:none!important;font-variant-numeric:tabular-nums;appearance:textfield}.input-unit input::-webkit-inner-spin-button,.input-unit input::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}.input-unit.prefix input{padding-left:5px}.input-unit b{font-size:10px;font-weight:400;color:#a0ad91;padding-right:11px}.input-unit.prefix b{padding-left:11px;padding-right:0}.input-unit:has(input[aria-invalid="true"]){border-color:#b6745b}.field-note{font-size:9px;line-height:1.75;color:#a0ad93;margin-top:9px}.advanced-assumptions{border-top:1px solid var(--line);margin-top:24px;padding-top:16px}.advanced-assumptions summary,.amortization-details summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:7px;color:#7c9368;font-size:10px;padding:2px 0}.advanced-assumptions summary::-webkit-details-marker,.amortization-details summary::-webkit-details-marker{display:none}.advanced-assumptions summary .icon{width:13px;height:13px}.advanced-assumptions summary .icon:last-child,.amortization-details summary .icon{margin-left:auto;width:13px;height:13px}.advanced-assumptions[open] summary .icon:last-child,.amortization-details[open] summary .icon{transform:rotate(180deg)}.advanced-assumptions p{font-size:9px;line-height:1.8;color:#a0ad91;margin:14px 0 18px}.full-width{width:100%;margin-top:22px}.form-error{font-size:10px;line-height:1.7;color:#a4634a;margin:12px 0 0}.form-error:empty{display:none}.results-stale{opacity:.45}.saved-scenarios>p{font-size:10px;line-height:1.8;color:#a0ad93;margin-top:12px}.saved-scenario{display:flex;align-items:center;gap:10px;border-top:1px solid var(--line);margin-top:14px;padding-top:14px}.saved-scenario>button:first-child{flex:1;min-width:0;text-align:left;padding:0}.saved-scenario strong{display:block;font-size:11px;font-weight:500;color:#6b825a;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.saved-scenario span{display:block;font-size:9px;color:#a0ae92;margin-top:5px}.saved-scenario .icon{width:14px;height:14px;color:#9eaa92}.cashflow-card{border-radius:12px;background:#2c513b;color:#f4f7ec;padding:26px;position:relative;overflow:hidden}.cashflow-card:after{content:"";position:absolute;width:200px;height:200px;border:1px solid #dcebb211;border-radius:50%;right:-65px;top:-80px;pointer-events:none;box-shadow:0 0 0 32px #dcebb209,0 0 0 64px #dcebb207}.cashflow-heading{display:flex;align-items:center;justify-content:space-between;font-size:8px;letter-spacing:1.8px;color:#a8be96;position:relative;z-index:1}.cashflow-heading>.icon{width:20px;height:20px;color:#b0c69a}.cashflow-value{font-size:51px;font-weight:450;letter-spacing:-2px;line-height:1.1;margin:19px 0 10px;position:relative;z-index:1}.cashflow-value>span{font-size:12px;color:#a8ba94;letter-spacing:0;margin-left:9px;font-weight:400;white-space:nowrap}.cashflow-negative{color:#f1d6be}.cashflow-card>p{font-size:10px;color:#a6bb91}.cashflow-bottom{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid #8aab6c3b;margin-top:25px;padding-top:17px;gap:10px}.cashflow-bottom small{display:block;font-size:8px;color:#a4bb8e;margin-bottom:4px}.cashflow-bottom strong{font-size:17px;font-weight:450;letter-spacing:-.35px}.result-metrics{display:grid;grid-template-columns:1fr 1fr;gap:16px}.result-metrics>div{padding:19px;border:1px solid var(--line);border-radius:10px;background:#fff}.result-metrics span{display:block;font-size:9px;color:#849a70}.result-metrics strong{display:block;font-size:26px;letter-spacing:-.9px;font-weight:450;margin-top:7px}.result-metrics small{display:block;font-size:8px;color:#a1af92;margin-top:5px;line-height:1.7}.income-line{display:flex;justify-content:space-between;font-size:11px;color:#81976d;margin-top:18px}.income-line strong{font-weight:500;color:#546e41}.income-line.subdued{font-size:9px;color:#a0ad8f;margin-top:8px}.income-line.collected{padding-top:13px;margin-top:13px;border-top:1px solid var(--line);font-size:10px}.expense-bar{display:flex;width:100%;height:8px;overflow:hidden;border-radius:4px;gap:2px;margin:20px 0}.expense-mortgage{background:#476c43}.expense-tax{background:#8ba773}.expense-insurance{background:#b1bc82}.expense-hoa{background:#cfc8a1}.expense-maintenance{background:#9cae87}.expense-management{background:#bbcb9d}.expense-capex{background:#d5d9c0}.expense-pmi{background:#bcb1a0}.cost-lines{display:grid;gap:10px}.cost-lines>div{display:flex;justify-content:space-between;gap:10px;font-size:10px;color:#8d9f7a}.cost-lines>div>span{display:flex;gap:8px;align-items:center}.cost-lines i{display:block;width:7px;height:7px;border-radius:2px}.cost-lines strong{font-weight:450;color:#6e835b;font-size:10px}.cost-total{display:flex;justify-content:space-between;gap:10px;margin-top:18px;padding-top:17px;border-top:1px solid var(--line);font-size:10px;color:#768d63}.cost-total strong{color:#4a6939;font-size:16px;font-weight:500;letter-spacing:-.3px}.sensitivity-scroll{overflow:auto}.sensitivity-table{border-collapse:separate;border-spacing:5px;width:100%;margin:17px -5px -5px;min-width:290px}.sensitivity-table th{font-size:9px;text-align:center;font-weight:500;color:#84976f;padding:5px}.sensitivity-table thead th:first-child{font-size:8px;text-align:left;color:#a7b195;white-space:nowrap}.sensitivity-table th small{display:block;font-size:7px;font-weight:400;color:#a8b59a;margin-top:3px}.sensitivity-table tbody th{text-align:left;font-size:9px}.sensitivity-table td{font-size:11px;text-align:center;padding:10px 5px;background:#f0f6e7;border-radius:5px;border:1px solid transparent}.sensitivity-table td.negative{background:#f9f0e8}.sensitivity-table td.current-scenario{border:1px solid #8da378;box-shadow:0 0 0 1px #e4edd9 inset;font-weight:650}.balance-label{display:flex;align-items:baseline;gap:7px;margin-top:17px}.balance-label strong{font-size:21px;letter-spacing:-.5px;font-weight:500;color:#597443}.balance-label span{font-size:8px;color:#a6b297}.balance-chart{width:100%;height:auto;margin-top:12px}.chart-grid{fill:none;stroke:#e7edde;stroke-dasharray:4 4;stroke-width:1}.chart-area{fill:#edf4e3}.chart-line{fill:none;stroke:#7b9c60;stroke-width:2.5;stroke-linecap:round}.chart-dot{fill:#7b9c60}.balance-chart text{font-size:10px;fill:#9cae85;font-family:Inter,Arial,sans-serif}.amortization-details{border-top:1px solid var(--line);padding-top:12px;margin-top:5px}.amortization-scroll{max-height:250px;overflow:auto;margin-top:13px}.amortization-scroll table{border-collapse:collapse;width:100%;font-size:9px;color:#82996d;white-space:nowrap}.amortization-scroll th,.amortization-scroll td{text-align:right;padding:8px 6px;border-bottom:1px solid #edf1e6;font-weight:400}.amortization-scroll th:first-child{text-align:left}.amortization-scroll thead{background:#f2f7eb;color:#6c8856}.no-loan{display:flex;align-items:center;gap:12px;background:#f2f7eb;padding:19px;border-radius:7px;margin:18px 0;color:#869e6f}.no-loan>p{font-size:12px;color:#6c8556}.no-loan>p>span{display:block;font-size:9px;color:#a2b18f;margin-top:4px}.modal{border:1px solid #e3ead9;border-radius:18px;background:#fff;padding:32px;color:var(--ink);max-width:560px;width:calc(100% - 36px);max-height:90vh;box-shadow:0 24px 80px #22382526;overflow:auto;overscroll-behavior:contain}.modal::backdrop{background:#26372c66;backdrop-filter:blur(4px)}.modal-close{position:sticky;top:0;float:right;z-index:3;margin:-15px -15px -32px 0;background:#ffffffee;border:1px solid #e4e9df;border-radius:50%;width:30px;height:30px;box-shadow:0 2px 7px #2338200a}.modal-close .icon{width:15px;height:15px}.modal-heading{margin-bottom:25px;padding-right:8px}.modal-heading h2{font-family:Georgia,serif;font-size:30px;line-height:1.2;letter-spacing:-.8px;margin-top:14px;font-weight:400}.modal-heading p{font-size:11px;line-height:1.85;color:#8e9e81;margin-top:13px}.modal-actions{display:flex;justify-content:flex-end;gap:9px;margin-top:28px;border-top:1px solid var(--line);padding-top:20px;flex-wrap:wrap}.detail-modal{max-width:780px;padding:0}.detail-modal .modal-close{margin:15px 15px -45px 0;top:15px}.detail-image{height:270px;background:#e8efdf}.detail-image img{width:100%;height:100%;object-fit:cover}.detail-content{padding:28px 32px}.detail-top{display:flex;justify-content:space-between;align-items:center;gap:20px}.detail-top h2{font-family:Georgia,serif;font-size:32px;font-weight:400;line-height:1.2;letter-spacing:-.8px;margin:10px 0 7px}.detail-top p{font-size:10px;color:#98a78a}.detail-top>strong{font-size:29px;font-weight:450;white-space:nowrap;letter-spacing:-.8px}.detail-specs{display:flex;gap:20px;border-bottom:1px solid var(--line);padding:20px 0;margin-bottom:20px;flex-wrap:wrap;color:#8b9f77;font-size:10px}.detail-specs>span{display:flex;align-items:center;gap:6px}.detail-specs .icon{width:16px;height:16px}.detail-description{font-size:12px;line-height:1.85;color:#91a17f}.feature-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}.feature-tags>span{display:flex;align-items:center;gap:5px;border:1px solid #e2ead8;padding:5px 8px;border-radius:5px;font-size:9px;color:#8b9f73}.feature-tags .icon{width:12px;height:12px}.detail-finance{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;background:#f4f8ec;border:1px solid #e8efdd;border-radius:9px;padding:18px;margin-top:24px}.detail-finance small{display:block;font-size:9px;color:#94a57f}.detail-finance strong{display:block;font-size:22px;margin-top:5px;font-weight:500;letter-spacing:-.5px}.notes-label{display:block;font-size:12px;color:#6c8558;font-weight:500;margin-top:22px}.notes-label span{display:block;font-size:9px;font-weight:400;color:#a2b18e;margin:4px 0 10px}textarea{resize:vertical;display:block;width:100%;padding:12px;border:1px solid #dfe7d5;border-radius:7px;background:#fff;color:#5e754b;font-size:11px;line-height:1.8}textarea::placeholder{color:#acb69e}.notes-actions{display:flex;align-items:center;justify-content:space-between;margin-top:7px}.notes-actions>span{font-size:8px;color:#afbaa0}.notes-actions>.text-button{font-size:9px}.detail-actions{display:flex;align-items:center;gap:8px;margin-top:22px;border-top:1px solid var(--line);padding-top:20px}.detail-actions>.primary{margin-left:auto}.danger{color:#a66751!important}.form-modal{max-width:660px}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px 18px}.form-field{display:flex;flex-direction:column;gap:6px;min-width:0}.form-field>span{font-size:10px;color:#8b9d77}.form-field input,.form-field select{width:100%;border:1px solid #dfe7d3;border-radius:6px;padding:10px 12px;font-size:12px;color:#60764c;background:#fff;min-width:0}.form-field input::placeholder{color:#adb99d}.form-field input:invalid:not(:placeholder-shown):focus{border-color:#ad7b5a}.span-2{grid-column:span 2}.info-modal{max-width:650px}.about-sections section{border-top:1px solid var(--line);padding-top:20px;margin-top:22px}.about-sections h3{font-size:14px;font-weight:500;letter-spacing:-.2px;color:#6c8655;margin-bottom:9px}.about-sections p{font-size:11px;line-height:1.9;color:#95a683;margin-bottom:10px}.photo-toggle{display:flex;gap:10px;background:#f2f7e9;padding:17px;border-radius:8px;margin-top:24px;font-size:11px;color:#718d58}.photo-toggle input{accent-color:var(--green);align-self:start;margin-top:3px}.photo-toggle small{display:block;font-size:9px;color:#9aae87;line-height:1.8;margin-top:6px}.workspace-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding:18px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.workspace-stats>div{text-align:center}.workspace-stats strong{display:block;font-size:25px;font-weight:450;color:#69834f}.workspace-stats span{display:block;font-size:9px;color:#a2b38d;margin-top:5px}.workspace-options{margin:18px 0}.workspace-options>button{display:flex;align-items:center;gap:16px;width:100%;text-align:left;padding:16px 8px;border-radius:7px;color:#8ea776}.workspace-options>button:hover{background:#f6f9f0}.workspace-options>button>span{flex:1}.workspace-options strong{display:block;font-size:12px;font-weight:500}.workspace-options small{display:block;font-size:9px;color:#a4b68e;margin-top:5px;line-height:1.7}.workspace-options>button>.icon{width:18px;height:18px}.workspace-options>button>.icon:last-child{width:14px;height:14px}.scenario-preview{display:flex;align-items:center;justify-content:space-between;background:#f1f7e8;border-radius:8px;padding:15px;margin-top:20px;font-size:10px;color:#8ba873}.scenario-preview strong{font-size:23px;font-weight:450;color:#5b8142}.dialog-open{overflow:hidden}#toast-host{position:fixed;bottom:27px;left:50%;transform:translateX(-50%);z-index:100;max-width:calc(100% - 32px);pointer-events:none}.has-tray #toast-host{bottom:103px}.toast{display:flex;align-items:center;gap:11px;border:1px solid #d5e0c9;background:#fff;padding:14px 19px;border-radius:10px;box-shadow:0 6px 24px #2944201c;font-size:11px;line-height:1.6;color:#708c57;max-width:500px;animation:toast-in .2s ease-out}.toast.error{color:#a37254;border-color:#e7d5ba}.toast>.icon{width:17px;height:17px;flex-shrink:0}@keyframes toast-in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+@media(min-width:1600px){.property-media{height:215px}.hero{min-height:295px}.hero-copy{padding:34px 42px}.hero h1{font-size:55px}.hero-copy>p{font-size:12px}.property-title{font-size:13px}.property-specs{font-size:9px}.property-location{font-size:10px}.property-numbers span{font-size:9px}.property-numbers strong{font-size:16px}.card-actions button{font-size:9px}.property-status{font-size:8px}}
+@media(max-width:1250px){.sidebar{width:210px;padding-left:14px;padding-right:14px}.app-body{margin-left:210px}.topbar{padding:0 27px}main{padding:27px}.hero h1{font-size:40px}.hero-copy{padding:25px}.hero-stamp{width:72px;height:72px;right:17px;top:20px;font-size:7px}.hero-stamp>span{font-size:11px}.filter-select{padding-left:8px;padding-right:8px}.filter-select .icon{display:none}.property-grid{gap:16px}.property-body{padding:15px 12px 0}.property-price-row>strong{font-size:20px}.property-status{font-size:6px}.property-specs{gap:7px;font-size:7px}.property-specs .icon{width:12px;height:12px}.card-actions button{font-size:7px}.property-numbers span{font-size:7px}.property-media{height:160px}.type-tabs button{padding-left:8px;padding-right:8px;font-size:9px}.view-controls{gap:9px}.compare-tray{left:calc(50% + 105px);max-width:calc(100% - 245px);gap:10px}.tray-properties>span{max-width:118px;overflow:hidden}.app-footer{margin-left:27px;margin-right:27px}.calculator-layout{gap:18px;grid-template-columns:1fr 1.06fr}.panel{padding:20px}.cashflow-card{padding:23px}.calc-fields{gap:16px 10px}.calc-field>span:first-child{font-size:8px}.result-metrics>div{padding:15px}.result-metrics strong{font-size:24px}}
+@media(max-width:1060px){.property-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.property-media{height:190px}.property-body{padding:18px 17px 0}.property-price-row>strong{font-size:22px}.property-status{font-size:7px}.property-specs{font-size:8px;gap:10px}.property-numbers span{font-size:8px}.card-actions button{font-size:8px}.hero h1{font-size:36px}.hero-copy{padding:24px}.hero-copy>p{font-size:10px}.hero .eyebrow{font-size:7px;letter-spacing:1.3px}.hero{min-height:238px;grid-template-columns:1fr .85fr}.hero-stamp{width:63px;height:63px;top:17px;right:14px}.hero-stamp svg{width:10px;height:10px;margin-top:5px}.hero-link{font-size:9px}.stats-row{padding:17px 6px}.stat-icon{width:29px;height:29px}.stats-row>div{gap:8px}.stats-row strong{font-size:17px}.stats-row small{font-size:6px}.filter-bar{flex-wrap:wrap;gap:8px}.search-field{flex:1 0 calc(100% - 70px);order:0}.filter-button{order:1}.filter-select{order:2;flex:1;border-top:1px solid #edf0e5;padding:8px 10px 1px;justify-content:space-between;border-left:0}.filter-select+.filter-select{border-left:1px solid #edf0e5}.filter-select select{width:100%}.browse-toolbar{flex-wrap:wrap;row-gap:12px;margin-top:17px}.type-tabs{flex:1}.view-controls{gap:6px}.sort-label select{font-size:8px;max-width:130px}.list-layout{grid-template-columns:1fr}.page-intro h1{font-size:32px}.calculator-layout{grid-template-columns:1fr}.calculator-inputs{display:contents}.calculator-results{grid-column:1;grid-row:2}.calculator-inputs>.saved-scenarios{grid-column:1;grid-row:3}.calc-field>span:first-child{font-size:10px}.panel{padding:23px}.compare-tray{gap:10px}.tray-properties{display:none}.intro-actions{align-items:flex-start}.intro-actions>.btn{margin-top:18px;font-size:9px}.hero-image{object-position:56%}.sidebar-note{padding:16px}.sidebar-note h3{font-size:14px}.sidebar-note p{font-size:9px}.assumption-footnote{line-height:1.8}}
+@media(max-width:780px){.sidebar{transform:translateX(-100%);width:235px;transition:transform .2s}.menu-open .sidebar{transform:translateX(0)}.menu-open .sidebar-backdrop{display:block;position:fixed;inset:0;background:#263c3166;z-index:35;backdrop-filter:blur(2px)}.app-body{margin-left:0}.topbar{height:62px;padding:0 22px}.breadcrumb{gap:9px}.breadcrumb>.icon:first-of-type{display:none}.mobile-menu{display:grid;margin-left:-5px;padding:6px}.topbar-actions{gap:10px}.demo-pill{font-size:8px}.topbar-actions .btn{font-size:9px}main{padding:25px 22px}.hero{grid-template-columns:1fr 1fr;min-height:245px}.hero h1{font-size:39px}.hero-copy>p{font-size:11px}.hero-copy .eyebrow{font-size:8px}.hero-stamp{width:73px;height:73px;font-size:7px}.hero-stamp>span{font-size:11px}.stats-row small{font-size:7px}.property-price-row>strong{font-size:23px}.filter-bar{flex-wrap:nowrap;gap:0}.search-field{flex:1;order:0}.filter-select{order:0;border:0;flex:initial;padding:0 8px;border-left:1px solid var(--line)}.filter-select+.filter-select{border-left:1px solid var(--line)}.filter-select select{font-size:9px}.filter-button{order:0}.compare-tray{left:50%;max-width:calc(100% - 36px)}.app-footer{margin-left:22px;margin-right:22px}.skip-link{left:20px}.calculator-layout{grid-template-columns:1fr 1fr;gap:16px}.calculator-inputs{display:flex}.calculator-results{grid-column:auto;grid-row:auto}.calc-field>span:first-child{font-size:8px}.panel{padding:18px}.result-metrics{gap:10px}.result-metrics>div{padding:13px}.result-metrics strong{font-size:22px}.result-metrics small{font-size:7px}.cashflow-card{padding:22px}.cashflow-value{font-size:43px}.cashflow-value>span{font-size:9px}.calculator-context .text-button{font-size:9px}.calculator-context select{font-size:12px}.page-intro h1{font-size:35px}.section-heading h2{font-size:19px}.app-footer button{font-size:7px}}
+@media(max-width:620px){.calculator-layout{grid-template-columns:1fr}.calculator-inputs{display:contents}.calculator-results{grid-column:1;grid-row:2}.calc-field>span:first-child{font-size:10px}.panel{padding:23px}.cashflow-value{font-size:49px}.result-metrics strong{font-size:26px}.result-metrics>div{padding:19px}.hero h1{font-size:33px}.hero-copy{padding:25px 20px}.hero-copy>p{font-size:10px}.hero-copy .eyebrow{font-size:7px;letter-spacing:.9px}.hero{grid-template-columns:1.1fr .9fr;min-height:235px}.hero-stamp{width:61px;height:61px}.hero-stamp>span{font-size:10px}.hero-link{font-size:8px;gap:8px}.image-credit{font-size:6px}.stats-row{grid-template-columns:repeat(2,1fr);gap:17px 0;padding:18px 10px;margin:20px 0 29px}.stats-row>div{justify-content:flex-start;padding-left:17px;gap:12px}.stats-row>div:nth-child(2){border:0}.stats-row small{font-size:8px}.stats-row strong{font-size:20px}.stat-icon{width:33px;height:33px}.filter-bar{flex-wrap:wrap;gap:8px}.search-field{flex:1 0 calc(100% - 72px);order:0;padding:0 8px}.filter-button{order:1}.filter-select{order:2;flex:1;border-top:1px solid #edf0e5;padding:8px 8px 1px;border-left:0}.filter-select select{width:100%;font-size:10px}.extra-filters{flex-wrap:wrap;gap:14px}.extra-filters>.text-button{margin-left:0}.extra-filters>label:first-child{min-width:125px}.extra-filters .checkbox-label{font-size:10px}.property-grid{gap:16px}.property-media{height:155px}.property-body{padding:13px 12px 0}.property-price-row>strong{font-size:21px}.property-status{display:none}.property-specs{gap:8px;font-size:7px}.property-specs .icon{display:none}.property-numbers span{font-size:7px}.property-numbers strong{font-size:13px}.property-numbers small{font-size:7px}.property-title{font-size:11px}.property-location{font-size:8px}.card-actions{min-height:42px}.card-actions button{font-size:7px;gap:2px}.card-actions .icon{width:11px;height:11px}.type-tabs{width:100%;flex:initial;justify-content:space-between}.type-tabs button{font-size:9px;padding:7px 10px}.view-controls{width:100%;justify-content:space-between;margin-top:0}.browse-toolbar{gap:13px}.sort-label select{font-size:9px;max-width:180px}.view-toggle button{height:23px;width:29px}.section-heading h2{font-size:18px}.section-heading p{font-size:9px}.section-heading p span{display:none}.section-heading .text-button{font-size:9px}.list-layout .property-card{grid-template-columns:35% 1fr}.list-layout .property-media{min-height:225px}.list-layout .property-body{padding:15px 13px 0}.list-layout .property-title{font-size:12px}.list-layout .property-specs{font-size:8px;flex-wrap:wrap}.list-layout .property-price-row>strong{font-size:22px}.page-intro h1{font-size:33px}.page-intro p{font-size:11px;line-height:1.8}.intro-actions{flex-wrap:wrap;gap:5px}.intro-actions>.btn{margin-top:10px}.detail-image{height:210px}.detail-content{padding:24px}.detail-top{flex-wrap:wrap;gap:12px}.detail-top h2{font-size:29px}.detail-top>strong{font-size:25px}.detail-specs{gap:13px;font-size:9px}.detail-specs .icon{width:14px;height:14px}.detail-description{font-size:11px}.detail-finance{padding:15px;gap:8px}.detail-finance strong{font-size:21px}.detail-finance small{font-size:8px}.detail-actions{flex-wrap:wrap}.detail-actions .btn{font-size:10px}.modal{padding:27px}.detail-modal{padding:0}.modal-heading h2{font-size:28px}.form-grid{gap:14px}.form-field>span{font-size:9px}.form-field input,.form-field select{font-size:11px;padding:10px}.app-footer{gap:15px;align-items:flex-start;line-height:1.8}.app-footer>button{text-align:right;max-width:45%;display:block}.calculator-context{padding:13px;gap:9px}.calculator-context>label>span{font-size:7px}.calculator-context select{font-size:11px}.calculator-context>.text-button{font-size:8px;gap:4px}.calculator-context>.text-button .icon{width:11px;height:11px}.context-icon{width:33px;height:33px}.comparison-table th,.comparison-table td{padding:12px 15px}.comparison-table thead th{padding:16px}.compare-image{height:120px}.comparison-table h3{font-size:12px}.compare-price{font-size:22px}.notice{font-size:10px}.empty-state{padding:25px}.empty-state h2{font-size:26px}}
+@media(max-width:430px){main{padding:21px 17px}.topbar{padding:0 17px}.breadcrumb>span,.breadcrumb>.icon{display:none}.breadcrumb strong{font-size:10px}.topbar-actions{gap:8px}.demo-pill{font-size:7px;padding:4px 6px}.topbar-actions .btn{padding:7px 9px;font-size:8px}.topbar-actions .btn .icon{width:13px;height:13px}.hero{display:block;min-height:0}.hero-copy{padding:27px 26px}.hero h1{font-size:43px;margin-top:14px}.hero-copy>p{font-size:11px}.hero-copy .eyebrow{font-size:8px;letter-spacing:1.2px}.hero-link{font-size:10px;margin-top:15px}.hero-visual{height:176px}.hero-stamp{width:65px;height:65px;top:17px;right:23px}.hero-image{object-position:center 59%}.image-credit{font-size:7px}.stats-row{margin-top:17px;margin-bottom:28px}.stats-row>div{padding-left:9px}.stats-row small{font-size:7px}.stats-row strong{font-size:19px}.section-heading h2{font-size:18px}.property-grid{grid-template-columns:1fr;gap:19px}.property-media{height:207px}.property-body{padding:20px 20px 0}.property-price-row>strong{font-size:26px}.property-status{display:flex;font-size:8px}.property-title{font-size:13px}.property-location{font-size:10px}.property-specs{font-size:9px;gap:14px}.property-specs .icon{display:inline-block;width:15px;height:15px}.property-numbers span{font-size:9px}.property-numbers strong{font-size:17px}.property-numbers small{font-size:9px}.card-actions{min-height:48px}.card-actions button{font-size:9px;gap:6px}.card-actions .icon{width:14px;height:14px}.type-tabs button{padding:7px 9px;font-size:9px}.search-field input{font-size:10px}.filter-select select{font-size:9px}.filter-button{font-size:9px}.compare-tray{max-width:calc(100% - 24px);gap:13px;padding:11px 12px}.tray-leading{font-size:10px;gap:6px}.desktop-inline{display:none}.compare-tray .btn{font-size:9px;padding:8px 10px}.compare-tray .text-button{font-size:9px}.app-footer{margin-left:17px;margin-right:17px;font-size:7px}.app-footer strong{display:block;margin-bottom:3px}.list-layout .property-card{grid-template-columns:1fr}.list-layout .property-media{height:125px;min-height:0}.list-layout .property-body{padding:15px 18px 0}.list-layout .property-status{display:none}.list-layout .property-numbers{font-size:10px}.list-layout .property-title{font-size:12px}.list-layout .property-specs{font-size:8px}.list-layout .property-numbers span{font-size:8px}.list-layout .property-numbers strong{font-size:15px}.calculator-context>.text-button{font-size:0}.calculator-context>.text-button .icon{width:16px;height:16px}.calculator-context select{font-size:11px}.page-intro h1{font-size:31px}.page-intro{padding-bottom:24px}.result-metrics small{font-size:7px}.detail-content{padding:20px}.detail-specs{gap:12px}.detail-finance{padding:12px}.detail-finance strong{font-size:18px}.detail-finance small{font-size:7px}.detail-actions>.primary{margin-left:0;flex:1}.detail-actions .btn{font-size:9px;padding:9px 11px}.notes-actions>.text-button{font-size:9px}.modal{width:calc(100% - 24px);padding:24px}.detail-modal{padding:0}.modal-heading h2{font-size:26px}.form-field>span{font-size:8px}.form-grid{column-gap:11px}.empty-state h2{font-size:24px}.notice .text-button{white-space:normal;min-width:60px}.cashflow-value{font-size:46px}.sensitivity-table{font-size:9px}.sensitivity-table td{font-size:10px}.cost-lines>div{font-size:10px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+@media print{.sidebar,.topbar,.app-footer,.compare-tray,.btn,.text-button,.modal,.hero-link{display:none!important}.app-body{margin:0}main{padding:0;max-width:none}.panel,.property-card,.cashflow-card{break-inside:avoid;box-shadow:none}.calculator-layout{display:block}.calculator-inputs{display:none}.calculator-results{display:block}.calculator-results>*{margin-bottom:20px}.cashflow-card{color:#26382f;background:#f0f3eb}.cashflow-card *{color:#26382f!important}.property-grid{grid-template-columns:repeat(2,1fr)}}
+/* Legibility pass: calm does not have to mean low contrast or microscopic text. */
+.sidebar-kicker,.nav-label{font-size:9px;color:#777e71}
+.nav-item{font-size:13px;color:#6f7967}.nav-count{font-size:11px;color:#6d7c61}
+.workspace-button strong{font-size:11px}.workspace-button small{font-size:10px;color:#78816e}
+.breadcrumb{font-size:12px}.demo-pill{font-size:10px}.topbar-actions .btn{font-size:11px}
+.hero-copy>p{font-size:13px;color:#6c7b62}.hero-link{font-size:11px}.hero .eyebrow{font-size:9px}
+.stats-row strong{font-size:21px}.stats-row small{font-size:10px;color:#737f67}
+.section-heading p{font-size:11px;color:#71805f}.section-heading p span{color:#79836e}
+.search-field input{font-size:12px}.search-field input::placeholder{color:#7c8772}
+.filter-select select{font-size:11px;color:#65775a}.filter-button{font-size:11px}
+.type-tabs button{font-size:11px;color:#728166}.type-tabs .selected{color:#355e3c}
+.sort-label select{font-size:10px;color:#748367}.property-type{font-size:10px;color:#546d44}
+.property-status{font-size:9px;color:#748665}.property-title{font-size:14px;color:#465e37}
+.property-location{font-size:11px;color:#738565}.property-specs{font-size:10px;color:#728466;flex-wrap:wrap;row-gap:6px}
+.property-specs strong{color:#617651}.property-specs .icon{width:15px;height:15px}
+.property-numbers span{font-size:10px;color:#718662}.property-numbers strong{font-size:17px}
+.property-numbers small{font-size:10px;color:#7d8c6e}.card-actions{min-height:47px}
+.card-actions button{font-size:10px}.card-actions .icon{width:14px;height:14px}
+.compare-button{color:#728766}.analyze-button{color:#3b643d}
+.assumption-footnote{font-size:10px;color:#7b896c}.assumption-footnote button{font-size:10px;color:#577743}
+.small-print{font-size:11px;color:#7c8b6d}.app-footer{font-size:10px;color:#78866a}.app-footer button{font-size:9px;color:#6d825c}
+.extra-filters label,.checkbox-label{color:#698156}.active-filter-note{font-size:10px}.active-filter-note>button{font-size:10px}
+.saved-searches,.saved-searches button{font-size:10px}.saved-searches>span{color:#7a8c68}
+.page-intro p{font-size:13px;color:#778967}.panel-description{font-size:11px;color:#7a8d69}
+.panel-heading>span{font-size:10px;color:#7e916b}.panel-heading>.text-button{font-size:10px}
+.calc-field>span:first-child{font-size:11px;color:#6d845b}.input-unit input{font-size:14px;color:#3e6034}
+.input-unit b{font-size:11px;color:#7b9268}.field-note{font-size:10px;color:#7b8f66}
+.advanced-assumptions summary,.amortization-details summary{font-size:11px;color:#65834c}
+.advanced-assumptions p{font-size:10px;color:#7e926b}.scenario-shortcuts button{font-size:10px;color:#617e4e}
+.saved-scenarios>p{font-size:11px;color:#7c9268}.saved-scenario span{font-size:10px;color:#7b9066}
+.result-metrics span{font-size:11px;color:#6d8559}.result-metrics small{font-size:10px;color:#7f926b}
+.income-line,.cost-lines>div{font-size:12px;color:#6e8858}.income-line.subdued{font-size:11px;color:#7f956a}
+.income-line.collected{font-size:12px}.cost-lines strong{font-size:12px;color:#506f3c}
+.cost-total{font-size:12px;color:#607e4a}.cashflow-heading{font-size:9px}.cashflow-card>p{font-size:11px;color:#c0d1ad}
+.cashflow-bottom small{font-size:10px;color:#bdd1a6}.cashflow-bottom strong{font-size:19px}
+.sensitivity-table th{font-size:10px;color:#6b8458}.sensitivity-table td{font-size:12px}
+.sensitivity-table th small{font-size:9px;color:#7e936a}.sensitivity-table thead th:first-child{font-size:9px;color:#778f62}
+.balance-label span{font-size:10px;color:#7d9569}.amortization-scroll table{font-size:11px;color:#657f51}
+.modal-heading p,.about-sections p{font-size:12px;color:#728966}.form-field>span{font-size:11px;color:#6b845b}
+.form-field input,.form-field select{font-size:13px;color:#496c3c}.form-field input::placeholder{color:#889f79}
+.detail-top p,.detail-specs{font-size:12px;color:#6d875c}.detail-description{font-size:13px;color:#708961}
+.feature-tags>span{font-size:11px;color:#6b8a56}.detail-finance small{font-size:11px;color:#718e5e}
+.notes-label{font-size:13px}.notes-label span{font-size:11px;color:#7a9568}.notes-actions>span{font-size:10px;color:#819b6c}
+.notes-actions>.text-button{font-size:11px}textarea{font-size:12px}.photo-toggle{font-size:12px}.photo-toggle small{font-size:11px;color:#76945f}
+.workspace-options small{font-size:11px;color:#7b9766}.workspace-stats span{font-size:11px;color:#789360}
+.empty-state p{font-size:12px;color:#799566}.toast{font-size:12px;color:#496d37}
+.dialog-toast-host{position:fixed;bottom:26px;left:50%;transform:translateX(-50%);z-index:200;max-width:calc(100% - 28px);pointer-events:none;width:max-content}
+@media(max-width:1250px) and (min-width:1061px){.card-actions button{font-size:9px}.property-specs{font-size:9px;gap:7px}.property-location{font-size:10px}.property-numbers span{font-size:9px}.property-status{font-size:8px}.property-title{font-size:13px}.property-body{padding:17px 14px 0}.type-tabs button{font-size:10px;padding:7px 9px}}
+@media(max-width:780px){.breadcrumb{font-size:11px}.hero-copy>p{font-size:12px}.stats-row small{font-size:9px}.filter-select select{font-size:10px}.type-tabs button{font-size:10px}.topbar-actions .btn{font-size:10px}}
+@media(max-width:620px){.hero-copy>p{font-size:11px}.property-specs{font-size:9px}.property-title{font-size:12px}.property-location{font-size:10px}.property-numbers span{font-size:8px}.property-numbers strong{font-size:15px}.property-numbers small{font-size:9px}.card-actions button{font-size:8px}.property-type{font-size:9px}.section-heading p span{display:none}.app-footer>button{font-size:9px}.calc-fields{column-gap:16px}.form-field>span{font-size:10px}.hero .eyebrow{font-size:8px}.hero-link{font-size:10px}}
+@media(max-width:430px){.topbar-actions .btn{font-size:9px}.demo-pill{font-size:8px}.breadcrumb strong{font-size:11px}.property-specs{font-size:11px}.property-title{font-size:15px}.property-location{font-size:12px}.property-numbers span{font-size:11px}.property-numbers strong{font-size:18px}.property-numbers small{font-size:10px}.card-actions button{font-size:11px}.property-type{font-size:10px}.hero-copy>p{font-size:12px}.hero .eyebrow{font-size:9px}.hero-link{font-size:11px}.stats-row small{font-size:9px}.stats-row strong{font-size:21px}.search-field input{font-size:11px}.filter-select select{font-size:10px}.type-tabs button{font-size:10px;padding:7px 8px}.compare-tray .btn{font-size:10px}.tray-leading{font-size:11px}.calculator-context select{font-size:12px}.detail-finance small{font-size:9px}.detail-specs{font-size:11px}.form-grid{column-gap:12px}}
+
+/* Haven 1.1: gentle, finite motion. Never block input while animating. */
+:root{--motion-ease:cubic-bezier(.22,1,.36,1)}
+html{scroll-behavior:smooth}
+.property-card{scroll-margin-top:24px;transition:transform .3s var(--motion-ease),box-shadow .3s var(--motion-ease),border-color .25s}
+.property-card.reveal-pending{opacity:0;transform:translateY(14px)}
+.image-link img{transition:transform .65s var(--motion-ease)}
+button,.btn,.nav-item{transition:background .2s,color .2s,border-color .2s,box-shadow .2s,transform .2s var(--motion-ease)}
+.save-button .icon{transition:fill .22s,color .22s,stroke .22s}
+.hero-link .icon,.analyze-button .icon,.sidebar-note button .icon{transition:transform .3s var(--motion-ease)}
+.filter-bar:focus-within{box-shadow:0 0 0 3px #28544006;border-color:#cdd9c5}
+.filter-bar{transition:border-color .2s,box-shadow .2s}
+.type-tabs button,.view-toggle button{transition:background .24s,color .24s,box-shadow .24s}
+.modal[open]::backdrop{animation:haven-backdrop-in .25s ease-out}
+.toast{animation:haven-toast-in .32s var(--motion-ease)}
+.sidebar{transition:transform .32s var(--motion-ease)}
+.results-pagination{display:flex;flex-direction:column;align-items:center;gap:13px;text-align:center;padding:30px 16px 6px;color:var(--muted)}
+.results-pagination p{font-size:11px;letter-spacing:.05px}
+.results-pagination strong{color:var(--ink);font-weight:550}
+.results-progress{width:130px;height:3px;border-radius:6px;overflow:hidden;background:var(--line)}
+.results-progress span{display:block;height:100%;background:#95a88a;border-radius:inherit;transition:width .4s var(--motion-ease)}
+.load-more-button{margin-top:3px;min-width:205px;padding:12px 18px;background:#f6f8f2;border-color:#dce4d5;gap:17px}
+.load-more-button .icon{transition:transform .3s var(--motion-ease);width:15px;height:15px}
+@keyframes haven-backdrop-in{from{background-color:#26372c00;backdrop-filter:blur(0)}to{background-color:#26372c66;backdrop-filter:blur(4px)}}
+@keyframes haven-toast-in{from{opacity:0;transform:translateY(8px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
+@media(hover:hover) and (prefers-reduced-motion:no-preference){
+  .property-card:not(.reveal-pending):hover{transform:translateY(-4px);box-shadow:0 12px 28px #31452510}
+  .property-card:hover .image-link img{transform:scale(1.035)}
+  .hero-link:hover .icon,.analyze-button:hover .icon,.sidebar-note button:hover .icon{transform:translateX(3px)}
+  .load-more-button:hover .icon{transform:translateY(3px)}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .property-card.reveal-pending{opacity:1;transform:none}
+  .property-card:hover .image-link img,.save-button:hover{transform:none}
+}
+@media print{.reveal-pending{opacity:1!important;transform:none!important}.results-pagination{display:none!important}}
+
+</style>
+</head>
+<body>
+  <div id="app"></div>
+  <div id="dialog-host"></div>
+  <div id="toast-host" aria-live="polite"></div>
+  <input id="backup-input" type="file" accept=".json,application/json" hidden aria-label="Choose a Haven workspace backup">
+  <noscript><p style="padding:32px;font-family:sans-serif">Haven needs JavaScript to run. Enable JavaScript in your browser, then reload this page.</p></noscript>
+  <script>
+(()=>{"use strict";const __modules=Object.create(null);
+__modules["types.js"]=(()=>{
+
+return {};})();
+__modules["finance.js"]=(()=>{
+/** Fixed-rate, fully amortizing monthly principal and interest. Rate is a percent. */
+function mortgagePayment(principal, annualRate, years) {
+    if (![principal, annualRate, years].every(Number.isFinite) || principal < 0 || annualRate < 0 || years <= 0) {
+        throw new RangeError('Principal and rate must be nonnegative, and the loan term must be positive.');
+    }
+    if (principal === 0)
+        return 0;
+    const months = Math.round(years * 12);
+    if (months < 1)
+        throw new RangeError('The loan term must be at least one month.');
+    const rate = annualRate / 1200;
+    if (rate === 0)
+        return principal / months;
+    // This form avoids overflowing (1 + r)^n for large terms.
+    return principal * rate / (-Math.expm1(-months * Math.log1p(rate)));
+}
+const inputRules = {
+    price: { min: 1, max: 100_000_000, label: 'Purchase price' },
+    downPercent: { min: 0, max: 100, label: 'Down payment' },
+    interestRate: { min: 0, max: 30, label: 'Interest rate' },
+    years: { min: 1, max: 50, label: 'Loan term' },
+    rent: { min: 0, max: 1_000_000, label: 'Monthly rent' },
+    taxAnnual: { min: 0, max: 1_000_000, label: 'Annual property tax' },
+    insuranceMonthly: { min: 0, max: 100_000, label: 'Monthly insurance' },
+    hoaMonthly: { min: 0, max: 100_000, label: 'Monthly HOA' },
+    vacancyPercent: { min: 0, max: 100, label: 'Vacancy allowance' },
+    maintenancePercent: { min: 0, max: 100, label: 'Maintenance allowance' },
+    managementPercent: { min: 0, max: 100, label: 'Management fee' },
+    capexPercent: { min: 0, max: 100, label: 'Capital reserve' },
+    closingPercent: { min: 0, max: 30, label: 'Closing costs' },
+    initialRepairs: { min: 0, max: 10_000_000, label: 'Initial repairs' },
+    mortgageInsuranceMonthly: { min: 0, max: 100_000, label: 'Monthly mortgage insurance' }
+};
+function validateAssumptions(a) {
+    return Object.keys(inputRules).flatMap(key => {
+        const { min, max, label } = inputRules[key];
+        if (key === 'years' && Number.isFinite(a[key]) && !Number.isInteger(a[key]))
+            return ['Loan term must use whole years.'];
+        return typeof a[key] !== 'number' || !Number.isFinite(a[key]) || a[key] < min || a[key] > max
+            ? [`${label} must be between ${min.toLocaleString('en-US')} and ${max.toLocaleString('en-US')}.`] : [];
+    });
+}
+function defaultAssumptions(p) {
+    return {
+        price: p.price, downPercent: 20, interestRate: 6.5, years: 30,
+        rent: p.rent, taxAnnual: p.taxAnnual, insuranceMonthly: p.insuranceMonthly,
+        hoaMonthly: p.hoaMonthly, vacancyPercent: 5, maintenancePercent: 5,
+        managementPercent: 8, capexPercent: 3, closingPercent: 3,
+        initialRepairs: 0, mortgageInsuranceMonthly: 0
+    };
+}
+/** Unlevered NOI excludes debt service and capital reserves; cash flow includes both. */
+function calculate(a) {
+    const errors = validateAssumptions(a);
+    if (errors.length)
+        throw new RangeError(errors.join(' '));
+    const downPayment = a.price * a.downPercent / 100;
+    const loan = a.price - downPayment;
+    const mortgage = mortgagePayment(loan, a.interestRate, a.years);
+    const vacancy = a.rent * a.vacancyPercent / 100;
+    const effectiveRent = a.rent - vacancy;
+    const tax = a.taxAnnual / 12;
+    const maintenance = a.rent * a.maintenancePercent / 100;
+    const management = effectiveRent * a.managementPercent / 100;
+    const capex = a.rent * a.capexPercent / 100;
+    const operatingExpenses = tax + a.insuranceMonthly + a.hoaMonthly + maintenance + management;
+    const noiMonthly = effectiveRent - operatingExpenses;
+    const mortgageInsurance = loan > 0 ? a.mortgageInsuranceMonthly : 0;
+    const totalOutflow = operatingExpenses + mortgage + capex + mortgageInsurance;
+    const cashflow = effectiveRent - totalOutflow;
+    const cashInvested = downPayment + a.price * a.closingPercent / 100 + a.initialRepairs;
+    return {
+        loan, downPayment, mortgage, vacancy, effectiveRent, tax,
+        insurance: a.insuranceMonthly, hoa: a.hoaMonthly, maintenance, management,
+        capex, operatingExpenses, noiMonthly, totalOutflow, cashflow,
+        capRate: noiMonthly * 12 / a.price * 100, cashInvested,
+        cashOnCash: cashInvested > 0 ? cashflow * 12 / cashInvested * 100 : null
+    };
+}
+function amortization(a) {
+    const m = calculate(a);
+    if (m.loan === 0)
+        return [];
+    const result = [];
+    let balance = m.loan, principal = 0, interest = 0;
+    const months = Math.round(a.years * 12);
+    for (let month = 1; month <= months; month++) {
+        const interestPayment = balance * a.interestRate / 1200;
+        const principalPayment = Math.min(balance, Math.max(0, m.mortgage - interestPayment));
+        balance = Math.max(0, balance - principalPayment);
+        principal += principalPayment;
+        interest += interestPayment;
+        if (month % 12 === 0 || month === months) {
+            result.push({ year: Math.ceil(month / 12), principal, interest, balance: balance < 0.01 ? 0 : balance });
+            principal = 0;
+            interest = 0;
+        }
+    }
+    return result;
+}
+const defaultFilters = { query: '', city: '', type: '', maxPrice: 0, minBeds: 0, minSqft: 0, positiveOnly: false };
+function filterProperties(properties, filters, sort = 'featured') {
+    const terms = filters.query.trim().toLocaleLowerCase('en-US').split(/\s+/).filter(Boolean);
+    const cache = new Map();
+    const metrics = (p) => {
+        if (!cache.has(p.id))
+            cache.set(p.id, calculate(defaultAssumptions(p)));
+        return cache.get(p.id);
+    };
+    const result = properties.filter(p => {
+        const text = [p.name, p.address, p.city, p.state, p.neighborhood, p.type].join(' ').toLocaleLowerCase('en-US');
+        return terms.every(term => text.includes(term)) && (!filters.city || p.city === filters.city)
+            && (!filters.type || p.type === filters.type) && (!filters.maxPrice || p.price <= filters.maxPrice)
+            && p.beds >= filters.minBeds && p.sqft >= filters.minSqft
+            && (!filters.positiveOnly || metrics(p).cashflow >= 0);
+    });
+    const comparators = {
+        featured: (a, b) => b.addedAt - a.addedAt,
+        'price-asc': (a, b) => a.price - b.price,
+        'price-desc': (a, b) => b.price - a.price,
+        cashflow: (a, b) => metrics(b).cashflow - metrics(a).cashflow,
+        caprate: (a, b) => metrics(b).capRate - metrics(a).capRate
+    };
+    return result.sort(comparators[sort]);
+}
+function median(values) {
+    if (!values.length)
+        return 0;
+    const sorted = [...values].sort((a, b) => a - b);
+    const mid = Math.floor(sorted.length / 2);
+    return sorted.length % 2 ? sorted[mid] : (sorted[mid - 1] + sorted[mid]) / 2;
+}
+/** Mitigate formula execution when a spreadsheet opens exported user-supplied text. */
+function csvCell(value) {
+    const text = String(value);
+    const safe = typeof value === 'string' && /^[\s]*[=+@\-]/.test(text) ? `'${text}` : text;
+    return `"${safe.replaceAll('"', '""')}"`;
+}
+function toCSV(rows) {
+    return '\uFEFF' + rows.map(row => row.map(csvCell).join(',')).join('\r\n');
+}
+
+return {mortgagePayment,inputRules,validateAssumptions,defaultAssumptions,calculate,amortization,defaultFilters,filterProperties,median,csvCell,toCSV};})();
+__modules["data.js"]=(()=>{
+// Entirely fictional fixtures, not MLS records or current market estimates.
+// All addresses, neighborhood labels, prices, rents, and costs are invented.
+// Append-only IDs keep v1 saved homes, notes, and scenarios compatible.
+// Optional photos are illustrative and do not depict the invented addresses.
+const fixtureRows = [
+    ['The Willow House', '1428 Willow Lane', 'Lincoln', 'NE', 'Near South', 325000, 3, 2, 1840, 'Single-family', 2800, 4800, 125, 0, 1998, 0],
+    ['Parkside Residence', '620 Parkside Avenue', 'Omaha', 'NE', 'Dundee', 389000, 4, 2.5, 2240, 'Single-family', 3150, 5400, 135, 0, 2006, 1],
+    ['The Maple Duplex', '218 Maple Court', 'Kansas City', 'MO', 'Brookside', 285000, 4, 2, 2100, 'Duplex', 3100, 3600, 135, 0, 1988, 2],
+    ['Juniper Townhome', '46 Juniper Walk', 'Lincoln', 'NE', 'Fallbrook', 248000, 3, 2.5, 1620, 'Townhouse', 2450, 3600, 100, 120, 2015, 3],
+    ['The Cedar Loft', '85 Cedar Street, Unit 4', 'Denver', 'CO', 'Baker', 415000, 2, 2, 1280, 'Condo', 3000, 2900, 75, 320, 2018, 4],
+    ['Prairie House', '317 Meadow Drive', 'Omaha', 'NE', 'Aksarben', 269000, 3, 2, 1560, 'Single-family', 2600, 3900, 110, 0, 1974, 5],
+    ['The Linden Home', '908 Linden Way', 'Lincoln', 'NE', 'Country Club', 359000, 4, 3, 2360, 'Single-family', 3250, 5100, 145, 0, 2002, 6],
+    ['Elm Street Duplex', '724 Elm Terrace', 'Omaha', 'NE', 'Benson', 239000, 4, 2, 1920, 'Duplex', 2850, 3200, 130, 0, 1965, 7],
+    ['The Terrace', '12 Terrace Place, Unit 3', 'Kansas City', 'MO', 'West Plaza', 198000, 2, 1, 980, 'Condo', 1850, 2400, 65, 220, 2009, 8],
+    ['Aspen Retreat', '438 Aspen Lane', 'Denver', 'CO', 'Sloan Lake', 575000, 3, 2.5, 2140, 'Single-family', 3700, 4100, 165, 0, 2011, 9],
+    ['The Oak Townhome', '173 Oak Row', 'Kansas City', 'MO', 'Waldo', 225000, 2, 2, 1360, 'Townhouse', 2200, 2700, 90, 85, 2017, 10],
+    ['Birchwood Residence', '206 Birchwood Court', 'Lincoln', 'NE', 'Highlands', 295000, 3, 2, 1780, 'Single-family', 2750, 4300, 120, 0, 1993, 11],
+    ["The Wren Flat", "126 Wren Street, Unit 2", "Chicago", "IL", "North Grove", 318000, 2, 2, 1210, "Condo", 2650, 4800, 85, 285, 2012, 12],
+    ["Hawthorne Row", "842 Hawthorne Row", "Chicago", "IL", "West Gardens", 465000, 3, 2.5, 1920, "Townhouse", 3400, 6700, 120, 140, 2018, 13],
+    ["The Courtyard Two", "317 Courtyard Avenue", "Chicago", "IL", "Maple Square", 549000, 6, 4, 3040, "Duplex", 4800, 7600, 175, 0, 1996, 14],
+    ["The Northlight Home", "419 Northlight Lane", "Minneapolis", "MN", "Cedar Park", 345000, 3, 2, 1760, "Single-family", 2850, 4200, 130, 0, 2001, 15],
+    ["Lakeglass Loft", "62 Lakeglass Way, Unit 8", "Minneapolis", "MN", "Lakeside Quarter", 265000, 2, 1.5, 1090, "Condo", 2200, 3100, 70, 250, 2016, 16],
+    ["Twin Pines Duplex", "713 Twin Pines Drive", "Minneapolis", "MN", "Pine Terrace", 389000, 4, 3, 2360, "Duplex", 3600, 4800, 155, 0, 1989, 17],
+    ["The Clover Cottage", "284 Clover Court", "Des Moines", "IA", "Meadow Park", 219000, 2, 1, 1120, "Single-family", 2050, 2900, 100, 0, 1978, 18],
+    ["Fieldstone Row", "51 Fieldstone Walk", "Des Moines", "IA", "West Commons", 259000, 3, 2.5, 1580, "Townhouse", 2400, 3500, 100, 95, 2020, 19],
+    ["The Orchard Pair", "106 Orchard Terrace", "Des Moines", "IA", "Orchard Hill", 289000, 4, 2, 2140, "Duplex", 3000, 3900, 135, 0, 1992, 20],
+    ["The Fern House", "532 Fern Avenue", "Madison", "WI", "Garden District", 369000, 3, 2, 1810, "Single-family", 2900, 4900, 125, 0, 2003, 21],
+    ["Lakeshore Studio", "27 Stillwater Place, Unit 5", "Madison", "WI", "Lake Commons", 205000, 1, 1, 760, "Condo", 1700, 2600, 55, 190, 2019, 22],
+    ["The Moss Townhome", "314 Moss Row", "Madison", "WI", "Woodland West", 319000, 3, 2.5, 1700, "Townhouse", 2700, 4200, 105, 120, 2017, 23],
+    ["Sunroom House", "726 Sunroom Lane", "Austin", "TX", "Juniper Grove", 485000, 3, 2, 2020, "Single-family", 3500, 6500, 155, 0, 2015, 24],
+    ["The Terra Flat", "44 Terra Court, Unit 7", "Austin", "TX", "East Gardens", 329000, 2, 2, 1190, "Condo", 2650, 4500, 80, 275, 2021, 25],
+    ["Sagebrush Two", "218 Sagebrush Trail", "Austin", "TX", "Creekside", 529000, 4, 4, 2640, "Duplex", 4500, 7100, 175, 0, 2008, 26],
+    ["The Copper House", "365 Copper Lane", "Dallas", "TX", "Oak Gardens", 379000, 3, 2, 1900, "Single-family", 3150, 5400, 160, 0, 2009, 27],
+    ["Magnolia Row", "118 Magnolia Walk", "Dallas", "TX", "North Commons", 339000, 3, 2.5, 1740, "Townhouse", 2850, 4900, 120, 155, 2020, 28],
+    ["The Arbor Pair", "901 Arbor Street", "Dallas", "TX", "Arbor Park", 419000, 4, 3, 2420, "Duplex", 3850, 5900, 170, 0, 1997, 29],
+    ["The Dogwood Home", "148 Dogwood Lane", "Raleigh", "NC", "Pine Commons", 395000, 3, 2.5, 2040, "Single-family", 3000, 3600, 120, 0, 2014, 30],
+    ["Pinehaven Row", "63 Pinehaven Walk", "Raleigh", "NC", "Oak Meadow", 309000, 3, 2.5, 1620, "Townhouse", 2450, 2800, 95, 115, 2022, 31],
+    ["The Lantern Loft", "205 Lantern Square, Unit 3", "Raleigh", "NC", "South Gardens", 249000, 2, 2, 1120, "Condo", 2100, 2200, 65, 230, 2018, 32],
+    ["The Sycamore House", "724 Sycamore Way", "Charlotte", "NC", "Briar Commons", 359000, 3, 2, 1870, "Single-family", 2800, 3200, 120, 0, 2006, 33],
+    ["Briarwood Terrace", "92 Briarwood Row", "Charlotte", "NC", "Greenway Park", 285000, 2, 2.5, 1460, "Townhouse", 2350, 2600, 90, 100, 2021, 34],
+    ["The Greenway Pair", "408 Greenway Court", "Charlotte", "NC", "Clover Park", 399000, 4, 3, 2380, "Duplex", 3650, 3700, 145, 0, 1998, 35],
+    ["The Peachtree Cottage", "214 Peachwood Lane", "Atlanta", "GA", "East Orchard", 329000, 3, 2, 1620, "Single-family", 2750, 3700, 125, 0, 1985, 36],
+    ["Canopy Loft", "38 Canopy Street, Unit 6", "Atlanta", "GA", "Canopy Quarter", 279000, 2, 2, 1180, "Condo", 2350, 3100, 70, 295, 2017, 37],
+    ["The Garden Duplex", "603 Garden Walk", "Atlanta", "GA", "Garden Heights", 425000, 4, 3, 2480, "Duplex", 3850, 4700, 150, 0, 2004, 38],
+    ["The Acorn Home", "182 Acorn Terrace", "Nashville", "TN", "Oakridge", 415000, 3, 2, 1930, "Single-family", 3050, 3000, 140, 0, 2010, 39],
+    ["The Porch House", "57 Porchlight Row", "Nashville", "TN", "West Grove", 349000, 3, 2.5, 1710, "Townhouse", 2700, 2500, 110, 130, 2020, 40],
+    ["Harmony Flats", "821 Harmony Way", "Nashville", "TN", "Cedar Commons", 495000, 4, 4, 2680, "Duplex", 4200, 3600, 165, 0, 2013, 41],
+    ["The Palmetto Home", "410 Palmetto Court", "Tampa", "FL", "Palm Gardens", 365000, 3, 2, 1780, "Single-family", 2950, 4200, 225, 0, 2005, 42],
+    ["Bayglass Apartment", "29 Bayglass Place, Unit 9", "Tampa", "FL", "Bay Commons", 259000, 2, 2, 1160, "Condo", 2300, 3000, 100, 360, 2015, 43],
+    ["The Sandbar Row", "168 Sandbar Walk", "Tampa", "FL", "Harbor Grove", 319000, 3, 2.5, 1690, "Townhouse", 2650, 3600, 180, 160, 2021, 44],
+    ["The Orange Grove", "733 Orangeblossom Lane", "Orlando", "FL", "Orange Commons", 345000, 3, 2, 1830, "Single-family", 2800, 3900, 200, 0, 2011, 45],
+    ["Sunbeam Loft", "81 Sunbeam Court, Unit 4", "Orlando", "FL", "West Gardens", 239000, 2, 2, 1090, "Condo", 2100, 2700, 90, 295, 2018, 46],
+    ["The Citrus Pair", "246 Citrus Way", "Orlando", "FL", "Citrus Park", 409000, 4, 3, 2360, "Duplex", 3700, 4700, 245, 0, 2001, 47],
+    ["The Agave House", "528 Agave Trail", "Phoenix", "AZ", "Desert Grove", 389000, 3, 2, 1940, "Single-family", 2850, 2400, 125, 0, 2012, 48],
+    ["Desertlight Flat", "47 Desertlight Way, Unit 2", "Phoenix", "AZ", "Mesa Commons", 255000, 2, 2, 1170, "Condo", 2050, 1600, 65, 230, 2019, 49],
+    ["The Terracotta Row", "304 Terracotta Walk", "Phoenix", "AZ", "Cactus Gardens", 315000, 3, 2.5, 1650, "Townhouse", 2450, 2000, 95, 120, 2021, 50],
+    ["The Rainwood House", "618 Rainwood Lane", "Portland", "OR", "Fern Commons", 515000, 3, 2, 1890, "Single-family", 3400, 5800, 125, 0, 2007, 51],
+    ["Mosslight Loft", "33 Mosslight Street, Unit 5", "Portland", "OR", "North Canopy", 335000, 2, 2, 1150, "Condo", 2500, 3800, 65, 310, 2016, 52],
+    ["The Evergreen Pair", "256 Evergreen Court", "Portland", "OR", "Evergreen Park", 625000, 4, 4, 2710, "Duplex", 4600, 6900, 160, 0, 2002, 53],
+    ["The Alder House", "735 Alderwood Lane", "Seattle", "WA", "Alder Commons", 785000, 3, 2.5, 2130, "Single-family", 4300, 6900, 135, 0, 2014, 54],
+    ["Cloudline Apartment", "64 Cloudline Place, Unit 8", "Seattle", "WA", "North Landing", 449000, 2, 2, 1130, "Condo", 3050, 4000, 70, 385, 2020, 55],
+    ["The Rainier Row", "193 Rainview Walk", "Seattle", "WA", "Cedar Landing", 635000, 3, 2.5, 1770, "Townhouse", 3750, 5600, 110, 165, 2022, 56],
+    ["The Sol House", "428 Solana Court", "San Diego", "CA", "Sunset Gardens", 895000, 3, 2, 1970, "Single-family", 4650, 9400, 150, 0, 2008, 57],
+    ["Seaglass Flat", "56 Seaglass Place, Unit 3", "San Diego", "CA", "Coastal Commons", 565000, 2, 2, 1210, "Condo", 3350, 5900, 75, 395, 2019, 58],
+    ["The Dune Townhome", "312 Dune Walk", "San Diego", "CA", "Dune Gardens", 715000, 3, 2.5, 1810, "Townhouse", 4050, 7500, 120, 210, 2021, 59]
+];
+const photoIds = ['1600585154340-be6161a56a0c', '1600596542815-ffad4c1539a9', '1570129477492-45c003edd2be', '1600047509807-ba8f99d2cdde', '1600607687920-4e2a09cf159d', '1564013799919-ab600027ffc6'];
+const descriptions = [
+    'A light-filled home with generous living spaces, a private garden, and room for what comes next. Explore the sample numbers, test your assumptions, and build your own picture of the opportunity.',
+    'Thoughtful spaces, a flexible layout, and a welcoming outdoor area. This fictional listing is designed to help you compare purchase costs and rental scenarios side by side.',
+    'Two independent living spaces in one property. The sample rent represents the combined monthly rent of both units. Model your own operating costs before drawing any conclusions.'
+];
+const seedProperties = fixtureRows.map((r, index) => ({
+    id: `sample-${index + 1}`, name: r[0], address: r[1], city: r[2], state: r[3], neighborhood: r[4],
+    price: r[5], beds: r[6], baths: r[7], sqft: r[8], type: r[9], rent: r[10], taxAnnual: r[11],
+    insuranceMonthly: r[12], hoaMonthly: r[13], yearBuilt: r[14], art: r[15],
+    photo: `https://images.unsplash.com/photo-${photoIds[index % photoIds.length]}?auto=format&fit=crop&w=900&q=80`,
+    tags: r[9] === 'Duplex' ? ['Separate entrances', 'Two living spaces', 'Combined rental input'] : r[9] === 'Condo' ? ['Light-filled spaces', 'Efficient layout', 'HOA input included'] : r[9] === 'Townhouse' ? ['Private entry', 'Flexible living', 'Outdoor terrace'] : index % 2 === 0 ? ['Private garden', 'Open-plan living', 'Natural light'] : ['Flexible layout', 'Outdoor space', 'Generous storage'],
+    description: r[9] === 'Duplex' ? descriptions[2] : r[9] === 'Condo' ? 'A compact, light-filled apartment with thoughtfully arranged living spaces. This fictional listing includes a sample HOA input so you can explore the full cost of ownership, not just the purchase price.' : r[9] === 'Townhouse' ? 'A private entry, flexible rooms, and a little outdoor space to make your own. Use this fictional townhome to compare financing, recurring costs, and rental scenarios with the rest of your shortlist.' : descriptions[index % 2],
+    addedAt: fixtureRows.length - index
+}));
+
+return {seedProperties};})();
+__modules["storage.js"]=(()=>{
+const { validateAssumptions } = __modules["finance.js"];
+const STORAGE_KEY = 'haven.workspace.v1';
+const freshWorkspace = () => ({ version: 1, savedIds: [], compareIds: [], customProperties: [], notes: {}, searches: [], scenarios: [] });
+const isRecord = (x) => !!x && typeof x === 'object' && !Array.isArray(x);
+const shortString = (x, max = 500) => typeof x === 'string' && x.length <= max;
+function validProperty(x) {
+    if (!isRecord(x))
+        return false;
+    const strings = ['id', 'name', 'address', 'city', 'state', 'neighborhood', 'description', 'photo'];
+    if (!strings.every(k => shortString(x[k], k === 'description' ? 3000 : 500)))
+        return false;
+    if (!['id', 'name', 'address', 'city'].every(k => String(x[k]).trim().length > 0) || !/^[A-Za-z]{2}$/.test(String(x.state)))
+        return false;
+    if (!['Single-family', 'Condo', 'Townhouse', 'Duplex'].includes(String(x.type)))
+        return false;
+    const limits = {
+        price: [1, 100_000_000], beds: [0, 100], baths: [0, 100], sqft: [1, 1_000_000], rent: [0, 1_000_000],
+        taxAnnual: [0, 1_000_000], insuranceMonthly: [0, 100_000], hoaMonthly: [0, 100_000],
+        yearBuilt: [1700, 2200], art: [0, 10000], addedAt: [0, Number.MAX_SAFE_INTEGER]
+    };
+    return Object.entries(limits).every(([k, [lo, hi]]) => typeof x[k] === 'number' && Number.isFinite(x[k]) && x[k] >= lo && x[k] <= hi)
+        && Array.isArray(x.tags) && x.tags.length <= 20 && x.tags.every(t => shortString(t, 100))
+        && (!x.photo || /^https:\/\//.test(String(x.photo))) && x.id !== '__proto__' && x.id !== 'constructor';
+}
+function validFilters(x) {
+    if (!isRecord(x))
+        return false;
+    return shortString(x.query) && shortString(x.city) && shortString(x.type)
+        && ['maxPrice', 'minBeds', 'minSqft'].every(k => typeof x[k] === 'number' && Number.isFinite(x[k]) && Number(x[k]) >= 0)
+        && typeof x.positiveOnly === 'boolean';
+}
+/** Reject incompatible/malformed imports instead of trusting values from local storage. */
+function parseWorkspace(raw) {
+    if (raw.length > 3_000_000)
+        throw new Error('This backup is too large (maximum 3 MB).');
+    const w = JSON.parse(raw);
+    if (!isRecord(w) || w.version !== 1)
+        throw new Error('Choose a Haven workspace backup (version 1).');
+    if (!Array.isArray(w.customProperties) || w.customProperties.length > 500 || !w.customProperties.every(validProperty))
+        throw new Error('The backup contains invalid property data.');
+    const ids = w.customProperties.map(p => p.id);
+    if (new Set(ids).size !== ids.length || ids.some(id => id.startsWith('sample-')))
+        throw new Error('Custom property IDs must be unique and cannot use reserved sample IDs.');
+    for (const key of ['savedIds', 'compareIds']) {
+        if (!Array.isArray(w[key]) || w[key].length > 600 || !w[key].every(s => shortString(s, 150)))
+            throw new Error('The backup contains invalid saved properties.');
+    }
+    if (!isRecord(w.notes) || Object.keys(w.notes).length > 600 || !Object.entries(w.notes).every(([k, v]) => shortString(k, 150) && shortString(v, 10000) && !['__proto__', 'constructor', 'prototype'].includes(k)))
+        throw new Error('The backup contains invalid notes.');
+    if (!Array.isArray(w.searches) || w.searches.length > 50 || !w.searches.every(s => isRecord(s) && shortString(s.id, 150) && shortString(s.name, 100) && validFilters(s.filters)))
+        throw new Error('The backup contains invalid searches.');
+    if (!Array.isArray(w.scenarios) || w.scenarios.length > 100 || !w.scenarios.every(s => isRecord(s) && shortString(s.id, 150) && shortString(s.name, 100) && shortString(s.propertyId, 150) && typeof s.savedAt === 'number' && Number.isFinite(s.savedAt) && isRecord(s.assumptions) && validateAssumptions(s.assumptions).length === 0))
+        throw new Error('The backup contains invalid scenarios.');
+    if (ids.some(id => !/^custom-[A-Za-z0-9-]+$/.test(id)))
+        throw new Error('Custom property IDs must use the custom- prefix and letters, numbers, or hyphens.');
+    const result = w;
+    return { ...result, savedIds: [...new Set(result.savedIds)], compareIds: [...new Set(result.compareIds)].slice(0, 3), customProperties: result.customProperties.map(p => ({ ...p, custom: true })) };
+}
+function loadWorkspace() {
+    try {
+        const test = STORAGE_KEY + '.test';
+        localStorage.setItem(test, '1');
+        localStorage.removeItem(test);
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw)
+            return { workspace: freshWorkspace(), available: true, notice: '' };
+        try {
+            return { workspace: parseWorkspace(raw), available: true, notice: '' };
+        }
+        catch {
+            // Preserve a damaged entry for recovery before starting a new workspace.
+            localStorage.setItem(STORAGE_KEY + '.recovery', raw);
+            return { workspace: freshWorkspace(), available: true, notice: 'A saved workspace could not be read. A recovery copy was kept on this device; a new workspace is open.' };
+        }
+    }
+    catch {
+        return { workspace: freshWorkspace(), available: false, notice: 'Browser storage is unavailable. Changes last for this session only; export a backup to keep them.' };
+    }
+}
+function saveWorkspace(workspace) {
+    try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(workspace));
+        return true;
+    }
+    catch {
+        return false;
+    }
+}
+
+return {STORAGE_KEY,freshWorkspace,validProperty,validFilters,parseWorkspace,loadWorkspace,saveWorkspace};})();
+__modules["ui.js"]=(()=>{
+const escapeHTML = (value) => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const money = (n) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(Math.abs(n) < 0.5 ? 0 : n);
+const signedMoney = (n) => (n >= 0.5 ? '+' : '') + money(n);
+const percent = (n) => n === null ? 'N/A' : `${n.toFixed(1)}%`;
+const number = (n) => n.toLocaleString('en-US');
+const compact = (n) => n >= 1_000_000 ? `$${(n / 1_000_000).toFixed(1)}m` : `$${Math.round(n / 1000)}k`;
+const uid = () => typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function' ? crypto.randomUUID() : `local-${Date.now()}-${Math.random().toString(36).slice(2)}`;
+const paths = {
+    home: '<path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1Z"/>',
+    compass: '<circle cx="12" cy="12" r="9"/><path d="m16 8-2.5 5.5L8 16l2.5-5.5Z"/>',
+    heart: '<path d="M20.4 4.6a5.5 5.5 0 0 0-7.8 0l-.6.6-.6-.6a5.5 5.5 0 0 0-7.8 7.8L12 21l8.4-8.6a5.5 5.5 0 0 0 0-7.8Z"/>',
+    compare: '<rect x="3" y="4" width="7" height="16" rx="2"/><rect x="14" y="4" width="7" height="16" rx="2"/><path d="M6 9h1m10 0h1M6 13h1m10 0h1"/>',
+    calculator: '<rect x="5" y="2" width="14" height="20" rx="2"/><path d="M8 6h8M8 11h1m6 0h1m-8 4h1m6 0h1m-8 4h1m6 0h1"/>',
+    plus: '<path d="M12 5v14M5 12h14"/>',
+    search: '<circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/>',
+    chevron: '<path d="m9 5 7 7-7 7"/>',
+    down: '<path d="m6 9 6 6 6-6"/>',
+    arrow: '<path d="M4 12h16m-6-6 6 6-6 6"/>',
+    diagonal: '<path d="M6 18 18 6H7m11 0v11"/>',
+    pin: '<path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/>',
+    bed: '<path d="M3 18v3m18-3v3M3 18V8m18 10V8M3 14h18v4H3Z"/><path d="M5 14v-4h6v4m2 0v-4h6v4"/>',
+    bath: '<path d="M3 12h18l-1 5a3 3 0 0 1-3 2H7a3 3 0 0 1-3-2Zm3 7-1 2m13-2 1 2M5 12V5a2 2 0 0 1 4 0v1"/>',
+    area: '<rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 4v4m6-4v4M4 9h4m-4 6h4"/>',
+    grid: '<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>',
+    list: '<path d="M9 5h12M9 12h12M9 19h12M3 5h1m-1 7h1m-1 7h1"/>',
+    sliders: '<path d="M4 7h3m4 0h9M4 17h9m4 0h3"/><circle cx="9" cy="7" r="2"/><circle cx="15" cy="17" r="2"/>',
+    x: '<path d="m6 6 12 12M6 18 18 6"/>',
+    check: '<path d="m5 12 4 4L19 6"/>',
+    download: '<path d="M12 3v12m-4-4 4 4 4-4M4 16v5h16v-5"/>',
+    upload: '<path d="M12 16V4m-4 4 4-4 4 4M4 16v5h16v-5"/>',
+    info: '<circle cx="12" cy="12" r="9"/><path d="M12 11v6m0-10h.01"/>',
+    help: '<circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 4.2 1.8c-1.3.9-1.7 1.2-1.7 3.2m0 3h.01"/>',
+    folder: '<path d="M3 7V4h7l2 3h9v13H3Z"/>',
+    leaf: '<path d="M20 3S4 1 4 12a7 7 0 0 0 7 7C22 19 20 3 20 3Z"/><path d="m3 21 11-11"/>',
+    trend: '<path d="m3 17 6-6 4 4L21 7m-6 0h6v6"/>',
+    trash: '<path d="M3 6h18M9 6V3h6v3M5 6l1 15h12l1-15M10 10v7m4-7v7"/>',
+    menu: '<path d="M4 6h16M4 12h16M4 18h16"/>',
+    reset: '<path d="M3 10a9 9 0 1 1 2 8M3 4v6h6"/>',
+    lock: '<rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V6a4 4 0 0 1 8 0v4"/>',
+    spark: '<path d="m12 3 2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5Z"/>',
+    clock: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>'
+};
+function icon(name, cls = '') {
+    return `<svg class="icon ${cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths[name] || paths.home}</svg>`;
+}
+const artworkCache = new Map();
+/** Original lightweight architectural artwork: always available, including offline.
+ * Original twelve images are unchanged. New rows add type-specific facades.
+ */
+function houseArt(index, hero = false, type) {
+    index = Math.max(0, Math.floor(index));
+    const cacheKey = `${index}:${hero}:${type || ''}`;
+    const cached = artworkCache.get(cacheKey);
+    if (cached)
+        return cached;
+    const themes = [
+        ['#d9e1d5', '#d4d0bb', '#f3eee0', '#25473c', '#96a184'],
+        ['#e4ddce', '#bfbc9f', '#e9e5d7', '#3a4c46', '#9b9b75'],
+        ['#cedddc', '#b3c6b0', '#d9c3a0', '#2b4946', '#71918a'],
+        ['#e7e2d6', '#b4be9f', '#ede4d6', '#394d3d', '#8c9a71'],
+        ['#d8dedd', '#adbab0', '#e3e5df', '#37534e', '#839d94'],
+        ['#e8ded0', '#c5c3a4', '#efdebd', '#4e5141', '#9b9e79']
+    ];
+    const c = themes[index % themes.length];
+    const isModern = index % 3 === 0;
+    const condo = index >= 12 && type ? type === 'Condo' : index % 6 === 4;
+    const tree = (x, y, s) => `<g transform="translate(${x},${y}) scale(${s})"><path d="M0 0v95m0-47-18-17m18 1 16-18" stroke="#485647" stroke-width="4"/><ellipse cx="0" cy="-3" rx="34" ry="48" fill="${c[4]}"/><ellipse cx="-18" cy="5" rx="23" ry="30" fill="${c[3]}" opacity=".65"/></g>`;
+    const window = (x, y, w, h) => `<g><rect x="${x - 3}" y="${y - 3}" width="${w + 6}" height="${h + 6}" fill="${c[3]}"/><rect x="${x}" y="${y}" width="${w}" height="${h}" fill="#aec1b8"/><path d="m${x} ${y + h} ${w} -${h}" stroke="#dfe8db" stroke-width="${w / 2}" opacity=".4"/><path d="M${x + w / 2} ${y}v${h}" stroke="${c[3]}" stroke-width="3"/></g>`;
+    const townhouse = index >= 12 && type === 'Townhouse';
+    const duplex = index >= 12 && type === 'Duplex';
+    const ranch = index >= 12 && type === 'Single-family' && index % 2 === 1;
+    const house = townhouse ? `<path d="m438 118 53 31v149h-53Z" fill="#aab3a0"/>${[0, 1, 2].map(i => {
+        const x = 135 + i * 104;
+        return `<path d="M${x} 130l48-38 50 38v168h-98Z" fill="${i === 1 ? '#e2d9c2' : c[2]}"/><path d="m${x - 6} 134 54-47 55 47" fill="none" stroke="${c[3]}" stroke-width="9"/>${window(x + 24, 150, 49, 45)}${window(x + 14, 219, 32, 42)}<rect x="${x + 61}" y="218" width="25" height="80" fill="${c[3]}"/><path d="M${x + 5} 296h89" stroke="#999d88" stroke-width="8"/>`;
+    }).join('')}` : duplex ? `<path d="M140 181h310v117H140Z" fill="${c[2]}"/><path d="m450 181 45 22v95h-45Z" fill="#aab29c"/>${[0, 1].map(i => {
+        const x = 135 + i * 158;
+        return `<path d="M${x} 181l80-66 80 66" fill="${c[2]}"/><path d="m${x - 6} 181 86-73 87 73" fill="none" stroke="${c[3]}" stroke-width="10"/>${window(x + 19, 206, 57, 49)}<rect x="${x + 100}" y="210" width="30" height="88" fill="${c[3]}"/>${window(x + 64, 148, 30, 26)}`;
+    }).join('')}<path d="M295 183v115" stroke="#b8b69f" stroke-width="3"/>` : ranch ? `<rect x="134" y="190" width="316" height="108" fill="${c[2]}"/><path d="m450 190 47 23v85h-47Z" fill="#aab29c"/><path d="m113 196 106-69 249 49 43 35-61-12-231-50-85 57Z" fill="${c[3]}"/>${window(155, 217, 66, 53)}${window(329, 216, 95, 55)}<rect x="264" y="217" width="36" height="81" fill="${c[3]}"/><path d="M124 294h336" stroke="#aaa991" stroke-width="10"/>` : condo ? `<path d="M145 88 390 76 471 123v172H145Z" fill="${c[2]}"/><path d="m390 76 81 47v172h-81Z" fill="#aab6ae"/><rect x="135" y="81" width="263" height="12" fill="${c[3]}"/>${[0, 1, 2].map(row => [0, 1, 2].map(col => window(165 + col * 74, 110 + row * 58, 48, 38)).join('')).join('')}<rect x="313" y="247" width="42" height="50" fill="${c[3]}"/>` : isModern ? `<path d="M133 157h187V93h117v205H133Z" fill="${c[2]}"/><path d="m437 93 62 34v171h-62Z" fill="#a5afa0"/><path d="M122 152h205v13H122ZM310 87h137v13H310Z" fill="${c[3]}"/>${window(151, 189, 100, 79)}${window(343, 121, 71, 68)}${window(343, 216, 71, 70)}<rect x="273" y="213" width="40" height="85" fill="${c[3]}"/><path d="M275 164h39v34h-39Z" fill="#c2b397"/><path d="M290 164v34m14-34v34" stroke="#aa9e83" stroke-width="2"/><rect x="125" y="283" width="374" height="15" fill="#a2a28a"/>` : `<path d="M151 151 282 73 416 151v146H151Z" fill="${c[2]}"/><path d="m416 151 69 34v112h-69Z" fill="#abb09c"/><path d="m132 160 150-98 153 98-15 9-138-88-138 88Z" fill="${c[3]}"/><path d="m286 78 150 88 65 29-15-21L291 67Z" fill="${c[3]}" opacity=".9"/>${window(180, 182, 68, 63)}${window(325, 182, 61, 63)}${window(259, 117, 44, 35)}<rect x="268" y="209" width="38" height="89" fill="${c[3]}"/><circle cx="297" cy="254" r="2" fill="#decdad"/><rect x="132" y="284" width="292" height="14" fill="#aaa991"/>`;
+    const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="680" height="400" viewBox="0 0 680 400"><defs><linearGradient id="sky" x2="0" y2="1"><stop stop-color="${c[0]}"/><stop offset="1" stop-color="#f0eee2"/></linearGradient><pattern id="grain" width="7" height="7" patternUnits="userSpaceOnUse"><circle cx="1" cy="2" r=".7" fill="#fff" opacity=".14"/></pattern></defs><rect width="680" height="400" fill="url(#sky)"/><circle cx="548" cy="76" r="34" fill="#f5eed4" opacity=".8"/><path d="M0 240Q110 201 210 235T410 231T680 216V400H0Z" fill="${c[1]}"/><path d="M0 283Q185 242 365 294T680 263V400H0Z" fill="${c[4]}" opacity=".5"/>${tree(110, 161, .8)}${tree(550, 154, .8)}<ellipse cx="331" cy="319" rx="207" ry="25" fill="${c[3]}" opacity=".12"/>${house}<path d="m268 298 39 0 105 102H218Z" fill="#dad6c4"/><path d="M0 367q125-28 258 7L218 400H0Z" fill="${c[4]}"/>${tree(46, 188, 1.3)}${tree(631, 196, 1.4)}<g fill="${c[3]}"><ellipse cx="157" cy="295" rx="31" ry="18"/><ellipse cx="197" cy="298" rx="27" ry="14"/><ellipse cx="432" cy="299" rx="39" ry="17"/></g><path d="m465 345 56-12m-420 7 50 6" stroke="#f3edda" opacity=".7" stroke-width="2"/><rect width="680" height="400" fill="url(#grain)"/>${hero ? '<rect width="680" height="400" fill="#345443" opacity=".06"/>' : ''}</svg>`;
+    const result = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
+    if (artworkCache.size > 1024)
+        artworkCache.clear();
+    artworkCache.set(cacheKey, result);
+    return result;
+}
+function propertyImage(p, cls = '', hero = false) {
+    // Start with original local artwork. Optional photography is opt-in in About.
+    const usePhotos = document.documentElement.dataset.photos === 'true' && !!p.photo;
+    const artwork = houseArt(p.art, hero, p.type);
+    return `<img class="${cls}" src="${usePhotos ? escapeHTML(p.photo) : artwork}" data-fallback="${artwork}" alt="${usePhotos ? 'Illustrative house photograph; not the actual property' : 'Architectural illustration for ' + escapeHTML(p.name)}" ${hero ? '' : 'loading="lazy"'} width="680" height="400">`;
+}
+function toast(text, error = false) {
+    const dialog = document.querySelector('dialog[open]');
+    let host = document.getElementById('toast-host');
+    if (dialog) {
+        let inside = dialog.querySelector('.dialog-toast-host');
+        if (!inside) {
+            inside = document.createElement('div');
+            inside.className = 'dialog-toast-host';
+            inside.setAttribute('aria-live', 'polite');
+            dialog.append(inside);
+        }
+        host = inside;
+    }
+    const item = document.createElement('div');
+    item.className = `toast ${error ? 'error' : ''}`;
+    item.setAttribute('role', error ? 'alert' : 'status');
+    item.innerHTML = `${icon(error ? 'info' : 'check')}<span>${escapeHTML(text)}</span>`;
+    host.replaceChildren(item);
+    window.setTimeout(() => { if (item.isConnected)
+        item.remove(); }, 4500);
+}
+function downloadFile(filename, contents, type) {
+    const blob = new Blob([contents], { type });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    document.body.append(a);
+    a.click();
+    a.remove();
+    window.setTimeout(() => URL.revokeObjectURL(url), 10000);
+}
+function emptyState(title, message, action = 'clear-filters', label = 'Clear filters', symbol = 'search') {
+    return `<div class="empty-state"><div class="empty-art">${icon(symbol)}</div><h2>${escapeHTML(title)}</h2><p>${escapeHTML(message)}</p><button class="btn primary" data-action="${action}">${escapeHTML(label)}${icon('arrow')}</button></div>`;
+}
+function bindImageFallbacks() {
+    document.querySelectorAll('img[data-fallback]').forEach(img => {
+        img.onerror = () => { img.onerror = null; img.src = img.dataset.fallback; };
+    });
+}
+function updateNavCounts(state) {
+    for (const name of ['saved', 'compare']) {
+        document.querySelectorAll(`[data-count="${name}"]`).forEach(el => {
+            el.textContent = String(name === 'saved' ? state.workspace.savedIds.length : state.workspace.compareIds.length);
+        });
+    }
+}
+
+return {escapeHTML,money,signedMoney,percent,number,compact,uid,icon,houseArt,propertyImage,toast,downloadFile,emptyState,bindImageFallbacks,updateNavCounts};})();
+__modules["motion.js"]=(()=>{
+/** Small, progressive motion layer. No library, layout polling, or infinite loops.
+ * Content and actions still work without IntersectionObserver / Web Animations.
+ * Respect reduced motion both at startup and when the preference changes.
+ */
+const preference = window.matchMedia('(prefers-reduced-motion: reduce)');
+const ease = 'cubic-bezier(0.22, 1, 0.36, 1)';
+let cardObserver = null;
+const animations = new Set();
+function motionAllowed() { return !preference.matches; }
+function animate(el, frames, duration = 380, delay = 0) {
+    if (!el || !motionAllowed() || typeof el.animate !== 'function')
+        return;
+    const animation = el.animate(frames, { duration, delay, easing: ease, fill: 'backwards' });
+    animations.add(animation);
+    animation.finished.then(() => animations.delete(animation), () => animations.delete(animation));
+}
+/** Snapshot before a DOM update so saving a home does not replay every card. */
+function revealedCards() {
+    return new Set([...document.querySelectorAll('.property-card[data-revealed="true"]')].map(el => el.dataset.property));
+}
+function reveal(card, delay = 0) {
+    card.classList.remove('reveal-pending');
+    card.dataset.revealed = 'true';
+    cardObserver?.unobserve(card);
+    animate(card, [{ opacity: 0, transform: 'translateY(14px)' }, { opacity: 1, transform: 'translateY(0)' }], 440, delay);
+}
+function bindCardMotion(keep = new Set()) {
+    cardObserver?.disconnect();
+    cardObserver = null;
+    // Dispose animations belonging to nodes replaced by a filter or a navigation.
+    for (const animation of animations) {
+        const target = animation.effect?.target;
+        if (target && !target.isConnected)
+            animation.cancel();
+    }
+    const cards = [...document.querySelectorAll('.property-card')];
+    if (!motionAllowed() || typeof IntersectionObserver === 'undefined') {
+        cards.forEach(card => { card.classList.remove('reveal-pending'); card.dataset.revealed = 'true'; });
+        return;
+    }
+    cardObserver = new IntersectionObserver(entries => {
+        let order = 0;
+        for (const entry of entries) {
+            if (entry.isIntersecting)
+                reveal(entry.target, Math.min(order++ * 45, 135));
+        }
+    }, { rootMargin: '0px 0px 24px 0px', threshold: 0.02 });
+    for (const card of cards) {
+        if (keep.has(card.dataset.property)) {
+            card.classList.remove('reveal-pending');
+            card.dataset.revealed = 'true';
+        }
+        else {
+            card.classList.add('reveal-pending');
+            cardObserver.observe(card);
+        }
+    }
+}
+function pageMotion() {
+    const hero = document.querySelector('.hero');
+    if (hero) {
+        animate(hero.querySelector('.hero-copy'), [{ opacity: 0, transform: 'translateY(10px)' }, { opacity: 1, transform: 'translateY(0)' }], 560);
+        animate(hero.querySelector('.hero-visual'), [{ opacity: 0.45, transform: 'scale(1.025)' }, { opacity: 1, transform: 'scale(1)' }], 720, 50);
+        animate(hero.querySelector('.hero-stamp'), [{ opacity: 0, transform: 'rotate(3deg) scale(.94)' }, { opacity: 1, transform: 'rotate(12deg) scale(1)' }], 620, 180);
+        animate(document.querySelector('.stats-row'), [{ opacity: 0, transform: 'translateY(8px)' }, { opacity: 1, transform: 'translateY(0)' }], 460, 100);
+    }
+    else {
+        const main = document.querySelector('main');
+        if (main)
+            [...main.children].slice(0, 5).forEach((el, i) => animate(el, [{ opacity: 0, transform: 'translateY(8px)' }, { opacity: 1, transform: 'translateY(0)' }], 340, Math.min(i * 35, 100)));
+    }
+}
+function dialogMotion(dialog) {
+    animate(dialog, [{ opacity: 0, transform: 'translateY(10px) scale(.985)' }, { opacity: 1, transform: 'translateY(0) scale(1)' }], 300);
+}
+function trayMotion() {
+    animate(document.querySelector('.compare-tray'), [{ opacity: 0, transform: 'translate(-50%, 12px)' }, { opacity: 1, transform: 'translate(-50%, 0)' }], 320);
+}
+function favoriteMotion(id) {
+    const card = [...document.querySelectorAll('.property-card')].find(el => el.dataset.property === id);
+    animate(card?.querySelector('.save-button .icon') ?? null, [{ transform: 'scale(.85)' }, { transform: 'scale(1.22)', offset: .48 }, { transform: 'scale(1)' }], 320);
+    animate(document.querySelector('.nav-count[data-count="saved"]'), [{ transform: 'scale(.9)' }, { transform: 'scale(1.12)', offset: .5 }, { transform: 'scale(1)' }], 300);
+}
+function filterMotion() {
+    animate(document.querySelector('.extra-filters'), [{ opacity: 0, transform: 'translateY(-5px)' }, { opacity: 1, transform: 'translateY(0)' }], 260);
+}
+// Keyboard users never focus a visually hidden card. Revealing must not wait
+// for scrolling or for the observer callback to run.
+document.addEventListener('focusin', event => {
+    const card = event.target instanceof Element ? event.target.closest('.reveal-pending') : null;
+    if (card) {
+        card.classList.remove('reveal-pending');
+        card.dataset.revealed = 'true';
+        cardObserver?.unobserve(card);
+    }
+});
+preference.addEventListener('change', () => {
+    if (!preference.matches)
+        return;
+    cardObserver?.disconnect();
+    document.querySelectorAll('.reveal-pending').forEach(card => { card.classList.remove('reveal-pending'); card.dataset.revealed = 'true'; });
+    for (const animation of animations)
+        animation.cancel();
+});
+
+return {motionAllowed,revealedCards,bindCardMotion,pageMotion,dialogMotion,trayMotion,favoriteMotion,filterMotion};})();
+__modules["views.js"]=(()=>{
+const { seedProperties } = __modules["data.js"];
+const { calculate, defaultAssumptions, filterProperties, median } = __modules["finance.js"];
+const { escapeHTML: e, money, signedMoney, number, percent, icon, propertyImage, emptyState } = __modules["ui.js"];
+const PAGE_SIZE = 12;
+const allProperties = (s) => [...s.workspace.customProperties, ...seedProperties];
+const findProperty = (s, id) => allProperties(s).find(p => p.id === id);
+const pageNames = { discover: 'Discover', saved: 'Saved homes', compare: 'Compare', calculator: 'Deal calculator', custom: 'My properties' };
+function shell(s, content) {
+    const nav = (page, symbol, count = '') => `<button class="nav-item ${s.page === page ? 'active' : ''}" data-action="navigate" data-page="${page}" ${s.page === page ? 'aria-current="page"' : ''}>${icon(symbol)}<span>${pageNames[page]}</span>${count ? `<span class="nav-count" data-count="${count}">${count === 'saved' ? s.workspace.savedIds.length : s.workspace.compareIds.length}</span>` : ''}</button>`;
+    return `<a class="skip-link" href="#main">Skip to content</a><div class="sidebar-backdrop" data-action="close-menu"></div><aside class="sidebar" aria-label="Main navigation"><button class="brand" data-action="navigate" data-page="discover" aria-label="Haven home"><svg viewBox="0 0 36 40" aria-hidden="true"><path d="M3 21 18 6l15 15v16H21V23h-6v14H3Z" fill="currentColor"/><path d="m5 13 13-13 13 13" fill="none" stroke="currentColor" stroke-width="3"/></svg><span>haven<span class="brand-dot">.</span></span></button><div class="sidebar-kicker">A PLACE TO SEE THE POTENTIAL</div><div class="nav-label">YOUR NEXT MOVE</div><nav>${nav('discover', 'compass')}${nav('saved', 'heart', 'saved')}${nav('compare', 'compare', 'compare')}${nav('calculator', 'calculator')}</nav><div class="nav-divider"></div><div class="nav-label">WORKSPACE</div><nav>${nav('custom', 'folder')}<button class="nav-item" data-action="about">${icon('help')}<span>About this project</span></button></nav><div class="sidebar-bottom"><div class="sidebar-note"><span class="note-symbol">${icon('leaf')}</span><h3>A little clarity.<br>A better investment.</h3><p>Look beyond the listing.<br>Make the numbers your own.</p><button data-action="navigate" data-page="calculator">Run the numbers ${icon('arrow')}</button></div><button class="workspace-button" data-action="workspace"><span class="avatar">H</span><span><strong>Your workspace</strong><small>${s.storageAvailable ? 'Saved on this device' : 'Session-only mode'}</small></span>${icon('down')}</button></div></aside><div class="app-body"><header class="topbar"><div class="breadcrumb"><button class="icon-button mobile-menu" data-action="menu" aria-label="Open navigation">${icon('menu')}</button>${icon('home')}<span>Workspace</span>${icon('chevron')}<strong>${pageNames[s.page]}</strong></div><div class="topbar-actions"><button class="demo-pill" data-action="about"><span></span>Demo workspace</button><button class="btn small" data-action="add-property">${icon('plus')}<span>Add property</span></button></div></header><main id="main" tabindex="-1">${s.storageNotice ? `<div class="notice warning">${icon('info')}<span>${e(s.storageNotice)}</span><button class="text-button" data-action="export-backup">Export backup</button></div>` : ''}${content}</main><footer class="app-footer"><span><strong>haven.</strong> A little more perspective.</span><button data-action="about">Fictional listings. Transparent assumptions. ${icon('diagonal')}</button></footer></div>${compareTray(s)}`;
+}
+function compareTray(s) {
+    const chosen = s.workspace.compareIds.map(id => findProperty(s, id)).filter((p) => !!p);
+    if (!chosen.length || !['discover', 'saved', 'custom'].includes(s.page))
+        return '<div id="compare-tray"></div>';
+    return `<div id="compare-tray" class="compare-tray"><div class="tray-leading">${icon('compare')}<strong>${chosen.length}<span class="desktop-inline"> of 3 selected</span></strong></div><div class="tray-properties">${chosen.map(p => `<span>${e(p.name)}<button data-action="compare-toggle" data-id="${e(p.id)}" aria-label="Remove ${e(p.name)} from comparison">${icon('x')}</button></span>`).join('')}</div><button class="text-button" data-action="clear-compare">Clear</button><button class="btn primary small" data-action="navigate" data-page="compare">Compare homes ${icon('arrow')}</button></div>`;
+}
+function browseView(s) {
+    const source = browseSource(s);
+    const home = s.page === 'discover';
+    const title = s.page === 'saved' ? 'Good finds. Kept close.' : 'Your properties. Your perspective.';
+    const subtitle = s.page === 'saved' ? 'A little less searching. A little more seeing the possibilities.' : 'Bring your own numbers and give every opportunity a closer look.';
+    const hero = home ? `<section class="hero"><div class="hero-copy"><span class="eyebrow"><span></span>FIND YOUR NEXT CHAPTER</span><h1>Good places.<br><em>Better possibilities.</em></h1><p>Discover homes. Compare the numbers.<br>Find the potential that feels right for you.</p><a class="hero-link" href="#explore">Take a look around ${icon('arrow')}</a></div><div class="hero-visual">${propertyImage(seedProperties[0], 'hero-image', true)}<div class="hero-stamp">A FRESH<br><span>perspective</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 0v20M0 10h20M3 3l14 14M3 17 17 3" stroke="currentColor"/></svg></div><span class="image-credit">A little room to think bigger.</span></div></section><section class="stats-row" aria-label="Workspace overview"><div><span class="stat-icon">${icon('home')}</span><span><strong id="stat-properties">${source.length}</strong><small>places to explore</small></span></div><div><span class="stat-icon">${icon('pin')}</span><span><strong>${new Set(source.map(p => p.city)).size}</strong><small>cities in this workspace</small></span></div><div><span class="stat-icon">${icon('trend')}</span><span><strong>${money(median(source.map(p => p.price)))}</strong><small>median sample price</small></span></div><div><span class="stat-icon">${icon('heart')}</span><span><strong data-count="saved">${s.workspace.savedIds.length}</strong><small>saved for a closer look</small></span></div></section>` : `<section class="page-intro"><span class="eyebrow">${s.page === 'saved' ? 'YOUR SHORTLIST' : 'YOUR WORKSPACE'}</span><h1>${title}</h1><p>${subtitle}</p></section>`;
+    if (!source.length && !home)
+        return hero + (s.page === 'saved' ? emptyState('Your next great find belongs here.', 'Tap the heart on any property to keep it close. Your shortlist stays on this device.', 'discover', 'Explore properties', 'heart') : emptyState('Give a property a closer look.', 'Add a property, enter your own assumptions, and compare it with the rest of your shortlist.', 'add-property', 'Add your first property', 'home'));
+    return `${hero}<section class="explore-section" id="explore"><div class="section-heading"><div><h2>${home ? 'A place for your next move' : s.page === 'saved' ? 'The ones worth another look' : 'Your property collection'}</h2><p id="result-summary" aria-live="polite">${filterProperties(source, s.filters, s.sort).length} properties<span> · ${s.page === 'custom' ? 'Your own property data' : 'Fictional listings for exploring the app'}</span></p></div><button class="text-button" data-action="save-search">${icon('plus')}Save search</button></div>${filterBar(s, source)}${savedSearches(s)}<div class="browse-toolbar"><div class="type-tabs" role="group" aria-label="Property type">${['', 'Single-family', 'Condo', 'Townhouse', 'Duplex'].map(type => `<button class="${s.filters.type === type ? 'selected' : ''}" data-action="type-filter" data-type="${type}" aria-pressed="${s.filters.type === type}">${type || 'All homes'}</button>`).join('')}</div><div class="view-controls"><label class="sort-label"><span class="sr-only">Sort properties</span><select id="sort-select">${[['featured', 'Recently added'], ['price-asc', 'Price: low to high'], ['price-desc', 'Price: high to low'], ['cashflow', 'Cash flow: high to low'], ['caprate', 'Cap rate: high to low']].map(([value, label]) => `<option value="${value}" ${s.sort === value ? 'selected' : ''}>${label}</option>`).join('')}</select></label><div class="view-toggle"><button class="${s.layout === 'grid' ? 'active' : ''}" data-action="layout" data-layout="grid" aria-label="Grid view" aria-pressed="${s.layout === 'grid'}">${icon('grid')}</button><button class="${s.layout === 'list' ? 'active' : ''}" data-action="layout" data-layout="list" aria-label="List view" aria-pressed="${s.layout === 'list'}">${icon('list')}</button></div></div></div><div id="property-results">${propertyResults(s)}</div><p class="assumption-footnote">${icon('info')}Cash flow uses a sample 20% down payment, 6.5% interest rate, and 30-year loan. Not a live rate or a forecast.<button data-action="about">See the assumptions ${icon('diagonal')}</button></p></section>`;
+}
+function browseSource(s) {
+    const all = allProperties(s);
+    return s.page === 'saved' ? all.filter(p => s.workspace.savedIds.includes(p.id)) : s.page === 'custom' ? s.workspace.customProperties : all;
+}
+function filterBar(s, source) {
+    const cities = [...new Set(source.map(p => p.city))].sort();
+    const active = !!s.filters.query || !!s.filters.city || !!s.filters.type || !!s.filters.maxPrice || !!s.filters.minBeds || !!s.filters.minSqft || s.filters.positiveOnly;
+    return `<div class="filter-bar"><label class="search-field">${icon('search')}<input id="property-search" type="search" placeholder="City, neighborhood, or address" value="${e(s.filters.query)}" maxlength="200" aria-label="Search properties"></label><label class="filter-select">${icon('pin')}<span class="sr-only">Filter city</span><select data-filter="city" aria-label="Filter city"><option value="">All cities</option>${cities.map(city => `<option ${s.filters.city === city ? 'selected' : ''}>${e(city)}</option>`).join('')}</select></label><label class="filter-select"><span class="sr-only">Maximum price</span><select data-filter="maxPrice" aria-label="Maximum price">${[[0, 'Any price'], [250000, 'Up to $250k'], [350000, 'Up to $350k'], [450000, 'Up to $450k'], [600000, 'Up to $600k'], [800000, 'Up to $800k'], [1000000, 'Up to $1m']].map(([v, label]) => `<option value="${v}" ${s.filters.maxPrice === v ? 'selected' : ''}>${label}</option>`).join('')}</select></label><label class="filter-select"><span class="sr-only">Minimum bedrooms</span><select data-filter="minBeds" aria-label="Minimum bedrooms">${[[0, 'Any beds'], [1, '1+ beds'], [2, '2+ beds'], [3, '3+ beds'], [4, '4+ beds']].map(([v, label]) => `<option value="${v}" ${s.filters.minBeds === v ? 'selected' : ''}>${label}</option>`).join('')}</select></label><button class="btn filter-button ${s.moreFilters ? 'is-on' : ''}" data-action="more-filters" aria-expanded="${s.moreFilters}" aria-controls="extra-filters">${icon('sliders')}Filters${s.filters.positiveOnly || s.filters.minSqft ? '<span class="small-dot"></span>' : ''}</button></div>${s.moreFilters ? `<div id="extra-filters" class="extra-filters"><label>Minimum area<select data-filter="minSqft" aria-label="Minimum area">${[[0, 'Any size'], [1000, '1,000+ sq ft'], [1500, '1,500+ sq ft'], [2000, '2,000+ sq ft']].map(([v, label]) => `<option value="${v}" ${s.filters.minSqft === v ? 'selected' : ''}>${label}</option>`).join('')}</select></label><label class="checkbox-label"><input type="checkbox" data-filter="positiveOnly" ${s.filters.positiveOnly ? 'checked' : ''}><span>Nonnegative modelled cash flow<small>Under the sample assumptions</small></span></label><button class="text-button" data-action="clear-filters">Reset all filters</button></div>` : ''}${active ? `<div class="active-filter-note">${icon('sliders')}Showing your filtered matches<button data-action="clear-filters">Clear all ${icon('x')}</button></div>` : ''}`;
+}
+function savedSearches(s) {
+    return s.workspace.searches.length ? `<div class="saved-searches"><span>${icon('clock')}Saved searches</span>${s.workspace.searches.map(search => `<div><button data-action="load-search" data-id="${e(search.id)}">${e(search.name)}</button><button data-action="delete-search" data-id="${e(search.id)}" aria-label="Delete search ${e(search.name)}">${icon('x')}</button></div>`).join('')}</div>` : '';
+}
+/** Filter and sort the entire collection before taking a visible slice. */
+function propertyResults(s) {
+    const result = filterProperties(browseSource(s), s.filters, s.sort);
+    return result.length ? `<div class="property-grid ${s.layout === 'list' ? 'list-layout' : ''}">${result.slice(0, s.visibleCount).map(p => propertyCard(p, s)).join('')}</div>${resultsPagination(s)}` : emptyState('Nothing here. Yet.', 'Try a different city or loosen a filter. A good match may be just one search away.');
+}
+function resultsPagination(s) {
+    const total = filterProperties(browseSource(s), s.filters, s.sort).length;
+    const shown = Math.min(s.visibleCount, total);
+    if (!total)
+        return '';
+    const more = shown < total;
+    return `<div class="results-pagination" id="results-pagination"><p aria-live="polite">Showing <strong>${shown}</strong> of <strong>${total}</strong> ${total === 1 ? 'place' : 'places'}${more ? '' : ' · You’re all caught up.'}</p>${total > PAGE_SIZE ? `<div class="results-progress" aria-hidden="true"><span style="width:${shown / total * 100}%"></span></div>` : ''}${more ? `<button class="btn load-more-button" data-action="load-more">Show ${Math.min(PAGE_SIZE, total - shown)} more places ${icon('down')}</button>` : ''}</div>`;
+}
+function propertyCard(p, s) {
+    const saved = s.workspace.savedIds.includes(p.id), compared = s.workspace.compareIds.includes(p.id);
+    const m = calculate(defaultAssumptions(p));
+    return `<article class="property-card" data-property="${e(p.id)}"><div class="property-media"><button class="image-link" data-action="details" data-id="${e(p.id)}" aria-label="View ${e(p.name)}">${propertyImage(p)}</button><span class="property-type">${e(p.type)}</span><button class="save-button ${saved ? 'is-saved' : ''}" data-action="save-toggle" data-id="${e(p.id)}" aria-label="${saved ? 'Unsave' : 'Save'} ${e(p.name)}" aria-pressed="${saved}">${icon('heart')}</button>${p.custom ? '<span class="user-property-badge">Your property</span>' : ''}</div><div class="property-body"><div class="property-price-row"><strong>${money(p.price)}</strong><span class="property-status"><span></span>${p.custom ? 'Your entry' : 'Sample listing'}</span></div><button class="property-title" data-action="details" data-id="${e(p.id)}">${e(p.name)}</button><p class="property-location">${e(p.neighborhood)} · ${e(p.city)}, ${e(p.state)}</p><div class="property-specs"><span>${icon('bed')}<strong>${p.beds}</strong> beds</span><span>${icon('bath')}<strong>${p.baths}</strong> baths</span><span>${icon('area')}<strong>${number(p.sqft)}</strong> sq ft</span></div><div class="property-numbers"><div><span>${p.custom ? 'Monthly rent input' : 'Sample monthly rent'}</span><strong>${money(p.rent)}<small>/mo</small></strong></div><div><span>Modelled cash flow</span><strong class="${m.cashflow >= 0 ? 'positive' : 'negative'}">${signedMoney(m.cashflow)}<small>/mo</small></strong></div></div><div class="card-actions"><button class="compare-button ${compared ? 'is-compared' : ''}" data-action="compare-toggle" data-id="${e(p.id)}" aria-pressed="${compared}">${icon(compared ? 'check' : 'plus')}<span>${compared ? 'Added to compare' : 'Compare'}</span></button><button class="analyze-button" data-action="analyze" data-id="${e(p.id)}">Run the numbers ${icon('arrow')}</button></div></div></article>`;
+}
+function compareView(s) {
+    const properties = s.workspace.compareIds.map(id => findProperty(s, id)).filter((p) => !!p);
+    const intro = `<section class="page-intro"><span class="eyebrow">A LITTLE PERSPECTIVE</span><div class="intro-actions"><div><h1>Side by side. Clearer by far.</h1><p>Same assumptions. Different possibilities. Compare up to three properties.</p></div>${properties.length ? '<button class="btn" data-action="export-comparison">' + icon('download') + 'Export comparison</button>' : ''}</div></section>`;
+    if (!properties.length)
+        return intro + emptyState('Find a few worth comparing.', 'Add properties using the Compare button on any listing, then see the whole picture here.', 'discover', 'Find properties', 'compare');
+    const metrics = properties.map(p => calculate(defaultAssumptions(p)));
+    const row = (label, values, cls = '') => `<tr class="${cls}"><th scope="row">${label}</th>${values.map(value => `<td>${value}</td>`).join('')}</tr>`;
+    return `${intro}<div class="notice">${icon('info')}<span>All properties use 20% down, 6.5% interest, 30 years, and the same operating-cost percentages. Open the calculator to customize a scenario.</span></div><div class="comparison-scroll"><table class="comparison-table"><caption class="sr-only">Property comparison using shared sample assumptions</caption><thead><tr><th scope="col" class="comparison-label"><span>${properties.length} / 3</span><h3>A closer look.</h3><p>No mystery scores.<br>Just the numbers.</p>${properties.length < 3 ? `<button class="btn small" data-action="discover">${icon('plus')}Add a property</button>` : ''}</th>${properties.map(p => `<th scope="col"><div class="compare-image">${propertyImage(p)}<button class="icon-button" data-action="compare-toggle" data-id="${e(p.id)}" aria-label="Remove ${e(p.name)} from comparison">${icon('x')}</button></div><h3>${e(p.name)}</h3><p>${e(p.city)}, ${e(p.state)}</p><strong class="compare-price">${money(p.price)}</strong></th>`).join('')}</tr></thead><tbody>${row('The property', properties.map(() => ''), 'table-section')}${row('Property type', properties.map(p => e(p.type)))}${row('Bedrooms / bathrooms', properties.map(p => `${p.beds} beds · ${p.baths} baths`))}${row('Interior area', properties.map(p => `${number(p.sqft)} sq ft`))}${row('Price per square foot', properties.map(p => money(p.price / p.sqft)))}${row('Built in', properties.map(p => String(p.yearBuilt)))}${row('Monthly model', properties.map(() => ''), 'table-section')}${row('Gross rent', properties.map(p => money(p.rent)))}${row('Vacancy allowance', metrics.map(m => money(m.vacancy)))}${row('Operating expenses', metrics.map(m => money(m.operatingExpenses)))}${row('Principal & interest', metrics.map(m => money(m.mortgage)))}${row('Capital reserve', metrics.map(m => money(m.capex)))}${row('Cash flow / month', metrics.map(m => `<strong class="${m.cashflow >= 0 ? 'positive' : 'negative'}">${signedMoney(m.cashflow)}</strong>`), 'highlight-row')}${row('The bigger picture', properties.map(() => ''), 'table-section')}${row('Annual net operating income', metrics.map(m => money(m.noiMonthly * 12)))}${row('Cap rate', metrics.map(m => percent(m.capRate)))}${row('Initial cash invested', metrics.map(m => money(m.cashInvested)))}${row('Cash-on-cash return', metrics.map(m => percent(m.cashOnCash)))}${row('', properties.map(p => `<button class="btn primary small" data-action="analyze" data-id="${e(p.id)}">Explore scenario ${icon('arrow')}</button>`))}</tbody></table></div><p class="small-print">Fictional sample data or your own entries, not valuations or lending quotes. Cash flow is before income tax and does not model appreciation, tax benefits, selling costs, or rent growth.</p>`;
+}
+function detailView(p, s) {
+    const m = calculate(defaultAssumptions(p));
+    const saved = s.workspace.savedIds.includes(p.id);
+    return `<div class="detail-image">${propertyImage(p)}</div><div class="detail-content"><div class="detail-top"><div><span class="eyebrow">${e(p.type)} · ${p.custom ? 'YOUR PROPERTY' : 'FICTIONAL SAMPLE'}</span><h2 id="dialog-title">${e(p.name)}</h2><p>${e(p.address)} · ${e(p.city)}, ${e(p.state)}</p></div><strong>${money(p.price)}</strong></div><div class="detail-specs"><span>${icon('bed')}${p.beds} bedrooms</span><span>${icon('bath')}${p.baths} bathrooms</span><span>${icon('area')}${number(p.sqft)} sq ft</span><span>${icon('home')}Built ${p.yearBuilt}</span></div><p class="detail-description">${e(p.description)}</p><div class="feature-tags">${p.tags.map(t => `<span>${icon('check')}${e(t)}</span>`).join('')}</div><div class="detail-finance"><div><small>Monthly rent input</small><strong>${money(p.rent)}</strong></div><div><small>Modelled cash flow</small><strong class="${m.cashflow >= 0 ? 'positive' : 'negative'}">${signedMoney(m.cashflow)}</strong></div><div><small>Modelled cap rate</small><strong>${percent(m.capRate)}</strong></div></div><p class="small-print">20% down · 6.5% sample interest rate · 30-year loan. All amounts are illustrative. ${p.type === 'Duplex' ? 'Rent includes both units.' : ''}</p><label class="notes-label" for="property-notes">Your notes<span>A place for questions, ideas, and things to check.</span></label><textarea id="property-notes" maxlength="10000" rows="3" placeholder="What stands out? What needs a closer look?">${e(s.workspace.notes[p.id] || '')}</textarea><div class="notes-actions"><span>Private to this browser.</span><button class="text-button" data-action="save-note" data-id="${e(p.id)}">Save note ${icon('check')}</button></div><div class="detail-actions"><button class="btn ${saved ? 'is-on' : ''}" data-action="save-toggle" data-id="${e(p.id)}">${icon('heart')}${saved ? 'Saved' : 'Save property'}</button>${p.custom ? `<button class="btn" data-action="edit-property" data-id="${e(p.id)}">Edit</button><button class="icon-button danger" data-action="delete-property" data-id="${e(p.id)}" aria-label="Delete property">${icon('trash')}</button>` : ''}<button class="btn primary" data-action="analyze" data-id="${e(p.id)}">Run the numbers ${icon('arrow')}</button></div></div>`;
+}
+function propertyForm(p) {
+    const field = (name, label, value = '', type = 'text', extras = '') => `<label class="form-field"><span>${label}</span><input name="${name}" type="${type}" value="${e(value)}" ${extras}></label>`;
+    return `<form id="property-form" data-id="${e(p?.id || '')}"><div class="modal-heading"><span class="eyebrow">YOUR OWN OPPORTUNITY</span><h2 id="dialog-title">${p ? 'A few refinements.' : 'Make room for a new find.'}</h2><p>Add the details you know. You can change every assumption later.</p></div><div class="form-grid">${field('name', 'Property name', p?.name, 'text', 'required maxlength="100" placeholder="e.g. The Oak House"')}${field('address', 'Street address', p?.address, 'text', 'required maxlength="160" placeholder="123 Oak Lane"')}${field('city', 'City', p?.city, 'text', 'required maxlength="100" placeholder="Lincoln"')}${field('state', 'State abbreviation', p?.state, 'text', 'required minlength="2" maxlength="2" pattern="[A-Za-z]{2}" placeholder="NE"')}${field('neighborhood', 'Neighborhood (optional)', p?.neighborhood, 'text', 'maxlength="100"')}<label class="form-field"><span>Property type</span><select name="type">${['Single-family', 'Condo', 'Townhouse', 'Duplex'].map(t => `<option ${p?.type === t ? 'selected' : ''}>${t}</option>`).join('')}</select></label>${field('price', 'Asking price ($)', p?.price ?? 300000, 'number', 'required min="1" max="100000000" step="0.01"')}${field('rent', 'Gross monthly rent ($)', p?.rent ?? 2500, 'number', 'required min="0" max="1000000" step="0.01"')}${field('beds', 'Bedrooms', p?.beds ?? 3, 'number', 'required min="0" max="100" step="1"')}${field('baths', 'Bathrooms', p?.baths ?? 2, 'number', 'required min="0" max="100" step="0.5"')}${field('sqft', 'Area (sq ft)', p?.sqft ?? 1600, 'number', 'required min="1" max="1000000" step="1"')}${field('yearBuilt', 'Year built', p?.yearBuilt ?? 2000, 'number', 'required min="1700" max="2200" step="1"')}${field('taxAnnual', 'Annual property tax ($)', p?.taxAnnual ?? 3600, 'number', 'required min="0" max="1000000" step="0.01"')}${field('insuranceMonthly', 'Monthly insurance ($)', p?.insuranceMonthly ?? 125, 'number', 'required min="0" max="100000" step="0.01"')}${field('hoaMonthly', 'Monthly HOA ($)', p?.hoaMonthly ?? 0, 'number', 'required min="0" max="100000" step="0.01"')}<label class="form-field span-2"><span>What should you know? (optional)</span><textarea name="description" rows="3" maxlength="3000" placeholder="Describe the property or the opportunity…">${e(p?.description || '')}</textarea></label></div><p class="small-print">These are your inputs, not verified listing data. For a duplex, use the combined rent of both units.</p><div id="property-form-error" class="form-error" role="alert"></div><div class="modal-actions"><button type="button" class="btn" data-action="close-dialog">Cancel</button><button type="submit" class="btn primary">${p ? 'Save changes' : 'Add property'}${icon('arrow')}</button></div></form>`;
+}
+function modelAssumptionsRows(a) {
+    return [
+        ['Purchase price ($)', a.price], ['Down payment (%)', a.downPercent], ['Interest rate (%)', a.interestRate], ['Loan term (years)', a.years],
+        ['Gross monthly rent ($)', a.rent], ['Property taxes ($/year)', a.taxAnnual], ['Property insurance ($/month)', a.insuranceMonthly],
+        ['HOA ($/month)', a.hoaMonthly], ['Vacancy (% of gross rent)', a.vacancyPercent], ['Maintenance (% of gross rent)', a.maintenancePercent],
+        ['Management (% of collected rent)', a.managementPercent], ['Capital reserve (% of gross rent)', a.capexPercent],
+        ['Closing costs (% of price)', a.closingPercent], ['Initial repairs ($)', a.initialRepairs], ['Mortgage insurance ($/month; ignored if all cash)', a.mortgageInsuranceMonthly]
+    ];
+}
+
+return {PAGE_SIZE,allProperties,findProperty,pageNames,shell,compareTray,browseView,browseSource,propertyResults,resultsPagination,propertyCard,compareView,detailView,propertyForm,modelAssumptionsRows};})();
+__modules["calculator.js"]=(()=>{
+const { calculate, amortization, inputRules } = __modules["finance.js"];
+const { money, signedMoney, percent, icon, escapeHTML: e } = __modules["ui.js"];
+const { allProperties, findProperty } = __modules["views.js"];
+function calculatorView(s) {
+    const a = s.assumptions;
+    const field = (key, label, unit, step = 'any') => `<label class="calc-field"><span>${label}</span><span class="input-unit ${unit === '$' ? 'prefix' : ''}">${unit === '$' ? '<b>$</b>' : ''}<input data-calc="${key}" id="calc-${key}" type="number" min="${inputRules[key].min}" max="${inputRules[key].max}" step="${step}" required value="${a[key]}" aria-label="${label}" ${key === 'interestRate' ? 'aria-describedby="rate-note"' : ''}>${unit !== '$' ? `<b>${unit}</b>` : ''}</span></label>`;
+    return `<section class="page-intro"><span class="eyebrow">LOOK BEYOND THE ASKING PRICE</span><div class="intro-actions"><div><h1>See what the numbers say.</h1><p>A little less guesswork. A little more perspective.</p></div><button class="btn" data-action="export-report" data-requires-valid>${icon('download')}Export report</button></div></section><div class="calculator-context"><span class="context-icon">${icon('home')}</span><label><span>EXPLORING A SCENARIO FOR</span><select id="calculator-property" aria-label="Property to analyze">${allProperties(s).map(p => `<option value="${e(p.id)}" ${s.calculatorPropertyId === p.id ? 'selected' : ''}>${e(p.name)} · ${e(p.city)}</option>`).join('')}</select></label><button class="text-button" data-action="details" data-id="${e(s.calculatorPropertyId)}">View property ${icon('diagonal')}</button></div><div class="calculator-layout"><div class="calculator-inputs"><section class="panel"><div class="panel-heading"><h2>Your assumptions</h2><button class="text-button" data-action="reset-calculator">${icon('reset')}Reset</button></div><p class="panel-description">Change an input. The whole picture updates.</p><div class="scenario-shortcuts"><button data-action="shortcut" data-kind="standard">20% down</button><button data-action="shortcut" data-kind="cash">All cash</button><button data-action="shortcut" data-kind="self">Self-managed</button></div><h3 class="form-section-title">01 <span>Purchase & financing</span></h3><div class="calc-fields">${field('price', 'Purchase price', '$')}${field('downPercent', 'Down payment', '%')}${field('interestRate', 'Annual interest rate', '%')}${field('years', 'Loan term', 'years', '1')}</div><p id="rate-note" class="field-note">6.5% is an illustrative input, not a current lending quote.</p><h3 class="form-section-title">02 <span>Income & everyday costs</span></h3><div class="calc-fields">${field('rent', 'Gross monthly rent', '$')}${field('taxAnnual', 'Annual property taxes', '$')}${field('insuranceMonthly', 'Monthly property insurance', '$')}${field('hoaMonthly', 'Monthly HOA fees', '$')}</div><details class="advanced-assumptions"><summary>${icon('sliders')}The details that matter ${icon('down')}</summary><p>Percentages below are applied to gross rent, except management, which uses rent after vacancy.</p><div class="calc-fields">${field('vacancyPercent', 'Vacancy allowance', '%')}${field('maintenancePercent', 'Maintenance allowance', '%')}${field('managementPercent', 'Management fee', '%')}${field('capexPercent', 'Capital reserve', '%')}${field('closingPercent', 'Closing costs', '%')}${field('initialRepairs', 'Initial repairs', '$')}${field('mortgageInsuranceMonthly', 'Monthly mortgage insurance', '$')}</div><p>Capital reserves cover larger future repairs; they reduce cash flow, not net operating income. Closing costs are a percentage of price.</p></details><div id="calc-error" class="form-error" role="alert" hidden></div><button class="btn primary full-width" data-action="save-scenario" data-requires-valid>${icon('plus')}Save this scenario</button></section><section class="panel saved-scenarios"><div class="panel-heading"><h2>Worth keeping</h2><span>${s.workspace.scenarios.length} saved</span></div>${s.workspace.scenarios.length ? s.workspace.scenarios.map(scenario => `<div class="saved-scenario"><button data-action="load-scenario" data-id="${e(scenario.id)}"><strong>${e(scenario.name)}</strong><span>${e(findProperty(s, scenario.propertyId)?.name || 'Custom scenario')} · ${scenario.assumptions.downPercent}% down</span></button><button class="icon-button" data-action="delete-scenario" data-id="${e(scenario.id)}" aria-label="Delete scenario ${e(scenario.name)}">${icon('trash')}</button></div>`).join('') : `<p>Save a scenario to revisit it later. Try different down payments or rental assumptions without losing your starting point.</p>`}</section></div><div id="calc-results" class="calculator-results" aria-label="Calculated results" aria-live="polite">${calculatorResults(s.assumptions)}</div></div>`;
+}
+function calculatorResults(a) {
+    const m = calculate(a);
+    const costItems = [
+        ['Principal & interest', m.mortgage, 'mortgage'], ['Property tax', m.tax, 'tax'],
+        ['Property insurance', m.insurance, 'insurance'], ['HOA fees', m.hoa, 'hoa'],
+        ['Maintenance', m.maintenance, 'maintenance'], ['Management', m.management, 'management'],
+        ['Capital reserve', m.capex, 'capex'], ['Mortgage insurance', m.loan > 0 ? a.mortgageInsuranceMonthly : 0, 'pmi']
+    ];
+    return `<section class="cashflow-card"><div class="cashflow-heading"><span>MODELLED MONTHLY CASH FLOW</span>${icon('trend')}</div><div class="cashflow-value ${m.cashflow < 0 ? 'cashflow-negative' : ''}" id="cashflow-value">${signedMoney(m.cashflow)}<span>/ month</span></div><p>${m.cashflow >= 0 ? 'Room to breathe, under these assumptions.' : 'A gap to close, under these assumptions.'}</p><div class="cashflow-bottom"><div><small>Annual cash flow</small><strong>${signedMoney(m.cashflow * 12)}</strong></div><div><small>Cash-on-cash return</small><strong>${percent(m.cashOnCash)}</strong></div></div></section>${a.downPercent < 20 && m.loan > 0 && a.mortgageInsuranceMonthly === 0 ? `<div class="notice warning compact-notice">${icon('info')}<span>You entered less than 20% down with no mortgage insurance. Add any required premium under “The details that matter.” Loan eligibility is not modelled.</span></div>` : ''}<div class="result-metrics"><div><span>Cap rate</span><strong>${percent(m.capRate)}</strong><small>Before financing & capital reserves</small></div><div><span>Initial cash invested</span><strong>${money(m.cashInvested)}</strong><small>Down payment + closing + initial repairs</small></div></div><section class="panel cost-panel"><div class="panel-heading"><h2>Where the money goes</h2><span>Per month</span></div><div class="income-line"><span>Gross rent</span><strong>${money(a.rent)}</strong></div><div class="income-line subdued"><span>Less vacancy allowance (${a.vacancyPercent}%)</span><span>−${money(m.vacancy)}</span></div><div class="income-line collected"><span>Rent after vacancy</span><strong>${money(m.effectiveRent)}</strong></div><div class="expense-bar" aria-hidden="true">${costItems.filter(([, n]) => n > 0).map(([, n, cls]) => `<span class="expense-${cls}" style="flex:${n}"></span>`).join('')}</div><div class="cost-lines">${costItems.map(([label, value, cls]) => `<div><span><i class="expense-${cls}"></i>${label}</span><strong>${money(value)}</strong></div>`).join('')}</div><div class="cost-total"><span>Total costs & reserves</span><strong>${money(m.totalOutflow)}</strong></div></section><section class="panel sensitivity-panel"><div class="panel-heading"><h2>A little “what if?”</h2>${icon('sliders')}</div><p class="panel-description">Monthly cash flow as rent and interest change. All other assumptions stay the same.</p>${sensitivityTable(a)}</section><section class="panel balance-panel"><div class="panel-heading"><h2>Your loan, over time</h2><span>${m.loan ? `${a.years} years` : 'All cash'}</span></div>${balanceChart(a)}<details class="amortization-details"><summary>See the annual breakdown ${icon('down')}</summary>${amortizationTable(a)}</details></section><p class="small-print">Illustrative fixed-rate model, not financial advice. No income tax, appreciation, selling costs, rent growth, loan eligibility, or lender-specific rules are modelled. Verify every input independently.</p>`;
+}
+function sensitivityTable(a) {
+    const rents = [a.rent * .9, a.rent, Math.min(1_000_000, a.rent * 1.1)];
+    const rates = [Math.max(0, a.interestRate - 1), a.interestRate, Math.min(30, a.interestRate + 1)];
+    return `<div class="sensitivity-scroll"><table class="sensitivity-table"><caption class="sr-only">Monthly cash flow by rent and interest rate</caption><thead><tr><th scope="col">Rate / rent</th>${rents.map((r, i) => `<th scope="col">${money(r)}<small>${['−10%', 'Current', '+10%'][i]}</small></th>`).join('')}</tr></thead><tbody>${rates.map((rate, ri) => `<tr><th scope="row">${rate.toFixed(2)}%</th>${rents.map((rent, ci) => { const flow = calculate({ ...a, rent: Math.min(rent, 1_000_000), interestRate: rate }).cashflow; return `<td class="${flow >= 0 ? 'positive' : 'negative'} ${ri === 1 && ci === 1 ? 'current-scenario' : ''}">${signedMoney(flow)}${ri === 1 && ci === 1 ? '<span class="sr-only">, current scenario</span>' : ''}</td>`; }).join('')}</tr>`).join('')}</tbody></table></div>${a.downPercent === 100 ? '<p class="field-note">With an all-cash purchase, changing the interest rate has no effect.</p>' : ''}`;
+}
+function balanceChart(a) {
+    const rows = amortization(a), loan = a.price * (1 - a.downPercent / 100);
+    if (!rows.length)
+        return `<div class="no-loan">${icon('check')}<p>No mortgage to repay.<span>This scenario uses an all-cash purchase.</span></p></div>`;
+    const points = [{ year: 0, balance: loan }, ...rows];
+    const path = points.map((row, i) => `${i ? 'L' : 'M'}${(row.year / a.years * 450 + 25).toFixed(2)},${(130 - row.balance / loan * 108).toFixed(2)}`).join(' ');
+    return `<div class="balance-label"><strong>${money(loan)}</strong><span>starting loan balance</span></div><svg viewBox="0 0 500 165" class="balance-chart" role="img" aria-label="Loan balance falls from ${money(loan)} to zero over ${a.years} years"><path d="M25 130H475M25 76H475M25 22H475" class="chart-grid"/><path d="${path} L475 130 L25 130Z" class="chart-area"/><path d="${path}" class="chart-line"/><circle cx="25" cy="22" r="3" class="chart-dot"/><text x="25" y="153">Today</text><text x="250" y="153" text-anchor="middle">Year ${Math.round(a.years / 2)}</text><text x="475" y="153" text-anchor="end">Year ${a.years}</text></svg>`;
+}
+function amortizationTable(a) {
+    const rows = amortization(a);
+    return rows.length ? `<div class="amortization-scroll"><table><thead><tr><th scope="col">Year</th><th scope="col">Principal</th><th scope="col">Interest</th><th scope="col">Balance</th></tr></thead><tbody>${rows.map(row => `<tr><th scope="row">${row.year}</th><td>${money(row.principal)}</td><td>${money(row.interest)}</td><td>${money(row.balance)}</td></tr>`).join('')}</tbody></table></div>` : '<p class="field-note">No loan payments in this all-cash scenario.</p>';
+}
+
+return {calculatorView,calculatorResults,sensitivityTable};})();
+__modules["app.js"]=(()=>{
+const { seedProperties } = __modules["data.js"];
+const { defaultFilters, defaultAssumptions, calculate, validateAssumptions, filterProperties, toCSV, amortization } = __modules["finance.js"];
+const { loadWorkspace, saveWorkspace, freshWorkspace, parseWorkspace, validProperty } = __modules["storage.js"];
+const { escapeHTML: e, signedMoney, icon, toast, downloadFile, uid, bindImageFallbacks } = __modules["ui.js"];
+const { shell, browseView, compareView, detailView, propertyForm, findProperty, browseSource, propertyResults, propertyCard, resultsPagination, PAGE_SIZE, modelAssumptionsRows } = __modules["views.js"];
+const { calculatorView, calculatorResults } = __modules["calculator.js"];
+const { bindCardMotion, revealedCards, pageMotion, dialogMotion, trayMotion, favoriteMotion, filterMotion, motionAllowed } = __modules["motion.js"];
+const initial = loadWorkspace();
+const pages = ['discover', 'saved', 'compare', 'calculator', 'custom'];
+const initialPage = location.hash.slice(1);
+const state = {
+    page: pages.includes(initialPage) ? initialPage : 'discover',
+    filters: { ...defaultFilters }, sort: 'featured', layout: 'grid', moreFilters: false, visibleCount: PAGE_SIZE,
+    calculatorPropertyId: seedProperties[0].id, assumptions: defaultAssumptions(seedProperties[0]),
+    workspace: initial.workspace, storageAvailable: initial.available, storageNotice: initial.notice,
+    scenarioName: ''
+};
+let pendingImport = null;
+let pendingDeleteId = '';
+let detailId = '';
+let calculatorValid = true;
+let lastFocus = null;
+function normalizeWorkspace(w) {
+    const ids = new Set([...seedProperties, ...w.customProperties].map(p => p.id));
+    return {
+        ...w, savedIds: w.savedIds.filter(id => ids.has(id)), compareIds: w.compareIds.filter(id => ids.has(id)).slice(0, 3),
+        scenarios: w.scenarios.filter(s => ids.has(s.propertyId)),
+        notes: Object.fromEntries(Object.entries(w.notes).filter(([id]) => ids.has(id)))
+    };
+}
+state.workspace = normalizeWorkspace(state.workspace);
+function render(intent = 'update') {
+    const keep = intent === 'update' ? revealedCards() : new Set();
+    const hadTray = !!document.querySelector('.compare-tray');
+    if (intent === 'page' || intent === 'results')
+        state.visibleCount = PAGE_SIZE;
+    const active = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    // Restore only controls that existed in the old app, never steal dialog focus.
+    const focusKey = active?.closest('#app') ? {
+        id: active.id, action: active.dataset.action, value: active.dataset.id,
+        type: active.dataset.type, layout: active.dataset.layout, filter: active.dataset.filter
+    } : null;
+    calculatorValid = validateAssumptions(state.assumptions).length === 0;
+    const view = state.page === 'compare' ? compareView(state) : state.page === 'calculator' ? calculatorView(state) : browseView(state);
+    document.getElementById('app').innerHTML = shell(state, view);
+    document.body.classList.toggle('has-tray', state.workspace.compareIds.length > 0 && ['discover', 'saved', 'custom'].includes(state.page));
+    bindImageFallbacks();
+    updateMobileNavigation();
+    bindCardMotion(keep);
+    if (intent === 'page')
+        pageMotion();
+    if (!hadTray)
+        trayMotion();
+    if (focusKey && intent !== 'page') {
+        const replacement = focusKey.id ? document.getElementById(focusKey.id) : [...document.querySelectorAll('#app [data-action], #app [data-filter]')].find(el => el.dataset.action === focusKey.action && el.dataset.id === focusKey.value && el.dataset.type === focusKey.type && el.dataset.layout === focusKey.layout && el.dataset.filter === focusKey.filter);
+        replacement?.focus({ preventScroll: true });
+    }
+    document.title = `Haven · ${state.page === 'calculator' ? 'Deal calculator' : state.page === 'saved' ? 'Saved homes' : state.page === 'compare' ? 'Compare properties' : state.page === 'custom' ? 'My properties' : 'Good places. Better possibilities.'}`;
+}
+function updateMobileNavigation() {
+    const sidebar = document.querySelector('.sidebar');
+    if (sidebar)
+        sidebar.inert = window.innerWidth <= 780 && !document.body.classList.contains('menu-open');
+}
+function updateResults() {
+    state.visibleCount = PAGE_SIZE;
+    const el = document.getElementById('property-results');
+    if (!el) {
+        render();
+        return;
+    }
+    el.innerHTML = propertyResults(state);
+    const summary = document.getElementById('result-summary');
+    const count = filterProperties(browseSource(state), state.filters, state.sort).length;
+    if (summary)
+        summary.innerHTML = `${count} ${count === 1 ? 'property' : 'properties'}<span> · ${state.page === 'custom' ? 'Your own property data' : 'Fictional listings for exploring the app'}</span>`;
+    bindImageFallbacks();
+    bindCardMotion();
+}
+function commit(message) {
+    state.storageAvailable = saveWorkspace(state.workspace);
+    if (!state.storageAvailable) {
+        state.storageNotice = 'Browser storage is unavailable or full. Changes last for this session only; export a backup to keep them.';
+        toast((message ? message + ' ' : '') + 'Session only — export a backup to keep your changes.', true);
+    }
+    else {
+        if (state.storageNotice.includes('storage is unavailable'))
+            state.storageNotice = '';
+        if (message)
+            toast(message);
+    }
+}
+function navigate(page) {
+    if (!pages.includes(page))
+        return;
+    if (page !== state.page && page !== 'calculator')
+        state.filters = { ...defaultFilters };
+    state.page = page;
+    closeDialog();
+    document.body.classList.remove('menu-open');
+    if (location.hash !== '#' + page)
+        history.pushState(null, '', '#' + page);
+    render('page');
+    window.scrollTo({ top: 0, behavior: 'instant' });
+    document.getElementById('main')?.focus({ preventScroll: true });
+}
+function analyze(id) {
+    const p = findProperty(state, id);
+    if (!p)
+        return;
+    state.calculatorPropertyId = id;
+    state.assumptions = defaultAssumptions(p);
+    calculatorValid = true;
+    state.scenarioName = '';
+    navigate('calculator');
+}
+function openDialog(content, className = '') {
+    closeDialog();
+    lastFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    const host = document.getElementById('dialog-host');
+    host.innerHTML = `<dialog class="modal ${className}" aria-labelledby="dialog-title"><button class="modal-close icon-button" data-action="close-dialog" aria-label="Close dialog">${icon('x')}</button>${content}</dialog>`;
+    const dialog = host.querySelector('dialog');
+    dialog.addEventListener('close', () => { document.body.classList.remove('dialog-open'); if (lastFocus?.isConnected)
+        lastFocus.focus(); });
+    dialog.addEventListener('click', ev => {
+        if (ev.target !== dialog)
+            return;
+        const rect = dialog.getBoundingClientRect();
+        if (ev.clientX < rect.left || ev.clientX > rect.right || ev.clientY < rect.top || ev.clientY > rect.bottom)
+            closeDialog();
+    });
+    dialog.showModal();
+    document.body.classList.add('dialog-open');
+    bindImageFallbacks();
+    dialogMotion(dialog);
+    const input = dialog.querySelector('input:not([type="checkbox"])');
+    if (input)
+        input.focus({ preventScroll: true });
+}
+function closeDialog() {
+    const dialog = document.querySelector('#dialog-host dialog');
+    if (dialog?.open)
+        dialog.close();
+    document.body.classList.remove('dialog-open');
+}
+function showDetails(id) {
+    const p = findProperty(state, id);
+    if (!p)
+        return;
+    detailId = id;
+    openDialog(detailView(p, state), 'detail-modal');
+}
+function aboutDialog() {
+    openDialog(`<div class="modal-heading"><span class="eyebrow">MEET HAVEN</span><h2 id="dialog-title">A little more perspective.</h2><p>A local-first property workspace, built to explore the whole decision — not just the asking price.</p></div><div class="about-sections"><section><h3>A real app. A sample world.</h3><p>The ${seedProperties.length} starter properties span ${new Set(seedProperties.map(p => p.city)).size} cities. Their addresses, neighborhood labels, prices, rents, and costs are fictional fixtures. City names provide context only. Artwork and optional photography are illustrative. There is no live listing feed, valuation model, authentication, or connected bank account.</p></section><section><h3>Open assumptions. No mystery scores.</h3><p>Listing cards and comparisons use 20% down, 6.5% sample interest, 30 years, 5% vacancy, 5% maintenance, 8% management, 3% capital reserves, and 3% closing costs. Initial repairs and mortgage insurance start at zero. Taxes, property insurance, HOA, and rent come from each entry.</p><p><strong>NOI</strong> is rent after vacancy, less operating expenses. It excludes financing and capital reserves. <strong>Cap rate</strong> is annual NOI divided by purchase price. <strong>Cash flow</strong> also subtracts mortgage principal and interest, mortgage insurance, and capital reserves. <strong>Cash-on-cash return</strong> divides annual cash flow by the down payment, closing costs, and initial repairs.</p></section><section><h3>One browser. Your workspace.</h3><p>Saved properties, comparisons, custom entries, notes, searches, and saved scenarios stay in browser storage. Nothing is synced to an account. Private browsing, clearing storage, or using a different URL may remove or separate saved data. Export a backup for portability.</p></section><section><h3>The edges of the model</h3><p>The calculator assumes a fixed-rate, fully amortizing loan. It does not model tax benefits, appreciation, rent growth, selling costs, variable rates, financing eligibility, zoning, or lender-specific rules. It is educational software, not financial advice.</p></section><label class="photo-toggle"><input type="checkbox" id="use-photos" ${document.documentElement.dataset.photos === 'true' ? 'checked' : ''}><span>Use illustrative photography<small>Optional Unsplash images need an internet connection. Loading them contacts the image provider; property inputs are not sent. Original artwork remains the offline fallback.</small></span></label></div><div class="modal-actions"><button class="btn" data-action="workspace">Manage workspace</button><button class="btn primary" data-action="close-dialog">Back to exploring ${icon('arrow')}</button></div>`, 'info-modal');
+}
+function workspaceDialog() {
+    openDialog(`<div class="modal-heading"><span class="eyebrow">MAKE YOURSELF AT HOME</span><h2 id="dialog-title">Your workspace.</h2><p>${state.storageAvailable ? 'Your changes are stored in this browser. A backup lets you take them with you.' : 'Browser storage is unavailable. Export a backup before closing this page.'}</p></div><div class="workspace-stats"><div><strong>${state.workspace.savedIds.length}</strong><span>saved homes</span></div><div><strong>${state.workspace.customProperties.length}</strong><span>your properties</span></div><div><strong>${state.workspace.scenarios.length}</strong><span>scenarios</span></div></div><div class="workspace-options"><button data-action="export-backup">${icon('download')}<span><strong>Export a backup</strong><small>Download your workspace as a JSON file.</small></span>${icon('chevron')}</button><button data-action="import-backup">${icon('upload')}<span><strong>Import a backup</strong><small>Restore a Haven file. Review it before replacing anything.</small></span>${icon('chevron')}</button><button data-action="reset-workspace" class="danger">${icon('reset')}<span><strong>Start fresh</strong><small>Clear this workspace, leaving the sample listings intact.</small></span>${icon('chevron')}</button></div><p class="small-print">A backup contains your custom properties, saved IDs, notes, searches, and saved scenarios. Unsaved calculator edits are not included.</p>`, 'info-modal');
+}
+function updateCalculator() {
+    const next = { ...state.assumptions };
+    document.querySelectorAll('[data-calc]').forEach(input => {
+        next[input.dataset.calc] = input.value.trim() ? Number(input.value) : NaN;
+    });
+    const errors = validateAssumptions(next);
+    calculatorValid = errors.length === 0;
+    document.querySelectorAll('[data-calc]').forEach(input => input.setAttribute('aria-invalid', String(!input.validity.valid)));
+    const errorHost = document.getElementById('calc-error');
+    errorHost.hidden = !errors.length;
+    errorHost.textContent = errors.length ? errors[0] + ' Results below still show your last valid inputs.' : '';
+    document.querySelectorAll('[data-requires-valid]').forEach(button => button.disabled = !calculatorValid);
+    document.getElementById('calc-results').classList.toggle('results-stale', !calculatorValid);
+    if (!calculatorValid)
+        return;
+    state.assumptions = next;
+    document.getElementById('calc-results').innerHTML = calculatorResults(next);
+}
+function exportReport() {
+    if (!calculatorValid)
+        return toast('Correct the highlighted assumptions before exporting.', true);
+    const a = state.assumptions, m = calculate(a), p = findProperty(state, state.calculatorPropertyId);
+    const rows = [
+        ['HAVEN — PROPERTY SCENARIO REPORT'], ['Property', p.name], ['City', p.city], ['Data', p.custom ? 'User-supplied inputs; not verified' : 'Fictional sample property'],
+        ['Generated', new Date().toISOString()], ['Disclaimer', 'Illustrative fixed-rate model; not financial advice. No tax benefits, appreciation, rent growth, or selling costs.'], [],
+        ['ASSUMPTIONS', 'VALUE'], ...modelAssumptionsRows(a), [], ['RESULTS', 'VALUE'],
+        ['Loan amount ($)', m.loan], ['Mortgage principal and interest ($/month)', m.mortgage], ['Rent after vacancy ($/month)', m.effectiveRent],
+        ['Operating expenses ($/month)', m.operatingExpenses], ['NOI ($/year; excludes debt and capital reserves)', m.noiMonthly * 12],
+        ['Capital reserve ($/month)', m.capex], ['Cash flow ($/month)', m.cashflow], ['Cash flow ($/year)', m.cashflow * 12],
+        ['Cap rate (%)', m.capRate], ['Initial cash invested ($)', m.cashInvested], ['Cash-on-cash return (%)', m.cashOnCash ?? 'N/A'], [],
+        ['AMORTIZATION', 'Principal ($)', 'Interest ($)', 'Ending balance ($)'], ...amortization(a).map(row => [row.year, row.principal, row.interest, row.balance]), [],
+        ['RENT / RATE SENSITIVITY', 'Monthly rent ($)', 'Interest (%)', 'Monthly cash flow ($)']
+    ];
+    [Math.max(0, a.interestRate - 1), a.interestRate, Math.min(30, a.interestRate + 1)].forEach(rate => [a.rent * .9, a.rent, Math.min(1_000_000, a.rent * 1.1)].forEach(rent => rows.push(['Scenario', rent, rate, calculate({ ...a, rent, interestRate: rate }).cashflow])));
+    downloadFile(`haven-scenario-${p.id}.csv`, toCSV(rows), 'text/csv;charset=utf-8');
+    toast('Your scenario report is ready.');
+}
+function exportComparison() {
+    const properties = state.workspace.compareIds.map(id => findProperty(state, id)).filter((p) => !!p);
+    const rows = [
+        ['HAVEN — PROPERTY COMPARISON'], ['Disclaimer', 'Fictional sample or user-entered properties. Illustrative model, not financial advice.'],
+        ['Shared assumptions', '20% down; 6.5% sample interest; 30 years; 5% vacancy; 5% maintenance; 8% management of collected rent; 3% capex; 3% closing; no repairs or PMI.'], [],
+        ['Property', 'City', 'Type', 'Price ($)', 'Beds', 'Baths', 'Square feet', 'Gross rent ($/month)', 'Tax ($/year)', 'Insurance ($/month)', 'HOA ($/month)', 'NOI ($/year)', 'Principal & interest ($/month)', 'Capital reserves ($/month)', 'Cash flow ($/month)', 'Cap rate (%)', 'Cash invested ($)', 'Cash-on-cash (%)'],
+        ...properties.map(p => { const m = calculate(defaultAssumptions(p)); return [p.name, p.city, p.type, p.price, p.beds, p.baths, p.sqft, p.rent, p.taxAnnual, p.insuranceMonthly, p.hoaMonthly, m.noiMonthly * 12, m.mortgage, m.capex, m.cashflow, m.capRate, m.cashInvested, m.cashOnCash ?? 'N/A']; })
+    ];
+    downloadFile('haven-property-comparison.csv', toCSV(rows), 'text/csv;charset=utf-8');
+    toast('Your comparison is ready.');
+}
+const actions = {
+    navigate: b => navigate(b.dataset.page),
+    discover: () => navigate('discover'),
+    menu: () => { document.body.classList.toggle('menu-open'); updateMobileNavigation(); document.querySelector('.sidebar .nav-item')?.focus(); },
+    'close-menu': () => { document.body.classList.remove('menu-open'); updateMobileNavigation(); document.querySelector('.mobile-menu')?.focus(); },
+    'close-dialog': () => closeDialog(),
+    about: () => aboutDialog(),
+    workspace: () => workspaceDialog(),
+    details: b => showDetails(b.dataset.id),
+    analyze: b => analyze(b.dataset.id),
+    'add-property': () => {
+        if (state.workspace.customProperties.length >= 500)
+            return toast('This workspace supports up to 500 custom properties.', true);
+        openDialog(propertyForm(), 'form-modal');
+    },
+    'edit-property': b => { const p = findProperty(state, b.dataset.id); if (p?.custom)
+        openDialog(propertyForm(p), 'form-modal'); },
+    'delete-property': b => {
+        const p = findProperty(state, b.dataset.id);
+        if (!p?.custom)
+            return;
+        pendingDeleteId = p.id;
+        openDialog(`<div class="modal-heading"><span class="eyebrow">A SMALL CHECK FIRST</span><h2 id="dialog-title">Remove ${e(p.name)}?</h2><p>This also removes its notes, saved scenarios, and place in your shortlist. This cannot be undone.</p></div><div class="modal-actions"><button class="btn" data-action="close-dialog">Keep property</button><button class="btn danger-fill" data-action="confirm-delete">Remove property</button></div>`);
+    },
+    'confirm-delete': () => {
+        const id = pendingDeleteId;
+        if (!state.workspace.customProperties.some(p => p.id === id))
+            return;
+        state.workspace.customProperties = state.workspace.customProperties.filter(p => p.id !== id);
+        state.workspace = normalizeWorkspace(state.workspace);
+        if (state.calculatorPropertyId === id) {
+            state.calculatorPropertyId = seedProperties[0].id;
+            state.assumptions = defaultAssumptions(seedProperties[0]);
+        }
+        closeDialog();
+        commit('Property removed.');
+        render();
+    },
+    'save-toggle': b => {
+        const id = b.dataset.id;
+        if (!findProperty(state, id))
+            return;
+        const present = state.workspace.savedIds.includes(id);
+        state.workspace.savedIds = present ? state.workspace.savedIds.filter(x => x !== id) : [...state.workspace.savedIds, id];
+        commit(present ? 'Removed from your saved homes.' : 'A good find, saved for later.');
+        render();
+        favoriteMotion(id);
+        const dialog = document.querySelector('#dialog-host dialog[open]');
+        if (dialog && detailId === id) {
+            const button = dialog.querySelector('[data-action="save-toggle"]');
+            if (button) {
+                button.innerHTML = icon('heart') + (present ? 'Save property' : 'Saved');
+                button.classList.toggle('is-on', !present);
+            }
+        }
+    },
+    'compare-toggle': b => {
+        const id = b.dataset.id;
+        if (!findProperty(state, id))
+            return;
+        if (state.workspace.compareIds.includes(id))
+            state.workspace.compareIds = state.workspace.compareIds.filter(x => x !== id);
+        else {
+            if (state.workspace.compareIds.length >= 3)
+                return toast('Three makes a good comparison. Remove one property to add another.', true);
+            state.workspace.compareIds.push(id);
+        }
+        commit();
+        render();
+    },
+    'clear-compare': () => { state.workspace.compareIds = []; commit(); render(); },
+    'clear-filters': () => { state.filters = { ...defaultFilters }; render('results'); },
+    'more-filters': () => { state.moreFilters = !state.moreFilters; render(); if (state.moreFilters)
+        filterMotion(); },
+    'type-filter': b => { state.filters.type = b.dataset.type; render('results'); },
+    layout: b => { state.layout = b.dataset.layout; render(); },
+    'load-more': () => {
+        const grid = document.querySelector('.property-grid');
+        if (!grid)
+            return;
+        const result = filterProperties(browseSource(state), state.filters, state.sort);
+        const previousCount = Math.min(state.visibleCount, result.length);
+        const keep = revealedCards();
+        state.visibleCount = Math.min(state.visibleCount + PAGE_SIZE, result.length);
+        grid.insertAdjacentHTML('beforeend', result.slice(previousCount, state.visibleCount).map(p => propertyCard(p, state)).join(''));
+        document.getElementById('results-pagination')?.remove();
+        grid.insertAdjacentHTML('afterend', resultsPagination(state));
+        bindImageFallbacks();
+        bindCardMotion(keep);
+        // Focus the first newly added home rather than jumping to the new footer.
+        const first = grid.children[previousCount]?.querySelector('.property-title');
+        first?.focus({ preventScroll: true });
+        grid.children[previousCount]?.scrollIntoView({ behavior: motionAllowed() ? 'smooth' : 'instant', block: 'start' });
+    },
+    'save-note': b => {
+        const id = b.dataset.id, input = document.querySelector('#property-notes');
+        if (!input || !findProperty(state, id))
+            return;
+        if (input.value.length > 10000)
+            return toast('Keep your note under 10,000 characters.', true);
+        if (input.value.trim())
+            state.workspace.notes[id] = input.value;
+        else
+            delete state.workspace.notes[id];
+        commit('Your note is saved.');
+    },
+    'save-search': () => {
+        if (state.workspace.searches.length >= 50)
+            return toast('You can keep up to 50 saved searches. Remove one to make room.', true);
+        const name = state.filters.query || [state.filters.city, state.filters.type].filter(Boolean).join(' · ') || 'My property search';
+        openDialog(`<form id="search-form"><div class="modal-heading"><span class="eyebrow">PICK UP WHERE YOU LEFT OFF</span><h2 id="dialog-title">Keep this search close.</h2><p>Your current filters will be saved as a shortcut across the full workspace.</p></div><label class="form-field"><span>Search name</span><input name="name" required maxlength="100" value="${e(name.slice(0, 100))}"></label><div class="modal-actions"><button type="button" class="btn" data-action="close-dialog">Cancel</button><button class="btn primary" type="submit">Save search ${icon('check')}</button></div></form>`);
+    },
+    'load-search': b => { const search = state.workspace.searches.find(x => x.id === b.dataset.id); if (!search)
+        return; state.filters = { ...search.filters }; state.page = 'discover'; history.pushState(null, '', '#discover'); render('results'); document.getElementById('explore')?.scrollIntoView({ block: 'start' }); },
+    'delete-search': b => { state.workspace.searches = state.workspace.searches.filter(x => x.id !== b.dataset.id); commit('Search removed.'); render(); },
+    'reset-calculator': () => { state.assumptions = defaultAssumptions(findProperty(state, state.calculatorPropertyId)); calculatorValid = true; render(); toast('Back to the property’s sample assumptions.'); },
+    shortcut: b => {
+        if (b.dataset.kind === 'cash')
+            state.assumptions = { ...state.assumptions, downPercent: 100, mortgageInsuranceMonthly: 0 };
+        if (b.dataset.kind === 'standard')
+            state.assumptions = { ...state.assumptions, downPercent: 20 };
+        if (b.dataset.kind === 'self')
+            state.assumptions = { ...state.assumptions, managementPercent: 0 };
+        calculatorValid = true;
+        render();
+    },
+    'save-scenario': () => {
+        if (!calculatorValid)
+            return toast('Enter valid assumptions before saving.', true);
+        if (state.workspace.scenarios.length >= 100)
+            return toast('You can save up to 100 scenarios. Remove one to make room.', true);
+        const p = findProperty(state, state.calculatorPropertyId);
+        const name = `${p.name} · ${state.assumptions.downPercent}% down`;
+        openDialog(`<form id="scenario-form"><div class="modal-heading"><span class="eyebrow">MAKE ROOM FOR A WHAT-IF</span><h2 id="dialog-title">Keep this perspective.</h2><p>Save a snapshot of every input, so you can return to this exact scenario.</p></div><label class="form-field"><span>Scenario name</span><input name="name" required maxlength="100" value="${e(name.slice(0, 100))}"></label><div class="scenario-preview"><span>Modelled monthly cash flow</span><strong>${signedMoney(calculate(state.assumptions).cashflow)}</strong></div><div class="modal-actions"><button type="button" class="btn" data-action="close-dialog">Cancel</button><button type="submit" class="btn primary">Save scenario ${icon('check')}</button></div></form>`);
+    },
+    'load-scenario': b => { const scenario = state.workspace.scenarios.find(x => x.id === b.dataset.id); if (!scenario)
+        return; state.calculatorPropertyId = scenario.propertyId; state.assumptions = { ...scenario.assumptions }; state.scenarioName = scenario.name; calculatorValid = true; render(); toast(`Loaded “${scenario.name}”.`); window.scrollTo({ top: 0, behavior: motionAllowed() ? 'smooth' : 'instant' }); },
+    'delete-scenario': b => { state.workspace.scenarios = state.workspace.scenarios.filter(x => x.id !== b.dataset.id); commit('Scenario removed.'); render(); },
+    'export-report': () => exportReport(),
+    'export-comparison': () => exportComparison(),
+    'export-backup': () => { downloadFile('haven-workspace-backup.json', JSON.stringify(state.workspace, null, 2), 'application/json'); toast('Your workspace backup is ready.'); },
+    'import-backup': () => document.getElementById('backup-input').click(),
+    'confirm-import': () => {
+        if (!pendingImport)
+            return;
+        state.workspace = normalizeWorkspace(pendingImport);
+        pendingImport = null;
+        state.calculatorPropertyId = seedProperties[0].id;
+        state.assumptions = defaultAssumptions(seedProperties[0]);
+        calculatorValid = true;
+        closeDialog();
+        commit('Your workspace has been restored.');
+        render();
+    },
+    'reset-workspace': () => openDialog(`<div class="modal-heading"><span class="eyebrow">A FRESH START</span><h2 id="dialog-title">Clear your workspace?</h2><p>Your saved homes, comparisons, notes, custom properties, searches, and scenarios will be removed. The fictional starter listings will stay. Export a backup first to keep a copy.</p></div><div class="modal-actions"><button class="btn" data-action="export-backup">Export backup</button><button class="btn" data-action="close-dialog">Cancel</button><button class="btn danger-fill" data-action="confirm-reset">Clear workspace</button></div>`),
+    'confirm-reset': () => { state.workspace = freshWorkspace(); state.assumptions = defaultAssumptions(seedProperties[0]); state.calculatorPropertyId = seedProperties[0].id; state.filters = { ...defaultFilters }; calculatorValid = true; commit('A fresh start. Your sample properties are ready.'); navigate('discover'); }
+};
+document.addEventListener('click', event => {
+    const target = event.target instanceof Element ? event.target.closest('[data-action]') : null;
+    if (!target || target instanceof HTMLButtonElement && target.disabled)
+        return;
+    const action = actions[target.dataset.action];
+    if (action) {
+        event.preventDefault();
+        action(target);
+    }
+});
+document.addEventListener('input', event => {
+    const input = event.target;
+    if (!(input instanceof HTMLInputElement))
+        return;
+    if (input.id === 'property-search') {
+        state.filters.query = input.value;
+        updateResults();
+    }
+    if (input.dataset.calc)
+        updateCalculator();
+});
+document.addEventListener('change', event => {
+    const input = event.target;
+    if (!(input instanceof HTMLInputElement || input instanceof HTMLSelectElement))
+        return;
+    if (input.dataset.filter) {
+        const key = input.dataset.filter;
+        if (key === 'city')
+            state.filters.city = input.value;
+        if (key === 'maxPrice' || key === 'minBeds' || key === 'minSqft')
+            state.filters[key] = Number(input.value);
+        if (key === 'positiveOnly' && input instanceof HTMLInputElement)
+            state.filters.positiveOnly = input.checked;
+        render('results');
+    }
+    if (input.id === 'sort-select') {
+        state.sort = input.value;
+        updateResults();
+    }
+    if (input.id === 'calculator-property')
+        analyze(input.value);
+    if (input.id === 'use-photos' && input instanceof HTMLInputElement) {
+        document.documentElement.dataset.photos = String(input.checked);
+        render();
+    }
+});
+document.addEventListener('submit', event => {
+    const form = event.target;
+    if (!(form instanceof HTMLFormElement))
+        return;
+    if (!['property-form', 'search-form', 'scenario-form'].includes(form.id))
+        return;
+    event.preventDefault();
+    if (!form.reportValidity())
+        return;
+    const data = new FormData(form);
+    const str = (name) => String(data.get(name) || '').trim();
+    const num = (name) => Number(data.get(name));
+    if (form.id === 'property-form') {
+        const existing = findProperty(state, form.dataset.id || '');
+        const p = {
+            id: existing?.id || 'custom-' + uid(), name: str('name'), address: str('address'), city: str('city'), state: str('state').toUpperCase(), neighborhood: str('neighborhood') || 'Your listing',
+            type: str('type'), price: num('price'), beds: num('beds'), baths: num('baths'), sqft: num('sqft'), rent: num('rent'),
+            taxAnnual: num('taxAnnual'), insuranceMonthly: num('insuranceMonthly'), hoaMonthly: num('hoaMonthly'), yearBuilt: num('yearBuilt'),
+            description: str('description') || 'Your own property entry. Adjust the assumptions in the calculator to explore its potential.',
+            tags: existing?.tags || ['Your own inputs', 'Room to explore'], photo: existing?.photo || '', art: existing?.art ?? state.workspace.customProperties.length % 12,
+            addedAt: existing?.addedAt || Date.now(), custom: true
+        };
+        if (!p.name || !p.address || !p.city || !/^[A-Z]{2}$/.test(p.state) || !validProperty(p)) {
+            document.getElementById('property-form-error').textContent = 'Check your property details. Name, address, city, state, and valid numbers are required.';
+            return;
+        }
+        if (existing)
+            state.workspace.customProperties = state.workspace.customProperties.map(x => x.id === p.id ? p : x);
+        else
+            state.workspace.customProperties.unshift(p);
+        state.filters = { ...defaultFilters };
+        closeDialog();
+        commit(existing ? 'Your property is updated.' : 'A new possibility, added to your workspace.');
+        render();
+    }
+    if (form.id === 'search-form') {
+        if (!str('name'))
+            return toast('Give your search a name.', true);
+        state.workspace.searches.push({ id: uid(), name: str('name'), filters: { ...state.filters } });
+        closeDialog();
+        commit('Your search is saved.');
+        render();
+    }
+    if (form.id === 'scenario-form') {
+        if (!str('name'))
+            return toast('Give your scenario a name.', true);
+        state.workspace.scenarios.push({ id: uid(), name: str('name'), propertyId: state.calculatorPropertyId, assumptions: { ...state.assumptions }, savedAt: Date.now() });
+        closeDialog();
+        commit('This perspective is saved.');
+        render();
+    }
+});
+document.getElementById('backup-input').addEventListener('change', async (event) => {
+    const input = event.target, file = input.files?.[0];
+    input.value = '';
+    if (!file)
+        return;
+    if (file.size > 3_000_000)
+        return toast('Choose a workspace backup smaller than 3 MB.', true);
+    try {
+        pendingImport = parseWorkspace(await file.text());
+        openDialog(`<div class="modal-heading"><span class="eyebrow">WELCOME BACK</span><h2 id="dialog-title">Restore this workspace?</h2><p>This backup has ${pendingImport.customProperties.length} custom properties, ${pendingImport.savedIds.length} saved homes, and ${pendingImport.scenarios.length} saved scenarios.</p><p><strong>Importing replaces your current workspace.</strong> Export your current workspace first to keep both.</p></div><div class="modal-actions"><button class="btn" data-action="export-backup">Back up current</button><button class="btn" data-action="close-dialog">Cancel</button><button class="btn primary" data-action="confirm-import">Restore backup ${icon('arrow')}</button></div>`);
+    }
+    catch (error) {
+        pendingImport = null;
+        toast(error instanceof Error ? error.message : 'This backup could not be read.', true);
+    }
+});
+window.addEventListener('resize', updateMobileNavigation);
+document.addEventListener('keydown', event => {
+    if (!document.body.classList.contains('menu-open') || document.querySelector('dialog[open]'))
+        return;
+    if (event.key === 'Escape') {
+        document.body.classList.remove('menu-open');
+        updateMobileNavigation();
+        document.querySelector('.mobile-menu')?.focus();
+    }
+    if (event.key === 'Tab') {
+        const buttons = [...document.querySelectorAll('.sidebar button')];
+        const first = buttons[0], last = buttons.at(-1);
+        if (event.shiftKey && document.activeElement === first) {
+            event.preventDefault();
+            last?.focus();
+        }
+        else if (!event.shiftKey && document.activeElement === last) {
+            event.preventDefault();
+            first?.focus();
+        }
+    }
+});
+window.addEventListener('popstate', () => { const page = location.hash.slice(1); if (pages.includes(page) && page !== state.page) {
+    state.page = page;
+    state.filters = { ...defaultFilters };
+    closeDialog();
+    render('page');
+} });
+render('page');
+
+return {};})();
+})();
+</script>
+</body>
+</html>
