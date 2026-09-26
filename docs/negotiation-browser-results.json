@@ -1,0 +1,865 @@
+{
+  "checks": [
+    {
+      "name": "Discovery remains the original 60 active homes",
+      "passed": true
+    },
+    {
+      "name": "Property details now have exactly one native negotiation disclosure",
+      "passed": true
+    },
+    {
+      "name": "Negotiation starts collapsed to keep detail browsing uncluttered",
+      "passed": true
+    },
+    {
+      "name": "Collapsed heading visibly labels its data fictional",
+      "passed": true
+    },
+    {
+      "name": "Enter opens the native disclosure without a mouse",
+      "passed": true
+    },
+    {
+      "name": "Opening the panel preserves focus on its control",
+      "passed": true
+    },
+    {
+      "name": "Disclosure keyboard focus has a visible outline",
+      "passed": true
+    },
+    {
+      "name": "Space collapses the native disclosure",
+      "passed": true
+    },
+    {
+      "name": "Reading negotiation context performs no workspace write",
+      "passed": true
+    },
+    {
+      "name": "Fixed fictional snapshot and non-current-data disclosure are visible",
+      "passed": true
+    },
+    {
+      "name": "Nested calculation method supports keyboard disclosure",
+      "passed": true
+    },
+    {
+      "name": "Selection rules name 180 days, same type and neighborhood, \u00b120% size and \u00b11 bed",
+      "passed": true
+    },
+    {
+      "name": "Selection is by size rather than price and never widens insufficient criteria",
+      "passed": true
+    },
+    {
+      "name": "Visible formula specifies median of individual unrounded sold ratios",
+      "passed": true
+    },
+    {
+      "name": "Nearby is explicitly not a geographic distance claim",
+      "passed": true
+    },
+    {
+      "name": "Context does not assert a valuation, seller motives, or an offer recommendation",
+      "passed": true
+    },
+    {
+      "name": "Showing the method still performs no workspace writes",
+      "passed": true
+    },
+    {
+      "name": "The Willow House: actual selected comparable IDs match independent computation",
+      "passed": true
+    },
+    {
+      "name": "The Willow House: takeaway matches independent median-per-foot calculation",
+      "passed": true
+    },
+    {
+      "name": "The Willow House: dates and days-on-market derive from fixed history",
+      "passed": true
+    },
+    {
+      "name": "The Willow House: zero, one or multiple price reductions are correctly identified",
+      "passed": true
+    },
+    {
+      "name": "The Willow House: every sale displays price, area and its actual sold date",
+      "passed": true
+    },
+    {
+      "name": "Parkside Residence: actual selected comparable IDs match independent computation",
+      "passed": true
+    },
+    {
+      "name": "Parkside Residence: takeaway matches independent median-per-foot calculation",
+      "passed": true
+    },
+    {
+      "name": "Parkside Residence: dates and days-on-market derive from fixed history",
+      "passed": true
+    },
+    {
+      "name": "Parkside Residence: zero, one or multiple price reductions are correctly identified",
+      "passed": true
+    },
+    {
+      "name": "Parkside Residence: every sale displays price, area and its actual sold date",
+      "passed": true
+    },
+    {
+      "name": "The Maple Duplex: actual selected comparable IDs match independent computation",
+      "passed": true
+    },
+    {
+      "name": "The Maple Duplex: takeaway matches independent median-per-foot calculation",
+      "passed": true
+    },
+    {
+      "name": "The Maple Duplex: dates and days-on-market derive from fixed history",
+      "passed": true
+    },
+    {
+      "name": "The Maple Duplex: zero, one or multiple price reductions are correctly identified",
+      "passed": true
+    },
+    {
+      "name": "The Maple Duplex: every sale displays price, area and its actual sold date",
+      "passed": true
+    },
+    {
+      "name": "The Maple Duplex: whole-building rather than per-unit context is explicit",
+      "passed": true
+    },
+    {
+      "name": "The Cedar Loft: actual selected comparable IDs match independent computation",
+      "passed": true
+    },
+    {
+      "name": "The Cedar Loft: takeaway matches independent median-per-foot calculation",
+      "passed": true
+    },
+    {
+      "name": "The Cedar Loft: dates and days-on-market derive from fixed history",
+      "passed": true
+    },
+    {
+      "name": "The Cedar Loft: zero, one or multiple price reductions are correctly identified",
+      "passed": true
+    },
+    {
+      "name": "The Cedar Loft: every sale displays price, area and its actual sold date",
+      "passed": true
+    },
+    {
+      "name": "The Terrace: actual selected comparable IDs match independent computation",
+      "passed": true
+    },
+    {
+      "name": "The Terrace: takeaway matches independent median-per-foot calculation",
+      "passed": true
+    },
+    {
+      "name": "The Terrace: dates and days-on-market derive from fixed history",
+      "passed": true
+    },
+    {
+      "name": "The Terrace: zero, one or multiple price reductions are correctly identified",
+      "passed": true
+    },
+    {
+      "name": "The Terrace: every sale displays price, area and its actual sold date",
+      "passed": true
+    },
+    {
+      "name": "The Courtyard Two: actual selected comparable IDs match independent computation",
+      "passed": true
+    },
+    {
+      "name": "The Courtyard Two: takeaway matches independent median-per-foot calculation",
+      "passed": true
+    },
+    {
+      "name": "The Courtyard Two: dates and days-on-market derive from fixed history",
+      "passed": true
+    },
+    {
+      "name": "The Courtyard Two: zero, one or multiple price reductions are correctly identified",
+      "passed": true
+    },
+    {
+      "name": "The Courtyard Two: every sale displays price, area and its actual sold date",
+      "passed": true
+    },
+    {
+      "name": "The Courtyard Two: whole-building rather than per-unit context is explicit",
+      "passed": true
+    },
+    {
+      "name": "The Clover Cottage: actual selected comparable IDs match independent computation",
+      "passed": true
+    },
+    {
+      "name": "The Clover Cottage: takeaway matches independent median-per-foot calculation",
+      "passed": true
+    },
+    {
+      "name": "The Clover Cottage: dates and days-on-market derive from fixed history",
+      "passed": true
+    },
+    {
+      "name": "The Clover Cottage: zero, one or multiple price reductions are correctly identified",
+      "passed": true
+    },
+    {
+      "name": "The Clover Cottage: every sale displays price, area and its actual sold date",
+      "passed": true
+    },
+    {
+      "name": "The Citrus Pair: actual selected comparable IDs match independent computation",
+      "passed": true
+    },
+    {
+      "name": "The Citrus Pair: takeaway matches independent median-per-foot calculation",
+      "passed": true
+    },
+    {
+      "name": "The Citrus Pair: dates and days-on-market derive from fixed history",
+      "passed": true
+    },
+    {
+      "name": "The Citrus Pair: zero, one or multiple price reductions are correctly identified",
+      "passed": true
+    },
+    {
+      "name": "The Citrus Pair: every sale displays price, area and its actual sold date",
+      "passed": true
+    },
+    {
+      "name": "The Citrus Pair: whole-building rather than per-unit context is explicit",
+      "passed": true
+    },
+    {
+      "name": "The Dune Townhome: actual selected comparable IDs match independent computation",
+      "passed": true
+    },
+    {
+      "name": "The Dune Townhome: takeaway matches independent median-per-foot calculation",
+      "passed": true
+    },
+    {
+      "name": "The Dune Townhome: dates and days-on-market derive from fixed history",
+      "passed": true
+    },
+    {
+      "name": "The Dune Townhome: zero, one or multiple price reductions are correctly identified",
+      "passed": true
+    },
+    {
+      "name": "The Dune Townhome: every sale displays price, area and its actual sold date",
+      "passed": true
+    },
+    {
+      "name": "Saving a home preserves the open panel and all evidence",
+      "passed": true
+    },
+    {
+      "name": "Reading and saving notes do not overwrite costs or comparison data",
+      "passed": true
+    },
+    {
+      "name": "Calculator editing remains live and retains its independent price input",
+      "passed": true
+    },
+    {
+      "name": "A $450k calculator what-if cannot rewrite the $325k asking price or price history",
+      "passed": true
+    },
+    {
+      "name": "Backup keeps existing saved homes, notes and finance inputs",
+      "passed": true
+    },
+    {
+      "name": "Read-only fixture history adds no personal state to backups",
+      "passed": true
+    },
+    {
+      "name": "Existing workspace JSON restores without a schema migration",
+      "passed": true
+    },
+    {
+      "name": "Restoring personal data does not alter the fixed comparison",
+      "passed": true
+    },
+    {
+      "name": "Custom property shows an honest no-sample-history state",
+      "passed": true
+    },
+    {
+      "name": "Custom data has no fabricated comparable rows, day count or percentage verdict",
+      "passed": true
+    },
+    {
+      "name": "Custom text remains escaped and cannot create markup",
+      "passed": true
+    },
+    {
+      "name": "light custom unavailable panel contrast",
+      "passed": true
+    },
+    {
+      "name": "dark custom unavailable panel contrast",
+      "passed": true
+    },
+    {
+      "name": "Read-only comparisons work when browser storage rejects writes",
+      "passed": true
+    },
+    {
+      "name": "An advanced computer clock does not turn the demo snapshot into live history",
+      "passed": true
+    },
+    {
+      "name": "light 320px collapsed panel fits without horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "light 320px collapsed detail contrast",
+      "passed": true
+    },
+    {
+      "name": "light 320px expanded evidence and sold records fit",
+      "passed": true
+    },
+    {
+      "name": "light 320px expanded negotiation contrast",
+      "passed": true
+    },
+    {
+      "name": "light 320px disclosure controls retain adequate touch height",
+      "passed": true
+    },
+    {
+      "name": "light 320px formula and limitations wrap without overflow",
+      "passed": true
+    },
+    {
+      "name": "light 320px expanded method contrast",
+      "passed": true
+    },
+    {
+      "name": "light 320px outer keyboard collapse keeps focus and hides content",
+      "passed": true
+    },
+    {
+      "name": "light 390px collapsed panel fits without horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "light 390px collapsed detail contrast",
+      "passed": true
+    },
+    {
+      "name": "light 390px expanded evidence and sold records fit",
+      "passed": true
+    },
+    {
+      "name": "light 390px expanded negotiation contrast",
+      "passed": true
+    },
+    {
+      "name": "light 390px disclosure controls retain adequate touch height",
+      "passed": true
+    },
+    {
+      "name": "light 390px formula and limitations wrap without overflow",
+      "passed": true
+    },
+    {
+      "name": "light 390px expanded method contrast",
+      "passed": true
+    },
+    {
+      "name": "light 390px outer keyboard collapse keeps focus and hides content",
+      "passed": true
+    },
+    {
+      "name": "light 768px collapsed panel fits without horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "light 768px collapsed detail contrast",
+      "passed": true
+    },
+    {
+      "name": "light 768px expanded evidence and sold records fit",
+      "passed": true
+    },
+    {
+      "name": "light 768px expanded negotiation contrast",
+      "passed": true
+    },
+    {
+      "name": "light 768px disclosure controls retain adequate touch height",
+      "passed": true
+    },
+    {
+      "name": "light 768px formula and limitations wrap without overflow",
+      "passed": true
+    },
+    {
+      "name": "light 768px expanded method contrast",
+      "passed": true
+    },
+    {
+      "name": "light 768px outer keyboard collapse keeps focus and hides content",
+      "passed": true
+    },
+    {
+      "name": "light 1024px collapsed panel fits without horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "light 1024px collapsed detail contrast",
+      "passed": true
+    },
+    {
+      "name": "light 1024px expanded evidence and sold records fit",
+      "passed": true
+    },
+    {
+      "name": "light 1024px expanded negotiation contrast",
+      "passed": true
+    },
+    {
+      "name": "light 1024px disclosure controls retain adequate touch height",
+      "passed": true
+    },
+    {
+      "name": "light 1024px formula and limitations wrap without overflow",
+      "passed": true
+    },
+    {
+      "name": "light 1024px expanded method contrast",
+      "passed": true
+    },
+    {
+      "name": "light 1024px outer keyboard collapse keeps focus and hides content",
+      "passed": true
+    },
+    {
+      "name": "light 1440px collapsed panel fits without horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "light 1440px collapsed detail contrast",
+      "passed": true
+    },
+    {
+      "name": "light 1440px expanded evidence and sold records fit",
+      "passed": true
+    },
+    {
+      "name": "light 1440px expanded negotiation contrast",
+      "passed": true
+    },
+    {
+      "name": "light 1440px disclosure controls retain adequate touch height",
+      "passed": true
+    },
+    {
+      "name": "light 1440px formula and limitations wrap without overflow",
+      "passed": true
+    },
+    {
+      "name": "light 1440px expanded method contrast",
+      "passed": true
+    },
+    {
+      "name": "light 1440px outer keyboard collapse keeps focus and hides content",
+      "passed": true
+    },
+    {
+      "name": "dark 320px collapsed panel fits without horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "dark 320px collapsed detail contrast",
+      "passed": true
+    },
+    {
+      "name": "dark 320px expanded evidence and sold records fit",
+      "passed": true
+    },
+    {
+      "name": "dark 320px expanded negotiation contrast",
+      "passed": true
+    },
+    {
+      "name": "dark 320px disclosure controls retain adequate touch height",
+      "passed": true
+    },
+    {
+      "name": "dark 320px formula and limitations wrap without overflow",
+      "passed": true
+    },
+    {
+      "name": "dark 320px expanded method contrast",
+      "passed": true
+    },
+    {
+      "name": "dark 320px outer keyboard collapse keeps focus and hides content",
+      "passed": true
+    },
+    {
+      "name": "dark 390px collapsed panel fits without horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "dark 390px collapsed detail contrast",
+      "passed": true
+    },
+    {
+      "name": "dark 390px expanded evidence and sold records fit",
+      "passed": true
+    },
+    {
+      "name": "dark 390px expanded negotiation contrast",
+      "passed": true
+    },
+    {
+      "name": "dark 390px disclosure controls retain adequate touch height",
+      "passed": true
+    },
+    {
+      "name": "dark 390px formula and limitations wrap without overflow",
+      "passed": true
+    },
+    {
+      "name": "dark 390px expanded method contrast",
+      "passed": true
+    },
+    {
+      "name": "dark 390px outer keyboard collapse keeps focus and hides content",
+      "passed": true
+    },
+    {
+      "name": "dark 768px collapsed panel fits without horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "dark 768px collapsed detail contrast",
+      "passed": true
+    },
+    {
+      "name": "dark 768px expanded evidence and sold records fit",
+      "passed": true
+    },
+    {
+      "name": "dark 768px expanded negotiation contrast",
+      "passed": true
+    },
+    {
+      "name": "dark 768px disclosure controls retain adequate touch height",
+      "passed": true
+    },
+    {
+      "name": "dark 768px formula and limitations wrap without overflow",
+      "passed": true
+    },
+    {
+      "name": "dark 768px expanded method contrast",
+      "passed": true
+    },
+    {
+      "name": "dark 768px outer keyboard collapse keeps focus and hides content",
+      "passed": true
+    },
+    {
+      "name": "dark 1024px collapsed panel fits without horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "dark 1024px collapsed detail contrast",
+      "passed": true
+    },
+    {
+      "name": "dark 1024px expanded evidence and sold records fit",
+      "passed": true
+    },
+    {
+      "name": "dark 1024px expanded negotiation contrast",
+      "passed": true
+    },
+    {
+      "name": "dark 1024px disclosure controls retain adequate touch height",
+      "passed": true
+    },
+    {
+      "name": "dark 1024px formula and limitations wrap without overflow",
+      "passed": true
+    },
+    {
+      "name": "dark 1024px expanded method contrast",
+      "passed": true
+    },
+    {
+      "name": "dark 1024px outer keyboard collapse keeps focus and hides content",
+      "passed": true
+    },
+    {
+      "name": "dark 1440px collapsed panel fits without horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "dark 1440px collapsed detail contrast",
+      "passed": true
+    },
+    {
+      "name": "dark 1440px expanded evidence and sold records fit",
+      "passed": true
+    },
+    {
+      "name": "dark 1440px expanded negotiation contrast",
+      "passed": true
+    },
+    {
+      "name": "dark 1440px disclosure controls retain adequate touch height",
+      "passed": true
+    },
+    {
+      "name": "dark 1440px formula and limitations wrap without overflow",
+      "passed": true
+    },
+    {
+      "name": "dark 1440px expanded method contrast",
+      "passed": true
+    },
+    {
+      "name": "dark 1440px outer keyboard collapse keeps focus and hides content",
+      "passed": true
+    },
+    {
+      "name": "Reduced motion removes disclosure transitions",
+      "passed": true
+    },
+    {
+      "name": "Normal motion keeps a subtle chevron transition",
+      "passed": true
+    },
+    {
+      "name": "Live reduced-motion changes immediately remove transitions",
+      "passed": true
+    },
+    {
+      "name": "Escape still dismisses the original property dialog",
+      "passed": true
+    },
+    {
+      "name": "No uncaught JavaScript exceptions in negotiation workflows",
+      "passed": true
+    },
+    {
+      "name": "All negotiation workflows make zero fetches and zero external resource requests",
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "requests": [],
+  "contrast": [
+    {
+      "name": "light custom unavailable panel",
+      "count": 161,
+      "min": 4.77,
+      "failures": []
+    },
+    {
+      "name": "dark custom unavailable panel",
+      "count": 161,
+      "min": 6.24,
+      "failures": []
+    },
+    {
+      "name": "light 320px collapsed detail",
+      "count": 213,
+      "min": 4.77,
+      "failures": []
+    },
+    {
+      "name": "light 320px expanded negotiation",
+      "count": 213,
+      "min": 4.77,
+      "failures": []
+    },
+    {
+      "name": "light 320px expanded method",
+      "count": 213,
+      "min": 4.77,
+      "failures": []
+    },
+    {
+      "name": "light 390px collapsed detail",
+      "count": 214,
+      "min": 4.77,
+      "failures": []
+    },
+    {
+      "name": "light 390px expanded negotiation",
+      "count": 214,
+      "min": 4.77,
+      "failures": []
+    },
+    {
+      "name": "light 390px expanded method",
+      "count": 214,
+      "min": 4.77,
+      "failures": []
+    },
+    {
+      "name": "light 768px collapsed detail",
+      "count": 216,
+      "min": 4.77,
+      "failures": []
+    },
+    {
+      "name": "light 768px expanded negotiation",
+      "count": 216,
+      "min": 4.77,
+      "failures": []
+    },
+    {
+      "name": "light 768px expanded method",
+      "count": 216,
+      "min": 4.77,
+      "failures": []
+    },
+    {
+      "name": "light 1024px collapsed detail",
+      "count": 237,
+      "min": 4.77,
+      "failures": []
+    },
+    {
+      "name": "light 1024px expanded negotiation",
+      "count": 237,
+      "min": 4.77,
+      "failures": []
+    },
+    {
+      "name": "light 1024px expanded method",
+      "count": 237,
+      "min": 4.77,
+      "failures": []
+    },
+    {
+      "name": "light 1440px collapsed detail",
+      "count": 237,
+      "min": 4.77,
+      "failures": []
+    },
+    {
+      "name": "light 1440px expanded negotiation",
+      "count": 237,
+      "min": 4.77,
+      "failures": []
+    },
+    {
+      "name": "light 1440px expanded method",
+      "count": 237,
+      "min": 4.77,
+      "failures": []
+    },
+    {
+      "name": "dark 320px collapsed detail",
+      "count": 213,
+      "min": 6.24,
+      "failures": []
+    },
+    {
+      "name": "dark 320px expanded negotiation",
+      "count": 213,
+      "min": 6.24,
+      "failures": []
+    },
+    {
+      "name": "dark 320px expanded method",
+      "count": 213,
+      "min": 6.24,
+      "failures": []
+    },
+    {
+      "name": "dark 390px collapsed detail",
+      "count": 214,
+      "min": 6.24,
+      "failures": []
+    },
+    {
+      "name": "dark 390px expanded negotiation",
+      "count": 214,
+      "min": 6.24,
+      "failures": []
+    },
+    {
+      "name": "dark 390px expanded method",
+      "count": 214,
+      "min": 6.24,
+      "failures": []
+    },
+    {
+      "name": "dark 768px collapsed detail",
+      "count": 216,
+      "min": 6.24,
+      "failures": []
+    },
+    {
+      "name": "dark 768px expanded negotiation",
+      "count": 216,
+      "min": 6.24,
+      "failures": []
+    },
+    {
+      "name": "dark 768px expanded method",
+      "count": 216,
+      "min": 6.24,
+      "failures": []
+    },
+    {
+      "name": "dark 1024px collapsed detail",
+      "count": 237,
+      "min": 6.24,
+      "failures": []
+    },
+    {
+      "name": "dark 1024px expanded negotiation",
+      "count": 237,
+      "min": 6.24,
+      "failures": []
+    },
+    {
+      "name": "dark 1024px expanded method",
+      "count": 237,
+      "min": 6.24,
+      "failures": []
+    },
+    {
+      "name": "dark 1440px collapsed detail",
+      "count": 237,
+      "min": 6.24,
+      "failures": []
+    },
+    {
+      "name": "dark 1440px expanded negotiation",
+      "count": 237,
+      "min": 6.24,
+      "failures": []
+    },
+    {
+      "name": "dark 1440px expanded method",
+      "count": 237,
+      "min": 6.24,
+      "failures": []
+    }
+  ],
+  "storage": "isolated in-memory adapter; not native persistence"
+}

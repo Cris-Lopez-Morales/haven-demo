@@ -1,10 +1,11 @@
+import { learnedRules } from './rejection-engine.js';
 import { detectRanking } from './ranking.js';
 import { freshPreferences, interpretMessage, nextReply, preferenceSummary, validPreferences } from './assistant-engine.js';
 import { escapeHTML as e, icon, money, number, propertyImage, bindImageFallbacks } from './ui.js';
 import { motionAllowed } from './motion.js';
 export function mountAssistant(callbacks) {
     const host = document.getElementById('assistant-host');
-    host.innerHTML = `<section class="assistant-panel" id="haven-assistant" role="dialog" aria-modal="false" aria-labelledby="assistant-title" hidden><header class="assistant-header"><span class="assistant-mark">${icon('home')}</span><div><h2 id="assistant-title">Haven assistant<span>DEMO</span></h2><p>A little help finding home.</p></div><button class="icon-button assistant-reset" title="Start a new chat" aria-label="Start a new chat">${icon('reset')}</button><button class="icon-button assistant-close" aria-label="Close Haven assistant">${icon('x')}</button></header><div class="assistant-mode-row"><span class="assistant-mode-label"><i></i><span id="assistant-mode-text">Local demo</span></span><button class="assistant-info-toggle" aria-expanded="false" aria-controls="assistant-info">Fictional listings ${icon('info')}</button></div><div id="assistant-info" class="assistant-info" hidden><p><strong>A sample world, not a listing service.</strong> Local mode uses a rule-based conversational matcher, not a live AI model. It only recommends the 60 fictional demo homes. No availability, real prices, or financial advice.</p><p>Chat stays in memory for this tab and clears on refresh. Saved homes use your existing workspace.</p><div id="assistant-provider"><span>Live AI is optional. See the source README to connect a server-side key.</span></div></div><details class="assistant-brief" hidden><summary><span>Your search</span><span id="assistant-preference-count"></span>${icon('down')}</summary><div id="assistant-preferences"></div></details><div id="assistant-messages" class="assistant-messages" role="log" aria-label="Conversation with Haven demo assistant" aria-live="polite" aria-relevant="additions text"></div><div id="assistant-working" class="assistant-working" role="status" hidden><span class="typing-dots" aria-hidden="true"><i></i><i></i><i></i></span><span id="assistant-working-label">Comparing the demo listings…</span></div><div id="assistant-suggestions" class="assistant-suggestions" aria-label="Suggested replies"></div><form id="assistant-form" class="assistant-composer"><div><label class="sr-only" for="assistant-input">Message Haven assistant</label><textarea id="assistant-input" rows="1" maxlength="1200" placeholder="Try “the cheapest house”…" enterkeyhint="send"></textarea><button type="submit" id="assistant-send" aria-label="Send message" disabled>${icon('arrow')}</button></div><p><span>Demo homes. Real possibilities to explore.</span><span id="assistant-counter" aria-live="off">0 / 1200</span></p></form></section><button id="assistant-launcher" class="assistant-launcher" aria-label="Open Haven assistant" aria-expanded="false" aria-controls="haven-assistant">${icon('chat')}<span>Ask Haven</span><span class="launcher-demo">DEMO</span></button>`;
+    host.innerHTML = `<section class="assistant-panel" id="haven-assistant" role="dialog" aria-modal="false" aria-labelledby="assistant-title" hidden><header class="assistant-header"><span class="assistant-mark">${icon('home')}</span><div><h2 id="assistant-title">Haven assistant<span>DEMO</span></h2><p>A little help finding home.</p></div><button class="icon-button assistant-reset" title="Start a new chat" aria-label="Start a new chat">${icon('reset')}</button><button class="icon-button assistant-close" aria-label="Close Haven assistant">${icon('x')}</button></header><div class="assistant-mode-row"><span class="assistant-mode-label"><i></i><span id="assistant-mode-text">Local demo</span></span><button class="assistant-info-toggle" aria-expanded="false" aria-controls="assistant-info">Fictional listings ${icon('info')}</button></div><div id="assistant-info" class="assistant-info" hidden><p><strong>A sample world, not a listing service.</strong> Local mode uses a rule-based conversational matcher, not a live AI model. It only recommends the 60 fictional demo homes. No availability, real prices, or financial advice.</p><p>Chat stays in memory for this tab and clears on refresh. Saved homes use your existing workspace.</p><div id="assistant-provider"><span>Live AI is optional. See the source README to connect a server-side key.</span></div></div><details class="assistant-brief" hidden><summary><span>Your search</span><span id="assistant-preference-count"></span>${icon('down')}</summary><div id="assistant-preferences"></div></details>${callbacks.preferences ? '<div class="assistant-learning-bar"><button data-chat-preferences>Your preferences</button><span id="assistant-learning-status">No passes yet</span></div><p id="assistant-learning-history" class="assistant-learning-history" hidden>Learning applies to new answers. Earlier answers are snapshots; ask again after changes.</p>' : ''}<div id="assistant-messages" class="assistant-messages" role="log" aria-label="Conversation with Haven demo assistant" aria-live="polite" aria-relevant="additions text"></div><div id="assistant-working" class="assistant-working" role="status" hidden><span class="typing-dots" aria-hidden="true"><i></i><i></i><i></i></span><span id="assistant-working-label">Comparing the demo listings…</span></div><div id="assistant-suggestions" class="assistant-suggestions" aria-label="Suggested replies"></div><form id="assistant-form" class="assistant-composer"><div><label class="sr-only" for="assistant-input">Message Haven assistant</label><textarea id="assistant-input" rows="1" maxlength="1200" placeholder="Try “the cheapest house”…" enterkeyhint="send"></textarea><button type="submit" id="assistant-send" aria-label="Send message" disabled>${icon('arrow')}</button></div><p><span>Demo homes. Real possibilities to explore.</span><span id="assistant-counter" aria-live="off">0 / 1200</span></p></form></section><button id="assistant-launcher" class="assistant-launcher" aria-label="Open Haven assistant" aria-expanded="false" aria-controls="haven-assistant">${icon('chat')}<span>Ask Haven</span><span class="launcher-demo">DEMO</span></button>`;
     const panel = host.querySelector('.assistant-panel');
     const launcher = host.querySelector('#assistant-launcher');
     const input = host.querySelector('#assistant-input');
@@ -14,7 +15,21 @@ export function mountAssistant(callbacks) {
     let prefs = freshPreferences(), question = 'city', offset = 0, busy = false, sequence = 0, open = false;
     let liveAI = false, providerChecked = false, request = null;
     const history = [];
+    let memorySignature = '';
     function refresh() {
+        const learning = callbacks.learning?.();
+        if (learning) {
+            const signature = JSON.stringify(learning);
+            if (memorySignature && signature !== memorySignature)
+                offset = 0;
+            memorySignature = signature;
+            const count = Object.keys(learning.memory.records).length, rules = learnedRules(learning.memory, learning.work);
+            const status = host.querySelector('#assistant-learning-status');
+            if (status)
+                status.textContent = `${count} passes · ${learning.memory.enabled ? rules.length + ' learned' : 'paused'}`;
+            host.querySelector('#assistant-learning-history')?.toggleAttribute('hidden', !count);
+            host.querySelectorAll('[data-chat-pass]').forEach(b => { const passed = !!learning.memory.records[b.dataset.chatPass]; b.dataset.passed = String(passed); b.innerHTML = icon(passed ? 'reset' : 'x') + (passed ? 'Passed · Undo' : 'Not interested'); });
+        }
         host.querySelectorAll('[data-chat-save]').forEach(button => {
             const saved = callbacks.isSaved(button.dataset.chatSave);
             button.setAttribute('aria-pressed', String(saved));
@@ -33,7 +48,7 @@ export function mountAssistant(callbacks) {
     }
     function card(match) {
         const p = match.property;
-        return `<article class="assistant-property" data-recommendation="${e(p.id)}"><div class="assistant-property-top">${propertyImage(p)}<div><span class="assistant-card-kind">${e(p.type)} · Fictional</span><button class="assistant-property-title" data-chat-details="${e(p.id)}">${e(p.name)}</button><span class="assistant-card-location">${e(p.city)}, ${e(p.state)}</span><strong>${money(p.price)}</strong></div></div><div class="assistant-card-specs"><span>${p.beds} beds</span><span>${p.baths} baths</span><span>${number(p.sqft)} sq ft</span></div><div class="assistant-fit"><strong>Why this fits</strong><ul>${match.reasons.map(reason => `<li>${icon('check')}<span>${e(reason)}</span></li>`).join('')}</ul></div>${match.caveats.map(text => `<p class="assistant-caveat">${icon('info')}<span>${e(text)}</span></p>`).join('')}<div class="assistant-card-actions"><button data-chat-details="${e(p.id)}">View home ${icon('diagonal')}</button><button data-chat-analyze="${e(p.id)}">Run numbers ${icon('calculator')}</button><button data-chat-save="${e(p.id)}" aria-label="Save ${e(p.name)}" aria-pressed="false">${icon('heart')}Save</button></div>${callbacks.explore ? `<button class="assistant-workspace-link" data-chat-explore="${e(p.id)}">Explore this home’s decision workspace ${icon('arrow')}</button>` : ''}</article>`;
+        return `<article class="assistant-property" data-recommendation="${e(p.id)}"><div class="assistant-property-top">${propertyImage(p)}<div><span class="assistant-card-kind">${e(p.type)} · Fictional</span><button class="assistant-property-title" data-chat-details="${e(p.id)}">${e(p.name)}</button><span class="assistant-card-location">${e(p.city)}, ${e(p.state)}</span><strong>${money(p.price)}</strong></div></div><div class="assistant-card-specs"><span>${p.beds} beds</span><span>${p.baths} baths</span><span>${number(p.sqft)} sq ft</span></div><div class="assistant-fit"><strong>Why this fits</strong><ul>${match.reasons.map(reason => `<li>${icon('check')}<span>${e(reason)}</span></li>`).join('')}</ul></div>${match.caveats.map(text => `<p class="assistant-caveat">${icon('info')}<span>${e(text)}</span></p>`).join('')}<div class="assistant-card-actions"><button data-chat-details="${e(p.id)}">View home ${icon('diagonal')}</button><button data-chat-analyze="${e(p.id)}">Run numbers ${icon('calculator')}</button><button data-chat-save="${e(p.id)}" aria-label="Save ${e(p.name)}" aria-pressed="false">${icon('heart')}Save</button></div>${callbacks.pass ? `<button class="assistant-pass-button" data-chat-pass="${e(p.id)}" data-passed="false">${icon('x')}Not interested</button>` : ''}${callbacks.explore ? `<button class="assistant-workspace-link" data-chat-explore="${e(p.id)}">Explore this home’s decision workspace ${icon('arrow')}</button>` : ''}</article>`;
     }
     function append(role, text, matches = [], welcome = false) {
         const node = document.createElement('div');
@@ -154,7 +169,7 @@ export function mountAssistant(callbacks) {
             request = new AbortController();
             const timer = setTimeout(() => request?.abort(), 20000);
             try {
-                const response = await fetch('/api/assistant', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ message: text, preferences: prefs, question, history: history.slice(-10, -1) }), signal: request.signal, credentials: 'same-origin' });
+                const response = await fetch('/api/assistant', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ message: text, preferences: prefs, question, history: history.slice(-10, -1).filter(entry => entry.role === 'user') }), signal: request.signal, credentials: 'same-origin' });
                 if (!response.ok)
                     throw new Error('AI service unavailable');
                 const data = await response.json();
@@ -187,7 +202,8 @@ export function mountAssistant(callbacks) {
             append('assistant', fail);
         }
         prefs = interpreted.preferences;
-        const reply = nextReply(prefs, callbacks.properties, { recognized: interpreted.recognized, note: interpreted.note, noteQuestion: interpreted.noteQuestion, offset, more: interpreted.more });
+        const learning = callbacks.learning?.();
+        const reply = nextReply(prefs, callbacks.properties, { memory: learning?.memory, work: learning?.work, recognized: interpreted.recognized, note: interpreted.note, noteQuestion: interpreted.noteQuestion, offset, more: interpreted.more });
         if (reply.matches.length)
             lastRecommendedIds = reply.matches.map(match => match.property.id);
         question = reply.question;
@@ -231,6 +247,14 @@ export function mountAssistant(callbacks) {
         if (button.dataset.chatExplore) {
             toggle(false, false);
             callbacks.explore?.(button.dataset.chatExplore);
+        }
+        if (button.hasAttribute('data-chat-preferences'))
+            callbacks.preferences?.();
+        if (button.dataset.chatPass) {
+            if (button.dataset.passed === 'true')
+                callbacks.undoPass?.(button.dataset.chatPass);
+            else
+                callbacks.pass?.(button.dataset.chatPass);
         }
         if (button.dataset.chatSave) {
             callbacks.save(button.dataset.chatSave);

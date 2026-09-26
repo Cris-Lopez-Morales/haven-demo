@@ -1,0 +1,166 @@
+PASS Plainly titled estimate section appears in property details
+PASS Property detail initially focuses close, not a financial input
+PASS Utility default uses the existing size and construction-year data
+PASS Living-here and rental scenarios are separate visible results
+PASS Work setup is optional and no fake zero-minute result appears
+PASS Provenance distinguishes defaults from saved edits
+PASS Hover reveals the complete utility formula and limitations
+PASS Tooltip works with keyboard focus and Escape without closing the home
+PASS Utility edits recalculate live without replacing the input or its focus
+PASS The same edit subtracts utilities once from calculator cash flow
+PASS Utility edits persist per property in the existing workspace key
+PASS Expanded explanation remains open during edits
+PASS Manual estimate labels replace rather than add to the formula
+PASS Invalid utility input '' pauses saving and marks results stale
+PASS Invalid utility input '-1' pauses saving and marks results stale
+PASS Invalid utility input '1000001' pauses saving and marks results stale
+PASS A deliberate zero utility allowance is not treated as blank
+PASS Reset restores the formula and removes only this utility override
+PASS A dedicated workspace-wide setup opens with keyboard focus
+PASS Location setup explains fictional positions before entry
+PASS A blank label cannot save a pretend work location
+PASS Zero speed is invalid, rather than causing division by zero
+PASS Saving work settings returns to the home without losing unsaved notes
+PASS Same-city sample commute uses the disclosed grid calculation
+PASS Work setup is stored once, not in each property record
+PASS Commute is visibly not a real route and does not change dollar totals
+PASS Commute tooltip exposes distance, assumed speed and travel-time formula
+PASS Changing position and speed recalculates the estimate
+PASS Cancel preserves the saved setup and returns focus to the invoking control
+PASS Another home automatically reuses the work location without repeated entry
+PASS Distinct homes get distinct same-city illustrative distances
+PASS A second home does not inherit the first home utility override
+PASS Different-city homes do not invent intercity travel estimates
+PASS Reopening the original home restores its independent utility edit
+PASS Detail estimates follow the last valid calculator insurance edit
+PASS Edited calculator provenance is explicit in property details
+PASS Closing-cost changes cannot leak into the living-here monthly total
+PASS An invalid calculator draft does not overwrite the detail estimate
+PASS Utility edits inside a modal do not erase an invalid calculator field behind it
+PASS Duplex details disclose whole-building and both-unit income assumptions
+PASS Reinitialization with the saved store restores utilities and one global work setup
+PASS Actual backup download includes utility and work settings
+PASS Importing a pre-1.6 backup migrates safely with no commute or utility overrides
+PASS Importing the new backup restores both features through the real dialog
+PASS Malformed commute imports fail without replacing the workspace
+PASS Remote-work mode removes the address instead of storing stale private data
+PASS Turning commute off resets only work settings
+PASS Workspace settings expose the single reusable work location
+PASS Saving from workspace settings returns to workspace management
+PASS Location labels render as text, never HTML or remote resources
+PASS Custom homes get size/age utilities but no made-up coordinates
+PASS Deleting a custom property prunes its utilities without deleting work settings
+PASS Storage failure is visible while valid session-only calculations continue
+PASS Work location also works session-only when storage fails
+PASS Session-only utility and commute edits can still be exported
+PASS Full workspace reset clears all new inputs and keeps the 60 original homes
+PASS 320px light: property and new section have no horizontal overflow
+PASS 320px light living summary text contrast
+PASS 320px light: utility tooltip is tap accessible and clamped
+PASS 320px light utility formula text contrast
+PASS 320px light: Escape retains the property and tooltip focus
+PASS 320px light: keyboard opens the cost breakdown
+PASS 320px light commute text contrast
+PASS 320px light: work setup has no horizontal overflow
+PASS 320px light work settings text contrast
+PASS 320px light: keyboard can save setup and return to home
+PASS 320px dark: property and new section have no horizontal overflow
+PASS 320px dark living summary text contrast
+PASS 320px dark: utility tooltip is tap accessible and clamped
+PASS 320px dark utility formula text contrast
+PASS 320px dark: Escape retains the property and tooltip focus
+PASS 320px dark: keyboard opens the cost breakdown
+PASS 320px dark commute text contrast
+PASS 320px dark: work setup has no horizontal overflow
+PASS 320px dark work settings text contrast
+PASS 320px dark: keyboard can save setup and return to home
+PASS 320px: reduced motion covers all new controls
+PASS 390px light: property and new section have no horizontal overflow
+PASS 390px light living summary text contrast
+PASS 390px light: utility tooltip is tap accessible and clamped
+PASS 390px light utility formula text contrast
+PASS 390px light: Escape retains the property and tooltip focus
+PASS 390px light: keyboard opens the cost breakdown
+PASS 390px light commute text contrast
+PASS 390px light: work setup has no horizontal overflow
+PASS 390px light work settings text contrast
+PASS 390px light: keyboard can save setup and return to home
+PASS 390px dark: property and new section have no horizontal overflow
+PASS 390px dark living summary text contrast
+PASS 390px dark: utility tooltip is tap accessible and clamped
+PASS 390px dark utility formula text contrast
+PASS 390px dark: Escape retains the property and tooltip focus
+PASS 390px dark: keyboard opens the cost breakdown
+PASS 390px dark commute text contrast
+PASS 390px dark: work setup has no horizontal overflow
+PASS 390px dark work settings text contrast
+PASS 390px dark: keyboard can save setup and return to home
+PASS 390px: reduced motion covers all new controls
+PASS 768px light: property and new section have no horizontal overflow
+PASS 768px light living summary text contrast
+PASS 768px light: utility tooltip is tap accessible and clamped
+PASS 768px light utility formula text contrast
+PASS 768px light: Escape retains the property and tooltip focus
+PASS 768px light: keyboard opens the cost breakdown
+PASS 768px light commute text contrast
+PASS 768px light: work setup has no horizontal overflow
+PASS 768px light work settings text contrast
+PASS 768px light: keyboard can save setup and return to home
+PASS 768px dark: property and new section have no horizontal overflow
+PASS 768px dark living summary text contrast
+PASS 768px dark: utility tooltip is tap accessible and clamped
+PASS 768px dark utility formula text contrast
+PASS 768px dark: Escape retains the property and tooltip focus
+PASS 768px dark: keyboard opens the cost breakdown
+PASS 768px dark commute text contrast
+PASS 768px dark: work setup has no horizontal overflow
+PASS 768px dark work settings text contrast
+PASS 768px dark: keyboard can save setup and return to home
+PASS 768px: reduced motion covers all new controls
+PASS 1024px light: property and new section have no horizontal overflow
+PASS 1024px light living summary text contrast
+PASS 1024px light: utility tooltip is tap accessible and clamped
+PASS 1024px light utility formula text contrast
+PASS 1024px light: Escape retains the property and tooltip focus
+PASS 1024px light: keyboard opens the cost breakdown
+PASS 1024px light commute text contrast
+PASS 1024px light: work setup has no horizontal overflow
+PASS 1024px light work settings text contrast
+PASS 1024px light: keyboard can save setup and return to home
+PASS 1024px dark: property and new section have no horizontal overflow
+PASS 1024px dark living summary text contrast
+PASS 1024px dark: utility tooltip is tap accessible and clamped
+PASS 1024px dark utility formula text contrast
+PASS 1024px dark: Escape retains the property and tooltip focus
+PASS 1024px dark: keyboard opens the cost breakdown
+PASS 1024px dark commute text contrast
+PASS 1024px dark: work setup has no horizontal overflow
+PASS 1024px dark work settings text contrast
+PASS 1024px dark: keyboard can save setup and return to home
+PASS 1024px: reduced motion covers all new controls
+PASS 1440px light: property and new section have no horizontal overflow
+PASS 1440px light living summary text contrast
+PASS 1440px light: utility tooltip is tap accessible and clamped
+PASS 1440px light utility formula text contrast
+PASS 1440px light: Escape retains the property and tooltip focus
+PASS 1440px light: keyboard opens the cost breakdown
+PASS 1440px light commute text contrast
+PASS 1440px light: work setup has no horizontal overflow
+PASS 1440px light work settings text contrast
+PASS 1440px light: keyboard can save setup and return to home
+PASS 1440px dark: property and new section have no horizontal overflow
+PASS 1440px dark living summary text contrast
+PASS 1440px dark: utility tooltip is tap accessible and clamped
+PASS 1440px dark utility formula text contrast
+PASS 1440px dark: Escape retains the property and tooltip focus
+PASS 1440px dark: keyboard opens the cost breakdown
+PASS 1440px dark commute text contrast
+PASS 1440px dark: work setup has no horizontal overflow
+PASS 1440px dark work settings text contrast
+PASS 1440px dark: keyboard can save setup and return to home
+PASS 1440px: reduced motion covers all new controls
+PASS Large valid dollar figures do not break the 320px layout
+PASS All new operations avoid fetch calls
+PASS No external resource requests in the feature workflows
+PASS No uncaught application exceptions in the feature workflows
+PASS: 165 living browser checks and 40 text-contrast groups. Isolated storage adapter.

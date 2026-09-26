@@ -377,49 +377,49 @@
   "contrastAudits": [
     {
       "name": "light life",
-      "count": 177,
+      "count": 178,
       "min": 5.12,
       "failures": []
     },
     {
       "name": "light together",
-      "count": 111,
+      "count": 112,
       "min": 4.89,
       "failures": []
     },
     {
       "name": "light tour",
-      "count": 96,
+      "count": 97,
       "min": 5.12,
       "failures": []
     },
     {
       "name": "dark life",
-      "count": 176,
+      "count": 177,
       "min": 6.97,
       "failures": []
     },
     {
       "name": "dark together",
-      "count": 111,
+      "count": 112,
       "min": 6.67,
       "failures": []
     },
     {
       "name": "dark tour",
-      "count": 96,
+      "count": 97,
       "min": 7.14,
       "failures": []
     },
     {
       "name": "light budget dialog",
-      "count": 198,
+      "count": 199,
       "min": 5.12,
       "failures": []
     },
     {
       "name": "dark answer dialog",
-      "count": 106,
+      "count": 107,
       "min": 7.14,
       "failures": []
     },

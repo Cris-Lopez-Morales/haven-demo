@@ -1,0 +1,4 @@
+RUN assistant_browser
+DONE assistant_browser 0
+RUN costs_browser
+DONE costs_browser 0

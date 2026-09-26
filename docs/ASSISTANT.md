@@ -1,3 +1,13 @@
+## Haven 1.7: explicit feedback and learned order
+
+The local assistant now reads the workspace's **explicit pass memory** when computing new recommendations. General searches apply the same median-threshold rules shown in **Your preferences**; numerical requests retain their true order. Passed homes are excluded and the scope is stated. The widget offers Not interested / Undo and a direct preferences-panel link. “Use my learned preferences” resets only the conversational sort, not explicit city/budget requirements. Earlier answers remain snapshots.
+
+No live model or API key is required. Free-text rejection notes are not interpreted. Structured memory, private profiles, work labels, or calculator/utility data are never attached to AI requests. When optional connected AI is separately enabled, the interpreter's history contains only user-written messages, not assistant summaries that could reveal learned thresholds. Anything deliberately typed into the conversation can still be sent with that opt-in. The existing default remains local demo mode.
+
+See **PREFERENCES.md** for the exact algorithm, threshold units, pause/undo/reset semantics, duplicate protection, distance limitations, and tested privacy boundaries. The existing 60-demo-home scope remains unchanged; custom entries can supply explicit workspace feedback but are not returned as assistant recommendations.
+
+---
+
 # Haven assistant and property picker
 
 ## Version 1.4 status

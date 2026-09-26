@@ -1,0 +1,909 @@
+{
+  "isolated": true,
+  "checks": [
+    {
+      "name": "Plainly titled estimate section appears in property details",
+      "passed": true
+    },
+    {
+      "name": "Property detail initially focuses close, not a financial input",
+      "passed": true
+    },
+    {
+      "name": "Utility default uses the existing size and construction-year data",
+      "passed": true
+    },
+    {
+      "name": "Living-here and rental scenarios are separate visible results",
+      "passed": true
+    },
+    {
+      "name": "Work setup is optional and no fake zero-minute result appears",
+      "passed": true
+    },
+    {
+      "name": "Provenance distinguishes defaults from saved edits",
+      "passed": true
+    },
+    {
+      "name": "Hover reveals the complete utility formula and limitations",
+      "passed": true
+    },
+    {
+      "name": "Tooltip works with keyboard focus and Escape without closing the home",
+      "passed": true
+    },
+    {
+      "name": "Utility edits recalculate live without replacing the input or its focus",
+      "passed": true
+    },
+    {
+      "name": "The same edit subtracts utilities once from calculator cash flow",
+      "passed": true
+    },
+    {
+      "name": "Utility edits persist per property in the existing workspace key",
+      "passed": true
+    },
+    {
+      "name": "Expanded explanation remains open during edits",
+      "passed": true
+    },
+    {
+      "name": "Manual estimate labels replace rather than add to the formula",
+      "passed": true
+    },
+    {
+      "name": "Invalid utility input '' pauses saving and marks results stale",
+      "passed": true
+    },
+    {
+      "name": "Invalid utility input '-1' pauses saving and marks results stale",
+      "passed": true
+    },
+    {
+      "name": "Invalid utility input '1000001' pauses saving and marks results stale",
+      "passed": true
+    },
+    {
+      "name": "A deliberate zero utility allowance is not treated as blank",
+      "passed": true
+    },
+    {
+      "name": "Reset restores the formula and removes only this utility override",
+      "passed": true
+    },
+    {
+      "name": "A dedicated workspace-wide setup opens with keyboard focus",
+      "passed": true
+    },
+    {
+      "name": "Location setup explains fictional positions before entry",
+      "passed": true
+    },
+    {
+      "name": "A blank label cannot save a pretend work location",
+      "passed": true
+    },
+    {
+      "name": "Zero speed is invalid, rather than causing division by zero",
+      "passed": true
+    },
+    {
+      "name": "Saving work settings returns to the home without losing unsaved notes",
+      "passed": true
+    },
+    {
+      "name": "Same-city sample commute uses the disclosed grid calculation",
+      "passed": true
+    },
+    {
+      "name": "Work setup is stored once, not in each property record",
+      "passed": true
+    },
+    {
+      "name": "Commute is visibly not a real route and does not change dollar totals",
+      "passed": true
+    },
+    {
+      "name": "Commute tooltip exposes distance, assumed speed and travel-time formula",
+      "passed": true
+    },
+    {
+      "name": "Changing position and speed recalculates the estimate",
+      "passed": true
+    },
+    {
+      "name": "Cancel preserves the saved setup and returns focus to the invoking control",
+      "passed": true
+    },
+    {
+      "name": "Another home automatically reuses the work location without repeated entry",
+      "passed": true
+    },
+    {
+      "name": "Distinct homes get distinct same-city illustrative distances",
+      "passed": true
+    },
+    {
+      "name": "A second home does not inherit the first home utility override",
+      "passed": true
+    },
+    {
+      "name": "Different-city homes do not invent intercity travel estimates",
+      "passed": true
+    },
+    {
+      "name": "Reopening the original home restores its independent utility edit",
+      "passed": true
+    },
+    {
+      "name": "Detail estimates follow the last valid calculator insurance edit",
+      "passed": true
+    },
+    {
+      "name": "Edited calculator provenance is explicit in property details",
+      "passed": true
+    },
+    {
+      "name": "Closing-cost changes cannot leak into the living-here monthly total",
+      "passed": true
+    },
+    {
+      "name": "An invalid calculator draft does not overwrite the detail estimate",
+      "passed": true
+    },
+    {
+      "name": "Utility edits inside a modal do not erase an invalid calculator field behind it",
+      "passed": true
+    },
+    {
+      "name": "Duplex details disclose whole-building and both-unit income assumptions",
+      "passed": true
+    },
+    {
+      "name": "Reinitialization with the saved store restores utilities and one global work setup",
+      "passed": true
+    },
+    {
+      "name": "Actual backup download includes utility and work settings",
+      "passed": true
+    },
+    {
+      "name": "Importing a pre-1.6 backup migrates safely with no commute or utility overrides",
+      "passed": true
+    },
+    {
+      "name": "Importing the new backup restores both features through the real dialog",
+      "passed": true
+    },
+    {
+      "name": "Malformed commute imports fail without replacing the workspace",
+      "passed": true
+    },
+    {
+      "name": "Remote-work mode removes the address instead of storing stale private data",
+      "passed": true
+    },
+    {
+      "name": "Turning commute off resets only work settings",
+      "passed": true
+    },
+    {
+      "name": "Workspace settings expose the single reusable work location",
+      "passed": true
+    },
+    {
+      "name": "Saving from workspace settings returns to workspace management",
+      "passed": true
+    },
+    {
+      "name": "Location labels render as text, never HTML or remote resources",
+      "passed": true
+    },
+    {
+      "name": "Custom homes get size/age utilities but no made-up coordinates",
+      "passed": true
+    },
+    {
+      "name": "Deleting a custom property prunes its utilities without deleting work settings",
+      "passed": true
+    },
+    {
+      "name": "Storage failure is visible while valid session-only calculations continue",
+      "passed": true
+    },
+    {
+      "name": "Work location also works session-only when storage fails",
+      "passed": true
+    },
+    {
+      "name": "Session-only utility and commute edits can still be exported",
+      "passed": true
+    },
+    {
+      "name": "Full workspace reset clears all new inputs and keeps the 60 original homes",
+      "passed": true
+    },
+    {
+      "name": "320px light: property and new section have no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "320px light living summary text contrast",
+      "passed": true
+    },
+    {
+      "name": "320px light: utility tooltip is tap accessible and clamped",
+      "passed": true
+    },
+    {
+      "name": "320px light utility formula text contrast",
+      "passed": true
+    },
+    {
+      "name": "320px light: Escape retains the property and tooltip focus",
+      "passed": true
+    },
+    {
+      "name": "320px light: keyboard opens the cost breakdown",
+      "passed": true
+    },
+    {
+      "name": "320px light commute text contrast",
+      "passed": true
+    },
+    {
+      "name": "320px light: work setup has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "320px light work settings text contrast",
+      "passed": true
+    },
+    {
+      "name": "320px light: keyboard can save setup and return to home",
+      "passed": true
+    },
+    {
+      "name": "320px dark: property and new section have no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "320px dark living summary text contrast",
+      "passed": true
+    },
+    {
+      "name": "320px dark: utility tooltip is tap accessible and clamped",
+      "passed": true
+    },
+    {
+      "name": "320px dark utility formula text contrast",
+      "passed": true
+    },
+    {
+      "name": "320px dark: Escape retains the property and tooltip focus",
+      "passed": true
+    },
+    {
+      "name": "320px dark: keyboard opens the cost breakdown",
+      "passed": true
+    },
+    {
+      "name": "320px dark commute text contrast",
+      "passed": true
+    },
+    {
+      "name": "320px dark: work setup has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "320px dark work settings text contrast",
+      "passed": true
+    },
+    {
+      "name": "320px dark: keyboard can save setup and return to home",
+      "passed": true
+    },
+    {
+      "name": "320px: reduced motion covers all new controls",
+      "passed": true
+    },
+    {
+      "name": "390px light: property and new section have no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "390px light living summary text contrast",
+      "passed": true
+    },
+    {
+      "name": "390px light: utility tooltip is tap accessible and clamped",
+      "passed": true
+    },
+    {
+      "name": "390px light utility formula text contrast",
+      "passed": true
+    },
+    {
+      "name": "390px light: Escape retains the property and tooltip focus",
+      "passed": true
+    },
+    {
+      "name": "390px light: keyboard opens the cost breakdown",
+      "passed": true
+    },
+    {
+      "name": "390px light commute text contrast",
+      "passed": true
+    },
+    {
+      "name": "390px light: work setup has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "390px light work settings text contrast",
+      "passed": true
+    },
+    {
+      "name": "390px light: keyboard can save setup and return to home",
+      "passed": true
+    },
+    {
+      "name": "390px dark: property and new section have no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "390px dark living summary text contrast",
+      "passed": true
+    },
+    {
+      "name": "390px dark: utility tooltip is tap accessible and clamped",
+      "passed": true
+    },
+    {
+      "name": "390px dark utility formula text contrast",
+      "passed": true
+    },
+    {
+      "name": "390px dark: Escape retains the property and tooltip focus",
+      "passed": true
+    },
+    {
+      "name": "390px dark: keyboard opens the cost breakdown",
+      "passed": true
+    },
+    {
+      "name": "390px dark commute text contrast",
+      "passed": true
+    },
+    {
+      "name": "390px dark: work setup has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "390px dark work settings text contrast",
+      "passed": true
+    },
+    {
+      "name": "390px dark: keyboard can save setup and return to home",
+      "passed": true
+    },
+    {
+      "name": "390px: reduced motion covers all new controls",
+      "passed": true
+    },
+    {
+      "name": "768px light: property and new section have no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "768px light living summary text contrast",
+      "passed": true
+    },
+    {
+      "name": "768px light: utility tooltip is tap accessible and clamped",
+      "passed": true
+    },
+    {
+      "name": "768px light utility formula text contrast",
+      "passed": true
+    },
+    {
+      "name": "768px light: Escape retains the property and tooltip focus",
+      "passed": true
+    },
+    {
+      "name": "768px light: keyboard opens the cost breakdown",
+      "passed": true
+    },
+    {
+      "name": "768px light commute text contrast",
+      "passed": true
+    },
+    {
+      "name": "768px light: work setup has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "768px light work settings text contrast",
+      "passed": true
+    },
+    {
+      "name": "768px light: keyboard can save setup and return to home",
+      "passed": true
+    },
+    {
+      "name": "768px dark: property and new section have no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "768px dark living summary text contrast",
+      "passed": true
+    },
+    {
+      "name": "768px dark: utility tooltip is tap accessible and clamped",
+      "passed": true
+    },
+    {
+      "name": "768px dark utility formula text contrast",
+      "passed": true
+    },
+    {
+      "name": "768px dark: Escape retains the property and tooltip focus",
+      "passed": true
+    },
+    {
+      "name": "768px dark: keyboard opens the cost breakdown",
+      "passed": true
+    },
+    {
+      "name": "768px dark commute text contrast",
+      "passed": true
+    },
+    {
+      "name": "768px dark: work setup has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "768px dark work settings text contrast",
+      "passed": true
+    },
+    {
+      "name": "768px dark: keyboard can save setup and return to home",
+      "passed": true
+    },
+    {
+      "name": "768px: reduced motion covers all new controls",
+      "passed": true
+    },
+    {
+      "name": "1024px light: property and new section have no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "1024px light living summary text contrast",
+      "passed": true
+    },
+    {
+      "name": "1024px light: utility tooltip is tap accessible and clamped",
+      "passed": true
+    },
+    {
+      "name": "1024px light utility formula text contrast",
+      "passed": true
+    },
+    {
+      "name": "1024px light: Escape retains the property and tooltip focus",
+      "passed": true
+    },
+    {
+      "name": "1024px light: keyboard opens the cost breakdown",
+      "passed": true
+    },
+    {
+      "name": "1024px light commute text contrast",
+      "passed": true
+    },
+    {
+      "name": "1024px light: work setup has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "1024px light work settings text contrast",
+      "passed": true
+    },
+    {
+      "name": "1024px light: keyboard can save setup and return to home",
+      "passed": true
+    },
+    {
+      "name": "1024px dark: property and new section have no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "1024px dark living summary text contrast",
+      "passed": true
+    },
+    {
+      "name": "1024px dark: utility tooltip is tap accessible and clamped",
+      "passed": true
+    },
+    {
+      "name": "1024px dark utility formula text contrast",
+      "passed": true
+    },
+    {
+      "name": "1024px dark: Escape retains the property and tooltip focus",
+      "passed": true
+    },
+    {
+      "name": "1024px dark: keyboard opens the cost breakdown",
+      "passed": true
+    },
+    {
+      "name": "1024px dark commute text contrast",
+      "passed": true
+    },
+    {
+      "name": "1024px dark: work setup has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "1024px dark work settings text contrast",
+      "passed": true
+    },
+    {
+      "name": "1024px dark: keyboard can save setup and return to home",
+      "passed": true
+    },
+    {
+      "name": "1024px: reduced motion covers all new controls",
+      "passed": true
+    },
+    {
+      "name": "1440px light: property and new section have no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "1440px light living summary text contrast",
+      "passed": true
+    },
+    {
+      "name": "1440px light: utility tooltip is tap accessible and clamped",
+      "passed": true
+    },
+    {
+      "name": "1440px light utility formula text contrast",
+      "passed": true
+    },
+    {
+      "name": "1440px light: Escape retains the property and tooltip focus",
+      "passed": true
+    },
+    {
+      "name": "1440px light: keyboard opens the cost breakdown",
+      "passed": true
+    },
+    {
+      "name": "1440px light commute text contrast",
+      "passed": true
+    },
+    {
+      "name": "1440px light: work setup has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "1440px light work settings text contrast",
+      "passed": true
+    },
+    {
+      "name": "1440px light: keyboard can save setup and return to home",
+      "passed": true
+    },
+    {
+      "name": "1440px dark: property and new section have no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "1440px dark living summary text contrast",
+      "passed": true
+    },
+    {
+      "name": "1440px dark: utility tooltip is tap accessible and clamped",
+      "passed": true
+    },
+    {
+      "name": "1440px dark utility formula text contrast",
+      "passed": true
+    },
+    {
+      "name": "1440px dark: Escape retains the property and tooltip focus",
+      "passed": true
+    },
+    {
+      "name": "1440px dark: keyboard opens the cost breakdown",
+      "passed": true
+    },
+    {
+      "name": "1440px dark commute text contrast",
+      "passed": true
+    },
+    {
+      "name": "1440px dark: work setup has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "1440px dark work settings text contrast",
+      "passed": true
+    },
+    {
+      "name": "1440px dark: keyboard can save setup and return to home",
+      "passed": true
+    },
+    {
+      "name": "1440px: reduced motion covers all new controls",
+      "passed": true
+    },
+    {
+      "name": "Large valid dollar figures do not break the 320px layout",
+      "passed": true
+    },
+    {
+      "name": "All new operations avoid fetch calls",
+      "passed": true
+    },
+    {
+      "name": "No external resource requests in the feature workflows",
+      "passed": true
+    },
+    {
+      "name": "No uncaught application exceptions in the feature workflows",
+      "passed": true
+    }
+  ],
+  "contrastAudits": [
+    {
+      "name": "320px light living summary",
+      "count": 222,
+      "min": 4.77,
+      "failures": []
+    },
+    {
+      "name": "320px light utility formula",
+      "count": 223,
+      "min": 4.77,
+      "failures": []
+    },
+    {
+      "name": "320px light commute",
+      "count": 222,
+      "min": 4.77,
+      "failures": []
+    },
+    {
+      "name": "320px light work settings",
+      "count": 82,
+      "min": 4.77,
+      "failures": []
+    },
+    {
+      "name": "320px dark living summary",
+      "count": 224,
+      "min": 6.24,
+      "failures": []
+    },
+    {
+      "name": "320px dark utility formula",
+      "count": 225,
+      "min": 6.24,
+      "failures": []
+    },
+    {
+      "name": "320px dark commute",
+      "count": 224,
+      "min": 6.24,
+      "failures": []
+    },
+    {
+      "name": "320px dark work settings",
+      "count": 84,
+      "min": 6.24,
+      "failures": []
+    },
+    {
+      "name": "390px light living summary",
+      "count": 223,
+      "min": 4.77,
+      "failures": []
+    },
+    {
+      "name": "390px light utility formula",
+      "count": 224,
+      "min": 4.77,
+      "failures": []
+    },
+    {
+      "name": "390px light commute",
+      "count": 223,
+      "min": 4.77,
+      "failures": []
+    },
+    {
+      "name": "390px light work settings",
+      "count": 83,
+      "min": 4.77,
+      "failures": []
+    },
+    {
+      "name": "390px dark living summary",
+      "count": 225,
+      "min": 6.24,
+      "failures": []
+    },
+    {
+      "name": "390px dark utility formula",
+      "count": 226,
+      "min": 6.24,
+      "failures": []
+    },
+    {
+      "name": "390px dark commute",
+      "count": 225,
+      "min": 6.24,
+      "failures": []
+    },
+    {
+      "name": "390px dark work settings",
+      "count": 85,
+      "min": 6.24,
+      "failures": []
+    },
+    {
+      "name": "768px light living summary",
+      "count": 225,
+      "min": 4.77,
+      "failures": []
+    },
+    {
+      "name": "768px light utility formula",
+      "count": 226,
+      "min": 4.77,
+      "failures": []
+    },
+    {
+      "name": "768px light commute",
+      "count": 225,
+      "min": 4.77,
+      "failures": []
+    },
+    {
+      "name": "768px light work settings",
+      "count": 85,
+      "min": 4.77,
+      "failures": []
+    },
+    {
+      "name": "768px dark living summary",
+      "count": 227,
+      "min": 6.24,
+      "failures": []
+    },
+    {
+      "name": "768px dark utility formula",
+      "count": 228,
+      "min": 6.24,
+      "failures": []
+    },
+    {
+      "name": "768px dark commute",
+      "count": 227,
+      "min": 6.24,
+      "failures": []
+    },
+    {
+      "name": "768px dark work settings",
+      "count": 87,
+      "min": 6.24,
+      "failures": []
+    },
+    {
+      "name": "1024px light living summary",
+      "count": 246,
+      "min": 4.77,
+      "failures": []
+    },
+    {
+      "name": "1024px light utility formula",
+      "count": 247,
+      "min": 4.77,
+      "failures": []
+    },
+    {
+      "name": "1024px light commute",
+      "count": 246,
+      "min": 4.77,
+      "failures": []
+    },
+    {
+      "name": "1024px light work settings",
+      "count": 106,
+      "min": 4.77,
+      "failures": []
+    },
+    {
+      "name": "1024px dark living summary",
+      "count": 248,
+      "min": 6.24,
+      "failures": []
+    },
+    {
+      "name": "1024px dark utility formula",
+      "count": 249,
+      "min": 6.24,
+      "failures": []
+    },
+    {
+      "name": "1024px dark commute",
+      "count": 248,
+      "min": 6.24,
+      "failures": []
+    },
+    {
+      "name": "1024px dark work settings",
+      "count": 108,
+      "min": 6.24,
+      "failures": []
+    },
+    {
+      "name": "1440px light living summary",
+      "count": 246,
+      "min": 4.77,
+      "failures": []
+    },
+    {
+      "name": "1440px light utility formula",
+      "count": 247,
+      "min": 4.77,
+      "failures": []
+    },
+    {
+      "name": "1440px light commute",
+      "count": 246,
+      "min": 4.77,
+      "failures": []
+    },
+    {
+      "name": "1440px light work settings",
+      "count": 106,
+      "min": 4.77,
+      "failures": []
+    },
+    {
+      "name": "1440px dark living summary",
+      "count": 248,
+      "min": 6.24,
+      "failures": []
+    },
+    {
+      "name": "1440px dark utility formula",
+      "count": 249,
+      "min": 6.24,
+      "failures": []
+    },
+    {
+      "name": "1440px dark commute",
+      "count": 248,
+      "min": 6.24,
+      "failures": []
+    },
+    {
+      "name": "1440px dark work settings",
+      "count": 108,
+      "min": 6.24,
+      "failures": []
+    }
+  ],
+  "pageErrors": [],
+  "blockedRequests": []
+}

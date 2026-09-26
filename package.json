@@ -1,8 +1,8 @@
 {
   "name": "haven-property-workspace",
-  "version": "1.4.0",
+  "version": "1.8.0",
   "private": true,
-  "description": "A local-first home-decision workspace: household planning, local collaboration, and tour preparation.",
+  "description": "A local-first home decision workspace with transparent costs, reversible preference learning and inspectable fictional sales context.",
   "type": "module",
   "scripts": {
     "build": "tsc && node scripts/build.mjs",

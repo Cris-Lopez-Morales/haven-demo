@@ -1,0 +1,5 @@
+
+> haven-property-workspace@1.5.0 build
+> tsc && node scripts/build.mjs
+
+Built dist/index.html (391.9 KB). No runtime dependencies.

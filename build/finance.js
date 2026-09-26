@@ -32,13 +32,16 @@ export const inputRules = {
     mortgageInsuranceMonthly: { min: 0, max: 100_000, label: 'Monthly mortgage insurance' }
 };
 export function validateAssumptions(a) {
-    return Object.keys(inputRules).flatMap(key => {
+    const errors = Object.keys(inputRules).flatMap(key => {
         const { min, max, label } = inputRules[key];
         if (key === 'years' && Number.isFinite(a[key]) && !Number.isInteger(a[key]))
             return ['Loan term must use whole years.'];
         return typeof a[key] !== 'number' || !Number.isFinite(a[key]) || a[key] < min || a[key] > max
             ? [`${label} must be between ${min.toLocaleString('en-US')} and ${max.toLocaleString('en-US')}.`] : [];
     });
+    if (a.costs !== undefined)
+        errors.push(...validateOwnershipCosts(a.costs));
+    return errors;
 }
 export function defaultAssumptions(p) {
     return {
@@ -47,6 +50,88 @@ export function defaultAssumptions(p) {
         hoaMonthly: p.hoaMonthly, vacancyPercent: 5, maintenancePercent: 5,
         managementPercent: 8, capexPercent: 3, closingPercent: 3,
         initialRepairs: 0, mortgageInsuranceMonthly: 0
+    };
+}
+/** Ownership controls are an additive layer: old assumptions retain their old semantics. */
+export function validateOwnershipCosts(value) {
+    if (!value || typeof value !== 'object' || Array.isArray(value))
+        return ['Ownership cost inputs must be an object.'];
+    const c = value;
+    const errors = [];
+    const number = (key, label, max) => {
+        if (typeof c[key] !== 'number' || !Number.isFinite(c[key]) || Number(c[key]) < 0 || Number(c[key]) > max)
+            errors.push(`${label} must be between 0 and ${max.toLocaleString('en-US')}.`);
+    };
+    number('taxRatePercent', 'Annual property tax rate (%)', 100_000_000);
+    // The wide tax bound keeps valid legacy extreme-price scenarios importable.
+    // Values above 10% receive a visible review warning; no value is silently clamped.
+    number('insuranceAnnual', 'Annual insurance estimate ($)', 1_200_000);
+    if (!['monthly', 'home-value'].includes(String(c.maintenanceBasis)))
+        errors.push('Choose dollars per month or percent of home value per year for maintenance.');
+    number('maintenanceValue', c.maintenanceBasis === 'monthly' ? 'Monthly maintenance reserve ($)' : 'Annual maintenance reserve (%)', c.maintenanceBasis === 'monthly' ? 1_000_000 : 100_000_000);
+    if (typeof c.hoaApplicable !== 'boolean')
+        errors.push('HOA applicability must be on or off.');
+    if (!['percent', 'amount'].includes(String(c.closingBasis)))
+        errors.push('Choose percent of price or a one-time dollar amount for closing costs.');
+    number('closingValue', c.closingBasis === 'amount' ? 'One-time closing costs ($)' : 'One-time closing costs (%)', c.closingBasis === 'amount' ? 100_000_000 : 30);
+    return errors;
+}
+/** Preserve each legacy result when opening a snapshot; never mutate the snapshot. */
+export function withOwnershipCosts(a) {
+    const errors = validateAssumptions(a);
+    if (errors.length)
+        throw new RangeError(errors.join(' '));
+    return { ...a, costs: a.costs ? { ...a.costs } : {
+            taxRatePercent: a.taxAnnual / a.price * 100,
+            insuranceAnnual: a.insuranceMonthly * 12,
+            maintenanceBasis: 'monthly', maintenanceValue: a.rent * a.maintenancePercent / 100,
+            hoaApplicable: a.hoaMonthly > 0,
+            closingBasis: 'percent', closingValue: a.closingPercent
+        } };
+}
+/** Initial rate is derived from the fictional entry, rounded to 0.001 percentage point. */
+export function defaultCalculatorAssumptions(p) {
+    const a = withOwnershipCosts(defaultAssumptions(p));
+    a.costs.taxRatePercent = Math.round(a.costs.taxRatePercent * 1000) / 1000;
+    return a;
+}
+export function cloneAssumptions(a) {
+    return { ...a, ...(a.costs ? { costs: { ...a.costs } } : {}) };
+}
+/** Pure conversion between equivalent display units; no rounding or double-counting. */
+export function changeCostBasis(a, field, basis) {
+    const next = withOwnershipCosts(a), c = next.costs;
+    if (field === 'maintenanceBasis') {
+        if (basis !== 'monthly' && basis !== 'home-value')
+            throw new RangeError('Unknown maintenance unit.');
+        const monthly = c.maintenanceBasis === 'monthly' ? c.maintenanceValue : a.price * c.maintenanceValue / 1200;
+        c.maintenanceValue = basis === 'monthly' ? monthly : monthly * 1200 / a.price;
+        c.maintenanceBasis = basis;
+    }
+    else {
+        if (basis !== 'percent' && basis !== 'amount')
+            throw new RangeError('Unknown closing-cost unit.');
+        const amount = c.closingBasis === 'amount' ? c.closingValue : a.price * c.closingValue / 100;
+        c.closingValue = basis === 'amount' ? amount : amount / a.price * 100;
+        c.closingBasis = basis;
+    }
+    const errors = validateAssumptions(next);
+    if (errors.length)
+        throw new RangeError('This amount cannot be represented in the selected units: ' + errors[0]);
+    return next;
+}
+export function resolvedOwnershipCosts(a) {
+    const c = a.costs;
+    return c ? {
+        tax: a.price * c.taxRatePercent / 1200,
+        insurance: c.insuranceAnnual / 12,
+        maintenance: c.maintenanceBasis === 'monthly' ? c.maintenanceValue : a.price * c.maintenanceValue / 1200,
+        hoa: c.hoaApplicable ? a.hoaMonthly : 0,
+        closing: c.closingBasis === 'amount' ? c.closingValue : a.price * c.closingValue / 100
+    } : {
+        tax: a.taxAnnual / 12, insurance: a.insuranceMonthly,
+        maintenance: a.rent * a.maintenancePercent / 100, hoa: a.hoaMonthly,
+        closing: a.price * a.closingPercent / 100
     };
 }
 /** Unlevered NOI excludes debt service and capital reserves; cash flow includes both. */
@@ -59,21 +144,22 @@ export function calculate(a) {
     const mortgage = mortgagePayment(loan, a.interestRate, a.years);
     const vacancy = a.rent * a.vacancyPercent / 100;
     const effectiveRent = a.rent - vacancy;
-    const tax = a.taxAnnual / 12;
-    const maintenance = a.rent * a.maintenancePercent / 100;
+    const costs = resolvedOwnershipCosts(a);
+    const tax = costs.tax, maintenance = costs.maintenance;
     const management = effectiveRent * a.managementPercent / 100;
     const capex = a.rent * a.capexPercent / 100;
-    const operatingExpenses = tax + a.insuranceMonthly + a.hoaMonthly + maintenance + management;
+    const operatingExpenses = tax + costs.insurance + costs.hoa + maintenance + management;
     const noiMonthly = effectiveRent - operatingExpenses;
     const mortgageInsurance = loan > 0 ? a.mortgageInsuranceMonthly : 0;
     const totalOutflow = operatingExpenses + mortgage + capex + mortgageInsurance;
     const cashflow = effectiveRent - totalOutflow;
-    const cashInvested = downPayment + a.price * a.closingPercent / 100 + a.initialRepairs;
+    const cashInvested = downPayment + costs.closing + a.initialRepairs;
     return {
         loan, downPayment, mortgage, vacancy, effectiveRent, tax,
-        insurance: a.insuranceMonthly, hoa: a.hoaMonthly, maintenance, management,
+        insurance: costs.insurance, hoa: costs.hoa, maintenance, management,
         capex, operatingExpenses, noiMonthly, totalOutflow, cashflow,
         capRate: noiMonthly * 12 / a.price * 100, cashInvested,
+        closingCosts: costs.closing, firstYearOutlay: cashInvested + totalOutflow * 12,
         cashOnCash: cashInvested > 0 ? cashflow * 12 / cashInvested * 100 : null
     };
 }
@@ -115,6 +201,7 @@ export function filterProperties(properties, filters, sort = 'featured') {
             && (!filters.positiveOnly || metrics(p).cashflow >= 0);
     });
     const comparators = {
+        recommended: (a, b) => b.addedAt - a.addedAt,
         featured: (a, b) => b.addedAt - a.addedAt,
         'price-asc': (a, b) => a.price - b.price,
         'price-desc': (a, b) => b.price - a.price,

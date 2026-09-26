@@ -1,6 +1,6 @@
 export type PropertyType = 'Single-family' | 'Condo' | 'Townhouse' | 'Duplex';
 export type Page = 'discover' | 'saved' | 'compare' | 'calculator' | 'custom' | 'decision';
-export type Sort = 'featured' | 'price-asc' | 'price-desc' | 'cashflow' | 'caprate';
+export type Sort = 'recommended' | 'featured' | 'price-asc' | 'price-desc' | 'cashflow' | 'caprate';
 export interface Property {
   id: string;
   name: string;
@@ -25,7 +25,19 @@ export interface Property {
   addedAt: number;
   custom?: boolean;
 }
+/** Explicit units for the editable calculator. Absent on pre-1.5 snapshots. */
+export interface OwnershipCosts {
+  taxRatePercent: number;
+  insuranceAnnual: number;
+  maintenanceBasis: 'monthly' | 'home-value';
+  maintenanceValue: number;
+  hoaApplicable: boolean;
+  closingBasis: 'percent' | 'amount';
+  closingValue: number;
+}
+export type NumericAssumptionKey = Exclude<keyof Assumptions, 'costs'>;
 export interface Assumptions {
+  costs?: OwnershipCosts;
   price: number;
   downPercent: number;
   interestRate: number;
@@ -60,6 +72,8 @@ export interface Metrics {
   cashflow: number;
   capRate: number;
   cashInvested: number;
+  closingCosts: number;
+  firstYearOutlay: number;
   cashOnCash: number | null;
 }
 export interface Filters {
@@ -73,7 +87,15 @@ export interface Filters {
 }
 export interface SavedSearch { id: string; name: string; filters: Filters; }
 export interface Scenario { id: string; name: string; propertyId: string; assumptions: Assumptions; savedAt: number; }
+export interface CalculatorWorkspace {
+  version: 1;
+  activePropertyId: string;
+  drafts: Record<string, Assumptions>;
+}
 export interface Workspace {
+  rejections: RejectionMemory;
+  living: LivingWorkspace;
+  calculator: CalculatorWorkspace;
   version: 1;
   decisions: DecisionWorkspace;
   savedIds: string[];
@@ -84,6 +106,7 @@ export interface Workspace {
   scenarios: Scenario[];
 }
 export interface State {
+  showPassed: boolean;
   page: Page;
   filters: Filters;
   sort: Sort;
@@ -140,4 +163,36 @@ export interface DecisionWorkspace {
   version: 1; currentPropertyId: string; activeParticipantId: string;
   participants: Participant[]; homes: Record<string, DecisionHome>;
   stressInputs: StressInputs; snapshots: LifeSnapshot[];
+}
+
+/** Local-only, workspace-wide commute choice. Never geocoded or sent to AI. */
+export type WorkAnchor = 'center' | 'north' | 'northeast' | 'east' | 'southeast' | 'south' | 'southwest' | 'west' | 'northwest';
+export type WorkCommute = { mode: 'remote' } | {
+  mode: 'simulated'; label: string; city: string; state: string; anchor: WorkAnchor; speedMph: number;
+};
+export interface LivingWorkspace {
+  version: 1;
+  commute: WorkCommute | null;
+  utilityOverrides: Record<string, number>;
+}
+
+/** Workspace-wide explicit feedback; not a private Together participant account. */
+export type RejectionReason = 'Too far' | 'HOA too high' | 'Too small' | 'Price too high' | 'Other';
+export interface RejectionRecord {
+  reason: RejectionReason; note: string; rejectedAt: number;
+  snapshot: { name:string; city:string; state:string; price:number; sqft:number; hoaMonthly:number;
+    commute: { city:string; state:string; anchor:WorkAnchor; miles:number } | null; };
+}
+export interface RejectionMemory { version:1; enabled:boolean; records:Record<string,RejectionRecord>; }
+
+/** Read-only fictional negotiation fixtures; intentionally not personal workspace state. */
+export interface PriceEvent { readonly date:string; readonly price:number; }
+export interface ListingHistory {
+  readonly propertyId:string; readonly address:string; readonly city:string; readonly state:string;
+  readonly listedOn:string; readonly events:readonly PriceEvent[];
+}
+export interface SoldComparable {
+  readonly id:string; readonly address:string; readonly city:string; readonly state:string;
+  readonly neighborhood:string; readonly type:PropertyType; readonly beds:number;
+  readonly sqft:number; readonly price:number; readonly soldOn:string;
 }

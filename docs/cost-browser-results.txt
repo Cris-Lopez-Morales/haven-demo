@@ -1,0 +1,146 @@
+PASS All five cost controls are available with explicit units
+PASS Defaults preserve source amounts with a disclosed rounded tax rate
+PASS Non-applicable HOA amount is hidden and disabled
+PASS Maintenance defaults to fixed monthly dollars
+PASS Closing costs default to a one-time percentage
+PASS Initial cost totals match the independent example
+PASS Every visible calculator number has a why-default description
+PASS Default explanation opens on hover
+PASS Tooltip dismisses with Escape without moving keyboard focus
+PASS Keyboard focus also reveals the explanation
+PASS Tax edit recalculates immediately without submitting
+PASS Tax rate edit does not overwrite the other fields
+PASS Tax edit persists under this property in the existing workspace key
+PASS Typing preserves input focus and does not replace the form
+PASS Tax results agree with independent finance arithmetic
+PASS Annual insurance adds exactly the correct monthly delta
+PASS Insurance conversion is visible
+PASS Editing insurance keeps the chosen tax rate
+PASS Changing price reuses the selected tax and closing percentage
+PASS A fixed maintenance reserve stays fixed when price changes
+PASS Monthly maintenance is added exactly once
+PASS Changing rent no longer changes the fixed maintenance reserve
+PASS Switching maintenance units keeps the estimated monthly amount
+PASS Annual home-value basis is explicit in the input label
+PASS Unit selection retains keyboard focus after rerender
+PASS Home-value percentage divides by twelve, not by one
+PASS Home-value maintenance recalculates with purchase price
+PASS Turning HOA on reveals a usable independent fee field
+PASS HOA adds its monthly amount exactly once
+PASS Turning HOA off removes its cost and row
+PASS Excluded HOA is retained for a reversible toggle
+PASS Turning HOA back on restores the previous fee
+PASS HOA-inclusive totals match independent arithmetic
+PASS Closing percentage changes upfront cash, not monthly total
+PASS First-year outlay increases once, not twelve times
+PASS Switching closing cost units preserves the dollar amount
+PASS Fixed closing amount still never changes monthly outflows
+PASS Fixed closing amount does not scale with the purchase price
+PASS Combined independent edits produce the expected full result
+PASS Repeated closing-unit conversions do not round away the entered amount
+PASS Monthly and one-time sections explicitly describe their different scopes
+PASS First-year formula is visible, not hidden inside a score
+PASS Blank cost input pauses saving and report export
+PASS Invalid drafts cannot overwrite saved per-home values
+PASS Invalid results remain readable with a distinct stale state
+PASS Unit changes are disabled while an input is invalid
+PASS A second edit is not partially saved while another field is invalid
+PASS Correcting input commits all valid visible edits together
+PASS Tax rejects a negative input with accessible invalid state
+PASS Insurance rejects a negative input with accessible invalid state
+PASS Maintenance rejects a negative input with accessible invalid state
+PASS Closing rejects a negative input with accessible invalid state
+PASS Corrected valid inputs restore the expected results
+PASS Named scenario remains frozen after changing a current cost
+PASS Loading a scenario restores all cost units and numbers
+PASS CSV contains annual insurance, tax rate, and reserve basis
+PASS CSV clearly marks closing one-time and includes cash-outlay totals
+PASS CSV does not mislabel the new reserve as a rent percentage
+PASS A different home starts with its own HOA amount
+PASS Returning to a property restores every edited cost without cross-contamination
+PASS The second property independently restores its amount and units
+PASS Active property is persisted with its draft
+PASS Leaving and returning to calculator retains the current home
+PASS App reinitialization with stored data restores the active property and costs
+PASS Reinitialized results match independent arithmetic
+PASS Reset restores this home to source-based defaults
+PASS Reset does not alter another property’s plan
+PASS Full backup includes both independently edited cost plans
+PASS Import asks for confirmation before replacing any saved plan
+PASS Confirmed import restores property, selected units, and exact values
+PASS Legacy backups open without recovery/reset warnings
+PASS Loading legacy maintenance preserves its initial dollar allowance
+PASS Legacy saved snapshot is not rewritten when opened
+PASS Deleting a custom home removes its persisted cost draft
+PASS Deleting the active home restores the fallback home’s saved costs
+PASS Deleting a home does not overwrite another home’s saved costs
+PASS Confirmed workspace reset clears all per-home calculator plans
+PASS Storage failure is visibly session-only, not falsely saved
+PASS Storage failure does not overwrite the previous persisted plan
+PASS Valid session-only edits still recalculate
+PASS Session-only edits can be rescued in a backup
+PASS Unrepresentable closing percentage leaves the dollar mode and inputs unchanged
+PASS Rejected conversion explains the range instead of silently clamping
+PASS Zero costs and all-cash purchase calculate without NaN or missing-field errors
+PASS All-cash first-year outlay includes purchase equity, not phantom debt
+PASS Loan breakdown still works after cost extension
+PASS 320px light: cost page has no horizontal overflow
+PASS 320px light calculator rendered-text contrast
+PASS 320px light: tap tooltip stays inside the viewport
+PASS 320px light tooltip rendered-text contrast
+PASS 320px light: tooltip Escape does not trap focus
+PASS 320px dark: cost page has no horizontal overflow
+PASS 320px dark calculator rendered-text contrast
+PASS 320px dark: tap tooltip stays inside the viewport
+PASS 320px dark tooltip rendered-text contrast
+PASS 320px dark: tooltip Escape does not trap focus
+PASS 320px: existing property search remains within the viewport
+PASS 390px light: cost page has no horizontal overflow
+PASS 390px light calculator rendered-text contrast
+PASS 390px light: tap tooltip stays inside the viewport
+PASS 390px light tooltip rendered-text contrast
+PASS 390px light: tooltip Escape does not trap focus
+PASS 390px dark: cost page has no horizontal overflow
+PASS 390px dark calculator rendered-text contrast
+PASS 390px dark: tap tooltip stays inside the viewport
+PASS 390px dark tooltip rendered-text contrast
+PASS 390px dark: tooltip Escape does not trap focus
+PASS 390px: existing property search remains within the viewport
+PASS 768px light: cost page has no horizontal overflow
+PASS 768px light calculator rendered-text contrast
+PASS 768px light: tap tooltip stays inside the viewport
+PASS 768px light tooltip rendered-text contrast
+PASS 768px light: tooltip Escape does not trap focus
+PASS 768px dark: cost page has no horizontal overflow
+PASS 768px dark calculator rendered-text contrast
+PASS 768px dark: tap tooltip stays inside the viewport
+PASS 768px dark tooltip rendered-text contrast
+PASS 768px dark: tooltip Escape does not trap focus
+PASS 768px: existing property search remains within the viewport
+PASS 1024px light: cost page has no horizontal overflow
+PASS 1024px light calculator rendered-text contrast
+PASS 1024px light: tap tooltip stays inside the viewport
+PASS 1024px light tooltip rendered-text contrast
+PASS 1024px light: tooltip Escape does not trap focus
+PASS 1024px dark: cost page has no horizontal overflow
+PASS 1024px dark calculator rendered-text contrast
+PASS 1024px dark: tap tooltip stays inside the viewport
+PASS 1024px dark tooltip rendered-text contrast
+PASS 1024px dark: tooltip Escape does not trap focus
+PASS 1024px: existing property search remains within the viewport
+PASS 1440px light: cost page has no horizontal overflow
+PASS 1440px light calculator rendered-text contrast
+PASS 1440px light: tap tooltip stays inside the viewport
+PASS 1440px light tooltip rendered-text contrast
+PASS 1440px light: tooltip Escape does not trap focus
+PASS 1440px dark: cost page has no horizontal overflow
+PASS 1440px dark calculator rendered-text contrast
+PASS 1440px dark: tap tooltip stays inside the viewport
+PASS 1440px dark tooltip rendered-text contrast
+PASS 1440px dark: tooltip Escape does not trap focus
+PASS 1440px: existing property search remains within the viewport
+PASS Cost controls respect reduced-motion without extra animations
+PASS New cost operations never attempt fetch requests
+PASS No external resource request occurred in the exercised app
+PASS No uncaught application errors in the feature suite
+PASS: 145 cost browser checks and 20 text-contrast groups. Isolated storage adapter.

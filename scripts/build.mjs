@@ -6,7 +6,7 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 // Deliberately small static module graph: no dynamic imports, runtime CDN, eval,
 // or framework dependencies. TypeScript emits ESM for development and unit tests.
 // Wrap each emitted module separately to preserve lexical scope in the portable file.
-const order = ['types','theme','finance','data','decision-engine','storage','ui','motion','property-search','property-picker','ranking','assistant-engine','assistant-widget','views','calculator','decision-views','decision-workspace','app'];
+const order = ['types','theme','finance','data','negotiation-data','negotiation-engine','decision-engine','living-engine','rejection-engine','storage','ui','motion','property-search','property-picker','ranking','assistant-engine','assistant-widget','cost-controls','living-views','living-controller','rejection-views','rejection-controller','negotiation-views','views','calculator','decision-views','decision-workspace','app'];
 let js = '(()=>{"use strict";const __modules=Object.create(null);\n';
 for (const name of order) {
   let source = await readFile(path.join(root,'build',name+'.js'),'utf8');

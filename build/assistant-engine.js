@@ -1,3 +1,4 @@
+import { rerankWithMemory, learningNarrative, learnedRules, matchLearning } from './rejection-engine.js';
 import { detectRanking, rankProperties, rankingRules, rankingKeys, rankReason } from './ranking.js';
 export const propertyTypes = ['Single-family', 'Condo', 'Townhouse', 'Duplex'];
 export const featureLabels = {
@@ -71,6 +72,11 @@ export function interpretMessage(message, previous, question, properties, lastRe
     const reset = /^(?:start over|start again|reset(?: search)?|new search|clear everything)[.!]?$/i.test(t);
     if (reset)
         return { preferences: freshPreferences(), recognized: true, note: '', reset: true, more: false };
+    if (/\b(?:use (?:my )?(?:learned )?preferences|show (?:me )?recommendations|recommend (?:some )?homes)\b/.test(t)) {
+        p.sort = 'relevance';
+        p.mustHavesKnown = true;
+        recognized = true;
+    }
     const more = /\b(show|see|find|any) (?:me )?(?:some )?(?:more|other|different|next)\b|\bwhat else\b/.test(t);
     if (/^(?:show me (?:all|anything|what's possible|what is possible)|just browsing|surprise me)[.!]?$/.test(t))
         return { preferences: { ...freshPreferences(), budgetKnown: true, cities: [], types: [], mustHavesKnown: true }, recognized: true, note: '', reset: false, more: false };
@@ -357,14 +363,20 @@ export function nextReply(p, properties, options = {}) {
     if (missing.length)
         return { ...base, text: `${missing.join(' and ')} ${missing.length === 1 ? "isn't" : "aren't"} in this fictional catalogue. I have homes in ${cities.length} cities, including Lincoln, Omaha, Chicago, Austin, and Seattle. Which city should we try instead? Your other preferences are still here.`, question: 'city', suggestions: chips([['Lincoln', 'Lincoln instead'], ['Chicago', 'Chicago instead'], ['Austin', 'Austin instead'], ['Any city', 'Any city']]) };
     const prefix = options.recognized === false ? "I didn't quite catch a property preference. " : '';
-    const hasCriteria = p.sort !== 'relevance' || p.cities !== null || p.budgetKnown || p.types !== null || p.mustHavesKnown || p.minBeds !== null || p.minBaths !== null || p.minSqft !== null || p.features.length > 0 || p.unverified.length > 0;
+    const memory = options.memory, work = options.work ?? null;
+    const hasCriteria = !!(memory?.enabled && learnedRules(memory, work).length) || p.sort !== 'relevance' || p.cities !== null || p.budgetKnown || p.types !== null || p.mustHavesKnown || p.minBeds !== null || p.minBaths !== null || p.minSqft !== null || p.features.length > 0 || p.unverified.length > 0;
     if (!hasCriteria)
         return { ...base, text: `${prefix}What matters most to you? I can show the cheapest home, the biggest place, or the most bedrooms across all ${properties.length} demo listings right away. You can also give a city, budget, type, or must-have.`, question: 'criteria', suggestions: chips([['Cheapest house', 'Show me the cheapest house'], ['Biggest place', 'Show me the biggest place'], ['Most bedrooms', 'Which home has the most bedrooms?']]) };
-    const matching = rankProperties(properties.filter(property => matchesPreferences(property, p)), p.sort);
+    const eligible = properties.filter(property => !memory?.records[property.id]);
+    let matching = rankProperties(eligible.filter(property => matchesPreferences(property, p)), p.sort);
+    if (memory && p.sort === 'relevance')
+        matching = rerankWithMemory(matching, memory, work);
     if (!matching.length) {
+        if (memory && properties.some(x => matchesPreferences(x, p) && memory.records[x.id]))
+            return { ...base, text: 'The homes matching these filters have all been marked “Not interested”. Your filters are unchanged. Open Your preferences to review or undo those passes.', suggestions: chips([['Use learned preferences', 'Use my learned preferences']]) };
         const suggestions = [];
         if (p.maxPrice !== null) {
-            const noCap = properties.filter(x => matchesPreferences(x, { ...p, maxPrice: null })).sort((a, b) => a.price - b.price);
+            const noCap = eligible.filter(x => matchesPreferences(x, { ...p, maxPrice: null })).sort((a, b) => a.price - b.price);
             if (noCap.length)
                 suggestions.push({ label: `Try ${usd(noCap[0].price)}`, message: `Raise my purchase budget to ${noCap[0].price}` });
         }
@@ -395,7 +407,18 @@ export function nextReply(p, properties, options = {}) {
     const suggestions = chips([['Lower prices first', 'Show me the cheapest matches'], ['More space first', 'Show me the largest matches']]);
     if (offset + 3 < matching.length)
         suggestions.unshift({ label: 'Show more matches', message: 'Show me more matches' });
-    return { ...base, text: answer, matches: selected.map(property => explainMatch(property, p, matching)), suggestions, offset: offset + selected.length, total: matching.length };
+    if (memory) {
+        const narrative = learningNarrative(memory, work, p.sort !== 'relevance', properties.filter(x => memory.records[x.id]).length);
+        if (narrative)
+            answer += ' ' + narrative;
+        if (learnedRules(memory, work).length)
+            suggestions.push({ label: 'Use learned preferences', message: 'Use my learned preferences' });
+    }
+    return { ...base, text: answer, matches: selected.map(property => { const match = explainMatch(property, p, matching); if (memory && p.sort === 'relevance') {
+            const learned = matchLearning(property, memory, work);
+            match.reasons.push(...learned.reasons);
+            match.caveats.push(...learned.caveats);
+        } return match; }), suggestions, offset: offset + selected.length, total: matching.length };
 }
 /** Validate server output at the trust boundary; reject rather than guess. */
 export function validPreferences(value) {

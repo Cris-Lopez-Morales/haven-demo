@@ -421,175 +421,175 @@
   "contrastAudits": [
     {
       "page": "Dark discovery",
-      "count": 304,
+      "count": 321,
       "min": 6.24,
       "failures": []
     },
     {
       "page": "Dark assistant recommendations",
-      "count": 374,
+      "count": 396,
       "min": 6.24,
       "failures": []
     },
     {
       "page": "Light assistant recommendations",
-      "count": 374,
+      "count": 396,
       "min": 4.77,
       "failures": []
     },
     {
       "page": "Dark saved",
-      "count": 78,
+      "count": 80,
       "min": 6.24,
       "failures": []
     },
     {
       "page": "Dark compare",
-      "count": 97,
+      "count": 98,
       "min": 7.14,
       "failures": []
     },
     {
       "page": "Dark custom",
-      "count": 42,
+      "count": 43,
       "min": 7.14,
       "failures": []
     },
     {
       "page": "Dark calculator",
-      "count": 280,
+      "count": 311,
       "min": 6.97,
       "failures": []
     },
     {
       "page": "Dark discover",
-      "count": 311,
+      "count": 328,
       "min": 6.24,
       "failures": []
     },
     {
       "page": "Dark property detail",
-      "count": 336,
+      "count": 476,
       "min": 6.24,
       "failures": []
     },
     {
       "page": "Dark new property form",
-      "count": 332,
+      "count": 349,
       "min": 6.24,
       "failures": []
     },
     {
       "page": "Dark workspace dialog",
-      "count": 326,
+      "count": 347,
       "min": 6.24,
       "failures": []
     },
     {
       "page": "Dark calculator autocomplete",
-      "count": 294,
+      "count": 326,
       "min": 6.97,
       "failures": []
     },
     {
       "page": "Dark calculator details and chart",
-      "count": 281,
+      "count": 313,
       "min": 6.97,
       "failures": []
     },
     {
       "page": "Dark input validation",
-      "count": 280,
+      "count": 312,
       "min": 6.97,
       "failures": []
     },
     {
       "page": "Light saved",
-      "count": 78,
+      "count": 80,
       "min": 4.77,
       "failures": []
     },
     {
       "page": "Light compare",
-      "count": 97,
+      "count": 98,
       "min": 5.12,
       "failures": []
     },
     {
       "page": "Light custom",
-      "count": 42,
+      "count": 43,
       "min": 5.12,
       "failures": []
     },
     {
       "page": "Light calculator",
-      "count": 280,
+      "count": 311,
       "min": 5.12,
       "failures": []
     },
     {
       "page": "Light discover",
-      "count": 311,
+      "count": 328,
       "min": 4.77,
       "failures": []
     },
     {
       "page": "Light property detail",
-      "count": 336,
+      "count": 476,
       "min": 4.77,
       "failures": []
     },
     {
       "page": "Light new property form",
-      "count": 332,
+      "count": 349,
       "min": 4.77,
       "failures": []
     },
     {
       "page": "Light workspace dialog",
-      "count": 326,
+      "count": 347,
       "min": 4.77,
       "failures": []
     },
     {
       "page": "Light calculator autocomplete",
-      "count": 294,
+      "count": 326,
       "min": 5.12,
       "failures": []
     },
     {
       "page": "Light calculator details and chart",
-      "count": 281,
+      "count": 313,
       "min": 5.12,
       "failures": []
     },
     {
       "page": "Light input validation",
-      "count": 280,
+      "count": 312,
       "min": 5.12,
       "failures": []
     },
     {
       "page": "390px dark chat",
-      "count": 354,
+      "count": 375,
       "min": 6.24,
       "failures": []
     },
     {
       "page": "390px dark calculator autocomplete",
-      "count": 271,
+      "count": 301,
       "min": 6.97,
       "failures": []
     },
     {
       "page": "320px dark chat",
-      "count": 353,
+      "count": 374,
       "min": 6.24,
       "failures": []
     },
     {
       "page": "320px dark calculator autocomplete",
-      "count": 270,
+      "count": 300,
       "min": 6.97,
       "failures": []
     }

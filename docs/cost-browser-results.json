@@ -1,0 +1,709 @@
+{
+  "isolated": true,
+  "checks": [
+    {
+      "name": "All five cost controls are available with explicit units",
+      "passed": true
+    },
+    {
+      "name": "Defaults preserve source amounts with a disclosed rounded tax rate",
+      "passed": true
+    },
+    {
+      "name": "Non-applicable HOA amount is hidden and disabled",
+      "passed": true
+    },
+    {
+      "name": "Maintenance defaults to fixed monthly dollars",
+      "passed": true
+    },
+    {
+      "name": "Closing costs default to a one-time percentage",
+      "passed": true
+    },
+    {
+      "name": "Initial cost totals match the independent example",
+      "passed": true
+    },
+    {
+      "name": "Every visible calculator number has a why-default description",
+      "passed": true
+    },
+    {
+      "name": "Default explanation opens on hover",
+      "passed": true
+    },
+    {
+      "name": "Tooltip dismisses with Escape without moving keyboard focus",
+      "passed": true
+    },
+    {
+      "name": "Keyboard focus also reveals the explanation",
+      "passed": true
+    },
+    {
+      "name": "Tax edit recalculates immediately without submitting",
+      "passed": true
+    },
+    {
+      "name": "Tax rate edit does not overwrite the other fields",
+      "passed": true
+    },
+    {
+      "name": "Tax edit persists under this property in the existing workspace key",
+      "passed": true
+    },
+    {
+      "name": "Typing preserves input focus and does not replace the form",
+      "passed": true
+    },
+    {
+      "name": "Tax results agree with independent finance arithmetic",
+      "passed": true
+    },
+    {
+      "name": "Annual insurance adds exactly the correct monthly delta",
+      "passed": true
+    },
+    {
+      "name": "Insurance conversion is visible",
+      "passed": true
+    },
+    {
+      "name": "Editing insurance keeps the chosen tax rate",
+      "passed": true
+    },
+    {
+      "name": "Changing price reuses the selected tax and closing percentage",
+      "passed": true
+    },
+    {
+      "name": "A fixed maintenance reserve stays fixed when price changes",
+      "passed": true
+    },
+    {
+      "name": "Monthly maintenance is added exactly once",
+      "passed": true
+    },
+    {
+      "name": "Changing rent no longer changes the fixed maintenance reserve",
+      "passed": true
+    },
+    {
+      "name": "Switching maintenance units keeps the estimated monthly amount",
+      "passed": true
+    },
+    {
+      "name": "Annual home-value basis is explicit in the input label",
+      "passed": true
+    },
+    {
+      "name": "Unit selection retains keyboard focus after rerender",
+      "passed": true
+    },
+    {
+      "name": "Home-value percentage divides by twelve, not by one",
+      "passed": true
+    },
+    {
+      "name": "Home-value maintenance recalculates with purchase price",
+      "passed": true
+    },
+    {
+      "name": "Turning HOA on reveals a usable independent fee field",
+      "passed": true
+    },
+    {
+      "name": "HOA adds its monthly amount exactly once",
+      "passed": true
+    },
+    {
+      "name": "Turning HOA off removes its cost and row",
+      "passed": true
+    },
+    {
+      "name": "Excluded HOA is retained for a reversible toggle",
+      "passed": true
+    },
+    {
+      "name": "Turning HOA back on restores the previous fee",
+      "passed": true
+    },
+    {
+      "name": "HOA-inclusive totals match independent arithmetic",
+      "passed": true
+    },
+    {
+      "name": "Closing percentage changes upfront cash, not monthly total",
+      "passed": true
+    },
+    {
+      "name": "First-year outlay increases once, not twelve times",
+      "passed": true
+    },
+    {
+      "name": "Switching closing cost units preserves the dollar amount",
+      "passed": true
+    },
+    {
+      "name": "Fixed closing amount still never changes monthly outflows",
+      "passed": true
+    },
+    {
+      "name": "Fixed closing amount does not scale with the purchase price",
+      "passed": true
+    },
+    {
+      "name": "Combined independent edits produce the expected full result",
+      "passed": true
+    },
+    {
+      "name": "Repeated closing-unit conversions do not round away the entered amount",
+      "passed": true
+    },
+    {
+      "name": "Monthly and one-time sections explicitly describe their different scopes",
+      "passed": true
+    },
+    {
+      "name": "First-year formula is visible, not hidden inside a score",
+      "passed": true
+    },
+    {
+      "name": "Blank cost input pauses saving and report export",
+      "passed": true
+    },
+    {
+      "name": "Invalid drafts cannot overwrite saved per-home values",
+      "passed": true
+    },
+    {
+      "name": "Invalid results remain readable with a distinct stale state",
+      "passed": true
+    },
+    {
+      "name": "Unit changes are disabled while an input is invalid",
+      "passed": true
+    },
+    {
+      "name": "A second edit is not partially saved while another field is invalid",
+      "passed": true
+    },
+    {
+      "name": "Correcting input commits all valid visible edits together",
+      "passed": true
+    },
+    {
+      "name": "Tax rejects a negative input with accessible invalid state",
+      "passed": true
+    },
+    {
+      "name": "Insurance rejects a negative input with accessible invalid state",
+      "passed": true
+    },
+    {
+      "name": "Maintenance rejects a negative input with accessible invalid state",
+      "passed": true
+    },
+    {
+      "name": "Closing rejects a negative input with accessible invalid state",
+      "passed": true
+    },
+    {
+      "name": "Corrected valid inputs restore the expected results",
+      "passed": true
+    },
+    {
+      "name": "Named scenario remains frozen after changing a current cost",
+      "passed": true
+    },
+    {
+      "name": "Loading a scenario restores all cost units and numbers",
+      "passed": true
+    },
+    {
+      "name": "CSV contains annual insurance, tax rate, and reserve basis",
+      "passed": true
+    },
+    {
+      "name": "CSV clearly marks closing one-time and includes cash-outlay totals",
+      "passed": true
+    },
+    {
+      "name": "CSV does not mislabel the new reserve as a rent percentage",
+      "passed": true
+    },
+    {
+      "name": "A different home starts with its own HOA amount",
+      "passed": true
+    },
+    {
+      "name": "Returning to a property restores every edited cost without cross-contamination",
+      "passed": true
+    },
+    {
+      "name": "The second property independently restores its amount and units",
+      "passed": true
+    },
+    {
+      "name": "Active property is persisted with its draft",
+      "passed": true
+    },
+    {
+      "name": "Leaving and returning to calculator retains the current home",
+      "passed": true
+    },
+    {
+      "name": "App reinitialization with stored data restores the active property and costs",
+      "passed": true
+    },
+    {
+      "name": "Reinitialized results match independent arithmetic",
+      "passed": true
+    },
+    {
+      "name": "Reset restores this home to source-based defaults",
+      "passed": true
+    },
+    {
+      "name": "Reset does not alter another property\u2019s plan",
+      "passed": true
+    },
+    {
+      "name": "Full backup includes both independently edited cost plans",
+      "passed": true
+    },
+    {
+      "name": "Import asks for confirmation before replacing any saved plan",
+      "passed": true
+    },
+    {
+      "name": "Confirmed import restores property, selected units, and exact values",
+      "passed": true
+    },
+    {
+      "name": "Legacy backups open without recovery/reset warnings",
+      "passed": true
+    },
+    {
+      "name": "Loading legacy maintenance preserves its initial dollar allowance",
+      "passed": true
+    },
+    {
+      "name": "Legacy saved snapshot is not rewritten when opened",
+      "passed": true
+    },
+    {
+      "name": "Deleting a custom home removes its persisted cost draft",
+      "passed": true
+    },
+    {
+      "name": "Deleting the active home restores the fallback home\u2019s saved costs",
+      "passed": true
+    },
+    {
+      "name": "Deleting a home does not overwrite another home\u2019s saved costs",
+      "passed": true
+    },
+    {
+      "name": "Confirmed workspace reset clears all per-home calculator plans",
+      "passed": true
+    },
+    {
+      "name": "Storage failure is visibly session-only, not falsely saved",
+      "passed": true
+    },
+    {
+      "name": "Storage failure does not overwrite the previous persisted plan",
+      "passed": true
+    },
+    {
+      "name": "Valid session-only edits still recalculate",
+      "passed": true
+    },
+    {
+      "name": "Session-only edits can be rescued in a backup",
+      "passed": true
+    },
+    {
+      "name": "Unrepresentable closing percentage leaves the dollar mode and inputs unchanged",
+      "passed": true
+    },
+    {
+      "name": "Rejected conversion explains the range instead of silently clamping",
+      "passed": true
+    },
+    {
+      "name": "Zero costs and all-cash purchase calculate without NaN or missing-field errors",
+      "passed": true
+    },
+    {
+      "name": "All-cash first-year outlay includes purchase equity, not phantom debt",
+      "passed": true
+    },
+    {
+      "name": "Loan breakdown still works after cost extension",
+      "passed": true
+    },
+    {
+      "name": "320px light: cost page has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "320px light calculator rendered-text contrast",
+      "passed": true
+    },
+    {
+      "name": "320px light: tap tooltip stays inside the viewport",
+      "passed": true
+    },
+    {
+      "name": "320px light tooltip rendered-text contrast",
+      "passed": true
+    },
+    {
+      "name": "320px light: tooltip Escape does not trap focus",
+      "passed": true
+    },
+    {
+      "name": "320px dark: cost page has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "320px dark calculator rendered-text contrast",
+      "passed": true
+    },
+    {
+      "name": "320px dark: tap tooltip stays inside the viewport",
+      "passed": true
+    },
+    {
+      "name": "320px dark tooltip rendered-text contrast",
+      "passed": true
+    },
+    {
+      "name": "320px dark: tooltip Escape does not trap focus",
+      "passed": true
+    },
+    {
+      "name": "320px: existing property search remains within the viewport",
+      "passed": true
+    },
+    {
+      "name": "390px light: cost page has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "390px light calculator rendered-text contrast",
+      "passed": true
+    },
+    {
+      "name": "390px light: tap tooltip stays inside the viewport",
+      "passed": true
+    },
+    {
+      "name": "390px light tooltip rendered-text contrast",
+      "passed": true
+    },
+    {
+      "name": "390px light: tooltip Escape does not trap focus",
+      "passed": true
+    },
+    {
+      "name": "390px dark: cost page has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "390px dark calculator rendered-text contrast",
+      "passed": true
+    },
+    {
+      "name": "390px dark: tap tooltip stays inside the viewport",
+      "passed": true
+    },
+    {
+      "name": "390px dark tooltip rendered-text contrast",
+      "passed": true
+    },
+    {
+      "name": "390px dark: tooltip Escape does not trap focus",
+      "passed": true
+    },
+    {
+      "name": "390px: existing property search remains within the viewport",
+      "passed": true
+    },
+    {
+      "name": "768px light: cost page has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "768px light calculator rendered-text contrast",
+      "passed": true
+    },
+    {
+      "name": "768px light: tap tooltip stays inside the viewport",
+      "passed": true
+    },
+    {
+      "name": "768px light tooltip rendered-text contrast",
+      "passed": true
+    },
+    {
+      "name": "768px light: tooltip Escape does not trap focus",
+      "passed": true
+    },
+    {
+      "name": "768px dark: cost page has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "768px dark calculator rendered-text contrast",
+      "passed": true
+    },
+    {
+      "name": "768px dark: tap tooltip stays inside the viewport",
+      "passed": true
+    },
+    {
+      "name": "768px dark tooltip rendered-text contrast",
+      "passed": true
+    },
+    {
+      "name": "768px dark: tooltip Escape does not trap focus",
+      "passed": true
+    },
+    {
+      "name": "768px: existing property search remains within the viewport",
+      "passed": true
+    },
+    {
+      "name": "1024px light: cost page has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "1024px light calculator rendered-text contrast",
+      "passed": true
+    },
+    {
+      "name": "1024px light: tap tooltip stays inside the viewport",
+      "passed": true
+    },
+    {
+      "name": "1024px light tooltip rendered-text contrast",
+      "passed": true
+    },
+    {
+      "name": "1024px light: tooltip Escape does not trap focus",
+      "passed": true
+    },
+    {
+      "name": "1024px dark: cost page has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "1024px dark calculator rendered-text contrast",
+      "passed": true
+    },
+    {
+      "name": "1024px dark: tap tooltip stays inside the viewport",
+      "passed": true
+    },
+    {
+      "name": "1024px dark tooltip rendered-text contrast",
+      "passed": true
+    },
+    {
+      "name": "1024px dark: tooltip Escape does not trap focus",
+      "passed": true
+    },
+    {
+      "name": "1024px: existing property search remains within the viewport",
+      "passed": true
+    },
+    {
+      "name": "1440px light: cost page has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "1440px light calculator rendered-text contrast",
+      "passed": true
+    },
+    {
+      "name": "1440px light: tap tooltip stays inside the viewport",
+      "passed": true
+    },
+    {
+      "name": "1440px light tooltip rendered-text contrast",
+      "passed": true
+    },
+    {
+      "name": "1440px light: tooltip Escape does not trap focus",
+      "passed": true
+    },
+    {
+      "name": "1440px dark: cost page has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "1440px dark calculator rendered-text contrast",
+      "passed": true
+    },
+    {
+      "name": "1440px dark: tap tooltip stays inside the viewport",
+      "passed": true
+    },
+    {
+      "name": "1440px dark tooltip rendered-text contrast",
+      "passed": true
+    },
+    {
+      "name": "1440px dark: tooltip Escape does not trap focus",
+      "passed": true
+    },
+    {
+      "name": "1440px: existing property search remains within the viewport",
+      "passed": true
+    },
+    {
+      "name": "Cost controls respect reduced-motion without extra animations",
+      "passed": true
+    },
+    {
+      "name": "New cost operations never attempt fetch requests",
+      "passed": true
+    },
+    {
+      "name": "No external resource request occurred in the exercised app",
+      "passed": true
+    },
+    {
+      "name": "No uncaught application errors in the feature suite",
+      "passed": true
+    }
+  ],
+  "contrastAudits": [
+    {
+      "name": "320px light calculator",
+      "count": 292,
+      "min": 5.12,
+      "failures": []
+    },
+    {
+      "name": "320px light tooltip",
+      "count": 293,
+      "min": 5.12,
+      "failures": []
+    },
+    {
+      "name": "320px dark calculator",
+      "count": 292,
+      "min": 6.97,
+      "failures": []
+    },
+    {
+      "name": "320px dark tooltip",
+      "count": 293,
+      "min": 6.97,
+      "failures": []
+    },
+    {
+      "name": "390px light calculator",
+      "count": 293,
+      "min": 5.12,
+      "failures": []
+    },
+    {
+      "name": "390px light tooltip",
+      "count": 294,
+      "min": 5.12,
+      "failures": []
+    },
+    {
+      "name": "390px dark calculator",
+      "count": 293,
+      "min": 6.97,
+      "failures": []
+    },
+    {
+      "name": "390px dark tooltip",
+      "count": 294,
+      "min": 6.97,
+      "failures": []
+    },
+    {
+      "name": "768px light calculator",
+      "count": 294,
+      "min": 5.12,
+      "failures": []
+    },
+    {
+      "name": "768px light tooltip",
+      "count": 295,
+      "min": 5.12,
+      "failures": []
+    },
+    {
+      "name": "768px dark calculator",
+      "count": 294,
+      "min": 6.97,
+      "failures": []
+    },
+    {
+      "name": "768px dark tooltip",
+      "count": 295,
+      "min": 6.97,
+      "failures": []
+    },
+    {
+      "name": "1024px light calculator",
+      "count": 315,
+      "min": 5.12,
+      "failures": []
+    },
+    {
+      "name": "1024px light tooltip",
+      "count": 316,
+      "min": 5.12,
+      "failures": []
+    },
+    {
+      "name": "1024px dark calculator",
+      "count": 315,
+      "min": 6.97,
+      "failures": []
+    },
+    {
+      "name": "1024px dark tooltip",
+      "count": 316,
+      "min": 6.97,
+      "failures": []
+    },
+    {
+      "name": "1440px light calculator",
+      "count": 315,
+      "min": 5.12,
+      "failures": []
+    },
+    {
+      "name": "1440px light tooltip",
+      "count": 316,
+      "min": 5.12,
+      "failures": []
+    },
+    {
+      "name": "1440px dark calculator",
+      "count": 315,
+      "min": 6.97,
+      "failures": []
+    },
+    {
+      "name": "1440px dark tooltip",
+      "count": 316,
+      "min": 6.97,
+      "failures": []
+    }
+  ],
+  "pageErrors": [],
+  "blockedRequests": []
+}

@@ -1,0 +1,6 @@
+browser_smoke exit=0
+catalog_motion_browser exit=0
+assistant_browser exit=0
+ranking_theme_browser exit=0
+decision_browser exit=0
+costs_browser exit=0

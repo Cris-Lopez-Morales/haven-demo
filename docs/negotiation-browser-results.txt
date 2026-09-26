@@ -1,0 +1,168 @@
+PASS Discovery remains the original 60 active homes
+PASS Property details now have exactly one native negotiation disclosure
+PASS Negotiation starts collapsed to keep detail browsing uncluttered
+PASS Collapsed heading visibly labels its data fictional
+PASS Enter opens the native disclosure without a mouse
+PASS Opening the panel preserves focus on its control
+PASS Disclosure keyboard focus has a visible outline
+PASS Space collapses the native disclosure
+PASS Reading negotiation context performs no workspace write
+PASS Fixed fictional snapshot and non-current-data disclosure are visible
+PASS Nested calculation method supports keyboard disclosure
+PASS Selection rules name 180 days, same type and neighborhood, ±20% size and ±1 bed
+PASS Selection is by size rather than price and never widens insufficient criteria
+PASS Visible formula specifies median of individual unrounded sold ratios
+PASS Nearby is explicitly not a geographic distance claim
+PASS Context does not assert a valuation, seller motives, or an offer recommendation
+PASS Showing the method still performs no workspace writes
+PASS The Willow House: actual selected comparable IDs match independent computation
+PASS The Willow House: takeaway matches independent median-per-foot calculation
+PASS The Willow House: dates and days-on-market derive from fixed history
+PASS The Willow House: zero, one or multiple price reductions are correctly identified
+PASS The Willow House: every sale displays price, area and its actual sold date
+PASS Parkside Residence: actual selected comparable IDs match independent computation
+PASS Parkside Residence: takeaway matches independent median-per-foot calculation
+PASS Parkside Residence: dates and days-on-market derive from fixed history
+PASS Parkside Residence: zero, one or multiple price reductions are correctly identified
+PASS Parkside Residence: every sale displays price, area and its actual sold date
+PASS The Maple Duplex: actual selected comparable IDs match independent computation
+PASS The Maple Duplex: takeaway matches independent median-per-foot calculation
+PASS The Maple Duplex: dates and days-on-market derive from fixed history
+PASS The Maple Duplex: zero, one or multiple price reductions are correctly identified
+PASS The Maple Duplex: every sale displays price, area and its actual sold date
+PASS The Maple Duplex: whole-building rather than per-unit context is explicit
+PASS The Cedar Loft: actual selected comparable IDs match independent computation
+PASS The Cedar Loft: takeaway matches independent median-per-foot calculation
+PASS The Cedar Loft: dates and days-on-market derive from fixed history
+PASS The Cedar Loft: zero, one or multiple price reductions are correctly identified
+PASS The Cedar Loft: every sale displays price, area and its actual sold date
+PASS The Terrace: actual selected comparable IDs match independent computation
+PASS The Terrace: takeaway matches independent median-per-foot calculation
+PASS The Terrace: dates and days-on-market derive from fixed history
+PASS The Terrace: zero, one or multiple price reductions are correctly identified
+PASS The Terrace: every sale displays price, area and its actual sold date
+PASS The Courtyard Two: actual selected comparable IDs match independent computation
+PASS The Courtyard Two: takeaway matches independent median-per-foot calculation
+PASS The Courtyard Two: dates and days-on-market derive from fixed history
+PASS The Courtyard Two: zero, one or multiple price reductions are correctly identified
+PASS The Courtyard Two: every sale displays price, area and its actual sold date
+PASS The Courtyard Two: whole-building rather than per-unit context is explicit
+PASS The Clover Cottage: actual selected comparable IDs match independent computation
+PASS The Clover Cottage: takeaway matches independent median-per-foot calculation
+PASS The Clover Cottage: dates and days-on-market derive from fixed history
+PASS The Clover Cottage: zero, one or multiple price reductions are correctly identified
+PASS The Clover Cottage: every sale displays price, area and its actual sold date
+PASS The Citrus Pair: actual selected comparable IDs match independent computation
+PASS The Citrus Pair: takeaway matches independent median-per-foot calculation
+PASS The Citrus Pair: dates and days-on-market derive from fixed history
+PASS The Citrus Pair: zero, one or multiple price reductions are correctly identified
+PASS The Citrus Pair: every sale displays price, area and its actual sold date
+PASS The Citrus Pair: whole-building rather than per-unit context is explicit
+PASS The Dune Townhome: actual selected comparable IDs match independent computation
+PASS The Dune Townhome: takeaway matches independent median-per-foot calculation
+PASS The Dune Townhome: dates and days-on-market derive from fixed history
+PASS The Dune Townhome: zero, one or multiple price reductions are correctly identified
+PASS The Dune Townhome: every sale displays price, area and its actual sold date
+PASS Saving a home preserves the open panel and all evidence
+PASS Reading and saving notes do not overwrite costs or comparison data
+PASS Calculator editing remains live and retains its independent price input
+PASS A $450k calculator what-if cannot rewrite the $325k asking price or price history
+PASS Backup keeps existing saved homes, notes and finance inputs
+PASS Read-only fixture history adds no personal state to backups
+PASS Existing workspace JSON restores without a schema migration
+PASS Restoring personal data does not alter the fixed comparison
+PASS Custom property shows an honest no-sample-history state
+PASS Custom data has no fabricated comparable rows, day count or percentage verdict
+PASS Custom text remains escaped and cannot create markup
+PASS light custom unavailable panel contrast
+PASS dark custom unavailable panel contrast
+PASS Read-only comparisons work when browser storage rejects writes
+PASS An advanced computer clock does not turn the demo snapshot into live history
+PASS light 320px collapsed panel fits without horizontal overflow
+PASS light 320px collapsed detail contrast
+PASS light 320px expanded evidence and sold records fit
+PASS light 320px expanded negotiation contrast
+PASS light 320px disclosure controls retain adequate touch height
+PASS light 320px formula and limitations wrap without overflow
+PASS light 320px expanded method contrast
+PASS light 320px outer keyboard collapse keeps focus and hides content
+PASS light 390px collapsed panel fits without horizontal overflow
+PASS light 390px collapsed detail contrast
+PASS light 390px expanded evidence and sold records fit
+PASS light 390px expanded negotiation contrast
+PASS light 390px disclosure controls retain adequate touch height
+PASS light 390px formula and limitations wrap without overflow
+PASS light 390px expanded method contrast
+PASS light 390px outer keyboard collapse keeps focus and hides content
+PASS light 768px collapsed panel fits without horizontal overflow
+PASS light 768px collapsed detail contrast
+PASS light 768px expanded evidence and sold records fit
+PASS light 768px expanded negotiation contrast
+PASS light 768px disclosure controls retain adequate touch height
+PASS light 768px formula and limitations wrap without overflow
+PASS light 768px expanded method contrast
+PASS light 768px outer keyboard collapse keeps focus and hides content
+PASS light 1024px collapsed panel fits without horizontal overflow
+PASS light 1024px collapsed detail contrast
+PASS light 1024px expanded evidence and sold records fit
+PASS light 1024px expanded negotiation contrast
+PASS light 1024px disclosure controls retain adequate touch height
+PASS light 1024px formula and limitations wrap without overflow
+PASS light 1024px expanded method contrast
+PASS light 1024px outer keyboard collapse keeps focus and hides content
+PASS light 1440px collapsed panel fits without horizontal overflow
+PASS light 1440px collapsed detail contrast
+PASS light 1440px expanded evidence and sold records fit
+PASS light 1440px expanded negotiation contrast
+PASS light 1440px disclosure controls retain adequate touch height
+PASS light 1440px formula and limitations wrap without overflow
+PASS light 1440px expanded method contrast
+PASS light 1440px outer keyboard collapse keeps focus and hides content
+PASS dark 320px collapsed panel fits without horizontal overflow
+PASS dark 320px collapsed detail contrast
+PASS dark 320px expanded evidence and sold records fit
+PASS dark 320px expanded negotiation contrast
+PASS dark 320px disclosure controls retain adequate touch height
+PASS dark 320px formula and limitations wrap without overflow
+PASS dark 320px expanded method contrast
+PASS dark 320px outer keyboard collapse keeps focus and hides content
+PASS dark 390px collapsed panel fits without horizontal overflow
+PASS dark 390px collapsed detail contrast
+PASS dark 390px expanded evidence and sold records fit
+PASS dark 390px expanded negotiation contrast
+PASS dark 390px disclosure controls retain adequate touch height
+PASS dark 390px formula and limitations wrap without overflow
+PASS dark 390px expanded method contrast
+PASS dark 390px outer keyboard collapse keeps focus and hides content
+PASS dark 768px collapsed panel fits without horizontal overflow
+PASS dark 768px collapsed detail contrast
+PASS dark 768px expanded evidence and sold records fit
+PASS dark 768px expanded negotiation contrast
+PASS dark 768px disclosure controls retain adequate touch height
+PASS dark 768px formula and limitations wrap without overflow
+PASS dark 768px expanded method contrast
+PASS dark 768px outer keyboard collapse keeps focus and hides content
+PASS dark 1024px collapsed panel fits without horizontal overflow
+PASS dark 1024px collapsed detail contrast
+PASS dark 1024px expanded evidence and sold records fit
+PASS dark 1024px expanded negotiation contrast
+PASS dark 1024px disclosure controls retain adequate touch height
+PASS dark 1024px formula and limitations wrap without overflow
+PASS dark 1024px expanded method contrast
+PASS dark 1024px outer keyboard collapse keeps focus and hides content
+PASS dark 1440px collapsed panel fits without horizontal overflow
+PASS dark 1440px collapsed detail contrast
+PASS dark 1440px expanded evidence and sold records fit
+PASS dark 1440px expanded negotiation contrast
+PASS dark 1440px disclosure controls retain adequate touch height
+PASS dark 1440px formula and limitations wrap without overflow
+PASS dark 1440px expanded method contrast
+PASS dark 1440px outer keyboard collapse keeps focus and hides content
+PASS Reduced motion removes disclosure transitions
+PASS Normal motion keeps a subtle chevron transition
+PASS Live reduced-motion changes immediately remove transitions
+PASS Escape still dismisses the original property dialog
+PASS No uncaught JavaScript exceptions in negotiation workflows
+PASS All negotiation workflows make zero fetches and zero external resource requests
+
+166 passed; 0 failed

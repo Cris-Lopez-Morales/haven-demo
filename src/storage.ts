@@ -1,9 +1,12 @@
+import { freshRejections, parseRejections } from './rejection-engine.js';
+import { freshLiving, parseLiving } from './living-engine.js';
 import { freshDecisions, parseDecisions } from './decision-engine.js';
-import type { Workspace, Property, Filters, Assumptions } from './types.js';
+import type { Workspace, Property, Filters, Assumptions, CalculatorWorkspace } from './types.js';
 import { validateAssumptions } from './finance.js';
 
 export const STORAGE_KEY = 'haven.workspace.v1';
-export const freshWorkspace = (): Workspace => ({ version: 1, decisions: freshDecisions(), savedIds: [], compareIds: [], customProperties: [], notes: {}, searches: [], scenarios: [] });
+export const freshCalculator = (): CalculatorWorkspace => ({version:1,activePropertyId:'sample-1',drafts:{}});
+export const freshWorkspace = (): Workspace => ({ version: 1, rejections:freshRejections(), living:freshLiving(), calculator:freshCalculator(), decisions: freshDecisions(), savedIds: [], compareIds: [], customProperties: [], notes: {}, searches: [], scenarios: [] });
 const isRecord = (x: unknown): x is Record<string, unknown> => !!x && typeof x === 'object' && !Array.isArray(x);
 const shortString = (x: unknown, max = 500): x is string => typeof x === 'string' && x.length <= max;
 export function validProperty(x: unknown): x is Property {
@@ -27,6 +30,19 @@ export function validFilters(x: unknown): x is Filters {
     && ['maxPrice','minBeds','minSqft'].every(k => typeof x[k] === 'number' && Number.isFinite(x[k]) && Number(x[k]) >= 0)
     && typeof x.positiveOnly === 'boolean';
 }
+/** Missing calculator data is a valid pre-1.5 backup, not a damaged workspace. */
+export function parseCalculator(value: unknown): CalculatorWorkspace {
+  if (value === undefined) return freshCalculator();
+  if (!isRecord(value) || value.version !== 1 || !isRecord(value.drafts)) throw new Error('The backup contains invalid calculator drafts.');
+  const safeId = (id: unknown): id is string => typeof id === 'string' && /^(?:sample-[0-9]+|custom-[A-Za-z0-9-]+)$/.test(id) && id.length <= 150;
+  if (!safeId(value.activePropertyId) || Object.keys(value.drafts).length > 560) throw new Error('The backup contains invalid calculator property IDs.');
+  for (const [id,a] of Object.entries(value.drafts)) {
+    if (!safeId(id) || !isRecord(a) || validateAssumptions(a as unknown as Assumptions).length)
+      throw new Error('The backup contains invalid calculator cost assumptions.');
+  }
+  return {version:1,activePropertyId:value.activePropertyId,drafts:value.drafts as Record<string,Assumptions>};
+}
+
 /** Reject incompatible/malformed imports instead of trusting values from local storage. */
 export function parseWorkspace(raw: string): Workspace {
   if (raw.length > 3_000_000) throw new Error('This backup is too large (maximum 3 MB).');
@@ -43,7 +59,7 @@ export function parseWorkspace(raw: string): Workspace {
   if (!Array.isArray(w.scenarios) || w.scenarios.length > 100 || !w.scenarios.every(s => isRecord(s) && shortString(s.id,150) && shortString(s.name,100) && shortString(s.propertyId,150) && typeof s.savedAt === 'number' && Number.isFinite(s.savedAt) && isRecord(s.assumptions) && validateAssumptions(s.assumptions as unknown as Assumptions).length === 0)) throw new Error('The backup contains invalid scenarios.');
   if (ids.some(id => !/^custom-[A-Za-z0-9-]+$/.test(id))) throw new Error('Custom property IDs must use the custom- prefix and letters, numbers, or hyphens.');
   const result = w as unknown as Workspace;
-  return { ...result, decisions: parseDecisions(w.decisions), savedIds: [...new Set(result.savedIds)], compareIds: [...new Set(result.compareIds)].slice(0,3), customProperties: result.customProperties.map(p => ({ ...p, custom: true })) };
+  return { ...result, rejections:parseRejections(w.rejections), living:parseLiving(w.living), calculator:parseCalculator(w.calculator), decisions: parseDecisions(w.decisions), savedIds: [...new Set(result.savedIds)], compareIds: [...new Set(result.compareIds)].slice(0,3), customProperties: result.customProperties.map(p => ({ ...p, custom: true })) };
 }
 export function loadWorkspace(): { workspace: Workspace; available: boolean; notice: string } {
   try {

@@ -1,0 +1,10 @@
+PASS browser_smoke: 77 passed; 0 failed
+PASS catalog_motion_browser: 36 passed; 0 failed
+PASS assistant_browser: 81 passed; 0 failed
+PASS ranking_theme_browser: 104 passed; 0 failed
+PASS decision_browser: 93 passed; 0 failed
+PASS costs_browser: 145 passed; 0 failed
+PASS living_browser: 165 passed; 0 failed
+PASS rejections_browser: 184 passed; 0 failed
+PASS negotiation_browser: 166 passed; 0 failed
+Final total: 1051 passed; 0 failed. See TESTING.md for initial harness issues and correction.

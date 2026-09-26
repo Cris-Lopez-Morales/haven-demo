@@ -1,24 +1,56 @@
 {
-  "version": "1.4.0",
-  "node": "22.16.0",
-  "typescript": "5.8.3",
-  "strict_build": "passed",
-  "unit_server_tests": 241,
-  "browser_assertions": {
-    "original": 77,
-    "catalog_motion": 36,
-    "assistant_picker": 81,
-    "ranking_theme": 104,
-    "home_decisions": 93
+  "version": "1.7.0",
+  "feature": 3,
+  "feature_4_implemented": false,
+  "unit_server": {
+    "passed": 459,
+    "failed": 0
   },
-  "browser_assertions_total": 391,
-  "rendered_text_contrast_groups": 43,
-  "browser_mode": "Chromium, isolated HTML documents with simulated localStorage",
-  "native_cross_session_persistence_verified": false,
-  "live_ai_configured": false,
-  "live_ai_verified": false,
-  "unchanged_original_fictional_listings": 60,
-  "source_catalogue_sha256": "39214c780f42038cbf138ef3180458b0aa80d28baf7f5ade850a01c3235f9ef5",
-  "bundle_sha256": "98d38ba42acd9cf5383c9f9288540a1b2627e802ff84b27a3dbd11773fd73daa",
-  "unverified": "Other browsers; complete accessibility; secure accounts or online collaboration (not implemented)."
+  "browser": {
+    "passed": 885,
+    "failed": 0
+  },
+  "suites": {
+    "browser-test-results": {
+      "passed": 77,
+      "failed": 0
+    },
+    "catalog-motion-results": {
+      "passed": 36,
+      "failed": 0
+    },
+    "assistant-browser-results": {
+      "passed": 81,
+      "failed": 0
+    },
+    "ranking-theme-results": {
+      "passed": 104,
+      "failed": 0
+    },
+    "decision-browser-results": {
+      "passed": 93,
+      "failed": 0
+    },
+    "cost-browser-results": {
+      "passed": 145,
+      "failed": 0
+    },
+    "living-browser-results": {
+      "passed": 165,
+      "failed": 0
+    },
+    "rejection-browser-results": {
+      "passed": 184,
+      "failed": 0
+    }
+  },
+  "rendered_text_contrast_groups": 144,
+  "new_unit_tests": 90,
+  "new_browser_assertions": 184,
+  "storage": "isolated adapter; native cross-session storage not verified",
+  "live_ai": "not activated or verified",
+  "new_external_requests": 0,
+  "fixture_source_sha256": "39214c780f42038cbf138ef3180458b0aa80d28baf7f5ade850a01c3235f9ef5",
+  "fixture_source_identical_to_v1_6": true,
+  "bundle_sha256": "5b78c3514dd56d211903281c3804318b5c4859bde85a274d4282444f7440db67"
 }

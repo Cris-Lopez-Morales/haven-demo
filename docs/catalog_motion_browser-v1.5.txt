@@ -1,0 +1,37 @@
+PASS Expanded catalog shows 60 properties and 20 city options
+PASS Landing page starts with twelve cards
+PASS Web Animations run on the initial landing page
+PASS One-shot page animation finishes instead of looping
+PASS Show more appends twelve new properties
+PASS Show more preserves the original card nodes
+PASS Show more moves keyboard focus to the first new home
+PASS New card artwork is available offline
+PASS Saving a newly loaded home preserves all loaded results
+PASS New favorites persist to the workspace
+PASS Saving does not replay the hero animation
+PASS Heart feedback is animated on a save
+PASS Details for newly added properties open correctly
+PASS Dialog has a finite entrance animation
+PASS A newly added property can keep notes
+PASS Progressive loading reaches 36 distinct homes
+PASS Progressive loading reaches 48 distinct homes
+PASS Progressive loading reaches 60 distinct homes
+PASS Show more disappears at the end of the collection
+PASS City filter searches every page of the catalog
+PASS Text search finds a property beyond the initial page
+PASS New properties work in the existing calculator
+PASS Sorting uses the complete collection before pagination
+PASS Expanded budget controls filter the highest-price property
+PASS New cities work in list view
+PASS Three new properties can be compared
+PASS New comparison contains real calculations, not placeholders
+PASS Changing reduced-motion preference cancels current animations
+PASS Reduced motion never leaves cards hidden
+PASS Reduced motion suppresses page animations
+PASS Progressive loading still works with reduced motion
+PASS Expanded catalog has no mobile horizontal overflow
+PASS Newly saved properties are accessible through mobile navigation
+PASS Legacy backup format restores both original and new saved homes
+PASS App remains usable without IntersectionObserver or Web Animations
+PASS No uncaught errors across new catalog and motion workflows
+PASS: 36 catalog/motion browser checks.

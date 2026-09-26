@@ -1,0 +1,991 @@
+{
+  "checks": [
+    {
+      "name": "Discover defaults to explicit Recommended order",
+      "passed": true
+    },
+    {
+      "name": "Original 60 fixtures and first 12-card page are unchanged",
+      "passed": true
+    },
+    {
+      "name": "Your preferences is visible before any pass",
+      "passed": true
+    },
+    {
+      "name": "Global navigation offers preferences from every page",
+      "passed": true
+    },
+    {
+      "name": "Reason picker is a native modal with five named choices",
+      "passed": true
+    },
+    {
+      "name": "Pass dialog discloses source facts, privacy and fictional distance limits",
+      "passed": true
+    },
+    {
+      "name": "Submitting without a reason cannot record a pass",
+      "passed": true
+    },
+    {
+      "name": "Choosing a chip does not prematurely save",
+      "passed": true
+    },
+    {
+      "name": "Escape cancels without recording feedback",
+      "passed": true
+    },
+    {
+      "name": "First explicit pass persists under existing workspace key",
+      "passed": true
+    },
+    {
+      "name": "A passed home is hidden, not deleted from catalogue",
+      "passed": true
+    },
+    {
+      "name": "Keyboard focus lands on a visible review control after the card is removed",
+      "passed": true
+    },
+    {
+      "name": "One pass shows pending evidence and no learned rule",
+      "passed": true
+    },
+    {
+      "name": "Two different properties each contribute once",
+      "passed": true
+    },
+    {
+      "name": "Two positive HOA passes activate an exact median threshold",
+      "passed": true
+    },
+    {
+      "name": "The ranking method exposes equal weights, numerical sort priority and unknown data",
+      "passed": true
+    },
+    {
+      "name": "Discover actually reorders the full catalogue by learned HOA conflict",
+      "passed": true
+    },
+    {
+      "name": "Filtered result count includes 58 remaining homes",
+      "passed": true
+    },
+    {
+      "name": "Pagination appends the next slice of the same learned order",
+      "passed": true
+    },
+    {
+      "name": "An explicit price sort takes priority over inferred HOA preference",
+      "passed": true
+    },
+    {
+      "name": "Preference summary updates when the explicit sort changes",
+      "passed": true
+    },
+    {
+      "name": "Show passed restores both homes to browsing with correct true price order",
+      "passed": true
+    },
+    {
+      "name": "Passed homes have visible labels and undo, not a destructive delete",
+      "passed": true
+    },
+    {
+      "name": "Assistant explains actual learned HOA influence and threshold",
+      "passed": true
+    },
+    {
+      "name": "Assistant recommendations exclude passed IDs and prefer below-threshold HOA",
+      "passed": true
+    },
+    {
+      "name": "Recommendation reasons reference the specific learned threshold",
+      "passed": true
+    },
+    {
+      "name": "Chat has a global review action and per-property pass action",
+      "passed": true
+    },
+    {
+      "name": "Past answers are explicitly snapshots, not silently rewritten",
+      "passed": true
+    },
+    {
+      "name": "Assistant cheapest remains the actual cheapest unpassed home",
+      "passed": true
+    },
+    {
+      "name": "Assistant explains why an explicit ranking takes priority",
+      "passed": true
+    },
+    {
+      "name": "Conversation can return to learned ranking without restarting",
+      "passed": true
+    },
+    {
+      "name": "Passing directly from chat records the selected home",
+      "passed": true
+    },
+    {
+      "name": "Old chat card updates to Passed and allows undo",
+      "passed": true
+    },
+    {
+      "name": "Chat undo removes only that pass",
+      "passed": true
+    },
+    {
+      "name": "Pause is persisted, with rules still visible as paused",
+      "passed": true
+    },
+    {
+      "name": "Paused recommendation order returns to original order minus explicit passes",
+      "passed": true
+    },
+    {
+      "name": "Assistant acknowledges pause instead of claiming learned ranking",
+      "passed": true
+    },
+    {
+      "name": "Resuming learning preserves both supporting records",
+      "passed": true
+    },
+    {
+      "name": "Exported backup contains feedback, evidence and enabled state",
+      "passed": true
+    },
+    {
+      "name": "App reinitialization restores memory and recommendation order",
+      "passed": true
+    },
+    {
+      "name": "Undo removes evidence immediately and disables a two-pass rule",
+      "passed": true
+    },
+    {
+      "name": "Undo restores that home to discovery",
+      "passed": true
+    },
+    {
+      "name": "Passing a saved home keeps its saved ID, note and comparison",
+      "passed": true
+    },
+    {
+      "name": "Explicit saved view still contains the passed home",
+      "passed": true
+    },
+    {
+      "name": "Reset requires confirmation and cancelling keeps all passes",
+      "passed": true
+    },
+    {
+      "name": "Confirmed reset clears only passes and learned state",
+      "passed": true
+    },
+    {
+      "name": "Reset preserves every unrelated stored workspace field",
+      "passed": true
+    },
+    {
+      "name": "Other requires nonempty free text and does not save prematurely",
+      "passed": true
+    },
+    {
+      "name": "Whitespace-only Other note is rejected with an alert",
+      "passed": true
+    },
+    {
+      "name": "Free text is rendered as text, not executable markup",
+      "passed": true
+    },
+    {
+      "name": "Other is marked note-only and does not train a size/price rule",
+      "passed": true
+    },
+    {
+      "name": "Editing an Other pass restores note and required semantics",
+      "passed": true
+    },
+    {
+      "name": "Editing uses one record instead of counting the same home twice",
+      "passed": true
+    },
+    {
+      "name": "Calculator invalid draft is visibly stale before feedback",
+      "passed": true
+    },
+    {
+      "name": "Feedback from chat preserves incomplete calculator input and stale warning",
+      "passed": true
+    },
+    {
+      "name": "Actual file import restores rejection memory and fresh ranking",
+      "passed": true
+    },
+    {
+      "name": "Malformed imported feedback cannot replace a valid workspace",
+      "passed": true
+    },
+    {
+      "name": "v1.6 backup migrates without fabricating preferences",
+      "passed": true
+    },
+    {
+      "name": "Denied persistence is visible in preference panel",
+      "passed": true
+    },
+    {
+      "name": "Session-only feedback remains exportable",
+      "passed": true
+    },
+    {
+      "name": "Deleting a custom property also prunes its rejection evidence",
+      "passed": true
+    },
+    {
+      "name": "All-passed catalogue has a recoverable empty state",
+      "passed": true
+    },
+    {
+      "name": "All-passed assistant directs review instead of making up matches",
+      "passed": true
+    },
+    {
+      "name": "Show passed recovers browsing even when every home was passed",
+      "passed": true
+    },
+    {
+      "name": "Comparable fictional routes activate an explicitly demo-only rule",
+      "passed": true
+    },
+    {
+      "name": "Switching work setup suspends incompatible distance evidence without deleting passes",
+      "passed": true
+    },
+    {
+      "name": "Two unmeasurable Too far passes never invent a distance preference",
+      "passed": true
+    },
+    {
+      "name": "light 320px discovery has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "light 320px discover text contrast",
+      "passed": true
+    },
+    {
+      "name": "light 320px list view with feedback actions fits",
+      "passed": true
+    },
+    {
+      "name": "light 320px preferences have no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "light 320px preferences text contrast",
+      "passed": true
+    },
+    {
+      "name": "light 320px expanded method fits",
+      "passed": true
+    },
+    {
+      "name": "light 320px method text contrast",
+      "passed": true
+    },
+    {
+      "name": "light 320px reason chips and form fit",
+      "passed": true
+    },
+    {
+      "name": "light 320px reason picker text contrast",
+      "passed": true
+    },
+    {
+      "name": "light 320px native radio arrow navigation works",
+      "passed": true
+    },
+    {
+      "name": "light 320px Escape cancels without adding evidence",
+      "passed": true
+    },
+    {
+      "name": "dark 320px discovery has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "dark 320px discover text contrast",
+      "passed": true
+    },
+    {
+      "name": "dark 320px list view with feedback actions fits",
+      "passed": true
+    },
+    {
+      "name": "dark 320px preferences have no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "dark 320px preferences text contrast",
+      "passed": true
+    },
+    {
+      "name": "dark 320px expanded method fits",
+      "passed": true
+    },
+    {
+      "name": "dark 320px method text contrast",
+      "passed": true
+    },
+    {
+      "name": "dark 320px reason chips and form fit",
+      "passed": true
+    },
+    {
+      "name": "dark 320px reason picker text contrast",
+      "passed": true
+    },
+    {
+      "name": "dark 320px native radio arrow navigation works",
+      "passed": true
+    },
+    {
+      "name": "dark 320px Escape cancels without adding evidence",
+      "passed": true
+    },
+    {
+      "name": "light 390px discovery has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "light 390px discover text contrast",
+      "passed": true
+    },
+    {
+      "name": "light 390px list view with feedback actions fits",
+      "passed": true
+    },
+    {
+      "name": "light 390px preferences have no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "light 390px preferences text contrast",
+      "passed": true
+    },
+    {
+      "name": "light 390px expanded method fits",
+      "passed": true
+    },
+    {
+      "name": "light 390px method text contrast",
+      "passed": true
+    },
+    {
+      "name": "light 390px reason chips and form fit",
+      "passed": true
+    },
+    {
+      "name": "light 390px reason picker text contrast",
+      "passed": true
+    },
+    {
+      "name": "light 390px native radio arrow navigation works",
+      "passed": true
+    },
+    {
+      "name": "light 390px Escape cancels without adding evidence",
+      "passed": true
+    },
+    {
+      "name": "dark 390px discovery has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "dark 390px discover text contrast",
+      "passed": true
+    },
+    {
+      "name": "dark 390px list view with feedback actions fits",
+      "passed": true
+    },
+    {
+      "name": "dark 390px preferences have no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "dark 390px preferences text contrast",
+      "passed": true
+    },
+    {
+      "name": "dark 390px expanded method fits",
+      "passed": true
+    },
+    {
+      "name": "dark 390px method text contrast",
+      "passed": true
+    },
+    {
+      "name": "dark 390px reason chips and form fit",
+      "passed": true
+    },
+    {
+      "name": "dark 390px reason picker text contrast",
+      "passed": true
+    },
+    {
+      "name": "dark 390px native radio arrow navigation works",
+      "passed": true
+    },
+    {
+      "name": "dark 390px Escape cancels without adding evidence",
+      "passed": true
+    },
+    {
+      "name": "light 768px discovery has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "light 768px discover text contrast",
+      "passed": true
+    },
+    {
+      "name": "light 768px list view with feedback actions fits",
+      "passed": true
+    },
+    {
+      "name": "light 768px preferences have no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "light 768px preferences text contrast",
+      "passed": true
+    },
+    {
+      "name": "light 768px expanded method fits",
+      "passed": true
+    },
+    {
+      "name": "light 768px method text contrast",
+      "passed": true
+    },
+    {
+      "name": "light 768px reason chips and form fit",
+      "passed": true
+    },
+    {
+      "name": "light 768px reason picker text contrast",
+      "passed": true
+    },
+    {
+      "name": "light 768px native radio arrow navigation works",
+      "passed": true
+    },
+    {
+      "name": "light 768px Escape cancels without adding evidence",
+      "passed": true
+    },
+    {
+      "name": "dark 768px discovery has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "dark 768px discover text contrast",
+      "passed": true
+    },
+    {
+      "name": "dark 768px list view with feedback actions fits",
+      "passed": true
+    },
+    {
+      "name": "dark 768px preferences have no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "dark 768px preferences text contrast",
+      "passed": true
+    },
+    {
+      "name": "dark 768px expanded method fits",
+      "passed": true
+    },
+    {
+      "name": "dark 768px method text contrast",
+      "passed": true
+    },
+    {
+      "name": "dark 768px reason chips and form fit",
+      "passed": true
+    },
+    {
+      "name": "dark 768px reason picker text contrast",
+      "passed": true
+    },
+    {
+      "name": "dark 768px native radio arrow navigation works",
+      "passed": true
+    },
+    {
+      "name": "dark 768px Escape cancels without adding evidence",
+      "passed": true
+    },
+    {
+      "name": "light 1024px discovery has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "light 1024px discover text contrast",
+      "passed": true
+    },
+    {
+      "name": "light 1024px list view with feedback actions fits",
+      "passed": true
+    },
+    {
+      "name": "light 1024px preferences have no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "light 1024px preferences text contrast",
+      "passed": true
+    },
+    {
+      "name": "light 1024px expanded method fits",
+      "passed": true
+    },
+    {
+      "name": "light 1024px method text contrast",
+      "passed": true
+    },
+    {
+      "name": "light 1024px reason chips and form fit",
+      "passed": true
+    },
+    {
+      "name": "light 1024px reason picker text contrast",
+      "passed": true
+    },
+    {
+      "name": "light 1024px native radio arrow navigation works",
+      "passed": true
+    },
+    {
+      "name": "light 1024px Escape cancels without adding evidence",
+      "passed": true
+    },
+    {
+      "name": "dark 1024px discovery has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "dark 1024px discover text contrast",
+      "passed": true
+    },
+    {
+      "name": "dark 1024px list view with feedback actions fits",
+      "passed": true
+    },
+    {
+      "name": "dark 1024px preferences have no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "dark 1024px preferences text contrast",
+      "passed": true
+    },
+    {
+      "name": "dark 1024px expanded method fits",
+      "passed": true
+    },
+    {
+      "name": "dark 1024px method text contrast",
+      "passed": true
+    },
+    {
+      "name": "dark 1024px reason chips and form fit",
+      "passed": true
+    },
+    {
+      "name": "dark 1024px reason picker text contrast",
+      "passed": true
+    },
+    {
+      "name": "dark 1024px native radio arrow navigation works",
+      "passed": true
+    },
+    {
+      "name": "dark 1024px Escape cancels without adding evidence",
+      "passed": true
+    },
+    {
+      "name": "light 1440px discovery has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "light 1440px discover text contrast",
+      "passed": true
+    },
+    {
+      "name": "light 1440px list view with feedback actions fits",
+      "passed": true
+    },
+    {
+      "name": "light 1440px preferences have no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "light 1440px preferences text contrast",
+      "passed": true
+    },
+    {
+      "name": "light 1440px expanded method fits",
+      "passed": true
+    },
+    {
+      "name": "light 1440px method text contrast",
+      "passed": true
+    },
+    {
+      "name": "light 1440px reason chips and form fit",
+      "passed": true
+    },
+    {
+      "name": "light 1440px reason picker text contrast",
+      "passed": true
+    },
+    {
+      "name": "light 1440px native radio arrow navigation works",
+      "passed": true
+    },
+    {
+      "name": "light 1440px Escape cancels without adding evidence",
+      "passed": true
+    },
+    {
+      "name": "dark 1440px discovery has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "dark 1440px discover text contrast",
+      "passed": true
+    },
+    {
+      "name": "dark 1440px list view with feedback actions fits",
+      "passed": true
+    },
+    {
+      "name": "dark 1440px preferences have no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "dark 1440px preferences text contrast",
+      "passed": true
+    },
+    {
+      "name": "dark 1440px expanded method fits",
+      "passed": true
+    },
+    {
+      "name": "dark 1440px method text contrast",
+      "passed": true
+    },
+    {
+      "name": "dark 1440px reason chips and form fit",
+      "passed": true
+    },
+    {
+      "name": "dark 1440px reason picker text contrast",
+      "passed": true
+    },
+    {
+      "name": "dark 1440px native radio arrow navigation works",
+      "passed": true
+    },
+    {
+      "name": "dark 1440px Escape cancels without adding evidence",
+      "passed": true
+    },
+    {
+      "name": "Mobile chat with learning disclosure keeps composer in view",
+      "passed": true
+    },
+    {
+      "name": "dark mobile learned assistant text contrast",
+      "passed": true
+    },
+    {
+      "name": "Reduced motion removes preference-control transitions",
+      "passed": true
+    },
+    {
+      "name": "Normal motion retains subtle chip transitions",
+      "passed": true
+    },
+    {
+      "name": "Changing reduced-motion preference takes effect immediately",
+      "passed": true
+    },
+    {
+      "name": "No uncaught application exceptions in the tested workflows",
+      "passed": true
+    },
+    {
+      "name": "New feedback workflows make no fetch or external resource requests",
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "requests": [],
+  "contrast": [
+    {
+      "name": "light 320px discover",
+      "count": 300,
+      "min": 4.77,
+      "failures": []
+    },
+    {
+      "name": "light 320px preferences",
+      "count": 329,
+      "min": 4.77,
+      "failures": []
+    },
+    {
+      "name": "light 320px method",
+      "count": 329,
+      "min": 4.77,
+      "failures": []
+    },
+    {
+      "name": "light 320px reason picker",
+      "count": 93,
+      "min": 4.77,
+      "failures": []
+    },
+    {
+      "name": "dark 320px discover",
+      "count": 70,
+      "min": 6.24,
+      "failures": []
+    },
+    {
+      "name": "dark 320px preferences",
+      "count": 99,
+      "min": 6.24,
+      "failures": []
+    },
+    {
+      "name": "dark 320px method",
+      "count": 99,
+      "min": 6.24,
+      "failures": []
+    },
+    {
+      "name": "dark 320px reason picker",
+      "count": 95,
+      "min": 6.24,
+      "failures": []
+    },
+    {
+      "name": "light 390px discover",
+      "count": 71,
+      "min": 4.77,
+      "failures": []
+    },
+    {
+      "name": "light 390px preferences",
+      "count": 100,
+      "min": 4.77,
+      "failures": []
+    },
+    {
+      "name": "light 390px method",
+      "count": 100,
+      "min": 4.77,
+      "failures": []
+    },
+    {
+      "name": "light 390px reason picker",
+      "count": 96,
+      "min": 4.77,
+      "failures": []
+    },
+    {
+      "name": "dark 390px discover",
+      "count": 71,
+      "min": 6.24,
+      "failures": []
+    },
+    {
+      "name": "dark 390px preferences",
+      "count": 100,
+      "min": 6.24,
+      "failures": []
+    },
+    {
+      "name": "dark 390px method",
+      "count": 100,
+      "min": 6.24,
+      "failures": []
+    },
+    {
+      "name": "dark 390px reason picker",
+      "count": 96,
+      "min": 6.24,
+      "failures": []
+    },
+    {
+      "name": "light 768px discover",
+      "count": 73,
+      "min": 4.77,
+      "failures": []
+    },
+    {
+      "name": "light 768px preferences",
+      "count": 102,
+      "min": 4.77,
+      "failures": []
+    },
+    {
+      "name": "light 768px method",
+      "count": 102,
+      "min": 4.77,
+      "failures": []
+    },
+    {
+      "name": "light 768px reason picker",
+      "count": 98,
+      "min": 4.77,
+      "failures": []
+    },
+    {
+      "name": "dark 768px discover",
+      "count": 73,
+      "min": 6.24,
+      "failures": []
+    },
+    {
+      "name": "dark 768px preferences",
+      "count": 102,
+      "min": 6.24,
+      "failures": []
+    },
+    {
+      "name": "dark 768px method",
+      "count": 102,
+      "min": 6.24,
+      "failures": []
+    },
+    {
+      "name": "dark 768px reason picker",
+      "count": 98,
+      "min": 6.24,
+      "failures": []
+    },
+    {
+      "name": "light 1024px discover",
+      "count": 94,
+      "min": 4.77,
+      "failures": []
+    },
+    {
+      "name": "light 1024px preferences",
+      "count": 123,
+      "min": 4.77,
+      "failures": []
+    },
+    {
+      "name": "light 1024px method",
+      "count": 123,
+      "min": 4.77,
+      "failures": []
+    },
+    {
+      "name": "light 1024px reason picker",
+      "count": 119,
+      "min": 4.77,
+      "failures": []
+    },
+    {
+      "name": "dark 1024px discover",
+      "count": 94,
+      "min": 6.24,
+      "failures": []
+    },
+    {
+      "name": "dark 1024px preferences",
+      "count": 123,
+      "min": 6.24,
+      "failures": []
+    },
+    {
+      "name": "dark 1024px method",
+      "count": 123,
+      "min": 6.24,
+      "failures": []
+    },
+    {
+      "name": "dark 1024px reason picker",
+      "count": 119,
+      "min": 6.24,
+      "failures": []
+    },
+    {
+      "name": "light 1440px discover",
+      "count": 94,
+      "min": 4.77,
+      "failures": []
+    },
+    {
+      "name": "light 1440px preferences",
+      "count": 123,
+      "min": 4.77,
+      "failures": []
+    },
+    {
+      "name": "light 1440px method",
+      "count": 123,
+      "min": 4.77,
+      "failures": []
+    },
+    {
+      "name": "light 1440px reason picker",
+      "count": 119,
+      "min": 4.77,
+      "failures": []
+    },
+    {
+      "name": "dark 1440px discover",
+      "count": 94,
+      "min": 6.24,
+      "failures": []
+    },
+    {
+      "name": "dark 1440px preferences",
+      "count": 123,
+      "min": 6.24,
+      "failures": []
+    },
+    {
+      "name": "dark 1440px method",
+      "count": 123,
+      "min": 6.24,
+      "failures": []
+    },
+    {
+      "name": "dark 1440px reason picker",
+      "count": 119,
+      "min": 6.24,
+      "failures": []
+    },
+    {
+      "name": "dark mobile learned assistant",
+      "count": 143,
+      "min": 6.24,
+      "failures": []
+    }
+  ],
+  "storage": "isolated in-memory adapter; not native persistence"
+}

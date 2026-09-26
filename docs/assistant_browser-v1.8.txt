@@ -1,0 +1,82 @@
+PASS Assistant launches without changing the catalogue
+PASS Widget is present on saved
+PASS Widget is present on compare
+PASS Widget is present on calculator
+PASS Widget is present on custom
+PASS Widget is present on discover
+PASS Panel exposes non-modal dialog semantics
+PASS Opening widget focuses the message field
+PASS Launch button announces expansion
+PASS Local mode and fictional data are visible
+PASS Empty messages cannot be sent
+PASS Disclosure does not pretend a live model is connected
+PASS Escape closes widget and restores launcher focus
+PASS City alone returns Chicago homes without a budget gate
+PASS Budget refines results without a property-type gate
+PASS Any property type preserves immediate recommendations
+PASS Conversation recommends exactly three matching Chicago homes
+PASS Recommendation explanations contain the actual price and $600,000 cap
+PASS Each card has working detail, calculator and save controls
+PASS Search recap exposes recognized criteria
+PASS Saving from chat updates its button and the workspace
+PASS Chat stays open across page navigation
+PASS Conversation survives shell re-rendering
+PASS Chat-saved home is in Saved homes
+PASS View home opens the correct existing property
+PASS Chat is available again after closing property details
+PASS Run numbers opens the correct calculator property
+PASS Run numbers loads the matching price
+PASS Run numbers closes panel without erasing its conversation
+PASS Reopened widget remembers the conversation
+PASS New chat clears the previous conversation
+PASS Complete natural-language starter immediately recommends three homes
+PASS Show more reveals the remaining matches without duplicates
+PASS Follow-up changes budget and preserves location/type
+PASS No-match explanation does not silently widen constraints
+PASS Unsupported city is disclosed
+PASS Unknown amenity never becomes a confirmed match
+PASS Removing an unverified requirement clears caveats
+PASS User text is escaped, not executed
+PASS IME composition Enter does not send early
+PASS Shift+Enter inserts a newline
+PASS Unsent text survives closing and reopening
+PASS Calculator picker uses a combobox rather than native select
+PASS Opening calculator menu offers all sixty homes
+PASS Current selection is identified
+PASS Live property suggestions update for 'C'
+PASS Live property suggestions update for 'Ch'
+PASS Live property suggestions update for 'Chi'
+PASS Live property suggestions update for 'Chic'
+PASS Live property suggestions update for 'Chica'
+PASS Live property suggestions update for 'Chicag'
+PASS Live property suggestions update for 'Chicago'
+PASS Full city search has only Chicago homes
+PASS Search suggestions include thumbnail, price, type and size
+PASS Typing does not change the selected scenario
+PASS Arrow keys maintain an active descendant
+PASS Enter chooses the highlighted listing
+PASS After selection the popup is closed and focus stays in input
+PASS No-result search has a useful empty state
+PASS Enter cannot select a nonexistent property
+PASS Escape restores selected property without changing calculator inputs
+PASS Clear search returns all homes without unselecting the scenario
+PASS Mixed city and type search resolves the right listing
+PASS Mouse choice loads corresponding inputs
+PASS Clicking outside restores the actual selection
+PASS Tab dismisses menu without accepting a suggestion
+PASS Calculator search includes user-added properties
+PASS Custom property can be selected for analysis
+PASS Assistant still labels its source as the 60 demo homes
+PASS Assistant never recommends a custom property as a demo fixture
+PASS Desktop has no horizontal overflow
+PASS Mobile widget stays inside the viewport
+PASS Mobile chat does not introduce horizontal overflow
+PASS Saving a recommendation works on mobile
+PASS Composer stays visible with a shorter mobile viewport
+PASS Mobile autocomplete menu fits the screen
+PASS Mobile calculator search has enough space to type
+PASS Touch-style option selection loads the chosen property
+PASS Reduced motion disables new widget and dropdown animations
+PASS Motion-enabled widget has a finite entrance
+PASS No uncaught JavaScript errors in the entire suite
+PASS: 81 assistant/picker browser checks. Isolated: True.

@@ -1,0 +1,1 @@
+PASS: 77 browser checks. Isolated storage adapter: True.

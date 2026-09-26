@@ -1,0 +1,85 @@
+{
+  "version": "1.8.0",
+  "feature": "4 of 4: inspectable fictional negotiation context",
+  "build": "strict TypeScript build passed",
+  "unit_server": {
+    "passed": 546,
+    "failed": 0,
+    "new": 87
+  },
+  "browser": {
+    "passed": 1051,
+    "failed": 0,
+    "new": 166,
+    "suites": [
+      {
+        "suite": "browser_smoke",
+        "passed": 77,
+        "failed": 0
+      },
+      {
+        "suite": "catalog_motion_browser",
+        "passed": 36,
+        "failed": 0
+      },
+      {
+        "suite": "assistant_browser",
+        "passed": 81,
+        "failed": 0
+      },
+      {
+        "suite": "ranking_theme_browser",
+        "passed": 104,
+        "failed": 0
+      },
+      {
+        "suite": "decision_browser",
+        "passed": 93,
+        "failed": 0
+      },
+      {
+        "suite": "costs_browser",
+        "passed": 145,
+        "failed": 0
+      },
+      {
+        "suite": "living_browser",
+        "passed": 165,
+        "failed": 0
+      },
+      {
+        "suite": "rejections_browser",
+        "passed": 184,
+        "failed": 0
+      },
+      {
+        "suite": "negotiation_browser",
+        "passed": 166,
+        "failed": 0
+      }
+    ]
+  },
+  "rendered_text_contrast_groups": 176,
+  "new_contrast_groups": 32,
+  "new_feature_errors": [],
+  "new_feature_external_requests": [],
+  "original_active_listings": 60,
+  "separate_sold_examples": 240,
+  "fixed_snapshot": "2026-09-26",
+  "core_source_unchanged_from_v1_7": [
+    "data.ts",
+    "finance.ts",
+    "calculator.ts",
+    "storage.ts",
+    "living-engine.ts",
+    "rejection-engine.ts",
+    "decision-engine.ts",
+    "assistant-engine.ts",
+    "../scripts/ai.mjs"
+  ],
+  "storage_scope": "isolated in-memory adapter; native cross-session storage not tested",
+  "browser_scope": "Chromium only; not complete accessibility conformance",
+  "live_ai": "not activated; no key included",
+  "html_bytes": 538937,
+  "html_sha256": "fda9400023a0034b3c9c324e0f90ab817a8dfa2b231d7275bca324fa0824661a"
+}

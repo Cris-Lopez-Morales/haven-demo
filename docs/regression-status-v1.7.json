@@ -1,0 +1,30 @@
+[
+  {
+    "suite": "browser_smoke",
+    "exit": 0
+  },
+  {
+    "suite": "catalog_motion_browser",
+    "exit": 0
+  },
+  {
+    "suite": "assistant_browser",
+    "exit": 0
+  },
+  {
+    "suite": "ranking_theme_browser",
+    "exit": 0
+  },
+  {
+    "suite": "decision_browser",
+    "exit": 0
+  },
+  {
+    "suite": "costs_browser",
+    "exit": 0
+  },
+  {
+    "suite": "living_browser",
+    "exit": 0
+  }
+]

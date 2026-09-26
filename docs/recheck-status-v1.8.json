@@ -1,0 +1,10 @@
+[
+  {
+    "suite": "assistant_browser",
+    "exit": 0
+  },
+  {
+    "suite": "costs_browser",
+    "exit": 0
+  }
+]

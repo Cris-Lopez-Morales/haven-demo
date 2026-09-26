@@ -1,7 +1,10 @@
+import { freshRejections, parseRejections } from './rejection-engine.js';
+import { freshLiving, parseLiving } from './living-engine.js';
 import { freshDecisions, parseDecisions } from './decision-engine.js';
 import { validateAssumptions } from './finance.js';
 export const STORAGE_KEY = 'haven.workspace.v1';
-export const freshWorkspace = () => ({ version: 1, decisions: freshDecisions(), savedIds: [], compareIds: [], customProperties: [], notes: {}, searches: [], scenarios: [] });
+export const freshCalculator = () => ({ version: 1, activePropertyId: 'sample-1', drafts: {} });
+export const freshWorkspace = () => ({ version: 1, rejections: freshRejections(), living: freshLiving(), calculator: freshCalculator(), decisions: freshDecisions(), savedIds: [], compareIds: [], customProperties: [], notes: {}, searches: [], scenarios: [] });
 const isRecord = (x) => !!x && typeof x === 'object' && !Array.isArray(x);
 const shortString = (x, max = 500) => typeof x === 'string' && x.length <= max;
 export function validProperty(x) {
@@ -30,6 +33,21 @@ export function validFilters(x) {
         && ['maxPrice', 'minBeds', 'minSqft'].every(k => typeof x[k] === 'number' && Number.isFinite(x[k]) && Number(x[k]) >= 0)
         && typeof x.positiveOnly === 'boolean';
 }
+/** Missing calculator data is a valid pre-1.5 backup, not a damaged workspace. */
+export function parseCalculator(value) {
+    if (value === undefined)
+        return freshCalculator();
+    if (!isRecord(value) || value.version !== 1 || !isRecord(value.drafts))
+        throw new Error('The backup contains invalid calculator drafts.');
+    const safeId = (id) => typeof id === 'string' && /^(?:sample-[0-9]+|custom-[A-Za-z0-9-]+)$/.test(id) && id.length <= 150;
+    if (!safeId(value.activePropertyId) || Object.keys(value.drafts).length > 560)
+        throw new Error('The backup contains invalid calculator property IDs.');
+    for (const [id, a] of Object.entries(value.drafts)) {
+        if (!safeId(id) || !isRecord(a) || validateAssumptions(a).length)
+            throw new Error('The backup contains invalid calculator cost assumptions.');
+    }
+    return { version: 1, activePropertyId: value.activePropertyId, drafts: value.drafts };
+}
 /** Reject incompatible/malformed imports instead of trusting values from local storage. */
 export function parseWorkspace(raw) {
     if (raw.length > 3_000_000)
@@ -55,7 +73,7 @@ export function parseWorkspace(raw) {
     if (ids.some(id => !/^custom-[A-Za-z0-9-]+$/.test(id)))
         throw new Error('Custom property IDs must use the custom- prefix and letters, numbers, or hyphens.');
     const result = w;
-    return { ...result, decisions: parseDecisions(w.decisions), savedIds: [...new Set(result.savedIds)], compareIds: [...new Set(result.compareIds)].slice(0, 3), customProperties: result.customProperties.map(p => ({ ...p, custom: true })) };
+    return { ...result, rejections: parseRejections(w.rejections), living: parseLiving(w.living), calculator: parseCalculator(w.calculator), decisions: parseDecisions(w.decisions), savedIds: [...new Set(result.savedIds)], compareIds: [...new Set(result.compareIds)].slice(0, 3), customProperties: result.customProperties.map(p => ({ ...p, custom: true })) };
 }
 export function loadWorkspace() {
     try {

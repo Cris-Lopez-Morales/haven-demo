@@ -1,0 +1,94 @@
+PASS Original discovery still shows 12 of 60 listings
+PASS Listing opens the same home in the new workspace
+PASS No household budget is invented on first visit
+PASS All three decision tabs are available
+PASS Explicit example budget is persisted with sample flag
+PASS Monthly remainder matches an independently expected rounded result
+PASS Cash after purchase matches the expected inputs
+PASS A saved home appears in the baseline budget comparison
+PASS 20% income shock removes $1,400 per month
+PASS Stress value recalculates as typed
+PASS One-time repair preserves the monthly remainder
+PASS One-time repair subtracts $5,000 from liquid cash
+PASS Higher expenses reduce monthly remainder
+PASS Blank ownership input marks stale results and disables exports
+PASS Invalid input never overwrites valid persisted assumptions
+PASS Zero-interest input is valid and computes immediately
+PASS Typing keeps the focused input rather than rerendering the form
+PASS Named life scenario saves a full frozen snapshot
+PASS Real user-input plan is not labeled sample
+PASS Negative monthly balance is not concealed
+PASS Cash shortfall is displayed as additional cash needed
+PASS Restoring snapshot asks before replacing household inputs
+PASS Snapshot restores original budget and finance inputs
+PASS Life export includes inputs, results, and privacy disclosure
+PASS Workspace autocomplete narrows on every keystroke
+PASS Typing a property does not change the home prematurely
+PASS Choosing a result opens the chosen home
+PASS Same household budget follows another property
+PASS Together honestly discloses local-only collaboration
+PASS No raw income or cash appears in shared participant cards
+PASS Participant creation adds a second independent profile
+PASS Conflicting bedroom requirements produce a concrete trade-off
+PASS Shared stage persists per property
+PASS Each participant can record a home-specific opinion and note
+PASS Only explicit sharing exposes the calculated budget summary
+PASS Even a shared summary omits raw income and available cash
+PASS Profile switch loads a separate opinion
+PASS New participant does not inherit another household budget
+PASS Switching back restores the original budget
+PASS Tour brief distinguishes unknown condition from factual defects
+PASS Tour starts with unanswered questions
+PASS A question cannot be answered without answer and source
+PASS Recorded answer advances progress and preserves source
+PASS Custom tour question can be added
+PASS Visit plan saves locally without claiming a booking
+PASS Tour export includes questions, answers, sources, and visit notes
+PASS Tour export excludes household budget and life snapshots
+PASS Tour export never implies independent verification
+PASS Arrow keys navigate accessible tabs
+PASS light life text contrast
+PASS light together text contrast
+PASS light tour text contrast
+PASS dark life text contrast
+PASS dark together text contrast
+PASS dark tour text contrast
+PASS light budget dialog text contrast
+PASS dark answer dialog text contrast
+PASS Full backup includes decisions and clearly separate private data
+PASS Backup restore brings back participants, tour answers, notes, and budget
+PASS Pre-1.4 backup migrates without inventing a budget
+PASS Malformed decision state is preserved as recovery data
+PASS Deleting a local profile keeps a valid remaining workspace
+PASS Local assistant rankings still name the cheapest single-family home
+PASS Assistant recommendation opens that home’s decision workspace
+PASS No connected AI is activated
+PASS 390px light life has no horizontal page overflow
+PASS 390px light life text contrast
+PASS 390px light together has no horizontal page overflow
+PASS 390px light together text contrast
+PASS 390px light tour has no horizontal page overflow
+PASS 390px light tour text contrast
+PASS 390px dark life has no horizontal page overflow
+PASS 390px dark life text contrast
+PASS 390px dark together has no horizontal page overflow
+PASS 390px dark together text contrast
+PASS 390px dark tour has no horizontal page overflow
+PASS 390px dark tour text contrast
+PASS 390px decision autocomplete stays within screen
+PASS 320px light life has no horizontal page overflow
+PASS 320px light together has no horizontal page overflow
+PASS 320px light tour has no horizontal page overflow
+PASS 320px dark life has no horizontal page overflow
+PASS 320px dark together has no horizontal page overflow
+PASS 320px dark tour has no horizontal page overflow
+PASS 320px decision autocomplete stays within screen
+PASS 768px light life has no horizontal page overflow
+PASS 768px light together has no horizontal page overflow
+PASS 768px light tour has no horizontal page overflow
+PASS 768px dark life has no horizontal page overflow
+PASS 768px dark together has no horizontal page overflow
+PASS 768px dark tour has no horizontal page overflow
+PASS 768px decision autocomplete stays within screen
+PASS No uncaught JavaScript errors in new feature scenarios
+PASS: 93 decision browser checks and 14 text-contrast samples.

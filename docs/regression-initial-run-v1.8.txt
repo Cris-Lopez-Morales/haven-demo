@@ -1,0 +1,89 @@
+RUN browser_smoke
+DONE browser_smoke 0
+RUN catalog_motion_browser
+DONE catalog_motion_browser 0
+RUN assistant_browser
+DONE assistant_browser 1
+Traceback (most recent call last):
+  File "/mnt/data/haven-v1.8-work/haven/tests/assistant_browser.py", line 36, in <module>
+    load(page)
+    ~~~~^^^^^^
+  File "/mnt/data/haven-v1.8-work/haven/tests/assistant_browser.py", line 18, in load
+    else:page.goto(args.url)
+         ~~~~~~~~~^^^^^^^^^^
+  File "/opt/pyvenv/lib/python3.13/site-packages/playwright/sync_api/_generated.py", line 9050, in goto
+    self._sync(
+    ~~~~~~~~~~^
+        self._impl_obj.goto(
+        ^^^^^^^^^^^^^^^^^^^^
+            url=url, timeout=timeout, waitUntil=wait_until, referer=referer
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        )
+        ^
+    )
+    ^
+  File "/opt/pyvenv/lib/python3.13/site-packages/playwright/_impl/_sync_base.py", line 115, in _sync
+    return task.result()
+           ~~~~~~~~~~~^^
+  File "/opt/pyvenv/lib/python3.13/site-packages/playwright/_impl/_page.py", line 552, in goto
+    return await self._main_frame.goto(**locals_to_params(locals()))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/pyvenv/lib/python3.13/site-packages/playwright/_impl/_frame.py", line 153, in goto
+    await self._channel.send(
+        "goto", self._navigation_timeout, locals_to_params(locals())
+    )
+  File "/opt/pyvenv/lib/python3.13/site-packages/playwright/_impl/_connection.py", line 69, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/opt/pyvenv/lib/python3.13/site-packages/playwright/_impl/_connection.py", line 559, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.Error: Page.goto: net::ERR_BLOCKED_BY_ADMINISTRATOR at http://localhost:3000/dist/index.html
+Call log:
+  - navigating to "http://localhost:3000/dist/index.html", waiting until "load"
+
+
+RUN ranking_theme_browser
+DONE ranking_theme_browser 0
+RUN decision_browser
+DONE decision_browser 0
+RUN costs_browser
+DONE costs_browser 1
+nput commits all valid visible edits together
+PASS Tax rejects a negative input with accessible invalid state
+PASS Insurance rejects a negative input with accessible invalid state
+PASS Maintenance rejects a negative input with accessible invalid state
+PASS Closing rejects a negative input with accessible invalid state
+PASS Corrected valid inputs restore the expected results
+PASS Named scenario remains frozen after changing a current cost
+PASS Loading a scenario restores all cost units and numbers
+PASS CSV contains annual insurance, tax rate, and reserve basis
+PASS CSV clearly marks closing one-time and includes cash-outlay totals
+PASS CSV does not mislabel the new reserve as a rent percentage
+PASS A different home starts with its own HOA amount
+PASS Returning to a property restores every edited cost without cross-contamination
+PASS The second property independently restores its amount and units
+PASS Active property is persisted with its draft
+PASS Leaving and returning to calculator retains the current home
+PASS App reinitialization with stored data restores the active property and costs
+PASS Reinitialized results match independent arithmetic
+PASS Reset restores this home to source-based defaults
+PASS Reset does not alter another property’s plan
+PASS Full backup includes both independently edited cost plans
+FAIL Import asks for confirmation before replacing any saved plan
+Traceback (most recent call last):
+  File "/mnt/data/haven-v1.8-work/haven/tests/costs_browser.py", line 168, in <module>
+    check('Import asks for confirmation before replacing any saved plan',p3.locator('dialog[open] [data-action="confirm-import"]').is_visible())
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/data/haven-v1.8-work/haven/tests/costs_browser.py", line 17, in check
+    assert ok,name
+           ^^
+AssertionError: Import asks for confirmation before replacing any saved plan
+
+RUN living_browser
+DONE living_browser 0
+RUN rejections_browser
+DONE rejections_browser 0
+COMPLETE [{"suite": "browser_smoke", "exit": 0}, {"suite": "catalog_motion_browser", "exit": 0}, {"suite": "assistant_browser", "exit": 1}, {"suite": "ranking_theme_browser", "exit": 0}, {"suite": "decision_browser", "exit": 0}, {"suite": "costs_browser", "exit": 1}, {"suite": "living_browser", "exit": 0}, {"suite": "rejections_browser", "exit": 0}]

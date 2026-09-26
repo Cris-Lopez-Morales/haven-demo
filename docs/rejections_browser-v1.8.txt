@@ -1,0 +1,186 @@
+PASS Discover defaults to explicit Recommended order
+PASS Original 60 fixtures and first 12-card page are unchanged
+PASS Your preferences is visible before any pass
+PASS Global navigation offers preferences from every page
+PASS Reason picker is a native modal with five named choices
+PASS Pass dialog discloses source facts, privacy and fictional distance limits
+PASS Submitting without a reason cannot record a pass
+PASS Choosing a chip does not prematurely save
+PASS Escape cancels without recording feedback
+PASS First explicit pass persists under existing workspace key
+PASS A passed home is hidden, not deleted from catalogue
+PASS Keyboard focus lands on a visible review control after the card is removed
+PASS One pass shows pending evidence and no learned rule
+PASS Two different properties each contribute once
+PASS Two positive HOA passes activate an exact median threshold
+PASS The ranking method exposes equal weights, numerical sort priority and unknown data
+PASS Discover actually reorders the full catalogue by learned HOA conflict
+PASS Filtered result count includes 58 remaining homes
+PASS Pagination appends the next slice of the same learned order
+PASS An explicit price sort takes priority over inferred HOA preference
+PASS Preference summary updates when the explicit sort changes
+PASS Show passed restores both homes to browsing with correct true price order
+PASS Passed homes have visible labels and undo, not a destructive delete
+PASS Assistant explains actual learned HOA influence and threshold
+PASS Assistant recommendations exclude passed IDs and prefer below-threshold HOA
+PASS Recommendation reasons reference the specific learned threshold
+PASS Chat has a global review action and per-property pass action
+PASS Past answers are explicitly snapshots, not silently rewritten
+PASS Assistant cheapest remains the actual cheapest unpassed home
+PASS Assistant explains why an explicit ranking takes priority
+PASS Conversation can return to learned ranking without restarting
+PASS Passing directly from chat records the selected home
+PASS Old chat card updates to Passed and allows undo
+PASS Chat undo removes only that pass
+PASS Pause is persisted, with rules still visible as paused
+PASS Paused recommendation order returns to original order minus explicit passes
+PASS Assistant acknowledges pause instead of claiming learned ranking
+PASS Resuming learning preserves both supporting records
+PASS Exported backup contains feedback, evidence and enabled state
+PASS App reinitialization restores memory and recommendation order
+PASS Undo removes evidence immediately and disables a two-pass rule
+PASS Undo restores that home to discovery
+PASS Passing a saved home keeps its saved ID, note and comparison
+PASS Explicit saved view still contains the passed home
+PASS Reset requires confirmation and cancelling keeps all passes
+PASS Confirmed reset clears only passes and learned state
+PASS Reset preserves every unrelated stored workspace field
+PASS Other requires nonempty free text and does not save prematurely
+PASS Whitespace-only Other note is rejected with an alert
+PASS Free text is rendered as text, not executable markup
+PASS Other is marked note-only and does not train a size/price rule
+PASS Editing an Other pass restores note and required semantics
+PASS Editing uses one record instead of counting the same home twice
+PASS Calculator invalid draft is visibly stale before feedback
+PASS Feedback from chat preserves incomplete calculator input and stale warning
+PASS Actual file import restores rejection memory and fresh ranking
+PASS Malformed imported feedback cannot replace a valid workspace
+PASS v1.6 backup migrates without fabricating preferences
+PASS Denied persistence is visible in preference panel
+PASS Session-only feedback remains exportable
+PASS Deleting a custom property also prunes its rejection evidence
+PASS All-passed catalogue has a recoverable empty state
+PASS All-passed assistant directs review instead of making up matches
+PASS Show passed recovers browsing even when every home was passed
+PASS Comparable fictional routes activate an explicitly demo-only rule
+PASS Switching work setup suspends incompatible distance evidence without deleting passes
+PASS Two unmeasurable Too far passes never invent a distance preference
+PASS light 320px discovery has no horizontal overflow
+PASS light 320px discover text contrast
+PASS light 320px list view with feedback actions fits
+PASS light 320px preferences have no horizontal overflow
+PASS light 320px preferences text contrast
+PASS light 320px expanded method fits
+PASS light 320px method text contrast
+PASS light 320px reason chips and form fit
+PASS light 320px reason picker text contrast
+PASS light 320px native radio arrow navigation works
+PASS light 320px Escape cancels without adding evidence
+PASS dark 320px discovery has no horizontal overflow
+PASS dark 320px discover text contrast
+PASS dark 320px list view with feedback actions fits
+PASS dark 320px preferences have no horizontal overflow
+PASS dark 320px preferences text contrast
+PASS dark 320px expanded method fits
+PASS dark 320px method text contrast
+PASS dark 320px reason chips and form fit
+PASS dark 320px reason picker text contrast
+PASS dark 320px native radio arrow navigation works
+PASS dark 320px Escape cancels without adding evidence
+PASS light 390px discovery has no horizontal overflow
+PASS light 390px discover text contrast
+PASS light 390px list view with feedback actions fits
+PASS light 390px preferences have no horizontal overflow
+PASS light 390px preferences text contrast
+PASS light 390px expanded method fits
+PASS light 390px method text contrast
+PASS light 390px reason chips and form fit
+PASS light 390px reason picker text contrast
+PASS light 390px native radio arrow navigation works
+PASS light 390px Escape cancels without adding evidence
+PASS dark 390px discovery has no horizontal overflow
+PASS dark 390px discover text contrast
+PASS dark 390px list view with feedback actions fits
+PASS dark 390px preferences have no horizontal overflow
+PASS dark 390px preferences text contrast
+PASS dark 390px expanded method fits
+PASS dark 390px method text contrast
+PASS dark 390px reason chips and form fit
+PASS dark 390px reason picker text contrast
+PASS dark 390px native radio arrow navigation works
+PASS dark 390px Escape cancels without adding evidence
+PASS light 768px discovery has no horizontal overflow
+PASS light 768px discover text contrast
+PASS light 768px list view with feedback actions fits
+PASS light 768px preferences have no horizontal overflow
+PASS light 768px preferences text contrast
+PASS light 768px expanded method fits
+PASS light 768px method text contrast
+PASS light 768px reason chips and form fit
+PASS light 768px reason picker text contrast
+PASS light 768px native radio arrow navigation works
+PASS light 768px Escape cancels without adding evidence
+PASS dark 768px discovery has no horizontal overflow
+PASS dark 768px discover text contrast
+PASS dark 768px list view with feedback actions fits
+PASS dark 768px preferences have no horizontal overflow
+PASS dark 768px preferences text contrast
+PASS dark 768px expanded method fits
+PASS dark 768px method text contrast
+PASS dark 768px reason chips and form fit
+PASS dark 768px reason picker text contrast
+PASS dark 768px native radio arrow navigation works
+PASS dark 768px Escape cancels without adding evidence
+PASS light 1024px discovery has no horizontal overflow
+PASS light 1024px discover text contrast
+PASS light 1024px list view with feedback actions fits
+PASS light 1024px preferences have no horizontal overflow
+PASS light 1024px preferences text contrast
+PASS light 1024px expanded method fits
+PASS light 1024px method text contrast
+PASS light 1024px reason chips and form fit
+PASS light 1024px reason picker text contrast
+PASS light 1024px native radio arrow navigation works
+PASS light 1024px Escape cancels without adding evidence
+PASS dark 1024px discovery has no horizontal overflow
+PASS dark 1024px discover text contrast
+PASS dark 1024px list view with feedback actions fits
+PASS dark 1024px preferences have no horizontal overflow
+PASS dark 1024px preferences text contrast
+PASS dark 1024px expanded method fits
+PASS dark 1024px method text contrast
+PASS dark 1024px reason chips and form fit
+PASS dark 1024px reason picker text contrast
+PASS dark 1024px native radio arrow navigation works
+PASS dark 1024px Escape cancels without adding evidence
+PASS light 1440px discovery has no horizontal overflow
+PASS light 1440px discover text contrast
+PASS light 1440px list view with feedback actions fits
+PASS light 1440px preferences have no horizontal overflow
+PASS light 1440px preferences text contrast
+PASS light 1440px expanded method fits
+PASS light 1440px method text contrast
+PASS light 1440px reason chips and form fit
+PASS light 1440px reason picker text contrast
+PASS light 1440px native radio arrow navigation works
+PASS light 1440px Escape cancels without adding evidence
+PASS dark 1440px discovery has no horizontal overflow
+PASS dark 1440px discover text contrast
+PASS dark 1440px list view with feedback actions fits
+PASS dark 1440px preferences have no horizontal overflow
+PASS dark 1440px preferences text contrast
+PASS dark 1440px expanded method fits
+PASS dark 1440px method text contrast
+PASS dark 1440px reason chips and form fit
+PASS dark 1440px reason picker text contrast
+PASS dark 1440px native radio arrow navigation works
+PASS dark 1440px Escape cancels without adding evidence
+PASS Mobile chat with learning disclosure keeps composer in view
+PASS dark mobile learned assistant text contrast
+PASS Reduced motion removes preference-control transitions
+PASS Normal motion retains subtle chip transitions
+PASS Changing reduced-motion preference takes effect immediately
+PASS No uncaught application exceptions in the tested workflows
+PASS New feedback workflows make no fetch or external resource requests
+
+184 passed; 0 failed

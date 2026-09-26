@@ -1,15 +1,21 @@
+import { preferencePanel } from './rejection-views.js';
+import { pruneRejections } from './rejection-engine.js';
+import { mountRejections } from './rejection-controller.js';
+import { pruneLiving } from './living-engine.js';
+import { mountLiving } from './living-controller.js';
+import { mountCostTooltips, refreshCostControls, preciseMoney } from './cost-controls.js';
 import { decisionView } from './decision-views.js';
 import { mountDecisionWorkspace } from './decision-workspace.js';
 import { pruneDecisions } from './decision-engine.js';
 import { initializeAppearance } from './theme.js';
 import { bindPropertyPicker } from './property-picker.js';
 import { mountAssistant } from './assistant-widget.js';
-import type { State, Page, Property, Workspace, Assumptions, Sort } from './types.js';
+import type { State, Page, Property, Workspace, Sort, NumericAssumptionKey } from './types.js';
 import { seedProperties } from './data.js';
-import { defaultFilters, defaultAssumptions, calculate, validateAssumptions, filterProperties, toCSV, amortization } from './finance.js';
+import { defaultFilters, defaultAssumptions, defaultCalculatorAssumptions, withOwnershipCosts, cloneAssumptions, changeCostBasis, calculate, validateAssumptions, toCSV, amortization } from './finance.js';
 import { loadWorkspace, saveWorkspace, freshWorkspace, parseWorkspace, validProperty } from './storage.js';
 import { escapeHTML as e, signedMoney, icon, toast, downloadFile, uid, bindImageFallbacks } from './ui.js';
-import { shell, allProperties, browseView, compareView, detailView, propertyForm, findProperty, browseSource, propertyResults, propertyCard, resultsPagination, PAGE_SIZE, modelAssumptionsRows } from './views.js';
+import { shell, allProperties, browseView, compareView, detailView, propertyForm, findProperty, browseResults, propertyResults, propertyCard, resultsPagination, PAGE_SIZE, modelAssumptionsRows } from './views.js';
 import { calculatorView, calculatorResults } from './calculator.js';
 import { bindCardMotion, revealedCards, pageMotion, dialogMotion, trayMotion, favoriteMotion, filterMotion, motionAllowed } from './motion.js';
 import type { MotionIntent } from './motion.js';
@@ -20,8 +26,8 @@ const pages: Page[] = ['discover','saved','compare','calculator','custom','decis
 const initialPage = location.hash.slice(1) as Page;
 const state: State = {
   page: pages.includes(initialPage) ? initialPage : 'discover',
-  filters: {...defaultFilters}, sort: 'featured', layout: 'grid', moreFilters: false, visibleCount: PAGE_SIZE,
-  calculatorPropertyId: seedProperties[0].id, assumptions: defaultAssumptions(seedProperties[0]),
+  showPassed:false, filters: {...defaultFilters}, sort: 'recommended', layout: 'grid', moreFilters: false, visibleCount: PAGE_SIZE,
+  calculatorPropertyId: seedProperties[0].id, assumptions: defaultCalculatorAssumptions(seedProperties[0]),
   workspace: initial.workspace, storageAvailable: initial.available, storageNotice: initial.notice,
   scenarioName: '', decisionTab: 'life', decisionStress: 'baseline'
 };
@@ -36,12 +42,32 @@ let lastFocus: HTMLElement | null = null;
 function normalizeWorkspace(w: Workspace): Workspace {
   const ids = new Set([...seedProperties,...w.customProperties].map(p => p.id));
   return {
-    ...w, decisions: pruneDecisions(w.decisions,ids), savedIds: w.savedIds.filter(id => ids.has(id)), compareIds: w.compareIds.filter(id => ids.has(id)).slice(0,3),
+    ...w, rejections:pruneRejections(w.rejections,ids), living:pruneLiving(w.living,ids), calculator:{version:1,activePropertyId:ids.has(w.calculator.activePropertyId) ? w.calculator.activePropertyId : seedProperties[0].id,
+      drafts:Object.fromEntries(Object.entries(w.calculator.drafts).filter(([id])=>ids.has(id)))}, decisions: pruneDecisions(w.decisions,ids), savedIds: w.savedIds.filter(id => ids.has(id)), compareIds: w.compareIds.filter(id => ids.has(id)).slice(0,3),
     scenarios: w.scenarios.filter(s => ids.has(s.propertyId)),
     notes: Object.fromEntries(Object.entries(w.notes).filter(([id]) => ids.has(id)))
   };
 }
 state.workspace = normalizeWorkspace(state.workspace);
+restoreCalculator();
+
+function restoreCalculator(): void {
+  const id=state.workspace.calculator.activePropertyId;
+  const p=findProperty(state,id) || seedProperties[0];
+  state.calculatorPropertyId=p.id;
+  const draft=state.workspace.calculator.drafts[p.id];
+  state.assumptions=draft ? withOwnershipCosts(draft) : defaultCalculatorAssumptions(p);
+  calculatorValid=true;
+}
+
+/** Save only valid inputs, per home, using the existing local workspace key. */
+function persistCalculator(): void {
+  state.workspace.calculator.activePropertyId=state.calculatorPropertyId;
+  state.workspace.calculator.drafts[state.calculatorPropertyId]=cloneAssumptions(state.assumptions);
+  state.storageAvailable=saveWorkspace(state.workspace);
+  if (!state.storageAvailable) state.storageNotice='Browser storage is unavailable or full. Calculator edits last for this session only; export a backup to keep them.';
+  else if (state.storageNotice.includes('storage is unavailable')) state.storageNotice='';
+}
 
 function render(intent: MotionIntent = 'update'): void {
   const keep = intent === 'update' ? revealedCards() : new Set<string>();
@@ -59,6 +85,10 @@ function render(intent: MotionIntent = 'update'): void {
   document.body.classList.toggle('has-tray',state.workspace.compareIds.length > 0 && ['discover','saved','custom'].includes(state.page));
   bindImageFallbacks();
   bindPropertyPicker(allProperties(state),findProperty(state,state.page === 'decision' ? state.workspace.decisions.currentPropertyId : state.calculatorPropertyId)!,id => state.page === 'decision' ? decisionWorkspace?.select(id) : analyze(id));
+  if (state.page === 'calculator') {
+    const hoa=document.getElementById('calc-hoaMonthly') as HTMLInputElement | null;
+    if (hoa) hoa.disabled=!state.assumptions.costs!.hoaApplicable;
+  }
   assistant?.refresh();
   updateMobileNavigation();
   bindCardMotion(keep);
@@ -80,8 +110,9 @@ function updateResults(): void {
   const el = document.getElementById('property-results');
   if (!el) { render(); return; }
   el.innerHTML = propertyResults(state);
+  const preferenceHost=document.getElementById('preference-panel');if(preferenceHost)preferenceHost.outerHTML=preferencePanel(state);
   const summary = document.getElementById('result-summary');
-  const count = filterProperties(browseSource(state),state.filters,state.sort).length;
+  const count = browseResults(state).length;
   if (summary) summary.innerHTML = `${count} ${count === 1 ? 'property' : 'properties'}<span> · ${state.page === 'custom' ? 'Your own property data' : 'Fictional listings for exploring the app'}</span>`;
   bindImageFallbacks();
   bindCardMotion();
@@ -109,7 +140,10 @@ function navigate(page: Page): void {
 function analyze(id: string): void {
   const p = findProperty(state,id);
   if (!p) return;
-  state.calculatorPropertyId = id; state.assumptions = defaultAssumptions(p); calculatorValid = true;
+  state.calculatorPropertyId = id;
+  const draft=state.workspace.calculator.drafts[id];
+  state.assumptions = draft ? withOwnershipCosts(draft) : defaultCalculatorAssumptions(p); calculatorValid = true;
+  persistCalculator();
   state.scenarioName = ''; navigate('calculator');
 }
 function openDialog(content: string, className = ''): void {
@@ -126,7 +160,7 @@ function openDialog(content: string, className = ''): void {
   });
   dialog.showModal(); document.body.classList.add('dialog-open'); bindImageFallbacks(); dialogMotion(dialog);
   const input = dialog.querySelector<HTMLInputElement>('input:not([type="checkbox"])');
-  if (input) input.focus({preventScroll:true});
+  if (input && className !== 'detail-modal') input.focus({preventScroll:true});
 }
 function closeDialog(): void {
   const dialog = document.querySelector<HTMLDialogElement>('#dialog-host dialog');
@@ -140,28 +174,50 @@ function showDetails(id: string): void {
   openDialog(detailView(p,state),'detail-modal');
 }
 function aboutDialog(): void {
-  openDialog(`<div class="modal-heading"><span class="eyebrow">MEET HAVEN</span><h2 id="dialog-title">A little more perspective.</h2><p>A local-first property workspace, built to explore the whole decision — not just the asking price.</p></div><div class="about-sections"><section><h3>A real app. A sample world.</h3><p>The ${seedProperties.length} starter properties span ${new Set(seedProperties.map(p => p.city)).size} cities. Their addresses, neighborhood labels, prices, rents, and costs are fictional fixtures. City names provide context only. Artwork and optional photography are illustrative. There is no live listing feed, valuation model, authentication, or connected bank account.</p></section><section><h3>Open assumptions. No mystery scores.</h3><p>Listing cards and comparisons use 20% down, 6.5% sample interest, 30 years, 5% vacancy, 5% maintenance, 8% management, 3% capital reserves, and 3% closing costs. Initial repairs and mortgage insurance start at zero. Taxes, property insurance, HOA, and rent come from each entry.</p><p><strong>NOI</strong> is rent after vacancy, less operating expenses. It excludes financing and capital reserves. <strong>Cap rate</strong> is annual NOI divided by purchase price. <strong>Cash flow</strong> also subtracts mortgage principal and interest, mortgage insurance, and capital reserves. <strong>Cash-on-cash return</strong> divides annual cash flow by the down payment, closing costs, and initial repairs.</p></section><section><h3>One browser. Your workspace.</h3><p>Saved properties, comparisons, custom entries, notes, searches, and saved scenarios stay in browser storage. Nothing is synced to an account. Private browsing, clearing storage, or using a different URL may remove or separate saved data. Export a backup for portability.</p></section><section><h3>A little help finding home</h3><p>Ask Haven is available from every page. Its local demo matcher asks about city, purchase budget, property type, and must-haves, then explains matches from the 60 fictional starter homes. It is not a live AI model in local mode. An optional server-side AI connection can be enabled through the chat disclosure when configured. Unverified features stay labeled unverified; chat clears on refresh, while saved homes remain in your workspace.</p><p>The calculator property picker supports typing, live suggestions, and keyboard navigation. It searches both demo and custom properties; your scenario changes only after you choose a property.</p></section><section><h3>A place for the whole decision</h3><p>Your Life Here models a household budget and ownership costs, with explicit sample assumptions and one-at-a-time stress tests. Together uses local participant profiles, not secure accounts or online collaboration. Before You Tour tracks unknowns, answers, sources, and visit notes. Budgets are not shown in Together unless you explicitly share a calculated summary. Anyone with this browser or a full workspace backup can access all profiles.</p><p>Live AI remains optional and is not activated. New decision-workspace data is not added to AI requests. No real listing feed, bank connection, invitation, or booking service is provided.</p></section><section><h3>The edges of the model</h3><p>The calculator assumes a fixed-rate, fully amortizing loan. It does not model tax benefits, appreciation, rent growth, selling costs, variable rates, financing eligibility, zoning, or lender-specific rules. It is educational software, not financial advice.</p></section><label class="photo-toggle"><input type="checkbox" id="use-photos" ${document.documentElement.dataset.photos === 'true' ? 'checked' : ''}><span>Use illustrative photography<small>Optional Unsplash images need an internet connection. Loading them contacts the image provider; property inputs are not sent. Original artwork remains the offline fallback.</small></span></label></div><div class="modal-actions"><button class="btn" data-action="workspace">Manage workspace</button><button class="btn primary" data-action="close-dialog">Back to exploring ${icon('arrow')}</button></div>`,'info-modal');
+  openDialog(`<div class="modal-heading"><span class="eyebrow">MEET HAVEN</span><h2 id="dialog-title">A little more perspective.</h2><p>A local-first property workspace, built to explore the whole decision — not just the asking price.</p></div><div class="about-sections"><section><h3>A real app. A sample world.</h3><p>The ${seedProperties.length} starter properties span ${new Set(seedProperties.map(p => p.city)).size} cities. Their addresses, neighborhood labels, prices, rents, and costs are fictional fixtures. City names provide context only. Artwork and optional photography are illustrative. There is no live listing feed, valuation model, authentication, or connected bank account.</p></section><section><h3>Open assumptions. No mystery scores.</h3><p>Listing cards and comparisons use 20% down, 6.5% sample interest, 30 years, 5% vacancy, 5% maintenance, 8% management, 3% capital reserves, and 3% closing costs. Initial repairs and mortgage insurance start at zero. Taxes, property insurance, HOA, and rent come from each entry.</p><p><strong>NOI</strong> is rent after vacancy, less operating expenses. It excludes financing and capital reserves. <strong>Cap rate</strong> is annual NOI divided by purchase price. <strong>Cash flow</strong> also subtracts mortgage principal and interest, mortgage insurance, and capital reserves. <strong>Cash-on-cash return</strong> divides annual cash flow by the down payment, closing costs, and initial repairs.</p></section><section><h3>Every cost has a basis.</h3><p>The deal calculator supports an annual tax rate, annual insurance, a fixed monthly or home-value maintenance reserve, optional HOA, and one-time closing costs. Valid edits save per home. Opening an older scenario converts its current maintenance allowance to a fixed monthly amount without changing its initial dollar result. Original snapshots are not changed.</p><p>Listing cards and Compare keep the standard assumptions above. Your Life Here remains a separate owner-occupant budget; calculator edits do not overwrite a participant’s household plan. Property details now add a size-and-age utility allowance and an optional fictional commute estimate. Utility assumptions are editable, and commute settings apply across the workspace. These are illustrative models, not bills or mapped routes. Explicit passes now train visible, reversible preference rules after two comparable homes. Recommended order can change; explicit numerical sorts are preserved. A collapsible Negotiation context panel now shows fixed, fictional asking-price history and comparable sold examples. The takeaway compares asking price per square foot with the median of eligible sample sold ratios, with its selection rules and arithmetic exposed. Dates refer to a fixed September 26, 2026 demo snapshot, not a live feed. These are not valuations, suggested offers, or evidence of seller motivation. Custom properties have no invented sales history.</p></section><section><h3>One browser. Your workspace.</h3><p>Saved properties, comparisons, custom entries, notes, searches, saved scenarios, and valid per-home calculator edits stay in browser storage. Nothing is synced to an account. Private browsing, clearing storage, or using a different URL may remove or separate saved data. Export a backup for portability.</p></section><section><h3>A little help finding home</h3><p>Ask Haven is available from every page. Its local demo matcher asks about city, purchase budget, property type, and must-haves, then explains matches from the 60 fictional starter homes. It is not a live AI model in local mode. An optional server-side AI connection can be enabled through the chat disclosure when configured. Unverified features stay labeled unverified; chat clears on refresh, while saved homes remain in your workspace.</p><p>The calculator property picker supports typing, live suggestions, and keyboard navigation. It searches both demo and custom properties; your scenario changes only after you choose a property.</p></section><section><h3>A place for the whole decision</h3><p>Your Life Here models a household budget and ownership costs, with explicit sample assumptions and one-at-a-time stress tests. Together uses local participant profiles, not secure accounts or online collaboration. Before You Tour tracks unknowns, answers, sources, and visit notes. Budgets are not shown in Together unless you explicitly share a calculated summary. Anyone with this browser or a full workspace backup can access all profiles.</p><p>Live AI remains optional and is not activated. New decision-workspace data is not added to AI requests. No real listing feed, bank connection, invitation, or booking service is provided.</p></section><section><h3>The edges of the model</h3><p>The calculator assumes a fixed-rate, fully amortizing loan. It does not model tax benefits, appreciation, rent growth, selling costs, variable rates, financing eligibility, zoning, or lender-specific rules. It is educational software, not financial advice.</p></section><label class="photo-toggle"><input type="checkbox" id="use-photos" ${document.documentElement.dataset.photos === 'true' ? 'checked' : ''}><span>Use illustrative photography<small>Optional Unsplash images need an internet connection. Loading them contacts the image provider; property inputs are not sent. Original artwork remains the offline fallback.</small></span></label></div><div class="modal-actions"><button class="btn" data-action="workspace">Manage workspace</button><button class="btn primary" data-action="close-dialog">Back to exploring ${icon('arrow')}</button></div>`,'info-modal');
 }
 function workspaceDialog(): void {
-  openDialog(`<div class="modal-heading"><span class="eyebrow">MAKE YOURSELF AT HOME</span><h2 id="dialog-title">Your workspace.</h2><p>${state.storageAvailable ? 'Your changes are stored in this browser. A backup lets you take them with you.' : 'Browser storage is unavailable. Export a backup before closing this page.'}</p></div><div class="workspace-stats"><div><strong>${state.workspace.savedIds.length}</strong><span>saved homes</span></div><div><strong>${state.workspace.customProperties.length}</strong><span>your properties</span></div><div><strong>${state.workspace.scenarios.length}</strong><span>scenarios</span></div></div><div class="workspace-options"><button data-action="export-backup">${icon('download')}<span><strong>Export a backup</strong><small>Download your workspace as a JSON file.</small></span>${icon('chevron')}</button><button data-action="import-backup">${icon('upload')}<span><strong>Import a backup</strong><small>Restore a Haven file. Review it before replacing anything.</small></span>${icon('chevron')}</button><button data-action="reset-workspace" class="danger">${icon('reset')}<span><strong>Start fresh</strong><small>Clear this workspace, leaving the sample listings intact.</small></span>${icon('chevron')}</button></div><p class="small-print">A full backup includes every local profile’s household budget, priorities, reviews, life scenarios, tour answers, custom properties, saved homes, notes, searches, and investment scenarios. Treat it as sensitive. Tour brief exports omit household budgets. Unsaved investment calculator edits are not included.</p>`,'info-modal');
+  openDialog(`<div class="modal-heading"><span class="eyebrow">MAKE YOURSELF AT HOME</span><h2 id="dialog-title">Your workspace.</h2><p>${state.storageAvailable ? 'Your changes are stored in this browser. A backup lets you take them with you.' : 'Browser storage is unavailable. Export a backup before closing this page.'}</p></div><div class="workspace-stats"><div><strong>${state.workspace.savedIds.length}</strong><span>saved homes</span></div><div><strong>${state.workspace.customProperties.length}</strong><span>your properties</span></div><div><strong>${state.workspace.scenarios.length}</strong><span>scenarios</span></div></div><div class="workspace-options"><button data-action="preferences-open">${icon('leaf')}<span><strong>Your preferences</strong><small>Review learned rules, undo passes, or reset feedback.</small></span>${icon('chevron')}</button><button data-action="living-work">${icon('pin')}<span><strong>Work location & commute</strong><small>Set up one optional demo commute for the whole workspace.</small></span>${icon('chevron')}</button><button data-action="export-backup">${icon('download')}<span><strong>Export a backup</strong><small>Download your workspace as a JSON file.</small></span>${icon('chevron')}</button><button data-action="import-backup">${icon('upload')}<span><strong>Import a backup</strong><small>Restore a Haven file. Review it before replacing anything.</small></span>${icon('chevron')}</button><button data-action="reset-workspace" class="danger">${icon('reset')}<span><strong>Start fresh</strong><small>Clear this workspace, leaving the sample listings intact.</small></span>${icon('chevron')}</button></div><p class="small-print">A full backup includes every local profile’s household budget, priorities, reviews, life scenarios, tour answers, custom properties, saved homes, notes, searches, and investment scenarios. Treat it as sensitive. Tour brief exports omit household budgets. Valid calculator edits are automatically included per property. Incomplete or invalid drafts are not saved. Backups include rejection reasons, their notes and listing snapshots, as well as per-home utility estimates and your optional work-location label. These stay local and are never attached to AI requests.</p>`,'info-modal');
 }
 function updateCalculator(): void {
-  const next = {...state.assumptions};
+  const next = withOwnershipCosts(state.assumptions);
+  const hoa=document.getElementById('cost-hoa-applicable') as HTMLInputElement;
+  next.costs!.hoaApplicable=hoa.checked;
+  const hoaField=document.getElementById('cost-hoa-field')!;
+  hoaField.hidden=!hoa.checked;
+  const hoaInput=document.getElementById('calc-hoaMonthly') as HTMLInputElement;
+  hoaInput.disabled=!hoa.checked;
   document.querySelectorAll<HTMLInputElement>('[data-calc]').forEach(input => {
-    next[input.dataset.calc as keyof Assumptions] = input.value.trim() ? Number(input.value) : NaN;
+    if (!input.disabled) next[input.dataset.calc as NumericAssumptionKey] = input.value.trim() ? Number(input.value) : NaN;
+  });
+  document.querySelectorAll<HTMLInputElement>('[data-cost]').forEach(input => {
+    const key=input.dataset.cost as 'taxRatePercent'|'insuranceAnnual'|'maintenanceValue'|'closingValue';
+    next.costs![key] = input.value.trim() ? Number(input.value) : NaN;
   });
   const errors = validateAssumptions(next);
   calculatorValid = errors.length === 0;
-  document.querySelectorAll<HTMLInputElement>('[data-calc]').forEach(input => input.setAttribute('aria-invalid',String(!input.validity.valid)));
+  document.querySelectorAll<HTMLInputElement>('[data-calc], [data-cost]').forEach(input => input.setAttribute('aria-invalid',String(!input.disabled && !input.validity.valid)));
   const errorHost = document.getElementById('calc-error')!;
   errorHost.hidden = !errors.length;
-  errorHost.textContent = errors.length ? errors[0]+' Results below still show your last valid inputs.' : '';
-  document.querySelectorAll<HTMLButtonElement>('[data-requires-valid]').forEach(button => button.disabled = !calculatorValid);
+  errorHost.textContent = errors.length ? errors[0]+' Results still show your last valid inputs. Invalid edits have not been saved.' : '';
+  document.querySelectorAll<HTMLButtonElement | HTMLSelectElement>('[data-requires-valid]').forEach(button => button.disabled = !calculatorValid);
   document.getElementById('calc-results')!.classList.toggle('results-stale',!calculatorValid);
-  if (!calculatorValid) return;
+  const status=document.getElementById('cost-saving-status')!;
+  const announce=document.getElementById('cost-results-announcement')!;
+  if (!calculatorValid) {
+    status.textContent='Not saved — correct the highlighted inputs. The previous valid estimates remain below.';
+    status.classList.add('cost-session-only');
+    announce.textContent='Calculations paused. '+errors[0];
+    return;
+  }
   state.assumptions = next;
+  persistCalculator();
   document.getElementById('calc-results')!.innerHTML = calculatorResults(next);
+  refreshCostControls(next,state.storageAvailable);
+  const m=calculate(next);
+  announce.textContent=`Monthly costs and reserves: ${preciseMoney(m.totalOutflow)}. One-time closing costs: ${preciseMoney(m.closingCosts)}. Cash needed upfront: ${preciseMoney(m.cashInvested)}.`;
 }
+
 function exportReport(): void {
   if (!calculatorValid) return toast('Correct the highlighted assumptions before exporting.',true);
   const a = state.assumptions, m = calculate(a), p = findProperty(state,state.calculatorPropertyId)!;
@@ -172,7 +228,7 @@ function exportReport(): void {
     ['Loan amount ($)',m.loan],['Mortgage principal and interest ($/month)',m.mortgage],['Rent after vacancy ($/month)',m.effectiveRent],
     ['Operating expenses ($/month)',m.operatingExpenses],['NOI ($/year; excludes debt and capital reserves)',m.noiMonthly*12],
     ['Capital reserve ($/month)',m.capex],['Cash flow ($/month)',m.cashflow],['Cash flow ($/year)',m.cashflow*12],
-    ['Cap rate (%)',m.capRate],['Initial cash invested ($)',m.cashInvested],['Cash-on-cash return (%)',m.cashOnCash ?? 'N/A'],[],
+    ['Total costs and reserves ($/month; before rent)',m.totalOutflow],['Estimated closing costs ($; ONE-TIME)',m.closingCosts],['First-year cash outlay ($; upfront + 12 monthly outflows, before rent)',m.firstYearOutlay],['Cash-outlay scope','Includes down payment and principal, which build equity. Excludes utilities, commute and moving costs. Reserves are set-asides, not guaranteed bills.'],['Cap rate (%)',m.capRate],['Initial cash invested ($)',m.cashInvested],['Cash-on-cash return (%)',m.cashOnCash ?? 'N/A'],[],
     ['AMORTIZATION','Principal ($)','Interest ($)','Ending balance ($)'],...amortization(a).map(row => [row.year,row.principal,row.interest,row.balance]),[],
     ['RENT / RATE SENSITIVITY','Monthly rent ($)','Interest (%)','Monthly cash flow ($)']
   ];
@@ -208,14 +264,14 @@ const actions: Record<string,(button: HTMLElement) => void> = {
   'delete-property': b => {
     const p = findProperty(state,b.dataset.id!); if (!p?.custom) return;
     pendingDeleteId = p.id;
-    openDialog(`<div class="modal-heading"><span class="eyebrow">A SMALL CHECK FIRST</span><h2 id="dialog-title">Remove ${e(p.name)}?</h2><p>This also removes its notes, saved scenarios, and place in your shortlist. This cannot be undone.</p></div><div class="modal-actions"><button class="btn" data-action="close-dialog">Keep property</button><button class="btn danger-fill" data-action="confirm-delete">Remove property</button></div>`);
+    openDialog(`<div class="modal-heading"><span class="eyebrow">A SMALL CHECK FIRST</span><h2 id="dialog-title">Remove ${e(p.name)}?</h2><p>This also removes its notes, calculator edits, saved scenarios, and place in your shortlist. This cannot be undone.</p></div><div class="modal-actions"><button class="btn" data-action="close-dialog">Keep property</button><button class="btn danger-fill" data-action="confirm-delete">Remove property</button></div>`);
   },
   'confirm-delete': () => {
     const id = pendingDeleteId;
     if (!state.workspace.customProperties.some(p => p.id === id)) return;
     state.workspace.customProperties = state.workspace.customProperties.filter(p => p.id !== id);
     state.workspace = normalizeWorkspace(state.workspace);
-    if (state.calculatorPropertyId === id) { state.calculatorPropertyId = seedProperties[0].id; state.assumptions = defaultAssumptions(seedProperties[0]); }
+    if (state.calculatorPropertyId === id) restoreCalculator();
     closeDialog(); commit('Property removed.'); render();
   },
   'save-toggle': b => {
@@ -243,7 +299,7 @@ const actions: Record<string,(button: HTMLElement) => void> = {
   'load-more': () => {
     const grid = document.querySelector('.property-grid');
     if (!grid) return;
-    const result = filterProperties(browseSource(state),state.filters,state.sort);
+    const result = browseResults(state);
     const previousCount = Math.min(state.visibleCount,result.length);
     const keep = revealedCards();
     state.visibleCount = Math.min(state.visibleCount+PAGE_SIZE,result.length);
@@ -270,12 +326,12 @@ const actions: Record<string,(button: HTMLElement) => void> = {
   },
   'load-search': b => { const search = state.workspace.searches.find(x => x.id === b.dataset.id); if (!search) return; state.filters = {...search.filters}; state.page = 'discover'; history.pushState(null,'','#discover'); render('results'); document.getElementById('explore')?.scrollIntoView({block:'start'}); },
   'delete-search': b => { state.workspace.searches = state.workspace.searches.filter(x => x.id !== b.dataset.id); commit('Search removed.'); render(); },
-  'reset-calculator': () => { state.assumptions = defaultAssumptions(findProperty(state,state.calculatorPropertyId)!); calculatorValid = true; render(); toast('Back to the property’s sample assumptions.'); },
+  'reset-calculator': () => { state.assumptions = defaultCalculatorAssumptions(findProperty(state,state.calculatorPropertyId)!); calculatorValid = true; persistCalculator(); render(); toast('This home’s sample assumptions restored. Other homes are unchanged.'); },
   shortcut: b => {
     if (b.dataset.kind === 'cash') state.assumptions = {...state.assumptions,downPercent:100,mortgageInsuranceMonthly:0};
     if (b.dataset.kind === 'standard') state.assumptions = {...state.assumptions,downPercent:20};
     if (b.dataset.kind === 'self') state.assumptions = {...state.assumptions,managementPercent:0};
-    calculatorValid = true; render();
+    calculatorValid = true; persistCalculator(); render();
   },
   'save-scenario': () => {
     if (!calculatorValid) return toast('Enter valid assumptions before saving.',true);
@@ -284,7 +340,7 @@ const actions: Record<string,(button: HTMLElement) => void> = {
     const name = `${p.name} · ${state.assumptions.downPercent}% down`;
     openDialog(`<form id="scenario-form"><div class="modal-heading"><span class="eyebrow">MAKE ROOM FOR A WHAT-IF</span><h2 id="dialog-title">Keep this perspective.</h2><p>Save a snapshot of every input, so you can return to this exact scenario.</p></div><label class="form-field"><span>Scenario name</span><input name="name" required maxlength="100" value="${e(name.slice(0,100))}"></label><div class="scenario-preview"><span>Modelled monthly cash flow</span><strong>${signedMoney(calculate(state.assumptions).cashflow)}</strong></div><div class="modal-actions"><button type="button" class="btn" data-action="close-dialog">Cancel</button><button type="submit" class="btn primary">Save scenario ${icon('check')}</button></div></form>`);
   },
-  'load-scenario': b => { const scenario = state.workspace.scenarios.find(x => x.id === b.dataset.id); if (!scenario) return; state.calculatorPropertyId = scenario.propertyId; state.assumptions = {...scenario.assumptions}; state.scenarioName = scenario.name; calculatorValid = true; render(); toast(`Loaded “${scenario.name}”.`); window.scrollTo({top:0,behavior:motionAllowed() ? 'smooth' : 'instant'}); },
+  'load-scenario': b => { const scenario = state.workspace.scenarios.find(x => x.id === b.dataset.id); if (!scenario) return; state.calculatorPropertyId = scenario.propertyId; state.assumptions = withOwnershipCosts(scenario.assumptions); state.scenarioName = scenario.name; calculatorValid = true; persistCalculator(); render(); toast(`Loaded “${scenario.name}”.`); window.scrollTo({top:0,behavior:motionAllowed() ? 'smooth' : 'instant'}); },
   'delete-scenario': b => { state.workspace.scenarios = state.workspace.scenarios.filter(x => x.id !== b.dataset.id); commit('Scenario removed.'); render(); },
   'export-report': () => exportReport(),
   'export-comparison': () => exportComparison(),
@@ -292,12 +348,12 @@ const actions: Record<string,(button: HTMLElement) => void> = {
   'import-backup': () => document.getElementById('backup-input')!.click(),
   'confirm-import': () => {
     if (!pendingImport) return;
-    state.workspace = normalizeWorkspace(pendingImport); pendingImport = null; state.decisionTab = 'life'; state.decisionStress = 'baseline';
-    state.calculatorPropertyId = seedProperties[0].id; state.assumptions = defaultAssumptions(seedProperties[0]); calculatorValid = true;
+    state.workspace = normalizeWorkspace(pendingImport); state.showPassed=false; pendingImport = null; state.decisionTab = 'life'; state.decisionStress = 'baseline';
+    restoreCalculator();
     closeDialog(); commit('Your workspace has been restored.'); render();
   },
-  'reset-workspace': () => openDialog(`<div class="modal-heading"><span class="eyebrow">A FRESH START</span><h2 id="dialog-title">Clear your workspace?</h2><p>All local profiles, budgets, priorities, reviews, tour answers, life scenarios, saved homes, comparisons, notes, custom properties, searches, and investment scenarios will be removed. The fictional starter listings will stay. Export a backup first to keep a copy.</p></div><div class="modal-actions"><button class="btn" data-action="export-backup">Export backup</button><button class="btn" data-action="close-dialog">Cancel</button><button class="btn danger-fill" data-action="confirm-reset">Clear workspace</button></div>`),
-  'confirm-reset': () => { state.workspace = freshWorkspace(); state.decisionTab = 'life'; state.decisionStress = 'baseline'; state.assumptions = defaultAssumptions(seedProperties[0]); state.calculatorPropertyId = seedProperties[0].id; state.filters = {...defaultFilters}; calculatorValid = true; commit('A fresh start. Your sample properties are ready.'); navigate('discover'); }
+  'reset-workspace': () => openDialog(`<div class="modal-heading"><span class="eyebrow">A FRESH START</span><h2 id="dialog-title">Clear your workspace?</h2><p>All local profiles, budgets, priorities, reviews, tour answers, life scenarios, saved homes, comparisons, notes, custom properties, searches, per-home calculator edits, utility estimates, work-location settings, rejection reasons and learned rules, and investment scenarios will be removed. The fictional starter listings will stay. Export a backup first to keep a copy.</p></div><div class="modal-actions"><button class="btn" data-action="export-backup">Export backup</button><button class="btn" data-action="close-dialog">Cancel</button><button class="btn danger-fill" data-action="confirm-reset">Clear workspace</button></div>`),
+  'confirm-reset': () => { state.workspace = freshWorkspace(); state.showPassed=false; state.decisionTab = 'life'; state.decisionStress = 'baseline'; state.assumptions = defaultCalculatorAssumptions(seedProperties[0]); state.calculatorPropertyId = seedProperties[0].id; state.filters = {...defaultFilters}; calculatorValid = true; commit('A fresh start. Your sample properties are ready.'); navigate('discover'); }
 };
 
 document.addEventListener('click',event => {
@@ -310,11 +366,28 @@ document.addEventListener('input',event => {
   const input = event.target;
   if (!(input instanceof HTMLInputElement)) return;
   if (input.id === 'property-search') { state.filters.query = input.value; updateResults(); }
-  if (input.dataset.calc) updateCalculator();
+  if (input.dataset.calc || input.dataset.cost) updateCalculator();
 });
 document.addEventListener('change',event => {
   const input = event.target;
   if (!(input instanceof HTMLInputElement || input instanceof HTMLSelectElement)) return;
+  if (input.dataset.costFlag) { updateCalculator(); return; }
+  if (input.dataset.costBasis) {
+    if (!calculatorValid) return;
+    const advancedOpen=!!document.querySelector('.advanced-assumptions[open]');
+    try {
+      state.assumptions=changeCostBasis(state.assumptions,input.dataset.costBasis as 'maintenanceBasis'|'closingBasis',input.value);
+      persistCalculator(); render();
+      if (advancedOpen) document.querySelector('.advanced-assumptions')?.setAttribute('open','');
+      const announcement=document.getElementById('cost-results-announcement');
+      if (announcement) announcement.textContent='Units changed. The estimated dollar amount is unchanged.';
+    } catch(error) {
+      const key=input.dataset.costBasis as 'maintenanceBasis'|'closingBasis';
+      input.value=state.assumptions.costs![key];
+      toast(error instanceof Error ? error.message : 'The units could not be changed.',true);
+    }
+    return;
+  }
   if (input.dataset.filter) {
     const key = input.dataset.filter;
     if (key === 'city') state.filters.city = input.value;
@@ -356,7 +429,7 @@ document.addEventListener('submit',event => {
   }
   if (form.id === 'scenario-form') {
     if (!str('name')) return toast('Give your scenario a name.',true);
-    state.workspace.scenarios.push({id:uid(),name:str('name'),propertyId:state.calculatorPropertyId,assumptions:{...state.assumptions},savedAt:Date.now()});
+    state.workspace.scenarios.push({id:uid(),name:str('name'),propertyId:state.calculatorPropertyId,assumptions:cloneAssumptions(state.assumptions),savedAt:Date.now()});
     closeDialog(); commit('This perspective is saved.'); render();
   }
 });
@@ -383,7 +456,10 @@ document.addEventListener('keydown',event => {
   }
 });
 window.addEventListener('popstate',() => { const page = location.hash.slice(1) as Page; if (pages.includes(page) && page !== state.page) { state.page = page; state.filters = {...defaultFilters}; closeDialog(); render('page'); } });
+mountCostTooltips();
+mountLiving({state,openDialog,showDetails,workspaceDialog,commit,onWorkChange:()=>{if(['discover','saved','custom'].includes(state.page))render();else assistant?.refresh();},properties:()=>allProperties(state)});
 decisionWorkspace = mountDecisionWorkspace({state,properties:()=>allProperties(state),render:()=>render(),commit,navigate,openDialog,closeDialog});
 render('page');
 
-assistant = mountAssistant({properties:seedProperties,isSaved:id=>state.workspace.savedIds.includes(id),details:showDetails,analyze,explore:id=>decisionWorkspace?.open(id),save:id=>{const button=document.createElement('button');button.dataset.id=id;actions['save-toggle'](button);}});
+const rejections=mountRejections({state,properties:()=>allProperties(state),render:()=>{if(['discover','saved','custom'].includes(state.page))render();else assistant?.refresh();},commit,openDialog,closeDialog});
+assistant = mountAssistant({learning:()=>({memory:state.workspace.rejections,work:state.workspace.living.commute}),preferences:rejections.open,pass:rejections.pass,undoPass:rejections.undo,properties:seedProperties,isSaved:id=>state.workspace.savedIds.includes(id),details:showDetails,analyze,explore:id=>decisionWorkspace?.open(id),save:id=>{const button=document.createElement('button');button.dataset.id=id;actions['save-toggle'](button);}});
