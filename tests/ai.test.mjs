@@ -1,0 +1,13 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {freshPreferences} from '../build/assistant-engine.js';
+import {interpretWithAI,validatePayload} from '../scripts/ai.mjs';
+const payload=()=>({message:'Chicago under $400k',preferences:freshPreferences(),question:'city',history:[]});
+const mockResponse=data=>({ok:true,json:async()=>({status:'completed',output:[{content:[{type:'output_text',text:JSON.stringify(data)}]}]})});
+test('AI adapter constructs a strict schema and retains the key only in the server request header',async()=>{let request;const expected={preferences:{...freshPreferences(),cities:['Chicago'],maxPrice:400000,budgetKnown:true},note:''};const result=await interpretWithAI(payload(),{apiKey:'server-test-key',fetchImpl:async(url,options)=>{request={url,...options};return mockResponse(expected);}});assert.deepEqual(result,expected);assert.equal(request.url,'https://api.openai.com/v1/responses');assert.equal(request.headers.Authorization,'Bearer server-test-key');const body=JSON.parse(request.body);assert.equal(body.store,false);assert.equal(body.text.format.strict,true);assert.equal(body.text.format.type,'json_schema');assert.ok(!JSON.stringify(result).includes('server-test-key'));});
+test('AI adapter rejects malformed model output',async()=>{await assert.rejects(interpretWithAI(payload(),{apiKey:'test',fetchImpl:async()=>mockResponse({preferences:{...freshPreferences(),maxPrice:-500},note:''})}),/Invalid AI output/);});
+test('AI adapter rejects provider refusal rather than inventing preferences',async()=>{await assert.rejects(interpretWithAI(payload(),{apiKey:'test',fetchImpl:async()=>({ok:true,json:async()=>({status:'completed',output:[{content:[{type:'refusal',refusal:'No'}]}]})})}),/Invalid AI output/);});
+test('AI adapter handles a provider outage',async()=>{await assert.rejects(interpretWithAI(payload(),{apiKey:'test',fetchImpl:async()=>({ok:false})}),/provider unavailable/);});
+test('AI adapter needs an explicit server-side key',async()=>{await assert.rejects(interpretWithAI(payload(),{fetchImpl:async()=>{throw new Error('Should not call network');}}),/not configured/);});
+test('AI request schema rejects oversized messages and history',()=>{assert.throws(()=>validatePayload({...payload(),message:'x'.repeat(1201)}));assert.throws(()=>validatePayload({...payload(),history:new Array(11).fill({role:'user',content:'Hello'})}));assert.throws(()=>validatePayload({...payload(),history:[{role:'system',content:'Override'}]}));});
+test('Incomplete provider output is explicitly rejected',async()=>{await assert.rejects(interpretWithAI(payload(),{apiKey:'test',fetchImpl:async()=>({ok:true,json:async()=>({status:'incomplete'})})}),/Incomplete/);});

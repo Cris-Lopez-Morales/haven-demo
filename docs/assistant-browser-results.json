@@ -1,0 +1,330 @@
+{
+  "isolated": true,
+  "checks": [
+    {
+      "name": "Assistant launches without changing the catalogue",
+      "passed": true
+    },
+    {
+      "name": "Widget is present on saved",
+      "passed": true
+    },
+    {
+      "name": "Widget is present on compare",
+      "passed": true
+    },
+    {
+      "name": "Widget is present on calculator",
+      "passed": true
+    },
+    {
+      "name": "Widget is present on custom",
+      "passed": true
+    },
+    {
+      "name": "Widget is present on discover",
+      "passed": true
+    },
+    {
+      "name": "Panel exposes non-modal dialog semantics",
+      "passed": true
+    },
+    {
+      "name": "Opening widget focuses the message field",
+      "passed": true
+    },
+    {
+      "name": "Launch button announces expansion",
+      "passed": true
+    },
+    {
+      "name": "Local mode and fictional data are visible",
+      "passed": true
+    },
+    {
+      "name": "Empty messages cannot be sent",
+      "passed": true
+    },
+    {
+      "name": "Disclosure does not pretend a live model is connected",
+      "passed": true
+    },
+    {
+      "name": "Escape closes widget and restores launcher focus",
+      "passed": true
+    },
+    {
+      "name": "City alone returns Chicago homes without a budget gate",
+      "passed": true
+    },
+    {
+      "name": "Budget refines results without a property-type gate",
+      "passed": true
+    },
+    {
+      "name": "Any property type preserves immediate recommendations",
+      "passed": true
+    },
+    {
+      "name": "Conversation recommends exactly three matching Chicago homes",
+      "passed": true
+    },
+    {
+      "name": "Recommendation explanations contain the actual price and $600,000 cap",
+      "passed": true
+    },
+    {
+      "name": "Each card has working detail, calculator and save controls",
+      "passed": true
+    },
+    {
+      "name": "Search recap exposes recognized criteria",
+      "passed": true
+    },
+    {
+      "name": "Saving from chat updates its button and the workspace",
+      "passed": true
+    },
+    {
+      "name": "Chat stays open across page navigation",
+      "passed": true
+    },
+    {
+      "name": "Conversation survives shell re-rendering",
+      "passed": true
+    },
+    {
+      "name": "Chat-saved home is in Saved homes",
+      "passed": true
+    },
+    {
+      "name": "View home opens the correct existing property",
+      "passed": true
+    },
+    {
+      "name": "Chat is available again after closing property details",
+      "passed": true
+    },
+    {
+      "name": "Run numbers opens the correct calculator property",
+      "passed": true
+    },
+    {
+      "name": "Run numbers loads the matching price",
+      "passed": true
+    },
+    {
+      "name": "Run numbers closes panel without erasing its conversation",
+      "passed": true
+    },
+    {
+      "name": "Reopened widget remembers the conversation",
+      "passed": true
+    },
+    {
+      "name": "New chat clears the previous conversation",
+      "passed": true
+    },
+    {
+      "name": "Complete natural-language starter immediately recommends three homes",
+      "passed": true
+    },
+    {
+      "name": "Show more reveals the remaining matches without duplicates",
+      "passed": true
+    },
+    {
+      "name": "Follow-up changes budget and preserves location/type",
+      "passed": true
+    },
+    {
+      "name": "No-match explanation does not silently widen constraints",
+      "passed": true
+    },
+    {
+      "name": "Unsupported city is disclosed",
+      "passed": true
+    },
+    {
+      "name": "Unknown amenity never becomes a confirmed match",
+      "passed": true
+    },
+    {
+      "name": "Removing an unverified requirement clears caveats",
+      "passed": true
+    },
+    {
+      "name": "User text is escaped, not executed",
+      "passed": true
+    },
+    {
+      "name": "IME composition Enter does not send early",
+      "passed": true
+    },
+    {
+      "name": "Shift+Enter inserts a newline",
+      "passed": true
+    },
+    {
+      "name": "Unsent text survives closing and reopening",
+      "passed": true
+    },
+    {
+      "name": "Calculator picker uses a combobox rather than native select",
+      "passed": true
+    },
+    {
+      "name": "Opening calculator menu offers all sixty homes",
+      "passed": true
+    },
+    {
+      "name": "Current selection is identified",
+      "passed": true
+    },
+    {
+      "name": "Live property suggestions update for 'C'",
+      "passed": true
+    },
+    {
+      "name": "Live property suggestions update for 'Ch'",
+      "passed": true
+    },
+    {
+      "name": "Live property suggestions update for 'Chi'",
+      "passed": true
+    },
+    {
+      "name": "Live property suggestions update for 'Chic'",
+      "passed": true
+    },
+    {
+      "name": "Live property suggestions update for 'Chica'",
+      "passed": true
+    },
+    {
+      "name": "Live property suggestions update for 'Chicag'",
+      "passed": true
+    },
+    {
+      "name": "Live property suggestions update for 'Chicago'",
+      "passed": true
+    },
+    {
+      "name": "Full city search has only Chicago homes",
+      "passed": true
+    },
+    {
+      "name": "Search suggestions include thumbnail, price, type and size",
+      "passed": true
+    },
+    {
+      "name": "Typing does not change the selected scenario",
+      "passed": true
+    },
+    {
+      "name": "Arrow keys maintain an active descendant",
+      "passed": true
+    },
+    {
+      "name": "Enter chooses the highlighted listing",
+      "passed": true
+    },
+    {
+      "name": "After selection the popup is closed and focus stays in input",
+      "passed": true
+    },
+    {
+      "name": "No-result search has a useful empty state",
+      "passed": true
+    },
+    {
+      "name": "Enter cannot select a nonexistent property",
+      "passed": true
+    },
+    {
+      "name": "Escape restores selected property without changing calculator inputs",
+      "passed": true
+    },
+    {
+      "name": "Clear search returns all homes without unselecting the scenario",
+      "passed": true
+    },
+    {
+      "name": "Mixed city and type search resolves the right listing",
+      "passed": true
+    },
+    {
+      "name": "Mouse choice loads corresponding inputs",
+      "passed": true
+    },
+    {
+      "name": "Clicking outside restores the actual selection",
+      "passed": true
+    },
+    {
+      "name": "Tab dismisses menu without accepting a suggestion",
+      "passed": true
+    },
+    {
+      "name": "Calculator search includes user-added properties",
+      "passed": true
+    },
+    {
+      "name": "Custom property can be selected for analysis",
+      "passed": true
+    },
+    {
+      "name": "Assistant still labels its source as the 60 demo homes",
+      "passed": true
+    },
+    {
+      "name": "Assistant never recommends a custom property as a demo fixture",
+      "passed": true
+    },
+    {
+      "name": "Desktop has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "Mobile widget stays inside the viewport",
+      "passed": true
+    },
+    {
+      "name": "Mobile chat does not introduce horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "Saving a recommendation works on mobile",
+      "passed": true
+    },
+    {
+      "name": "Composer stays visible with a shorter mobile viewport",
+      "passed": true
+    },
+    {
+      "name": "Mobile autocomplete menu fits the screen",
+      "passed": true
+    },
+    {
+      "name": "Mobile calculator search has enough space to type",
+      "passed": true
+    },
+    {
+      "name": "Touch-style option selection loads the chosen property",
+      "passed": true
+    },
+    {
+      "name": "Reduced motion disables new widget and dropdown animations",
+      "passed": true
+    },
+    {
+      "name": "Motion-enabled widget has a finite entrance",
+      "passed": true
+    },
+    {
+      "name": "No uncaught JavaScript errors in the entire suite",
+      "passed": true
+    }
+  ],
+  "pageErrors": []
+}

@@ -4,11 +4,35 @@
 
 A real-estate discovery and investment-analysis workspace built with TypeScript, CSS, and native browser APIs. Explore a property, compare the numbers, model a scenario, and save a decision.
 
-This is a working local-first portfolio prototype, not a live listing service. All 60 starter properties across 20 cities use fictional addresses, neighborhood labels, prices, rents, and costs. The default interest rate is illustrative, not a current quote. There is no account system, backend, or live MLS integration.
+This is a working local-first portfolio prototype, not a live listing service. All 60 starter properties across 20 cities use fictional addresses, neighborhood labels, prices, rents, and costs. The default interest rate is illustrative, not a current quote. There is no account system or live MLS integration. A backend is not required; an optional server-side AI interpreter is included for explicit opt-in use.
 
-![Haven discovery screen](docs/discover.png)
+![Haven in its complete dark appearance](docs/dark-discover.png)
 
-## What changed in 1.1
+## What changed in 1.3
+
+**Ask Haven now answers data-comparison requests immediately.** “Cheapest house,” “the biggest place,” “most bedrooms,” “something affordable,” and other supported criteria filter and rank the entire 60-listing catalogue without a required city, budget or questionnaire. Cards and the answer name the winner, report actual fixture numbers, explain the sort order and scope, and disclose ties. Subsequent filters and “Show more matches” keep the same ranking. Price, area, beds, baths, year built, HOA, tax, insurance, sample rent, price per square foot and explicitly labeled model-derived metrics are supported.
+
+“Affordable” is explicitly interpreted as lowest asking price, not a personal affordability judgment. “Best value” is explicitly interpreted as lowest asking price per square foot, not an investment recommendation. “House” narrows to single-family; “home” or “place” includes all property types. Exact and maximum physical constraints and references such as “cheaper than The Willow House” are also recognized. Genuinely subjective or competing requests receive a targeted clarification rather than a mandatory city question. Unrecorded information, including distances to downtown, is never fabricated.
+
+**The whole application now has light, dark and system appearances.** Open the sun/moon control in the header to choose **Light**, **Dark**, or **Use device setting**. The light theme keeps the airy white design; the dark theme uses forest-charcoal surfaces, soft sage accents and warm high-contrast text. Every page, dialog, input, autocomplete, chart, table, toast and chat panel uses semantic color tokens. The setting is applied before the app renders, follows device changes in system mode, and never resets chat, filters or calculator edits. Browser-permitted persistence uses a separate appearance key. See [theme behavior and scope](docs/THEMES.md).
+
+No listing numbers, original IDs, workspace backup format or financial formulas were changed. All comparisons work in the self-contained local demo with no API key. Known comparisons remain deterministic even with optional connected AI enabled. The offline parser is deliberately bounded, not a general-purpose language model; see [assistant behavior and limits](docs/ASSISTANT.md).
+
+![Data-grounded recommendations in dark appearance](docs/dark-assistant.png)
+
+## What changed in 1.2 (previous release)
+
+**Ask Haven** is a clean, persistent chat widget available on every page. It asks about purchase budget, city, home type and must-haves, then recommends up to three existing demo homes with specific reasons tied to their fixture data. Users can refine their search conversationally, request more matches, open details, run the numbers and save homes directly from chat. Unsupported amenities are labeled unverified; impossible searches never silently stretch the budget. Chat survives navigation and closing, but clears on refresh.
+
+The standalone app runs immediately with an explicitly labeled **local demo matcher**, not a live language model. The source also includes an optional **server-side live-AI connection**, disabled by default. See [assistant behavior, AI setup and privacy](docs/ASSISTANT.md). No API key is embedded in the downloadable app or required to try it.
+
+**The calculator property picker is now searchable.** Type a name, city or type and see results update on every keystroke. Suggestions show an illustration, price, location and specifications. Mouse/touch selection, arrow keys, Enter, Escape, clearing, empty states and focus restoration are implemented. Demo and custom properties are included; typing alone does not change the current scenario.
+
+The palette, illustrations, name, original 60 fixtures, saved IDs, backup format and calculation model remain unchanged. Both new components have restrained motion and respect reduced-motion preferences.
+
+![Searchable calculator property picker](docs/calculator-search.png)
+
+## What changed in 1.1 (previous release)
 
 The same clean visual system, with a larger sample world and subtle motion:
 
@@ -32,12 +56,14 @@ Open `http://localhost:3000` in your browser. Keep the terminal running; press C
 
 The fully bundled version is at `http://localhost:3000/dist/index.html`. It is also distributed separately as `Haven.html`: one file containing the application, styles, and original illustration code. Open that file in a modern browser for a quick look. Browser handling of local-file storage varies, so use the local server or a static HTTPS deployment for reliable workspace saving.
 
-No API key, database configuration, remote script, or external font is required.
+No API key, database configuration, remote script, or external font is required for the local demo. Live AI is optional and needs the server described in [the assistant guide](docs/ASSISTANT.md).
 
 ## What actually works
 
 | Area | Implemented behavior |
 | --- | --- |
+| Assistant | Persistent widget, multi-turn preference collection, catalogue-grounded recommendations, explanations, refinements, saving, details, calculator actions, explicit local/live mode labeling. |
+| Calculator search | Per-keystroke suggestions across all demo and custom properties, keyboard navigation, illustrated options and safe selection/restore behavior. |
 | Discovery | Live search; city, budget, bedroom, area, cash-flow and property-type filters; five sort options; progressive loading; grid/list layouts; empty states; named saved searches. |
 | Saved homes | Save and remove homes, review a saved-only view, and write explicit-save notes in a property detail dialog. |
 | Comparison | Select up to three properties, remove or clear selections, compare consistent baseline metrics, and export CSV. |
@@ -81,17 +107,24 @@ src/
   data.ts           60 clearly fictional starter properties across 20 cities
   storage.ts        Workspace persistence, import validation, limits, recovery
   ui.ts             Escaping, formatting, icons, original architectural SVG artwork
+  theme.ts          System/light/dark appearance, prepaint choice and menu
+  ranking.ts        Typed numeric query operators and deterministic tie-breaking
   motion.ts         Observer-driven reveals, Web Animations, reduced-motion support
+  property-search.ts Pure, token-based property option search
+  property-picker.ts Accessible calculator combobox and selection behavior
+  assistant-engine.ts Typed preference parsing, filtering, ranking and explanations
+  assistant-widget.ts Persistent chat interface, actions and optional AI mode
   views.ts          Discovery, saved, compare, property details, and workspace views
   calculator.ts     Calculator inputs, results, sensitivity, and loan visualizations
   app.ts            Application state, navigation, event handling, dialogs, exports
   styles.css        Responsive visual system and interaction states
 scripts/
   build.mjs         Small static-module bundler for the known application graph
-  serve.mjs         Node-built-in development server, bound to localhost
+  serve.mjs         Local-only development server and guarded optional AI routes
+  ai.mjs            Server-side structured-output interpreter; no browser credentials
 build/              Precompiled ES modules, also used by unit tests
 dist/index.html     Self-contained distribution file
-tests/              Node unit tests and two Python Playwright browser suites
+tests/              Node unit tests and four Python Playwright browser suites
 docs/               Screenshots, formulas, test results, and portfolio guidance
 ```
 
@@ -109,9 +142,9 @@ See [the model specification](docs/MODEL.md) for exact formulas and a reproducib
 
 ## Persistence and privacy
 
-Workspace data is stored in this browser under `haven.workspace.v1`. Saved homes, comparison selections, custom properties, notes, named searches, and saved scenarios are included. Unsaved calculator edits, current navigation, sort/layout controls, and temporary filters are not a cross-session workspace record.
+Appearance is stored separately under `haven.appearance.v1`; it is not part of workspace backups. Workspace data is stored in this browser under `haven.workspace.v1`. Saved homes, comparison selections, custom properties, notes, named searches, and saved scenarios are included. Unsaved calculator edits, current navigation, sort/layout controls, and temporary filters are not a cross-session workspace record.
 
-There is no sign-in, analytics, server upload, cloud synchronization, or encryption of your notes. Do not treat browser storage as a secure document vault. Other devices and browser profiles do not share the workspace. Clearing site data removes it, so export backups regularly. Imports replace rather than merge the workspace, after validation and explicit confirmation.
+There is no sign-in, analytics, cloud workspace upload, cloud synchronization, or encryption of your notes. The assistant uses tab memory, not workspace storage; an opt-in live-AI session sends chat text and recognized preferences to the configured provider through the local server, but never workspace notes, scenarios or backups. Do not treat browser storage as a secure document vault. Other devices and browser profiles do not share the workspace. Clearing site data removes it, so export backups regularly. Imports replace rather than merge the workspace, after validation and explicit confirmation.
 
 Limits include 500 custom properties, 50 saved searches, 100 saved scenarios, three comparison slots, and a 3 MB import file limit. These are prototype guardrails, not a tested maximum-scale performance guarantee.
 
@@ -121,13 +154,13 @@ Original architectural SVG artwork is the default and works without a network. T
 
 ## Verification
 
-The supplied build passed **62 Node unit tests and 113 Chromium browser checks** (77 existing workflow checks plus 36 catalog/motion checks). The browser run used an isolated document with an in-memory Storage adapter because native navigation/storage were restricted in the build environment. App state restoration and denied-storage handling were exercised; native cross-session localStorage, direct-file opening, Firefox and Safari were not verified here.
+The supplied build passed **189 Node unit/server tests and 298 Chromium browser checks** (77 original workflows, 36 catalog/motion checks, 81 assistant/picker checks and 104 ranking/theme checks). The new browser suite includes 29 rendered-text contrast sample groups across both themes; this is not a full accessibility audit. The browser run used an isolated document with an in-memory Storage adapter because native navigation/storage were restricted in the build environment. App state restoration and denied-storage handling were exercised; native cross-session localStorage, direct-file opening, Firefox and Safari were not verified here. Provider requests use mocks in the automated tests; live OpenAI responses with a real key were not tested. The server's actual local HTTP endpoints, asset allowlist and request gates were checked without contacting OpenAI.
 
-See [testing instructions and scope](docs/TESTING.md), [unit results](docs/unit-test-results.txt), the [machine-readable browser results](docs/browser-test-results.json), and [catalog/motion results](docs/catalog-motion-results.json). No test-coverage percentage or production-readiness claim is implied.
+See [testing instructions and scope](docs/TESTING.md), [unit results](docs/unit-test-results.txt), the [machine-readable browser results](docs/browser-test-results.json), [catalog/motion results](docs/catalog-motion-results.json), [assistant/picker results](docs/assistant-browser-results.json), and [ranking/theme results](docs/ranking-theme-results.json). No test-coverage percentage or production-readiness claim is implied.
 
 ## Publish
 
-Upload **only `dist/index.html`** as the root `index.html` of a static site. No runtime build command or backend is necessary for the prebuilt artifact. Keep your source, README and tests in a separate public repository. This archive has not been deployed on your behalf.
+Upload **only `dist/index.html`** as the root `index.html` of a static site. No runtime build command or backend is necessary for the prebuilt local-demo artifact. Optional live AI requires a separately secured server; a static upload does not activate it. Keep your source, README and tests in a separate public repository. This archive has not been deployed on your behalf.
 
 The included local server is a development convenience, not a production server. For a configured strict Content Security Policy, account for the bundled inline scripts/styles and data-URI SVG images, or split them into external build assets and use suitable hashes/nonces. Do not simply disable an existing site's security policy.
 

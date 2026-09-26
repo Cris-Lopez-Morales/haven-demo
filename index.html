@@ -7,10 +7,16 @@
   <meta name="description" content="Haven: a local-first property discovery, comparison, and investment scenario workspace. Fictional starter data. Transparent assumptions.">
   <title>Haven · Good places. Better possibilities.</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='9' fill='%23285440'/%3E%3Cpath d='m8 19 12-11 12 11v13h-9V21h-6v11H8Z' fill='%23edf3e7'/%3E%3C/svg%3E">
+  <meta name="color-scheme" content="light dark">
+  <script>
+    // Apply the complete theme before first paint, including a file:// standalone launch.
+    (()=>{let mode='system';try{const saved=localStorage.getItem('haven.appearance.v1');if(['light','dark','system'].includes(saved))mode=saved;}catch{}const dark=mode==='dark'||mode==='system'&&matchMedia('(prefers-color-scheme: dark)').matches;document.documentElement.dataset.theme=dark?'dark':'light';document.documentElement.dataset.appearance=mode;document.querySelector('meta[name="theme-color"]').content=dark?'#141d18':'#fbfcf9';})();
+  </script>
   <link rel="stylesheet" href="src/styles.css">
 </head>
 <body>
   <div id="app"></div>
+  <div id="assistant-host"></div>
   <div id="dialog-host"></div>
   <div id="toast-host" aria-live="polite"></div>
   <input id="backup-input" type="file" accept=".json,application/json" hidden aria-label="Choose a Haven workspace backup">

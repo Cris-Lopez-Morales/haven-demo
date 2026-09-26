@@ -1,386 +1,1148 @@
 
-> haven-property-workspace@1.1.0 test
+> haven-property-workspace@1.3.0 test
 > node --test tests/*.test.mjs
 
 TAP version 13
-# Subtest: catalog contains exactly 60 fictional properties in 20 cities
-ok 1 - catalog contains exactly 60 fictional properties in 20 cities
+# Subtest: AI adapter constructs a strict schema and retains the key only in the server request header
+ok 1 - AI adapter constructs a strict schema and retains the key only in the server request header
   ---
-  duration_ms: 2.221113
+  duration_ms: 3.329826
+  type: 'test'
+  ...
+# Subtest: AI adapter rejects malformed model output
+ok 2 - AI adapter rejects malformed model output
+  ---
+  duration_ms: 1.051935
+  type: 'test'
+  ...
+# Subtest: AI adapter rejects provider refusal rather than inventing preferences
+ok 3 - AI adapter rejects provider refusal rather than inventing preferences
+  ---
+  duration_ms: 0.591569
+  type: 'test'
+  ...
+# Subtest: AI adapter handles a provider outage
+ok 4 - AI adapter handles a provider outage
+  ---
+  duration_ms: 1.477065
+  type: 'test'
+  ...
+# Subtest: AI adapter needs an explicit server-side key
+ok 5 - AI adapter needs an explicit server-side key
+  ---
+  duration_ms: 0.367397
+  type: 'test'
+  ...
+# Subtest: AI request schema rejects oversized messages and history
+ok 6 - AI request schema rejects oversized messages and history
+  ---
+  duration_ms: 0.347682
+  type: 'test'
+  ...
+# Subtest: Incomplete provider output is explicitly rejected
+ok 7 - Incomplete provider output is explicitly rejected
+  ---
+  duration_ms: 0.649117
+  type: 'test'
+  ...
+# Subtest: Full natural-language query resolves all requested slots
+ok 8 - Full natural-language query resolves all requested slots
+  ---
+  duration_ms: 15.682879
+  type: 'test'
+  ...
+# Subtest: Incremental preferences return results immediately without mandatory slots
+ok 9 - Incremental preferences return results immediately without mandatory slots
+  ---
+  duration_ms: 31.624902
+  type: 'test'
+  ...
+# Subtest: Purchase amount: 350k
+ok 10 - Purchase amount: 350k
+  ---
+  duration_ms: 0.35264
+  type: 'test'
+  ...
+# Subtest: Purchase amount: $350,000
+ok 11 - Purchase amount: $350,000
+  ---
+  duration_ms: 0.452962
+  type: 'test'
+  ...
+# Subtest: Purchase amount: 0.5m
+ok 12 - Purchase amount: 0.5m
+  ---
+  duration_ms: 0.279258
+  type: 'test'
+  ...
+# Subtest: Purchase amount: half a million
+ok 13 - Purchase amount: half a million
+  ---
+  duration_ms: 0.466618
+  type: 'test'
+  ...
+# Subtest: Purchase amount: three hundred thousand
+ok 14 - Purchase amount: three hundred thousand
+  ---
+  duration_ms: 0.404924
+  type: 'test'
+  ...
+# Subtest: Purchase amount: 450 grand
+ok 15 - Purchase amount: 450 grand
+  ---
+  duration_ms: 0.339883
+  type: 'test'
+  ...
+# Subtest: Purchase amount: 1000000
+ok 16 - Purchase amount: 1000000
+  ---
+  duration_ms: 0.522831
+  type: 'test'
+  ...
+# Subtest: Budget range: between 250 and 400k
+ok 17 - Budget range: between 250 and 400k
+  ---
+  duration_ms: 0.824206
+  type: 'test'
+  ...
+# Subtest: Budget range: $250k to $400k
+ok 18 - Budget range: $250k to $400k
+  ---
+  duration_ms: 0.347249
+  type: 'test'
+  ...
+# Subtest: Budget range: between $250,000 and $400,000
+ok 19 - Budget range: between $250,000 and $400,000
+  ---
+  duration_ms: 0.638987
+  type: 'test'
+  ...
+# Subtest: Budget range: $400k-$250k
+ok 20 - Budget range: $400k-$250k
+  ---
+  duration_ms: 0.313647
+  type: 'test'
+  ...
+# Subtest: Do not confuse a bedroom count or area with budget
+ok 21 - Do not confuse a bedroom count or area with budget
+  ---
+  duration_ms: 0.548722
+  type: 'test'
+  ...
+# Subtest: Monthly amount is not misrepresented as purchase budget
+ok 22 - Monthly amount is not misrepresented as purchase budget
+  ---
+  duration_ms: 0.574288
+  type: 'test'
+  ...
+# Subtest: Explicit open budget preserves other preferences
+ok 23 - Explicit open budget preserves other preferences
+  ---
+  duration_ms: 0.678255
+  type: 'test'
+  ...
+# Subtest: Changing city preserves budget, type and features
+ok 24 - Changing city preserves budget, type and features
+  ---
+  duration_ms: 0.676356
+  type: 'test'
+  ...
+# Subtest: Adding a city retains the original search area
+ok 25 - Adding a city retains the original search area
+  ---
+  duration_ms: 0.661714
+  type: 'test'
+  ...
+# Subtest: Any city explicitly clears only location constraints
+ok 26 - Any city explicitly clears only location constraints
+  ---
+  duration_ms: 0.585628
+  type: 'test'
+  ...
+# Subtest: Type negation excludes the named type
+ok 27 - Type negation excludes the named type
+  ---
+  duration_ms: 0.689157
+  type: 'test'
+  ...
+# Subtest: Unsupported cities are explicitly surfaced, not replaced
+ok 28 - Unsupported cities are explicitly surfaced, not replaced
+  ---
+  duration_ms: 0.534618
+  type: 'test'
+  ...
+# Subtest: Unknown short city answer is preserved for clarification
+ok 29 - Unknown short city answer is preserved for clarification
+  ---
+  duration_ms: 0.384852
+  type: 'test'
+  ...
+# Subtest: Full query returns three valid properties from the existing catalogue
+ok 30 - Full query returns three valid properties from the existing catalogue
+  ---
+  duration_ms: 1.682356
+  type: 'test'
+  ...
+# Subtest: Each recommendation references exact price, city, bedrooms and requested feature
+ok 31 - Each recommendation references exact price, city, bedrooms and requested feature
+  ---
+  duration_ms: 1.339943
+  type: 'test'
+  ...
+# Subtest: Two matching homes are returned without padding
+ok 32 - Two matching homes are returned without padding
+  ---
+  duration_ms: 1.029421
+  type: 'test'
+  ...
+# Subtest: One exact match is disclosed as one, not padded with mismatches
+ok 33 - One exact match is disclosed as one, not padded with mismatches
+  ---
+  duration_ms: 0.854469
+  type: 'test'
+  ...
+# Subtest: An impossible request does not silently increase budget
+ok 34 - An impossible request does not silently increase budget
+  ---
+  duration_ms: 1.258021
+  type: 'test'
+  ...
+# Subtest: Accepting a budget suggestion is explicit and produces a fit
+ok 35 - Accepting a budget suggestion is explicit and produces a fit
+  ---
+  duration_ms: 1.551676
+  type: 'test'
+  ...
+# Subtest: Unsupported amenities have visible caveats on every candidate
+ok 36 - Unsupported amenities have visible caveats on every candidate
+  ---
+  duration_ms: 1.529602
+  type: 'test'
+  ...
+# Subtest: Garden does not match a generic outdoor-space tag
+ok 37 - Garden does not match a generic outdoor-space tag
+  ---
+  duration_ms: 1.061136
+  type: 'test'
+  ...
+# Subtest: No-HOA is checked against the numerical monthly HOA fixture
+ok 38 - No-HOA is checked against the numerical monthly HOA fixture
+  ---
+  duration_ms: 1.574744
+  type: 'test'
+  ...
+# Subtest: Feature removal keeps other constraints
+ok 39 - Feature removal keeps other constraints
+  ---
+  duration_ms: 0.768618
+  type: 'test'
+  ...
+# Subtest: Remove all must-haves clears features and size, not city or price
+ok 40 - Remove all must-haves clears features and size, not city or price
+  ---
+  duration_ms: 0.460161
+  type: 'test'
+  ...
+# Subtest: Largest sorts within, not outside, the existing budget and area
+ok 41 - Largest sorts within, not outside, the existing budget and area
+  ---
+  duration_ms: 1.845714
+  type: 'test'
+  ...
+# Subtest: Show-more pagination returns new IDs and retains previous criteria
+ok 42 - Show-more pagination returns new IDs and retains previous criteria
+  ---
+  duration_ms: 1.508701
+  type: 'test'
+  ...
+# Subtest: Exhausted pagination explains a return to the first results
+ok 43 - Exhausted pagination explains a return to the first results
+  ---
+  duration_ms: 1.088928
+  type: 'test'
+  ...
+# Subtest: Unrecognized message does not overwrite existing preferences
+ok 44 - Unrecognized message does not overwrite existing preferences
+  ---
+  duration_ms: 0.453633
+  type: 'test'
+  ...
+# Subtest: Restart restores fresh unasked preferences
+ok 45 - Restart restores fresh unasked preferences
+  ---
+  duration_ms: 0.348773
+  type: 'test'
+  ...
+# Subtest: Explicit browsing opt-in skips questions without claiming personalization
+ok 46 - Explicit browsing opt-in skips questions without claiming personalization
+  ---
+  duration_ms: 0.640235
+  type: 'test'
+  ...
+# Subtest: Public recap includes unverified requirements
+ok 47 - Public recap includes unverified requirements
+  ---
+  duration_ms: 0.741377
+  type: 'test'
+  ...
+# Subtest: Every partial city query produces only real entries
+ok 48 - Every partial city query produces only real entries
+  ---
+  duration_ms: 59.964774
+  type: 'test'
+  ...
+# Subtest: Property picker matches names, cities, type and mixed tokens
+ok 49 - Property picker matches names, cities, type and mixed tokens
+  ---
+  duration_ms: 1.609693
+  type: 'test'
+  ...
+# Subtest: Search normalizes punctuation, accents and type aliases
+ok 50 - Search normalizes punctuation, accents and type aliases
+  ---
+  duration_ms: 1.259929
+  type: 'test'
+  ...
+# Subtest: Blank search returns full catalogue and no query cannot invent results
+ok 51 - Blank search returns full catalogue and no query cannot invent results
+  ---
+  duration_ms: 1.11206
+  type: 'test'
+  ...
+# Subtest: Search includes custom entries passed into it without mutating the fixtures
+ok 52 - Search includes custom entries passed into it without mutating the fixtures
+  ---
+  duration_ms: 0.807598
+  type: 'test'
+  ...
+# Subtest: Validator rejects untrusted model fields and unreasonable numeric values
+ok 53 - Validator rejects untrusted model fields and unreasonable numeric values
+  ---
+  duration_ms: 0.609273
+  type: 'test'
+  ...
+# Subtest: Match invariants hold over every catalogue city, type, and budget combination
+ok 54 - Match invariants hold over every catalogue city, type, and budget combination
+  ---
+  duration_ms: 43.341358
+  type: 'test'
+  ...
+# Subtest: catalog contains exactly 60 fictional properties in 20 cities
+ok 55 - catalog contains exactly 60 fictional properties in 20 cities
+  ---
+  duration_ms: 1.344146
   type: 'test'
   ...
 # Subtest: all catalog properties satisfy the import and property schemas
-ok 2 - all catalog properties satisfy the import and property schemas
+ok 56 - all catalog properties satisfy the import and property schemas
   ---
-  duration_ms: 4.049812
+  duration_ms: 2.214711
   type: 'test'
   ...
 # Subtest: catalog IDs, names and addresses are unique
-ok 3 - catalog IDs, names and addresses are unique
+ok 57 - catalog IDs, names and addresses are unique
   ---
-  duration_ms: 0.247101
+  duration_ms: 0.200952
   type: 'test'
   ...
 # Subtest: original saved IDs and all original financial inputs stay compatible
-ok 4 - original saved IDs and all original financial inputs stay compatible
+ok 58 - original saved IDs and all original financial inputs stay compatible
   ---
-  duration_ms: 1.489373
+  duration_ms: 0.856705
   type: 'test'
   ...
 # Subtest: all four property types have at least twelve useful examples
-ok 5 - all four property types have at least twelve useful examples
+ok 59 - all four property types have at least twelve useful examples
   ---
-  duration_ms: 0.278381
+  duration_ms: 0.151507
   type: 'test'
   ...
 # Subtest: new cities are searchable without loading earlier pages
-ok 6 - new cities are searchable without loading earlier pages
+ok 60 - new cities are searchable without loading earlier pages
   ---
-  duration_ms: 0.959203
+  duration_ms: 0.700586
   type: 'test'
   ...
 # Subtest: complete-catalog descending sort includes the last-page highest price
-ok 7 - complete-catalog descending sort includes the last-page highest price
+ok 61 - complete-catalog descending sort includes the last-page highest price
   ---
-  duration_ms: 0.480757
+  duration_ms: 0.290389
   type: 'test'
   ...
 # Subtest: every fictional fixture produces finite financial metrics
-ok 8 - every fictional fixture produces finite financial metrics
+ok 62 - every fictional fixture produces finite financial metrics
   ---
-  duration_ms: 4.6542
+  duration_ms: 1.796109
   type: 'test'
   ...
 # Subtest: separate-entrance tags are used only for duplexes
-ok 9 - separate-entrance tags are used only for duplexes
+ok 63 - separate-entrance tags are used only for duplexes
   ---
-  duration_ms: 0.750711
+  duration_ms: 0.375927
   type: 'test'
   ...
 # Subtest: first browse page renders 12 cards and a correct progress indicator
-ok 10 - first browse page renders 12 cards and a correct progress indicator
+ok 64 - first browse page renders 12 cards and a correct progress indicator
   ---
-  duration_ms: 49.163283
+  duration_ms: 18.803737
   type: 'test'
   ...
 # Subtest: progressive rendering grows without dropping the first page
-ok 11 - progressive rendering grows without dropping the first page
+ok 65 - progressive rendering grows without dropping the first page
   ---
-  duration_ms: 16.993772
+  duration_ms: 6.880397
   type: 'test'
   ...
 # Subtest: pagination applies after filtering and sorting
-ok 12 - pagination applies after filtering and sorting
+ok 66 - pagination applies after filtering and sorting
   ---
-  duration_ms: 2.524975
+  duration_ms: 1.067325
   type: 'test'
   ...
 # Subtest: the final page has no show-more button or misleading count
-ok 13 - the final page has no show-more button or misleading count
+ok 67 - the final page has no show-more button or misleading count
   ---
-  duration_ms: 41.975619
+  duration_ms: 10.935571
   type: 'test'
   ...
 # Subtest: an empty match set has an actionable empty state and no pagination
-ok 14 - an empty match set has an actionable empty state and no pagination
+ok 68 - an empty match set has an actionable empty state and no pagination
   ---
-  duration_ms: 0.48382
+  duration_ms: 0.354433
   type: 'test'
   ...
 # Subtest: old and new favorite IDs round-trip in the existing backup format
-ok 15 - old and new favorite IDs round-trip in the existing backup format
+ok 69 - old and new favorite IDs round-trip in the existing backup format
   ---
-  duration_ms: 0.840254
+  duration_ms: 0.353581
   type: 'test'
   ...
 # Subtest: new facade illustrations are deterministic and type-specific
-ok 16 - new facade illustrations are deterministic and type-specific
+ok 70 - new facade illustrations are deterministic and type-specific
   ---
-  duration_ms: 0.738206
+  duration_ms: 0.277895
   type: 'test'
   ...
 # Subtest: fixed-rate payment agrees with known 200k / 6% / 30-year example
-ok 17 - fixed-rate payment agrees with known 200k / 6% / 30-year example
+ok 71 - fixed-rate payment agrees with known 200k / 6% / 30-year example
   ---
-  duration_ms: 2.974826
+  duration_ms: 1.690276
   type: 'test'
   ...
 # Subtest: zero-interest loan divides principal evenly
-ok 18 - zero-interest loan divides principal evenly
+ok 72 - zero-interest loan divides principal evenly
   ---
-  duration_ms: 0.322758
+  duration_ms: 0.222946
   type: 'test'
   ...
 # Subtest: no principal means no loan payment
-ok 19 - no principal means no loan payment
+ok 73 - no principal means no loan payment
   ---
-  duration_ms: 0.293732
+  duration_ms: 0.263905
   type: 'test'
   ...
 # Subtest: tiny positive rates remain numerically stable
-ok 20 - tiny positive rates remain numerically stable
+ok 74 - tiny positive rates remain numerically stable
   ---
-  duration_ms: 0.285357
+  duration_ms: 0.201053
   type: 'test'
   ...
 # Subtest: invalid mortgage inputs fail explicitly
-ok 21 - invalid mortgage inputs fail explicitly
+ok 75 - invalid mortgage inputs fail explicitly
   ---
-  duration_ms: 2.859183
+  duration_ms: 2.112686
   type: 'test'
   ...
 # Subtest: calculator uses correct loan and down payment
-ok 22 - calculator uses correct loan and down payment
+ok 76 - calculator uses correct loan and down payment
   ---
-  duration_ms: 0.630153
+  duration_ms: 0.64223
   type: 'test'
   ...
 # Subtest: vacancy reduces rent and management uses collected rent
-ok 23 - vacancy reduces rent and management uses collected rent
+ok 77 - vacancy reduces rent and management uses collected rent
   ---
-  duration_ms: 0.207689
+  duration_ms: 0.189286
   type: 'test'
   ...
 # Subtest: annual taxes convert to monthly; expenses include maintenance
-ok 24 - annual taxes convert to monthly; expenses include maintenance
+ok 78 - annual taxes convert to monthly; expenses include maintenance
   ---
-  duration_ms: 0.158163
+  duration_ms: 0.243278
   type: 'test'
   ...
 # Subtest: NOI excludes debt and capital reserves
-ok 25 - NOI excludes debt and capital reserves
+ok 79 - NOI excludes debt and capital reserves
   ---
-  duration_ms: 0.782697
+  duration_ms: 0.443407
   type: 'test'
   ...
 # Subtest: cash flow subtracts financing and capital reserves
-ok 26 - cash flow subtracts financing and capital reserves
+ok 80 - cash flow subtracts financing and capital reserves
   ---
-  duration_ms: 0.70093
+  duration_ms: 0.559086
   type: 'test'
   ...
 # Subtest: cash invested includes closing costs and initial repairs
-ok 27 - cash invested includes closing costs and initial repairs
+ok 81 - cash invested includes closing costs and initial repairs
   ---
-  duration_ms: 0.320206
+  duration_ms: 0.279159
   type: 'test'
   ...
 # Subtest: all-cash financing and mortgage insurance both become zero
-ok 28 - all-cash financing and mortgage insurance both become zero
+ok 82 - all-cash financing and mortgage insurance both become zero
   ---
-  duration_ms: 0.189614
+  duration_ms: 0.148273
   type: 'test'
   ...
 # Subtest: mortgage insurance reduces cash flow but not NOI or cap rate
-ok 29 - mortgage insurance reduces cash flow but not NOI or cap rate
+ok 83 - mortgage insurance reduces cash flow but not NOI or cap rate
   ---
-  duration_ms: 0.173832
+  duration_ms: 0.215184
   type: 'test'
   ...
 # Subtest: zero invested cash gives null return, never infinity
-ok 30 - zero invested cash gives null return, never infinity
+ok 84 - zero invested cash gives null return, never infinity
   ---
-  duration_ms: 0.271291
+  duration_ms: 0.244256
   type: 'test'
   ...
 # Subtest: zero rent and full vacancy remain finite
-ok 31 - zero rent and full vacancy remain finite
+ok 85 - zero rent and full vacancy remain finite
   ---
-  duration_ms: 0.177971
+  duration_ms: 0.200224
   type: 'test'
   ...
 # Subtest: negative and nonfinite inputs are rejected
-ok 32 - negative and nonfinite inputs are rejected
+ok 86 - negative and nonfinite inputs are rejected
   ---
-  duration_ms: 41.561956
+  duration_ms: 22.707218
   type: 'test'
   ...
 # Subtest: valid assumptions pass schema validation
-ok 33 - valid assumptions pass schema validation
+ok 87 - valid assumptions pass schema validation
   ---
-  duration_ms: 1.115176
+  duration_ms: 0.874696
   type: 'test'
   ...
 # Subtest: all fixtures have valid model assumptions
-ok 34 - all fixtures have valid model assumptions
+ok 88 - all fixtures have valid model assumptions
   ---
-  duration_ms: 0.370021
+  duration_ms: 0.426387
   type: 'test'
   ...
 # Subtest: amortization reaches zero and conserves original principal
-ok 35 - amortization reaches zero and conserves original principal
+ok 89 - amortization reaches zero and conserves original principal
   ---
-  duration_ms: 0.558064
+  duration_ms: 0.488323
   type: 'test'
   ...
 # Subtest: zero-rate amortization has no interest
-ok 36 - zero-rate amortization has no interest
+ok 90 - zero-rate amortization has no interest
   ---
-  duration_ms: 0.174999
+  duration_ms: 0.174508
   type: 'test'
   ...
 # Subtest: all-cash amortization is empty
-ok 37 - all-cash amortization is empty
+ok 91 - all-cash amortization is empty
   ---
-  duration_ms: 0.108204
+  duration_ms: 0.096073
   type: 'test'
   ...
 # Subtest: search matches case-insensitive words across location fields
-ok 38 - search matches case-insensitive words across location fields
+ok 92 - search matches case-insensitive words across location fields
   ---
-  duration_ms: 0.958193
+  duration_ms: 0.70774
   type: 'test'
   ...
 # Subtest: filters compose with AND semantics
-ok 39 - filters compose with AND semantics
+ok 93 - filters compose with AND semantics
   ---
-  duration_ms: 0.756636
+  duration_ms: 0.351251
   type: 'test'
   ...
 # Subtest: area and cash-flow filters apply actual computed values
-ok 40 - area and cash-flow filters apply actual computed values
+ok 94 - area and cash-flow filters apply actual computed values
   ---
-  duration_ms: 3.304303
+  duration_ms: 1.569128
   type: 'test'
   ...
 # Subtest: search supports no-results state
-ok 41 - search supports no-results state
+ok 95 - search supports no-results state
   ---
-  duration_ms: 0.24838
+  duration_ms: 0.209776
   type: 'test'
   ...
 # Subtest: price sort is ascending and does not mutate input
-ok 42 - price sort is ascending and does not mutate input
+ok 96 - price sort is ascending and does not mutate input
   ---
-  duration_ms: 0.45239
+  duration_ms: 0.399566
   type: 'test'
   ...
 # Subtest: cash-flow sort uses computed values, not a seeded score
-ok 43 - cash-flow sort uses computed values, not a seeded score
+ok 97 - cash-flow sort uses computed values, not a seeded score
   ---
-  duration_ms: 2.810098
+  duration_ms: 1.828837
   type: 'test'
   ...
 # Subtest: cap-rate sort uses NOI divided by price
-ok 44 - cap-rate sort uses NOI divided by price
+ok 98 - cap-rate sort uses NOI divided by price
   ---
-  duration_ms: 1.934057
+  duration_ms: 1.783301
   type: 'test'
   ...
 # Subtest: median handles even, odd, and empty inputs
-ok 45 - median handles even, odd, and empty inputs
+ok 99 - median handles even, odd, and empty inputs
   ---
-  duration_ms: 0.278976
+  duration_ms: 0.319619
   type: 'test'
   ...
 # Subtest: CSV neutralizes dangerous text while preserving numeric negatives
-ok 46 - CSV neutralizes dangerous text while preserving numeric negatives
+ok 100 - CSV neutralizes dangerous text while preserving numeric negatives
   ---
-  duration_ms: 0.504249
+  duration_ms: 0.323961
   type: 'test'
   ...
 # Subtest: CSV escapes quotes and keeps commas/newlines in cells
-ok 47 - CSV escapes quotes and keeps commas/newlines in cells
+ok 101 - CSV escapes quotes and keeps commas/newlines in cells
   ---
-  duration_ms: 0.242356
+  duration_ms: 0.163867
   type: 'test'
   ...
 # Subtest: user-controlled HTML is escaped before rendering
-ok 48 - user-controlled HTML is escaped before rendering
+ok 102 - user-controlled HTML is escaped before rendering
   ---
-  duration_ms: 0.348869
+  duration_ms: 0.178811
+  type: 'test'
+  ...
+# Subtest: Direct data query: show me the cheapest house
+ok 103 - Direct data query: show me the cheapest house
+  ---
+  duration_ms: 25.852703
+  type: 'test'
+  ...
+# Subtest: Direct data query: the cheapest home
+ok 104 - Direct data query: the cheapest home
+  ---
+  duration_ms: 6.436939
+  type: 'test'
+  ...
+# Subtest: Direct data query: the biggest place
+ok 105 - Direct data query: the biggest place
+  ---
+  duration_ms: 1.031171
+  type: 'test'
+  ...
+# Subtest: Direct data query: something affordable
+ok 106 - Direct data query: something affordable
+  ---
+  duration_ms: 0.670069
+  type: 'test'
+  ...
+# Subtest: Direct data query: most bedrooms
+ok 107 - Direct data query: most bedrooms
+  ---
+  duration_ms: 0.652899
+  type: 'test'
+  ...
+# Subtest: Direct data query: most bathrooms
+ok 108 - Direct data query: most bathrooms
+  ---
+  duration_ms: 0.593011
+  type: 'test'
+  ...
+# Subtest: Direct data query: least expensive house
+ok 109 - Direct data query: least expensive house
+  ---
+  duration_ms: 0.903519
+  type: 'test'
+  ...
+# Subtest: Direct data query: less expensive homes
+ok 110 - Direct data query: less expensive homes
+  ---
+  duration_ms: 1.145334
+  type: 'test'
+  ...
+# Subtest: Direct data query: the highest-priced property
+ok 111 - Direct data query: the highest-priced property
+  ---
+  duration_ms: 2.386619
+  type: 'test'
+  ...
+# Subtest: Direct data query: most expensive house
+ok 112 - Direct data query: most expensive house
+  ---
+  duration_ms: 1.192495
+  type: 'test'
+  ...
+# Subtest: Direct data query: more space
+ok 113 - Direct data query: more space
+  ---
+  duration_ms: 0.496402
+  type: 'test'
+  ...
+# Subtest: Direct data query: something spacious
+ok 114 - Direct data query: something spacious
+  ---
+  duration_ms: 0.688471
+  type: 'test'
+  ...
+# Subtest: Direct data query: a compact place
+ok 115 - Direct data query: a compact place
+  ---
+  duration_ms: 0.671023
+  type: 'test'
+  ...
+# Subtest: Direct data query: the smallest home
+ok 116 - Direct data query: the smallest home
+  ---
+  duration_ms: 0.821123
+  type: 'test'
+  ...
+# Subtest: Direct data query: fewest bedrooms
+ok 117 - Direct data query: fewest bedrooms
+  ---
+  duration_ms: 0.758916
+  type: 'test'
+  ...
+# Subtest: Direct data query: fewest bathrooms
+ok 118 - Direct data query: fewest bathrooms
+  ---
+  duration_ms: 0.718397
+  type: 'test'
+  ...
+# Subtest: Direct data query: newest construction
+ok 119 - Direct data query: newest construction
+  ---
+  duration_ms: 0.513582
+  type: 'test'
+  ...
+# Subtest: Direct data query: the oldest place
+ok 120 - Direct data query: the oldest place
+  ---
+  duration_ms: 0.385302
+  type: 'test'
+  ...
+# Subtest: Direct data query: lowest HOA fee
+ok 121 - Direct data query: lowest HOA fee
+  ---
+  duration_ms: 1.425149
+  type: 'test'
+  ...
+# Subtest: Direct data query: highest HOA fees
+ok 122 - Direct data query: highest HOA fees
+  ---
+  duration_ms: 0.980051
+  type: 'test'
+  ...
+# Subtest: Direct data query: lowest annual property taxes
+ok 123 - Direct data query: lowest annual property taxes
+  ---
+  duration_ms: 7.30613
+  type: 'test'
+  ...
+# Subtest: Direct data query: highest sample rent
+ok 124 - Direct data query: highest sample rent
+  ---
+  duration_ms: 0.627512
+  type: 'test'
+  ...
+# Subtest: Direct data query: best value
+ok 125 - Direct data query: best value
+  ---
+  duration_ms: 0.532351
+  type: 'test'
+  ...
+# Subtest: Direct data query: most space for my money
+ok 126 - Direct data query: most space for my money
+  ---
+  duration_ms: 0.489746
+  type: 'test'
+  ...
+# Subtest: Direct data query: lowest price per sq ft
+ok 127 - Direct data query: lowest price per sq ft
+  ---
+  duration_ms: 0.500592
+  type: 'test'
+  ...
+# Subtest: Direct data query: highest price per sq ft
+ok 128 - Direct data query: highest price per sq ft
+  ---
+  duration_ms: 0.546425
+  type: 'test'
+  ...
+# Subtest: No literal-city pollution while waiting for a city: cheapest
+ok 129 - No literal-city pollution while waiting for a city: cheapest
+  ---
+  duration_ms: 0.442298
+  type: 'test'
+  ...
+# Subtest: No literal-city pollution while waiting for a city: the biggest place
+ok 130 - No literal-city pollution while waiting for a city: the biggest place
+  ---
+  duration_ms: 0.461236
+  type: 'test'
+  ...
+# Subtest: No literal-city pollution while waiting for a city: something affordable
+ok 131 - No literal-city pollution while waiting for a city: something affordable
+  ---
+  duration_ms: 0.422969
+  type: 'test'
+  ...
+# Subtest: No literal-city pollution while waiting for a city: most bedrooms
+ok 132 - No literal-city pollution while waiting for a city: most bedrooms
+  ---
+  duration_ms: 0.485531
+  type: 'test'
+  ...
+# Subtest: No literal-city pollution while waiting for a city: the lowest price per square foot
+ok 133 - No literal-city pollution while waiting for a city: the lowest price per square foot
+  ---
+  duration_ms: 0.521462
+  type: 'test'
+  ...
+# Subtest: Known filters alone are sufficient; no city required
+ok 134 - Known filters alone are sufficient; no city required
+  ---
+  duration_ms: 1.592859
+  type: 'test'
+  ...
+# Subtest: Combined city, type, price and minimum area constrain the ranking
+ok 135 - Combined city, type, price and minimum area constrain the ranking
+  ---
+  duration_ms: 1.178939
+  type: 'test'
+  ...
+# Subtest: At least is a constraint, not a fewest-bedrooms request
+ok 136 - At least is a constraint, not a fewest-bedrooms request
+  ---
+  duration_ms: 0.619889
+  type: 'test'
+  ...
+# Subtest: At most is a maximum, not a most-bedrooms request
+ok 137 - At most is a maximum, not a most-bedrooms request
+  ---
+  duration_ms: 0.588314
+  type: 'test'
+  ...
+# Subtest: Exact, strict maximum and strict minimum floor-space criteria
+ok 138 - Exact, strict maximum and strict minimum floor-space criteria
+  ---
+  duration_ms: 2.40519
+  type: 'test'
+  ...
+# Subtest: Cheapest with no HOA ranks by price, not by the HOA amount
+ok 139 - Cheapest with no HOA ranks by price, not by the HOA amount
+  ---
+  duration_ms: 0.807444
+  type: 'test'
+  ...
+# Subtest: Ranking changes retain explicitly stated filters
+ok 140 - Ranking changes retain explicitly stated filters
+  ---
+  duration_ms: 1.499869
+  type: 'test'
+  ...
+# Subtest: All 60 explicitly resets previous narrowing before a new query
+ok 141 - All 60 explicitly resets previous narrowing before a new query
+  ---
+  duration_ms: 1.627257
+  type: 'test'
+  ...
+# Subtest: Any city only removes the city, not the active type or budget
+ok 142 - Any city only removes the city, not the active type or budget
+  ---
+  duration_ms: 1.076087
+  type: 'test'
+  ...
+# Subtest: No matching ranking does not silently widen constraints
+ok 143 - No matching ranking does not silently widen constraints
+  ---
+  duration_ms: 0.597797
+  type: 'test'
+  ...
+# Subtest: Relative cheaper-than reference compares actual asking prices
+ok 144 - Relative cheaper-than reference compares actual asking prices
+  ---
+  duration_ms: 0.975422
+  type: 'test'
+  ...
+# Subtest: Relative bigger-than-that references the prior recommendation
+ok 145 - Relative bigger-than-that references the prior recommendation
+  ---
+  duration_ms: 0.409311
+  type: 'test'
+  ...
+# Subtest: A pronoun without a reference asks only the genuine clarification
+ok 146 - A pronoun without a reference asks only the genuine clarification
+  ---
+  duration_ms: 0.194358
+  type: 'test'
+  ...
+# Subtest: Missing-distance query is honest: closest to downtown
+ok 147 - Missing-distance query is honest: closest to downtown
+  ---
+  duration_ms: 0.452584
+  type: 'test'
+  ...
+# Subtest: Missing-distance query is honest: which is nearest to the city centre?
+ok 148 - Missing-distance query is honest: which is nearest to the city centre?
+  ---
+  duration_ms: 0.362916
+  type: 'test'
+  ...
+# Subtest: Missing-distance query is honest: the home closest to downtown in Lincoln
+ok 149 - Missing-distance query is honest: the home closest to downtown in Lincoln
+  ---
+  duration_ms: 0.206775
+  type: 'test'
+  ...
+# Subtest: Subjective good house asks a criterion rather than assuming a ranking
+ok 150 - Subjective good house asks a criterion rather than assuming a ranking
+  ---
+  duration_ms: 0.284767
+  type: 'test'
+  ...
+# Subtest: A specified physical feature makes even a good-house query answerable
+ok 151 - A specified physical feature makes even a good-house query answerable
+  ---
+  duration_ms: 0.776749
+  type: 'test'
+  ...
+# Subtest: Unrecorded amenities are never advertised as verified
+ok 152 - Unrecorded amenities are never advertised as verified
+  ---
+  duration_ms: 1.091511
+  type: 'test'
+  ...
+# Subtest: Duplex ranking explicitly explains combined unit totals
+ok 153 - Duplex ranking explicitly explains combined unit totals
+  ---
+  duration_ms: 0.69275
+  type: 'test'
+  ...
+# Subtest: Every rank is a numerical comparison, stable under catalogue shuffling
+ok 154 - Every rank is a numerical comparison, stable under catalogue shuffling
+  ---
+  duration_ms: 20.247414
+  type: 'test'
+  ...
+# Subtest: Winners are computed from supplied numbers, not hard-coded IDs or answers
+ok 155 - Winners are computed from supplied numbers, not hard-coded IDs or answers
+  ---
+  duration_ms: 1.958043
+  type: 'test'
+  ...
+# Subtest: Prices tied at first are disclosed and tie-broken deterministically
+ok 156 - Prices tied at first are disclosed and tie-broken deterministically
+  ---
+  duration_ms: 1.023561
+  type: 'test'
+  ...
+# Subtest: Pagination retains rank order without duplicating first-page results
+ok 157 - Pagination retains rank order without duplicating first-page results
+  ---
+  duration_ms: 0.962061
+  type: 'test'
+  ...
+# Subtest: Derived metric includes model assumptions: highest cash flow
+ok 158 - Derived metric includes model assumptions: highest cash flow
+  ---
+  duration_ms: 5.791549
+  type: 'test'
+  ...
+# Subtest: Derived metric includes model assumptions: best cap rate
+ok 159 - Derived metric includes model assumptions: best cap rate
+  ---
+  duration_ms: 3.489055
+  type: 'test'
+  ...
+# Subtest: Derived metric includes model assumptions: highest gross rental yield
+ok 160 - Derived metric includes model assumptions: highest gross rental yield
+  ---
+  duration_ms: 0.818762
+  type: 'test'
+  ...
+# Subtest: All metric enum values and new numeric bounds validate
+ok 161 - All metric enum values and new numeric bounds validate
+  ---
+  duration_ms: 0.559001
+  type: 'test'
+  ...
+# Subtest: Theme resolver respects explicit choices and system default
+ok 162 - Theme resolver respects explicit choices and system default
+  ---
+  duration_ms: 0.140315
+  type: 'test'
+  ...
+# Subtest: Specific price-per-area metric takes precedence over price adjective
+ok 163 - Specific price-per-area metric takes precedence over price adjective
+  ---
+  duration_ms: 0.060218
+  type: 'test'
+  ...
+# Subtest: Unknown city before a budget is not silently ignored
+ok 164 - Unknown city before a budget is not silently ignored
+  ---
+  duration_ms: 0.631389
+  type: 'test'
+  ...
+# Subtest: Numerical direction is respected: lowest cash flow
+ok 165 - Numerical direction is respected: lowest cash flow
+  ---
+  duration_ms: 2.85585
+  type: 'test'
+  ...
+# Subtest: Numerical direction is respected: lowest cap rate
+ok 166 - Numerical direction is respected: lowest cap rate
+  ---
+  duration_ms: 4.80837
+  type: 'test'
+  ...
+# Subtest: Numerical direction is respected: lowest gross rental yield
+ok 167 - Numerical direction is respected: lowest gross rental yield
+  ---
+  duration_ms: 0.674531
+  type: 'test'
+  ...
+# Subtest: Numerical direction is respected: lowest sample rent
+ok 168 - Numerical direction is respected: lowest sample rent
+  ---
+  duration_ms: 0.904533
+  type: 'test'
+  ...
+# Subtest: Numerical direction is respected: highest property tax
+ok 169 - Numerical direction is respected: highest property tax
+  ---
+  duration_ms: 1.140105
+  type: 'test'
+  ...
+# Subtest: Numerical direction is respected: lowest monthly insurance
+ok 170 - Numerical direction is respected: lowest monthly insurance
+  ---
+  duration_ms: 0.793235
+  type: 'test'
+  ...
+# Subtest: Numerical direction is respected: highest property insurance
+ok 171 - Numerical direction is respected: highest property insurance
+  ---
+  duration_ms: 0.895892
+  type: 'test'
+  ...
+# Subtest: Competing unweighted objectives get a targeted trade-off question
+ok 172 - Competing unweighted objectives get a targeted trade-off question
+  ---
+  duration_ms: 0.378157
+  type: 'test'
+  ...
+# Subtest: Every semantic CSS token is defined, including the shared motion easing
+ok 173 - Every semantic CSS token is defined, including the shared motion easing
+  ---
+  duration_ms: 1.347929
+  type: 'test'
+  ...
+# Subtest: Local server serves both app variants, discloses offline mode, and protects private files
+ok 174 - Local server serves both app variants, discloses offline mode, and protects private files
+  ---
+  duration_ms: 174.146272
+  type: 'test'
+  ...
+# Subtest: Configured server requires same origin, bounded JSON and valid inputs without contacting the provider
+ok 175 - Configured server requires same origin, bounded JSON and valid inputs without contacting the provider
+  ---
+  duration_ms: 82.380961
   type: 'test'
   ...
 # Subtest: workspace backup round-trips
-ok 49 - workspace backup round-trips
+ok 176 - workspace backup round-trips
   ---
-  duration_ms: 5.561732
+  duration_ms: 3.444031
   type: 'test'
   ...
 # Subtest: unsupported backup version is rejected
-ok 50 - unsupported backup version is rejected
+ok 177 - unsupported backup version is rejected
   ---
-  duration_ms: 0.761425
+  duration_ms: 0.416146
   type: 'test'
   ...
 # Subtest: malformed JSON is rejected
-ok 51 - malformed JSON is rejected
+ok 178 - malformed JSON is rejected
   ---
-  duration_ms: 0.429397
+  duration_ms: 0.239375
   type: 'test'
   ...
 # Subtest: incomplete custom property is rejected
-ok 52 - incomplete custom property is rejected
+ok 179 - incomplete custom property is rejected
   ---
-  duration_ms: 0.35275
+  duration_ms: 0.165349
   type: 'test'
   ...
 # Subtest: duplicate custom IDs cannot overwrite one another
-ok 53 - duplicate custom IDs cannot overwrite one another
+ok 180 - duplicate custom IDs cannot overwrite one another
   ---
-  duration_ms: 0.580192
+  duration_ms: 0.23748
   type: 'test'
   ...
 # Subtest: sample IDs are reserved
-ok 54 - sample IDs are reserved
+ok 181 - sample IDs are reserved
   ---
-  duration_ms: 0.384221
+  duration_ms: 0.15998
   type: 'test'
   ...
 # Subtest: saved and compared IDs are deduplicated and comparison capped at three
-ok 55 - saved and compared IDs are deduplicated and comparison capped at three
+ok 182 - saved and compared IDs are deduplicated and comparison capped at three
   ---
-  duration_ms: 0.319207
+  duration_ms: 0.179413
   type: 'test'
   ...
 # Subtest: invalid scenario values are not trusted
-ok 56 - invalid scenario values are not trusted
+ok 183 - invalid scenario values are not trusted
   ---
-  duration_ms: 41.186788
+  duration_ms: 15.043911
   type: 'test'
   ...
 # Subtest: prototype keys in imported notes are rejected
-ok 57 - prototype keys in imported notes are rejected
+ok 184 - prototype keys in imported notes are rejected
   ---
-  duration_ms: 0.855517
+  duration_ms: 0.351963
   type: 'test'
   ...
 # Subtest: oversized backup is rejected before parsing
-ok 58 - oversized backup is rejected before parsing
+ok 185 - oversized backup is rejected before parsing
   ---
-  duration_ms: 1.475909
+  duration_ms: 0.386217
   type: 'test'
   ...
 # Subtest: custom photo URL must be HTTPS or blank
-ok 59 - custom photo URL must be HTTPS or blank
+ok 186 - custom photo URL must be HTTPS or blank
   ---
-  duration_ms: 0.656401
+  duration_ms: 0.433127
   type: 'test'
   ...
 # Subtest: local storage round-trip uses the versioned key
-ok 60 - local storage round-trip uses the versioned key
+ok 187 - local storage round-trip uses the versioned key
   ---
-  duration_ms: 0.583661
+  duration_ms: 0.435026
   type: 'test'
   ...
 # Subtest: unavailable storage falls back to a working session workspace
-ok 61 - unavailable storage falls back to a working session workspace
+ok 188 - unavailable storage falls back to a working session workspace
   ---
-  duration_ms: 0.301685
+  duration_ms: 0.214244
   type: 'test'
   ...
 # Subtest: corrupt saved state is preserved as a recovery copy
-ok 62 - corrupt saved state is preserved as a recovery copy
+ok 189 - corrupt saved state is preserved as a recovery copy
   ---
-  duration_ms: 0.490335
+  duration_ms: 0.213048
   type: 'test'
   ...
-1..62
-# tests 62
+1..189
+# tests 189
 # suites 0
-# pass 62
+# pass 189
 # fail 0
 # cancelled 0
 # skipped 0
 # todo 0
-# duration_ms 435.85418
+# duration_ms 591.245106

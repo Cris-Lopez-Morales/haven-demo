@@ -1,0 +1,598 @@
+{
+  "isolated": true,
+  "checks": [
+    {
+      "name": "Default appearance follows a light device",
+      "passed": true
+    },
+    {
+      "name": "System appearance responds to a device theme change",
+      "passed": true
+    },
+    {
+      "name": "Native controls are explicitly dark",
+      "passed": true
+    },
+    {
+      "name": "Dark discovery: sampled rendered text has sufficient contrast",
+      "passed": true
+    },
+    {
+      "name": "Direct query 'show me the cheapest house' returns exact ranked fixture IDs",
+      "passed": true
+    },
+    {
+      "name": "'show me the cheapest house' has no city gate",
+      "passed": true
+    },
+    {
+      "name": "'show me the cheapest house' explains its numerical rank",
+      "passed": true
+    },
+    {
+      "name": "Direct query 'show me the cheapest home' returns exact ranked fixture IDs",
+      "passed": true
+    },
+    {
+      "name": "'show me the cheapest home' has no city gate",
+      "passed": true
+    },
+    {
+      "name": "'show me the cheapest home' explains its numerical rank",
+      "passed": true
+    },
+    {
+      "name": "Direct query 'the biggest place' returns exact ranked fixture IDs",
+      "passed": true
+    },
+    {
+      "name": "'the biggest place' has no city gate",
+      "passed": true
+    },
+    {
+      "name": "'the biggest place' explains its numerical rank",
+      "passed": true
+    },
+    {
+      "name": "Direct query 'something affordable' returns exact ranked fixture IDs",
+      "passed": true
+    },
+    {
+      "name": "'something affordable' has no city gate",
+      "passed": true
+    },
+    {
+      "name": "'something affordable' explains its numerical rank",
+      "passed": true
+    },
+    {
+      "name": "Direct query 'most bedrooms' returns exact ranked fixture IDs",
+      "passed": true
+    },
+    {
+      "name": "'most bedrooms' has no city gate",
+      "passed": true
+    },
+    {
+      "name": "'most bedrooms' explains its numerical rank",
+      "passed": true
+    },
+    {
+      "name": "Direct query 'lowest price per sq ft' returns exact ranked fixture IDs",
+      "passed": true
+    },
+    {
+      "name": "'lowest price per sq ft' has no city gate",
+      "passed": true
+    },
+    {
+      "name": "'lowest price per sq ft' explains its numerical rank",
+      "passed": true
+    },
+    {
+      "name": "Direct query 'least expensive house' returns exact ranked fixture IDs",
+      "passed": true
+    },
+    {
+      "name": "'least expensive house' has no city gate",
+      "passed": true
+    },
+    {
+      "name": "'least expensive house' explains its numerical rank",
+      "passed": true
+    },
+    {
+      "name": "Dark assistant recommendations: sampled rendered text has sufficient contrast",
+      "passed": true
+    },
+    {
+      "name": "Subjective query asks what good means",
+      "passed": true
+    },
+    {
+      "name": "No distance data means no fabricated closest home",
+      "passed": true
+    },
+    {
+      "name": "A budget and type need no additional mandatory questions",
+      "passed": true
+    },
+    {
+      "name": "Follow-up rankings retain the city and budget",
+      "passed": true
+    },
+    {
+      "name": "An explicit catalogue-wide search clears old filters",
+      "passed": true
+    },
+    {
+      "name": "Relative named comparison uses real fixture price",
+      "passed": true
+    },
+    {
+      "name": "Changing the palette does not erase chat or an unsent message",
+      "passed": true
+    },
+    {
+      "name": "Theme choice is written to the simulated preference store",
+      "passed": true
+    },
+    {
+      "name": "Explicit Light overrides a dark device",
+      "passed": true
+    },
+    {
+      "name": "Light assistant recommendations: sampled rendered text has sufficient contrast",
+      "passed": true
+    },
+    {
+      "name": "Appearance menu supports keyboard focus",
+      "passed": true
+    },
+    {
+      "name": "Escape dismisses appearance menu and returns focus",
+      "passed": true
+    },
+    {
+      "name": "Use device setting restores dark appearance",
+      "passed": true
+    },
+    {
+      "name": "dark theme is retained on saved",
+      "passed": true
+    },
+    {
+      "name": "dark saved has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "Dark saved: sampled rendered text has sufficient contrast",
+      "passed": true
+    },
+    {
+      "name": "dark theme is retained on compare",
+      "passed": true
+    },
+    {
+      "name": "dark compare has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "Dark compare: sampled rendered text has sufficient contrast",
+      "passed": true
+    },
+    {
+      "name": "dark theme is retained on custom",
+      "passed": true
+    },
+    {
+      "name": "dark custom has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "Dark custom: sampled rendered text has sufficient contrast",
+      "passed": true
+    },
+    {
+      "name": "dark theme is retained on calculator",
+      "passed": true
+    },
+    {
+      "name": "dark calculator has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "Dark calculator: sampled rendered text has sufficient contrast",
+      "passed": true
+    },
+    {
+      "name": "dark theme is retained on discover",
+      "passed": true
+    },
+    {
+      "name": "dark discover has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "Dark discover: sampled rendered text has sufficient contrast",
+      "passed": true
+    },
+    {
+      "name": "Dark property detail: sampled rendered text has sufficient contrast",
+      "passed": true
+    },
+    {
+      "name": "dark detail modal shares the surface token",
+      "passed": true
+    },
+    {
+      "name": "Dark new property form: sampled rendered text has sufficient contrast",
+      "passed": true
+    },
+    {
+      "name": "Dark workspace dialog: sampled rendered text has sufficient contrast",
+      "passed": true
+    },
+    {
+      "name": "Switching from dark leaves the calculator inputs and result unchanged",
+      "passed": true
+    },
+    {
+      "name": "Dark calculator autocomplete: sampled rendered text has sufficient contrast",
+      "passed": true
+    },
+    {
+      "name": "dark per-letter autocomplete retains all Chicago suggestions",
+      "passed": true
+    },
+    {
+      "name": "Dark calculator details and chart: sampled rendered text has sufficient contrast",
+      "passed": true
+    },
+    {
+      "name": "Dark input validation: sampled rendered text has sufficient contrast",
+      "passed": true
+    },
+    {
+      "name": "light theme is retained on saved",
+      "passed": true
+    },
+    {
+      "name": "light saved has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "Light saved: sampled rendered text has sufficient contrast",
+      "passed": true
+    },
+    {
+      "name": "light theme is retained on compare",
+      "passed": true
+    },
+    {
+      "name": "light compare has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "Light compare: sampled rendered text has sufficient contrast",
+      "passed": true
+    },
+    {
+      "name": "light theme is retained on custom",
+      "passed": true
+    },
+    {
+      "name": "light custom has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "Light custom: sampled rendered text has sufficient contrast",
+      "passed": true
+    },
+    {
+      "name": "light theme is retained on calculator",
+      "passed": true
+    },
+    {
+      "name": "light calculator has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "Light calculator: sampled rendered text has sufficient contrast",
+      "passed": true
+    },
+    {
+      "name": "light theme is retained on discover",
+      "passed": true
+    },
+    {
+      "name": "light discover has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "Light discover: sampled rendered text has sufficient contrast",
+      "passed": true
+    },
+    {
+      "name": "Light property detail: sampled rendered text has sufficient contrast",
+      "passed": true
+    },
+    {
+      "name": "light detail modal shares the surface token",
+      "passed": true
+    },
+    {
+      "name": "Light new property form: sampled rendered text has sufficient contrast",
+      "passed": true
+    },
+    {
+      "name": "Light workspace dialog: sampled rendered text has sufficient contrast",
+      "passed": true
+    },
+    {
+      "name": "Switching from light leaves the calculator inputs and result unchanged",
+      "passed": true
+    },
+    {
+      "name": "Light calculator autocomplete: sampled rendered text has sufficient contrast",
+      "passed": true
+    },
+    {
+      "name": "light per-letter autocomplete retains all Chicago suggestions",
+      "passed": true
+    },
+    {
+      "name": "Light calculator details and chart: sampled rendered text has sufficient contrast",
+      "passed": true
+    },
+    {
+      "name": "Light input validation: sampled rendered text has sufficient contrast",
+      "passed": true
+    },
+    {
+      "name": "A pre-existing simulated dark preference is applied on startup",
+      "passed": true
+    },
+    {
+      "name": "Theme changes still work with storage denied",
+      "passed": true
+    },
+    {
+      "name": "390px dark discovery has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "390px widget and composer fit the screen",
+      "passed": true
+    },
+    {
+      "name": "390px mobile ranking is the same factual result",
+      "passed": true
+    },
+    {
+      "name": "390px dark chat: sampled rendered text has sufficient contrast",
+      "passed": true
+    },
+    {
+      "name": "390px appearance menu selection works",
+      "passed": true
+    },
+    {
+      "name": "390px calculator autocomplete is wholly within the viewport",
+      "passed": true
+    },
+    {
+      "name": "390px dark calculator autocomplete: sampled rendered text has sufficient contrast",
+      "passed": true
+    },
+    {
+      "name": "320px dark discovery has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "320px widget and composer fit the screen",
+      "passed": true
+    },
+    {
+      "name": "320px mobile ranking is the same factual result",
+      "passed": true
+    },
+    {
+      "name": "320px dark chat: sampled rendered text has sufficient contrast",
+      "passed": true
+    },
+    {
+      "name": "320px appearance menu selection works",
+      "passed": true
+    },
+    {
+      "name": "320px calculator autocomplete is wholly within the viewport",
+      "passed": true
+    },
+    {
+      "name": "320px dark calculator autocomplete: sampled rendered text has sufficient contrast",
+      "passed": true
+    },
+    {
+      "name": "No uncaught JavaScript errors in ranking/theme scenarios",
+      "passed": true
+    }
+  ],
+  "contrastAudits": [
+    {
+      "page": "Dark discovery",
+      "count": 291,
+      "min": 6.24,
+      "failures": []
+    },
+    {
+      "page": "Dark assistant recommendations",
+      "count": 358,
+      "min": 6.24,
+      "failures": []
+    },
+    {
+      "page": "Light assistant recommendations",
+      "count": 358,
+      "min": 4.77,
+      "failures": []
+    },
+    {
+      "page": "Dark saved",
+      "count": 76,
+      "min": 6.24,
+      "failures": []
+    },
+    {
+      "page": "Dark compare",
+      "count": 96,
+      "min": 7.14,
+      "failures": []
+    },
+    {
+      "page": "Dark custom",
+      "count": 41,
+      "min": 7.14,
+      "failures": []
+    },
+    {
+      "page": "Dark calculator",
+      "count": 279,
+      "min": 6.97,
+      "failures": []
+    },
+    {
+      "page": "Dark discover",
+      "count": 298,
+      "min": 6.24,
+      "failures": []
+    },
+    {
+      "page": "Dark property detail",
+      "count": 322,
+      "min": 6.24,
+      "failures": []
+    },
+    {
+      "page": "Dark new property form",
+      "count": 319,
+      "min": 6.24,
+      "failures": []
+    },
+    {
+      "page": "Dark workspace dialog",
+      "count": 313,
+      "min": 6.24,
+      "failures": []
+    },
+    {
+      "page": "Dark calculator autocomplete",
+      "count": 293,
+      "min": 6.97,
+      "failures": []
+    },
+    {
+      "page": "Dark calculator details and chart",
+      "count": 280,
+      "min": 6.97,
+      "failures": []
+    },
+    {
+      "page": "Dark input validation",
+      "count": 279,
+      "min": 6.97,
+      "failures": []
+    },
+    {
+      "page": "Light saved",
+      "count": 76,
+      "min": 4.77,
+      "failures": []
+    },
+    {
+      "page": "Light compare",
+      "count": 96,
+      "min": 5.12,
+      "failures": []
+    },
+    {
+      "page": "Light custom",
+      "count": 41,
+      "min": 5.12,
+      "failures": []
+    },
+    {
+      "page": "Light calculator",
+      "count": 279,
+      "min": 5.12,
+      "failures": []
+    },
+    {
+      "page": "Light discover",
+      "count": 298,
+      "min": 4.77,
+      "failures": []
+    },
+    {
+      "page": "Light property detail",
+      "count": 322,
+      "min": 4.77,
+      "failures": []
+    },
+    {
+      "page": "Light new property form",
+      "count": 319,
+      "min": 4.77,
+      "failures": []
+    },
+    {
+      "page": "Light workspace dialog",
+      "count": 313,
+      "min": 4.77,
+      "failures": []
+    },
+    {
+      "page": "Light calculator autocomplete",
+      "count": 293,
+      "min": 5.12,
+      "failures": []
+    },
+    {
+      "page": "Light calculator details and chart",
+      "count": 280,
+      "min": 5.12,
+      "failures": []
+    },
+    {
+      "page": "Light input validation",
+      "count": 279,
+      "min": 5.12,
+      "failures": []
+    },
+    {
+      "page": "390px dark chat",
+      "count": 339,
+      "min": 6.24,
+      "failures": []
+    },
+    {
+      "page": "390px dark calculator autocomplete",
+      "count": 271,
+      "min": 6.97,
+      "failures": []
+    },
+    {
+      "page": "320px dark chat",
+      "count": 338,
+      "min": 6.24,
+      "failures": []
+    },
+    {
+      "page": "320px dark calculator autocomplete",
+      "count": 270,
+      "min": 6.97,
+      "failures": []
+    }
+  ],
+  "pageErrors": []
+}

@@ -43,3 +43,16 @@ Use “extended,” “implemented [your feature],” or other more precise lang
 Explain how you avoid NaN and zero-interest failures; why capital reserves and debt service are not deducted in the cap-rate numerator; why management uses rent after vacancy; how backup validation prevents malformed records from breaking rendering; what browser storage does and does not protect; how safe text rendering and CSV escaping differ; and which browser behaviors the supplied tests did not establish.
 
 A useful closing point is what you would change at scale: a standard bundler, explicit component/state boundaries as UI complexity grows, server-side authorization and persistence, and a permitted real-data source with freshness and provenance clearly displayed. None of those future capabilities should be represented as already shipped.
+
+## New 1.2 demo segment
+
+Open **Ask Haven** and use “Lincoln or Omaha, under $400k. A house with 3 bedrooms and outdoor space.” Show the preference recap and one reasoned recommendation. Save it, run its numbers, then search “Austin condo” in the calculator picker. Explain how the chat state survives page re-renders while the rest of the app reuses its existing actions.
+
+Be precise about the AI boundary: the standalone experience is rule-based. With the optional server configured and the user opted in, a model extracts structured preferences, while deterministic code chooses and explains catalogue records. Discuss schema validation, hallucination prevention through catalogue IDs, unverified features, prompt injection boundaries, error fallback, private API-key handling, and tests. Do not claim a live model integration was tested with a real key until you have actually done that.
+
+
+## 1.3 demo segment: queries and appearance
+
+Ask “cheapest house,” “the biggest place,” and “most bedrooms.” Show that the named answers, numbers and order follow all 60 fixture records immediately. Then narrow the scope with a budget or city, request another ordering, and show that hard constraints remain intact. Ask “closest to downtown” to demonstrate the distinction between absent data and genuine intent ambiguity. The app refuses to fabricate measurements.
+
+Switch between Light, Dark and Use device setting with the header control. Keep a calculator input edited or a chat open to demonstrate that appearance is independent of application state. Discuss semantic design tokens, prepaint application, reduced-motion support and what the rendered contrast samples do and do not verify. Explain that this local intent engine is deterministic and bounded; do not represent it as a trained model or claim a live-provider benchmark.

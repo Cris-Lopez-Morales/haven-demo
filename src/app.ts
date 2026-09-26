@@ -1,13 +1,17 @@
+import { initializeAppearance } from './theme.js';
+import { bindPropertyPicker } from './property-picker.js';
+import { mountAssistant } from './assistant-widget.js';
 import type { State, Page, Property, Workspace, Assumptions, Sort } from './types.js';
 import { seedProperties } from './data.js';
 import { defaultFilters, defaultAssumptions, calculate, validateAssumptions, filterProperties, toCSV, amortization } from './finance.js';
 import { loadWorkspace, saveWorkspace, freshWorkspace, parseWorkspace, validProperty } from './storage.js';
 import { escapeHTML as e, signedMoney, icon, toast, downloadFile, uid, bindImageFallbacks } from './ui.js';
-import { shell, browseView, compareView, detailView, propertyForm, findProperty, browseSource, propertyResults, propertyCard, resultsPagination, PAGE_SIZE, modelAssumptionsRows } from './views.js';
+import { shell, allProperties, browseView, compareView, detailView, propertyForm, findProperty, browseSource, propertyResults, propertyCard, resultsPagination, PAGE_SIZE, modelAssumptionsRows } from './views.js';
 import { calculatorView, calculatorResults } from './calculator.js';
 import { bindCardMotion, revealedCards, pageMotion, dialogMotion, trayMotion, favoriteMotion, filterMotion, motionAllowed } from './motion.js';
 import type { MotionIntent } from './motion.js';
 
+initializeAppearance();
 const initial = loadWorkspace();
 const pages: Page[] = ['discover','saved','compare','calculator','custom'];
 const initialPage = location.hash.slice(1) as Page;
@@ -18,6 +22,7 @@ const state: State = {
   workspace: initial.workspace, storageAvailable: initial.available, storageNotice: initial.notice,
   scenarioName: ''
 };
+let assistant: ReturnType<typeof mountAssistant> | null = null;
 let pendingImport: Workspace | null = null;
 let pendingDeleteId = '';
 let detailId = '';
@@ -49,6 +54,8 @@ function render(intent: MotionIntent = 'update'): void {
   document.getElementById('app')!.innerHTML = shell(state,view);
   document.body.classList.toggle('has-tray',state.workspace.compareIds.length > 0 && ['discover','saved','custom'].includes(state.page));
   bindImageFallbacks();
+  bindPropertyPicker(allProperties(state),findProperty(state,state.calculatorPropertyId)!,analyze);
+  assistant?.refresh();
   updateMobileNavigation();
   bindCardMotion(keep);
   if (intent === 'page') pageMotion();
@@ -129,7 +136,7 @@ function showDetails(id: string): void {
   openDialog(detailView(p,state),'detail-modal');
 }
 function aboutDialog(): void {
-  openDialog(`<div class="modal-heading"><span class="eyebrow">MEET HAVEN</span><h2 id="dialog-title">A little more perspective.</h2><p>A local-first property workspace, built to explore the whole decision — not just the asking price.</p></div><div class="about-sections"><section><h3>A real app. A sample world.</h3><p>The ${seedProperties.length} starter properties span ${new Set(seedProperties.map(p => p.city)).size} cities. Their addresses, neighborhood labels, prices, rents, and costs are fictional fixtures. City names provide context only. Artwork and optional photography are illustrative. There is no live listing feed, valuation model, authentication, or connected bank account.</p></section><section><h3>Open assumptions. No mystery scores.</h3><p>Listing cards and comparisons use 20% down, 6.5% sample interest, 30 years, 5% vacancy, 5% maintenance, 8% management, 3% capital reserves, and 3% closing costs. Initial repairs and mortgage insurance start at zero. Taxes, property insurance, HOA, and rent come from each entry.</p><p><strong>NOI</strong> is rent after vacancy, less operating expenses. It excludes financing and capital reserves. <strong>Cap rate</strong> is annual NOI divided by purchase price. <strong>Cash flow</strong> also subtracts mortgage principal and interest, mortgage insurance, and capital reserves. <strong>Cash-on-cash return</strong> divides annual cash flow by the down payment, closing costs, and initial repairs.</p></section><section><h3>One browser. Your workspace.</h3><p>Saved properties, comparisons, custom entries, notes, searches, and saved scenarios stay in browser storage. Nothing is synced to an account. Private browsing, clearing storage, or using a different URL may remove or separate saved data. Export a backup for portability.</p></section><section><h3>The edges of the model</h3><p>The calculator assumes a fixed-rate, fully amortizing loan. It does not model tax benefits, appreciation, rent growth, selling costs, variable rates, financing eligibility, zoning, or lender-specific rules. It is educational software, not financial advice.</p></section><label class="photo-toggle"><input type="checkbox" id="use-photos" ${document.documentElement.dataset.photos === 'true' ? 'checked' : ''}><span>Use illustrative photography<small>Optional Unsplash images need an internet connection. Loading them contacts the image provider; property inputs are not sent. Original artwork remains the offline fallback.</small></span></label></div><div class="modal-actions"><button class="btn" data-action="workspace">Manage workspace</button><button class="btn primary" data-action="close-dialog">Back to exploring ${icon('arrow')}</button></div>`,'info-modal');
+  openDialog(`<div class="modal-heading"><span class="eyebrow">MEET HAVEN</span><h2 id="dialog-title">A little more perspective.</h2><p>A local-first property workspace, built to explore the whole decision — not just the asking price.</p></div><div class="about-sections"><section><h3>A real app. A sample world.</h3><p>The ${seedProperties.length} starter properties span ${new Set(seedProperties.map(p => p.city)).size} cities. Their addresses, neighborhood labels, prices, rents, and costs are fictional fixtures. City names provide context only. Artwork and optional photography are illustrative. There is no live listing feed, valuation model, authentication, or connected bank account.</p></section><section><h3>Open assumptions. No mystery scores.</h3><p>Listing cards and comparisons use 20% down, 6.5% sample interest, 30 years, 5% vacancy, 5% maintenance, 8% management, 3% capital reserves, and 3% closing costs. Initial repairs and mortgage insurance start at zero. Taxes, property insurance, HOA, and rent come from each entry.</p><p><strong>NOI</strong> is rent after vacancy, less operating expenses. It excludes financing and capital reserves. <strong>Cap rate</strong> is annual NOI divided by purchase price. <strong>Cash flow</strong> also subtracts mortgage principal and interest, mortgage insurance, and capital reserves. <strong>Cash-on-cash return</strong> divides annual cash flow by the down payment, closing costs, and initial repairs.</p></section><section><h3>One browser. Your workspace.</h3><p>Saved properties, comparisons, custom entries, notes, searches, and saved scenarios stay in browser storage. Nothing is synced to an account. Private browsing, clearing storage, or using a different URL may remove or separate saved data. Export a backup for portability.</p></section><section><h3>A little help finding home</h3><p>Ask Haven is available from every page. Its local demo matcher asks about city, purchase budget, property type, and must-haves, then explains matches from the 60 fictional starter homes. It is not a live AI model in local mode. An optional server-side AI connection can be enabled through the chat disclosure when configured. Unverified features stay labeled unverified; chat clears on refresh, while saved homes remain in your workspace.</p><p>The calculator property picker supports typing, live suggestions, and keyboard navigation. It searches both demo and custom properties; your scenario changes only after you choose a property.</p></section><section><h3>The edges of the model</h3><p>The calculator assumes a fixed-rate, fully amortizing loan. It does not model tax benefits, appreciation, rent growth, selling costs, variable rates, financing eligibility, zoning, or lender-specific rules. It is educational software, not financial advice.</p></section><label class="photo-toggle"><input type="checkbox" id="use-photos" ${document.documentElement.dataset.photos === 'true' ? 'checked' : ''}><span>Use illustrative photography<small>Optional Unsplash images need an internet connection. Loading them contacts the image provider; property inputs are not sent. Original artwork remains the offline fallback.</small></span></label></div><div class="modal-actions"><button class="btn" data-action="workspace">Manage workspace</button><button class="btn primary" data-action="close-dialog">Back to exploring ${icon('arrow')}</button></div>`,'info-modal');
 }
 function workspaceDialog(): void {
   openDialog(`<div class="modal-heading"><span class="eyebrow">MAKE YOURSELF AT HOME</span><h2 id="dialog-title">Your workspace.</h2><p>${state.storageAvailable ? 'Your changes are stored in this browser. A backup lets you take them with you.' : 'Browser storage is unavailable. Export a backup before closing this page.'}</p></div><div class="workspace-stats"><div><strong>${state.workspace.savedIds.length}</strong><span>saved homes</span></div><div><strong>${state.workspace.customProperties.length}</strong><span>your properties</span></div><div><strong>${state.workspace.scenarios.length}</strong><span>scenarios</span></div></div><div class="workspace-options"><button data-action="export-backup">${icon('download')}<span><strong>Export a backup</strong><small>Download your workspace as a JSON file.</small></span>${icon('chevron')}</button><button data-action="import-backup">${icon('upload')}<span><strong>Import a backup</strong><small>Restore a Haven file. Review it before replacing anything.</small></span>${icon('chevron')}</button><button data-action="reset-workspace" class="danger">${icon('reset')}<span><strong>Start fresh</strong><small>Clear this workspace, leaving the sample listings intact.</small></span>${icon('chevron')}</button></div><p class="small-print">A backup contains your custom properties, saved IDs, notes, searches, and saved scenarios. Unsaved calculator edits are not included.</p>`,'info-modal');
@@ -312,7 +319,7 @@ document.addEventListener('change',event => {
     render('results');
   }
   if (input.id === 'sort-select') { state.sort = input.value as Sort; updateResults(); }
-  if (input.id === 'calculator-property') analyze(input.value);
+
   if (input.id === 'use-photos' && input instanceof HTMLInputElement) { document.documentElement.dataset.photos = String(input.checked); render(); }
 });
 document.addEventListener('submit',event => {
@@ -373,3 +380,5 @@ document.addEventListener('keydown',event => {
 });
 window.addEventListener('popstate',() => { const page = location.hash.slice(1) as Page; if (pages.includes(page) && page !== state.page) { state.page = page; state.filters = {...defaultFilters}; closeDialog(); render('page'); } });
 render('page');
+
+assistant = mountAssistant({properties:seedProperties,isSaved:id=>state.workspace.savedIds.includes(id),details:showDetails,analyze,save:id=>{const button=document.createElement('button');button.dataset.id=id;actions['save-toggle'](button);}});

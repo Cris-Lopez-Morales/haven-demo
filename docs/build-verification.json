@@ -1,10 +1,25 @@
 {
-  "version": "1.1.0",
-  "standalone_sha256": "f83b7f38978edb7526f5ef928442da16ee9b8505778770e24a9c0cf66326ec2e",
+  "version": "1.3.0",
+  "standalone_sha256": "9bf26bf8c02c35ad30f981dc3e662d4932c046f42eaca4a6958612edfde3706f",
+  "standalone_bytes": 271475,
   "catalog_properties": 60,
   "catalog_cities": 20,
-  "unit_tests_passed": 62,
+  "catalog_calculations_workspace_schema_unchanged_from_1_2": true,
+  "unit_and_server_tests_passed": 189,
   "browser_workflow_checks_passed": 77,
   "browser_catalog_motion_checks_passed": 36,
-  "browser_mode": "isolated document with in-memory Storage adapter; not native cross-session persistence"
+  "browser_assistant_picker_checks_passed": 81,
+  "browser_ranking_theme_checks_passed": 104,
+  "browser_checks_total": 298,
+  "rendered_text_contrast_sample_groups": 29,
+  "contrast_scope": "Sampled enabled text foreground/backgrounds; not full accessibility conformance.",
+  "browser_mode": "Isolated document with in-memory Storage adapter; native navigation blocked; native cross-session persistence and file launch unverified.",
+  "provider_tests": "Mocked provider responses; actual loopback HTTP checks; no real API key or live model call.",
+  "default_assistant_mode": "Local rule-based intent parser plus numerical catalogue engine; optional server-side AI by configuration and explicit opt-in.",
+  "theme_modes": [
+    "light",
+    "dark",
+    "system"
+  ],
+  "geographic_distance_data": "Not available in the unchanged fixtures; no proximity ranking is fabricated."
 }
