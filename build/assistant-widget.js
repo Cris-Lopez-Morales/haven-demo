@@ -33,7 +33,7 @@ export function mountAssistant(callbacks) {
     }
     function card(match) {
         const p = match.property;
-        return `<article class="assistant-property" data-recommendation="${e(p.id)}"><div class="assistant-property-top">${propertyImage(p)}<div><span class="assistant-card-kind">${e(p.type)} · Fictional</span><button class="assistant-property-title" data-chat-details="${e(p.id)}">${e(p.name)}</button><span class="assistant-card-location">${e(p.city)}, ${e(p.state)}</span><strong>${money(p.price)}</strong></div></div><div class="assistant-card-specs"><span>${p.beds} beds</span><span>${p.baths} baths</span><span>${number(p.sqft)} sq ft</span></div><div class="assistant-fit"><strong>Why this fits</strong><ul>${match.reasons.map(reason => `<li>${icon('check')}<span>${e(reason)}</span></li>`).join('')}</ul></div>${match.caveats.map(text => `<p class="assistant-caveat">${icon('info')}<span>${e(text)}</span></p>`).join('')}<div class="assistant-card-actions"><button data-chat-details="${e(p.id)}">View home ${icon('diagonal')}</button><button data-chat-analyze="${e(p.id)}">Run numbers ${icon('calculator')}</button><button data-chat-save="${e(p.id)}" aria-label="Save ${e(p.name)}" aria-pressed="false">${icon('heart')}Save</button></div></article>`;
+        return `<article class="assistant-property" data-recommendation="${e(p.id)}"><div class="assistant-property-top">${propertyImage(p)}<div><span class="assistant-card-kind">${e(p.type)} · Fictional</span><button class="assistant-property-title" data-chat-details="${e(p.id)}">${e(p.name)}</button><span class="assistant-card-location">${e(p.city)}, ${e(p.state)}</span><strong>${money(p.price)}</strong></div></div><div class="assistant-card-specs"><span>${p.beds} beds</span><span>${p.baths} baths</span><span>${number(p.sqft)} sq ft</span></div><div class="assistant-fit"><strong>Why this fits</strong><ul>${match.reasons.map(reason => `<li>${icon('check')}<span>${e(reason)}</span></li>`).join('')}</ul></div>${match.caveats.map(text => `<p class="assistant-caveat">${icon('info')}<span>${e(text)}</span></p>`).join('')}<div class="assistant-card-actions"><button data-chat-details="${e(p.id)}">View home ${icon('diagonal')}</button><button data-chat-analyze="${e(p.id)}">Run numbers ${icon('calculator')}</button><button data-chat-save="${e(p.id)}" aria-label="Save ${e(p.name)}" aria-pressed="false">${icon('heart')}Save</button></div>${callbacks.explore ? `<button class="assistant-workspace-link" data-chat-explore="${e(p.id)}">Explore this home’s decision workspace ${icon('arrow')}</button>` : ''}</article>`;
     }
     function append(role, text, matches = [], welcome = false) {
         const node = document.createElement('div');
@@ -103,7 +103,7 @@ export function mountAssistant(callbacks) {
             const status = await res.json();
             if (status.available !== true)
                 return;
-            host.querySelector('#assistant-provider').innerHTML = `<p>A server-side AI connection is available. Enabling it sends your chat and search preferences to OpenAI. Workspace notes, backups, and saved scenarios are never sent.</p><button type="button" id="assistant-ai-toggle" aria-pressed="false">Enable connected AI</button>`;
+            host.querySelector('#assistant-provider').innerHTML = `<p>A server-side AI connection is available. Enabling it sends your chat and search preferences to OpenAI. Household budgets, participant profiles, tour answers, workspace notes, backups, and saved scenarios are never attached to AI requests. Anything you type into this chat is part of the conversation sent when connected AI is enabled.</p><button type="button" id="assistant-ai-toggle" aria-pressed="false">Enable connected AI</button>`;
             host.querySelector('#assistant-ai-toggle').addEventListener('click', event => {
                 if (busy)
                     return;
@@ -227,6 +227,10 @@ export function mountAssistant(callbacks) {
         if (button.dataset.chatAnalyze) {
             toggle(false, false);
             callbacks.analyze(button.dataset.chatAnalyze);
+        }
+        if (button.dataset.chatExplore) {
+            toggle(false, false);
+            callbacks.explore?.(button.dataset.chatExplore);
         }
         if (button.dataset.chatSave) {
             callbacks.save(button.dataset.chatSave);

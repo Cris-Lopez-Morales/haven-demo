@@ -1,5 +1,11 @@
 # Haven assistant and property picker
 
+## Version 1.4 status
+
+Live AI has been **left unconfigured**. The existing local demo matcher remains active. It can still compare and rank the 60 fictional properties; each recommendation now includes an action to open that home’s decision workspace. The new budget, Together, and tour tools are implemented through deterministic application code, not an LLM. The optional model integration below is unchanged and does not yet orchestrate those three new tools.
+
+Household budgets, participant profiles, tour answers, and new scenario snapshots are not attached to provider requests. Anything a person types into the chat itself will be sent if they separately configure and explicitly enable live AI. The distributed file has no embedded API key, and this release does not activate paid services.
+
 ## Two modes, no hidden dependency
 
 The distributed HTML works immediately with a **local, rule-based conversational matcher**. It is not a live language model, and both the chat's mode label and disclosure say so. It recognizes common purchase-budget expressions, catalogue cities, property types, bedroom/bathroom/area bounds, numerical comparisons, and a bounded feature vocabulary. It remembers the conversation while you navigate or close the widget. Refreshing clears the chat; saved homes still use the ordinary workspace.

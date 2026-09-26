@@ -1,0 +1,464 @@
+{
+  "isolated": true,
+  "checks": [
+    {
+      "name": "Original discovery still shows 12 of 60 listings",
+      "passed": true
+    },
+    {
+      "name": "Listing opens the same home in the new workspace",
+      "passed": true
+    },
+    {
+      "name": "No household budget is invented on first visit",
+      "passed": true
+    },
+    {
+      "name": "All three decision tabs are available",
+      "passed": true
+    },
+    {
+      "name": "Explicit example budget is persisted with sample flag",
+      "passed": true
+    },
+    {
+      "name": "Monthly remainder matches an independently expected rounded result",
+      "passed": true
+    },
+    {
+      "name": "Cash after purchase matches the expected inputs",
+      "passed": true
+    },
+    {
+      "name": "A saved home appears in the baseline budget comparison",
+      "passed": true
+    },
+    {
+      "name": "20% income shock removes $1,400 per month",
+      "passed": true
+    },
+    {
+      "name": "Stress value recalculates as typed",
+      "passed": true
+    },
+    {
+      "name": "One-time repair preserves the monthly remainder",
+      "passed": true
+    },
+    {
+      "name": "One-time repair subtracts $5,000 from liquid cash",
+      "passed": true
+    },
+    {
+      "name": "Higher expenses reduce monthly remainder",
+      "passed": true
+    },
+    {
+      "name": "Blank ownership input marks stale results and disables exports",
+      "passed": true
+    },
+    {
+      "name": "Invalid input never overwrites valid persisted assumptions",
+      "passed": true
+    },
+    {
+      "name": "Zero-interest input is valid and computes immediately",
+      "passed": true
+    },
+    {
+      "name": "Typing keeps the focused input rather than rerendering the form",
+      "passed": true
+    },
+    {
+      "name": "Named life scenario saves a full frozen snapshot",
+      "passed": true
+    },
+    {
+      "name": "Real user-input plan is not labeled sample",
+      "passed": true
+    },
+    {
+      "name": "Negative monthly balance is not concealed",
+      "passed": true
+    },
+    {
+      "name": "Cash shortfall is displayed as additional cash needed",
+      "passed": true
+    },
+    {
+      "name": "Restoring snapshot asks before replacing household inputs",
+      "passed": true
+    },
+    {
+      "name": "Snapshot restores original budget and finance inputs",
+      "passed": true
+    },
+    {
+      "name": "Life export includes inputs, results, and privacy disclosure",
+      "passed": true
+    },
+    {
+      "name": "Workspace autocomplete narrows on every keystroke",
+      "passed": true
+    },
+    {
+      "name": "Typing a property does not change the home prematurely",
+      "passed": true
+    },
+    {
+      "name": "Choosing a result opens the chosen home",
+      "passed": true
+    },
+    {
+      "name": "Same household budget follows another property",
+      "passed": true
+    },
+    {
+      "name": "Together honestly discloses local-only collaboration",
+      "passed": true
+    },
+    {
+      "name": "No raw income or cash appears in shared participant cards",
+      "passed": true
+    },
+    {
+      "name": "Participant creation adds a second independent profile",
+      "passed": true
+    },
+    {
+      "name": "Conflicting bedroom requirements produce a concrete trade-off",
+      "passed": true
+    },
+    {
+      "name": "Shared stage persists per property",
+      "passed": true
+    },
+    {
+      "name": "Each participant can record a home-specific opinion and note",
+      "passed": true
+    },
+    {
+      "name": "Only explicit sharing exposes the calculated budget summary",
+      "passed": true
+    },
+    {
+      "name": "Even a shared summary omits raw income and available cash",
+      "passed": true
+    },
+    {
+      "name": "Profile switch loads a separate opinion",
+      "passed": true
+    },
+    {
+      "name": "New participant does not inherit another household budget",
+      "passed": true
+    },
+    {
+      "name": "Switching back restores the original budget",
+      "passed": true
+    },
+    {
+      "name": "Tour brief distinguishes unknown condition from factual defects",
+      "passed": true
+    },
+    {
+      "name": "Tour starts with unanswered questions",
+      "passed": true
+    },
+    {
+      "name": "A question cannot be answered without answer and source",
+      "passed": true
+    },
+    {
+      "name": "Recorded answer advances progress and preserves source",
+      "passed": true
+    },
+    {
+      "name": "Custom tour question can be added",
+      "passed": true
+    },
+    {
+      "name": "Visit plan saves locally without claiming a booking",
+      "passed": true
+    },
+    {
+      "name": "Tour export includes questions, answers, sources, and visit notes",
+      "passed": true
+    },
+    {
+      "name": "Tour export excludes household budget and life snapshots",
+      "passed": true
+    },
+    {
+      "name": "Tour export never implies independent verification",
+      "passed": true
+    },
+    {
+      "name": "Arrow keys navigate accessible tabs",
+      "passed": true
+    },
+    {
+      "name": "light life text contrast",
+      "passed": true
+    },
+    {
+      "name": "light together text contrast",
+      "passed": true
+    },
+    {
+      "name": "light tour text contrast",
+      "passed": true
+    },
+    {
+      "name": "dark life text contrast",
+      "passed": true
+    },
+    {
+      "name": "dark together text contrast",
+      "passed": true
+    },
+    {
+      "name": "dark tour text contrast",
+      "passed": true
+    },
+    {
+      "name": "light budget dialog text contrast",
+      "passed": true
+    },
+    {
+      "name": "dark answer dialog text contrast",
+      "passed": true
+    },
+    {
+      "name": "Full backup includes decisions and clearly separate private data",
+      "passed": true
+    },
+    {
+      "name": "Backup restore brings back participants, tour answers, notes, and budget",
+      "passed": true
+    },
+    {
+      "name": "Pre-1.4 backup migrates without inventing a budget",
+      "passed": true
+    },
+    {
+      "name": "Malformed decision state is preserved as recovery data",
+      "passed": true
+    },
+    {
+      "name": "Deleting a local profile keeps a valid remaining workspace",
+      "passed": true
+    },
+    {
+      "name": "Local assistant rankings still name the cheapest single-family home",
+      "passed": true
+    },
+    {
+      "name": "Assistant recommendation opens that home\u2019s decision workspace",
+      "passed": true
+    },
+    {
+      "name": "No connected AI is activated",
+      "passed": true
+    },
+    {
+      "name": "390px light life has no horizontal page overflow",
+      "passed": true
+    },
+    {
+      "name": "390px light life text contrast",
+      "passed": true
+    },
+    {
+      "name": "390px light together has no horizontal page overflow",
+      "passed": true
+    },
+    {
+      "name": "390px light together text contrast",
+      "passed": true
+    },
+    {
+      "name": "390px light tour has no horizontal page overflow",
+      "passed": true
+    },
+    {
+      "name": "390px light tour text contrast",
+      "passed": true
+    },
+    {
+      "name": "390px dark life has no horizontal page overflow",
+      "passed": true
+    },
+    {
+      "name": "390px dark life text contrast",
+      "passed": true
+    },
+    {
+      "name": "390px dark together has no horizontal page overflow",
+      "passed": true
+    },
+    {
+      "name": "390px dark together text contrast",
+      "passed": true
+    },
+    {
+      "name": "390px dark tour has no horizontal page overflow",
+      "passed": true
+    },
+    {
+      "name": "390px dark tour text contrast",
+      "passed": true
+    },
+    {
+      "name": "390px decision autocomplete stays within screen",
+      "passed": true
+    },
+    {
+      "name": "320px light life has no horizontal page overflow",
+      "passed": true
+    },
+    {
+      "name": "320px light together has no horizontal page overflow",
+      "passed": true
+    },
+    {
+      "name": "320px light tour has no horizontal page overflow",
+      "passed": true
+    },
+    {
+      "name": "320px dark life has no horizontal page overflow",
+      "passed": true
+    },
+    {
+      "name": "320px dark together has no horizontal page overflow",
+      "passed": true
+    },
+    {
+      "name": "320px dark tour has no horizontal page overflow",
+      "passed": true
+    },
+    {
+      "name": "320px decision autocomplete stays within screen",
+      "passed": true
+    },
+    {
+      "name": "768px light life has no horizontal page overflow",
+      "passed": true
+    },
+    {
+      "name": "768px light together has no horizontal page overflow",
+      "passed": true
+    },
+    {
+      "name": "768px light tour has no horizontal page overflow",
+      "passed": true
+    },
+    {
+      "name": "768px dark life has no horizontal page overflow",
+      "passed": true
+    },
+    {
+      "name": "768px dark together has no horizontal page overflow",
+      "passed": true
+    },
+    {
+      "name": "768px dark tour has no horizontal page overflow",
+      "passed": true
+    },
+    {
+      "name": "768px decision autocomplete stays within screen",
+      "passed": true
+    },
+    {
+      "name": "No uncaught JavaScript errors in new feature scenarios",
+      "passed": true
+    }
+  ],
+  "contrastAudits": [
+    {
+      "name": "light life",
+      "count": 177,
+      "min": 5.12,
+      "failures": []
+    },
+    {
+      "name": "light together",
+      "count": 111,
+      "min": 4.89,
+      "failures": []
+    },
+    {
+      "name": "light tour",
+      "count": 96,
+      "min": 5.12,
+      "failures": []
+    },
+    {
+      "name": "dark life",
+      "count": 176,
+      "min": 6.97,
+      "failures": []
+    },
+    {
+      "name": "dark together",
+      "count": 111,
+      "min": 6.67,
+      "failures": []
+    },
+    {
+      "name": "dark tour",
+      "count": 96,
+      "min": 7.14,
+      "failures": []
+    },
+    {
+      "name": "light budget dialog",
+      "count": 198,
+      "min": 5.12,
+      "failures": []
+    },
+    {
+      "name": "dark answer dialog",
+      "count": 106,
+      "min": 7.14,
+      "failures": []
+    },
+    {
+      "name": "390px light life",
+      "count": 151,
+      "min": 5.12,
+      "failures": []
+    },
+    {
+      "name": "390px light together",
+      "count": 87,
+      "min": 4.89,
+      "failures": []
+    },
+    {
+      "name": "390px light tour",
+      "count": 74,
+      "min": 5.12,
+      "failures": []
+    },
+    {
+      "name": "390px dark life",
+      "count": 151,
+      "min": 6.97,
+      "failures": []
+    },
+    {
+      "name": "390px dark together",
+      "count": 87,
+      "min": 6.67,
+      "failures": []
+    },
+    {
+      "name": "390px dark tour",
+      "count": 74,
+      "min": 7.14,
+      "failures": []
+    }
+  ],
+  "pageErrors": []
+}

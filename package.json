@@ -1,8 +1,8 @@
 {
   "name": "haven-property-workspace",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "private": true,
-  "description": "A local-first real estate discovery and investment analysis portfolio app.",
+  "description": "A local-first home-decision workspace: household planning, local collaboration, and tour preparation.",
   "type": "module",
   "scripts": {
     "build": "tsc && node scripts/build.mjs",

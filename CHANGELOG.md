@@ -1,3 +1,14 @@
+# 1.4.0 — The home decision workspace
+
+- Added Your Life Here: per-profile budgets, owner-occupant costs, explicit sample inputs, one-at-a-time stress scenarios, cash shortfalls, saved-home comparisons, full-input snapshots, and CSV exports.
+- Added Together: up to eight local participants, per-person priorities and opinions, shared stages, conservative common-fit logic, and opt-in summary display. Not secure accounts or online collaboration.
+- Added Before You Tour: source-labeled briefs, adaptive unknown-information questions, required answer/source for completion, custom questions, visit notes, and budget-free text exports.
+- Added entry points from navigation, discovery cards, listing details, and assistant recommendations; reused per-keystroke autocomplete.
+- Extended all semantic themes and responsive layouts. Fixed workspace-picker focus reopening and mobile table/popup overflow during browser tests.
+- Migrates old backups without introducing a personal budget. Full exports now include all profile budgets, with explicit privacy notice.
+- Preserved all 60 fixture records. Live AI remains optional and unconfigured; no new personal workspace data is attached to provider requests.
+- Verified strict build, 241 unit/server tests, and 391 browser assertions across five suites using isolated storage.
+
 # Changelog
 
 ## 1.3.0 — Real comparisons, a calmer dark mode

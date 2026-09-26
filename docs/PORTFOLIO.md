@@ -1,3 +1,15 @@
+# Haven 1.4 — portfolio extension
+
+The latest work adds an explicit owner-occupant household-budget model, property-specific scenarios, local multi-profile decision-making, and sourced tour research. Use these as discussion points, not claims of a production or deployed multiuser service.
+
+Useful interview topics: pure calculation functions and budget conservation; one-time versus recurring cash flows; nullable personal data and explicit sample inputs; strict backward-compatible import validation; per-participant presentation rules versus real access control; unknown versus unmet requirements; frozen snapshots versus current property facts; accessible tabs and autocomplete; browser test scope and its limitations.
+
+Understand and modify the code yourself before representing its development as your own work. Do not describe the local parser as a live LLM, the profile selector as secure authentication, or fictional figures as real market data.
+
+A possible honest project description after you have worked with and can explain the implementation:
+
+> Built and extended a TypeScript home-decision prototype with household-budget modeling, per-profile scenarios, shared-priority comparisons, and sourced tour checklists. Added backward-compatible workspace imports, accessible interactions, and automated tests. Uses fictional property data and browser-local storage.
+
 # Turn Haven into an internship portfolio project
 
 ## Three real-estate project directions

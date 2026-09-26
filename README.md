@@ -1,14 +1,38 @@
 # Haven
 
-**Good places. Better possibilities.**
+**Find your home. Understand your next move.**
 
-A real-estate discovery and investment-analysis workspace built with TypeScript, CSS, and native browser APIs. Explore a property, compare the numbers, model a scenario, and save a decision.
+A home-decision workspace built with TypeScript, CSS, and native browser APIs. Explore a home, see what life there would cost, compare household priorities, and prepare better tour questions.
 
 This is a working local-first portfolio prototype, not a live listing service. All 60 starter properties across 20 cities use fictional addresses, neighborhood labels, prices, rents, and costs. The default interest rate is illustrative, not a current quote. There is no account system or live MLS integration. A backend is not required; an optional server-side AI interpreter is included for explicit opt-in use.
 
-![Haven in its complete dark appearance](docs/dark-discover.png)
+![Your Life Here, in Haven’s light appearance](docs/decision-life-light.png)
 
-## What changed in 1.3
+## What changed in 1.4
+
+**One home. Three perspectives.** Choose **Home workspace** in the sidebar, **Explore your life here** on a discovery card, **Explore this home** in listing details, or the new action on an assistant recommendation. The original discovery, compare, and investment tools remain available.
+
+### Your Life Here
+
+Set a household plan once: take-home income, non-housing expenses, savings goal, cash available for the move, and a monthly cushion target. No personal numbers are prefilled; an explicit **Explore with a sample budget** action provides labeled examples. Adjust financing, taxes, insurance, association fees, utilities, mortgage insurance, maintenance, and upfront costs. See money left per month, cash needed to close and move, and remaining cash. Test income loss, higher non-housing expenses, or a one-time repair. These are independent scenarios, not silently combined. Negative balances and cash shortfalls remain visible.
+
+Save frozen, named life scenarios, inspect or reload their inputs with confirmation, compare every saved home under the same household plan, and export full-input CSV reports. Invalid values pause saving/export and clearly mark the previous valid result as stale.
+
+### Haven Together
+
+Create up to eight **local demo profiles**, each with separate priorities, budgets, ownership inputs, and property opinions. A shared shortlist checks the known data against every participant’s stated requirements and separates conflicts from unverified criteria. Track a shared stage per property and save each participant’s note.
+
+There is **no account system, secure profile isolation, invitation, or cross-device synchronization**. Anybody using this browser can switch profiles. Raw budgets are omitted from Together; a participant can explicitly share their calculated monthly remainder. This is a presentation setting, not security. Full backups contain every profile’s financial inputs.
+
+### Know Before You Tour
+
+A per-home decision brief summarizes known fit, concrete trade-offs, and missing information. Question checklists adapt to property type and priorities. Record an answer and its source before marking a question answered, add your own questions, and save local visit plans and notes. Export a portable text brief **without household budgets**. An answer remains user-recorded, not independently verified; a visit date is not a booking or calendar invitation. Source references are text; documents are not uploaded or fetched.
+
+**Live AI is intentionally held off.** The existing bounded local matcher still works, and its cards link directly to the new workspace. The optional backend integration is retained but requires a separately configured private API key and explicit chat opt-in. No key is included, no live provider has been activated or verified, and new budgets/profiles/tour data are not attached to model requests. See [home workspace details](docs/HOME-WORKSPACE.md) and [AI scope](docs/ASSISTANT.md).
+
+All new surfaces support the existing light/dark/system themes, mobile layouts, reduced motion, keyboard tabs and autocomplete. Older Haven backups migrate automatically, preserving their saved homes and adding an empty decision workspace.
+
+## What changed in 1.3 (previous release)
 
 **Ask Haven now answers data-comparison requests immediately.** “Cheapest house,” “the biggest place,” “most bedrooms,” “something affordable,” and other supported criteria filter and rank the entire 60-listing catalogue without a required city, budget or questionnaire. Cards and the answer name the winner, report actual fixture numbers, explain the sort order and scope, and disclose ties. Subsequent filters and “Show more matches” keep the same ranking. Price, area, beds, baths, year built, HOA, tax, insurance, sample rent, price per square foot and explicitly labeled model-derived metrics are supported.
 
@@ -54,7 +78,7 @@ npm start
 
 Open `http://localhost:3000` in your browser. Keep the terminal running; press Ctrl+C to stop. Set the `PORT` environment variable when port 3000 is already in use.
 
-The fully bundled version is at `http://localhost:3000/dist/index.html`. It is also distributed separately as `Haven.html`: one file containing the application, styles, and original illustration code. Open that file in a modern browser for a quick look. Browser handling of local-file storage varies, so use the local server or a static HTTPS deployment for reliable workspace saving.
+The fully bundled version is at `http://localhost:3000/dist/index.html`. It is also distributed separately as `Haven-v1.4.html`: one file containing the application, styles, and original illustration code. Open that file in a modern browser for a quick look. Browser handling of local-file storage varies, so use the local server or a static HTTPS deployment for reliable workspace saving.
 
 No API key, database configuration, remote script, or external font is required for the local demo. Live AI is optional and needs the server described in [the assistant guide](docs/ASSISTANT.md).
 
@@ -62,6 +86,7 @@ No API key, database configuration, remote script, or external font is required 
 
 | Area | Implemented behavior |
 | --- | --- |
+| Home workspace | Per-home three-tab decision tools, one household plan per local profile, scenario snapshots, shared priorities and notes, sourced tour checklists, validated backup migration. |
 | Assistant | Persistent widget, multi-turn preference collection, catalogue-grounded recommendations, explanations, refinements, saving, details, calculator actions, explicit local/live mode labeling. |
 | Calculator search | Per-keystroke suggestions across all demo and custom properties, keyboard navigation, illustrated options and safe selection/restore behavior. |
 | Discovery | Live search; city, budget, bedroom, area, cash-flow and property-type filters; five sort options; progressive loading; grid/list layouts; empty states; named saved searches. |

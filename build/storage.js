@@ -1,6 +1,7 @@
+import { freshDecisions, parseDecisions } from './decision-engine.js';
 import { validateAssumptions } from './finance.js';
 export const STORAGE_KEY = 'haven.workspace.v1';
-export const freshWorkspace = () => ({ version: 1, savedIds: [], compareIds: [], customProperties: [], notes: {}, searches: [], scenarios: [] });
+export const freshWorkspace = () => ({ version: 1, decisions: freshDecisions(), savedIds: [], compareIds: [], customProperties: [], notes: {}, searches: [], scenarios: [] });
 const isRecord = (x) => !!x && typeof x === 'object' && !Array.isArray(x);
 const shortString = (x, max = 500) => typeof x === 'string' && x.length <= max;
 export function validProperty(x) {
@@ -54,7 +55,7 @@ export function parseWorkspace(raw) {
     if (ids.some(id => !/^custom-[A-Za-z0-9-]+$/.test(id)))
         throw new Error('Custom property IDs must use the custom- prefix and letters, numbers, or hyphens.');
     const result = w;
-    return { ...result, savedIds: [...new Set(result.savedIds)], compareIds: [...new Set(result.compareIds)].slice(0, 3), customProperties: result.customProperties.map(p => ({ ...p, custom: true })) };
+    return { ...result, decisions: parseDecisions(w.decisions), savedIds: [...new Set(result.savedIds)], compareIds: [...new Set(result.compareIds)].slice(0, 3), customProperties: result.customProperties.map(p => ({ ...p, custom: true })) };
 }
 export function loadWorkspace() {
     try {

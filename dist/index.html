@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#285440">
-  <meta name="description" content="Haven: a local-first property discovery, comparison, and investment scenario workspace. Fictional starter data. Transparent assumptions.">
+  <meta name="description" content="Haven: a local-first home-decision workspace for your budget, shared priorities, and tour questions. Fictional starter data. Transparent assumptions.">
   <title>Haven · Good places. Better possibilities.</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='9' fill='%23285440'/%3E%3Cpath d='m8 19 12-11 12 11v13h-9V21h-6v11H8Z' fill='%23edf3e7'/%3E%3C/svg%3E">
   <meta name="color-scheme" content="light dark">
@@ -1268,6 +1268,216 @@ input::placeholder,textarea::placeholder{color:var(--muted);opacity:1}
   .type-tabs{flex-wrap:wrap}
 }
 
+/* HOME DECISION WORKSPACE · v1.4. Semantic tokens keep every surface in both themes. */
+.card-decision-link{display:flex;align-items:center;justify-content:space-between;width:calc(100% - 34px);margin:0 17px 15px;padding:10px 0 0;border-top:1px solid var(--line);color:var(--green);font-size:10px;font-weight:550;text-align:left}
+.card-decision-link .icon{width:14px;height:14px}
+@media(min-width:431px){.list-layout .card-decision-link{grid-column:2;margin:0 24px 15px;width:calc(100% - 48px)}.list-layout .property-media{grid-row:1 / 3}}
+.assistant-workspace-link{display:flex;gap:8px;align-items:center;padding:12px 14px;border-top:1px solid var(--line);width:100%;text-align:left;font-size:10px;color:var(--green)}
+.assistant-workspace-link .icon{width:14px}
+.decision-page{padding-bottom:22px}
+.decision-heading{display:flex;align-items:center;justify-content:space-between;gap:22px;margin:4px 0 28px}
+.decision-heading h1{font-family:Georgia,serif;font-size:40px;font-weight:400;letter-spacing:-1.5px;margin:13px 0 12px;color:var(--ink)}
+.decision-heading h1>span{color:var(--green)}
+.decision-heading>div>p{font-size:12px;color:var(--muted)}
+.decision-profile{min-width:148px;display:flex;flex-direction:column;gap:6px}
+.decision-profile>span{font-size:8px;letter-spacing:1.3px;color:var(--muted);font-weight:600}
+.decision-profile select,.decision-page select{border:1px solid var(--line);border-radius:8px;padding:10px 32px 10px 12px;color:var(--ink);background-color:var(--white);max-width:100%;font-size:12px}
+.decision-home-selector{max-width:640px;position:relative;z-index:6;margin-bottom:16px}
+.decision-home-selector .property-picker{margin:0;width:100%} .decision-home-selector .picker-popup{left:0;right:0;min-width:0}
+.decision-home-selector .property-picker>label{font-size:8px}
+.decision-home-selector .picker-input-wrap{background:var(--white)}
+.decision-property{border:1px solid var(--line);border-radius:14px;background:var(--white);display:flex;gap:26px;align-items:center;padding:12px;margin-bottom:16px}
+.decision-property>img{width:182px;height:144px;object-fit:cover;border-radius:9px;flex:none}
+.decision-property-copy{flex:1;min-width:0;padding:8px 0}
+.decision-property-copy h2{font-size:23px;font-family:Georgia,serif;font-weight:400;letter-spacing:-.5px;margin:9px 0 5px;overflow-wrap:anywhere}
+.decision-property-copy>p{font-size:11px;color:var(--muted)}
+.decision-specs{display:flex;gap:15px;flex-wrap:wrap;font-size:10px;margin-top:15px;color:var(--muted)}
+.decision-specs>span{display:flex;align-items:center;gap:5px}
+.decision-specs .icon{height:14px;width:14px}
+.decision-property-side{padding:12px;text-align:right;flex:none}
+.decision-property-side>strong{font-size:26px;letter-spacing:-.8px;display:block;font-weight:500}
+.decision-property-side>span{font-size:9px;color:var(--muted)}
+.decision-property-side>div{display:flex;gap:16px;align-items:center;margin-top:16px;justify-content:flex-end}
+.decision-stamp{display:inline-flex;align-items:center;gap:4px;border:1px solid var(--line);background:var(--soft);color:var(--muted);font-size:8px;letter-spacing:.15px;font-weight:500;border-radius:5px;padding:4px 7px;line-height:1.4;white-space:nowrap}
+.decision-tabs{display:flex;gap:30px;border-bottom:1px solid var(--line);margin:22px 0 28px}
+.decision-tabs button{display:flex;align-items:center;gap:9px;position:relative;font-size:12px;padding:15px 2px;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-1px}
+.decision-tabs button[aria-selected="true"]{color:var(--green);border-bottom-color:var(--green);font-weight:600}
+.decision-tabs .icon{height:16px;width:16px}
+.decision-tab-number{font-size:8px;letter-spacing:.3px;opacity:.8;margin-right:3px}
+.decision-section-heading{display:flex;align-items:center;justify-content:space-between;gap:18px;margin:0 0 23px}
+.decision-section-heading h2{font-size:21px;line-height:1.35;letter-spacing:-.5px;font-weight:500}
+.decision-section-heading p{font-size:11px;margin-top:6px;color:var(--muted)}
+.decision-card{border:1px solid var(--line);background:var(--white);border-radius:12px;padding:23px}
+.decision-card-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:20px}
+.decision-card-heading h3{font-size:14px;font-weight:550;letter-spacing:-.15px;line-height:1.4}
+.decision-card-heading p{font-size:10px;color:var(--muted);line-height:1.7;margin-top:5px}
+.decision-card-heading>.icon{width:18px;height:18px;color:var(--muted)}
+.life-grid{display:grid;grid-template-columns:minmax(0,1.06fr) minmax(0,.94fr);gap:23px;align-items:start}
+.life-inputs,.life-results{display:grid;gap:18px;min-width:0}
+.life-results{position:sticky;top:18px}
+.household-card{background:var(--soft)}
+.household-values{display:grid;grid-template-columns:1fr 1fr;gap:21px}
+.household-values span{display:block;font-size:9px;color:var(--muted);margin-bottom:3px}
+.household-values strong{font-size:21px;font-weight:500;letter-spacing:-.5px}
+.decision-micro{font-size:10px;color:var(--muted);line-height:1.7;margin-top:12px}
+.decision-micro .icon{width:13px;height:13px;margin-right:4px}
+.decision-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:17px 16px;margin-top:15px}
+.decision-form-grid .form-field{margin:0}
+.decision-form-grid .full{grid-column:1/-1}
+.decision-page .form-field{display:flex;flex-direction:column;gap:7px}
+.decision-page .form-field>span{font-size:10px;color:var(--ink)}
+.decision-page .form-field input,.decision-page .form-field textarea,.decision-page .form-field select{border:1px solid var(--line);border-radius:7px;background:var(--paper);padding:11px 12px;color:var(--ink);font-size:13px;width:100%}
+.decision-page .form-field textarea{resize:vertical;line-height:1.7}
+.decision-page input[aria-invalid="true"]{border-color:var(--negative);outline:1px solid var(--negative)}
+.decision-page input::placeholder,.decision-page textarea::placeholder{color:var(--muted);opacity:1}
+.decision-form-grid .form-field small,.decision-page .form-field small{font-size:9px;color:var(--muted);line-height:1.55}
+.decision-accordion{border-top:1px solid var(--line);padding:16px 0}
+.decision-accordion:first-child{border-top:0;padding-top:0}
+.decision-accordion summary{display:flex;justify-content:space-between;align-items:center;font-size:11px;font-weight:550;list-style:none;cursor:pointer;gap:10px}
+.decision-accordion summary::-webkit-details-marker{display:none}
+.decision-accordion summary>.icon{width:14px;height:14px;transition:transform .2s}
+.decision-accordion[open] summary>.icon{transform:rotate(180deg)}
+.decision-accordion:last-of-type{padding-bottom:0}
+.decision-error{font-size:11px;line-height:1.6;color:var(--negative);margin-top:12px}
+.decision-error:empty{display:none}
+.decision-disclosure{font-size:10px;line-height:1.7;color:var(--muted);display:flex;gap:7px;margin-top:15px}
+.decision-disclosure>.icon{width:14px;height:14px;margin-top:2px}
+.decision-checkbox{display:flex;align-items:flex-start;gap:9px;font-size:11px;line-height:1.65;margin:16px 0 0;color:var(--ink);cursor:pointer}
+.decision-checkbox input{accent-color:var(--green);width:15px;height:15px;margin:2px 0 0;flex:none}
+.decision-check-row{display:flex;gap:22px;flex-wrap:wrap;margin:0 0 18px}
+.decision-money-field{display:flex;align-items:center;gap:5px;border:1px solid var(--line);border-radius:7px;padding-left:12px;background:var(--paper)}
+.decision-money-field>span{font-size:12px;color:var(--muted)}
+.form-field .decision-money-field input{border:none!important;background:transparent;padding-left:3px;width:100%;color:var(--ink)}
+.decision-form-grid+.decision-checkbox{margin-top:22px}
+.stress-tabs{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.stress-tabs button{border:1px solid var(--line);background:var(--paper);border-radius:7px;padding:10px 7px;font-size:10px;color:var(--muted)}
+.stress-tabs button[aria-pressed="true"]{background:var(--sage);border-color:var(--line-strong);color:var(--green)}
+.stress-value{margin-top:20px}
+.life-outcome{border-radius:12px;padding:25px;background:var(--strong);color:var(--on-strong)}
+.life-outcome-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:29px;font-size:10px;color:var(--on-strong-muted)}
+.life-outcome .decision-stamp{background:transparent;border-color:var(--strong-line);color:var(--on-strong-muted)}
+.life-outcome-label{display:block;font-size:11px;color:var(--on-strong-muted);margin-bottom:6px}
+.life-outcome>strong{font-size:49px;font-family:Georgia,serif;letter-spacing:-1.5px;font-weight:400;line-height:1.3;display:block}
+.life-outcome>strong small{font-size:12px;letter-spacing:0;font-family:Inter,-apple-system,sans-serif;font-weight:400;margin-left:7px;color:var(--on-strong-muted)}
+.life-outcome>p{color:var(--on-strong-muted);font-size:10px;margin:7px 0 20px}
+.life-cushion{border-top:1px solid var(--strong-line);padding-top:17px;display:flex;align-items:flex-start;gap:8px;font-size:10px;line-height:1.6}
+.life-cushion>.icon{width:14px;height:14px;margin-top:1px}
+.decision-line{display:flex;gap:18px;justify-content:space-between;align-items:baseline;margin-top:11px;font-size:11px;line-height:1.5}
+.decision-line>span{color:var(--muted)}
+.decision-line>strong{font-weight:500;white-space:nowrap}
+.decision-line-total{padding-top:13px;border-top:1px solid var(--line);margin-top:15px}
+.decision-line-total>span,.decision-line-total>strong{color:var(--ink);font-weight:600}
+.life-breakdown .decision-accordion{margin-top:18px;padding-top:16px}
+.housing-items{padding-top:5px}
+.housing-items .decision-line{font-size:10px}
+.cash-remainder{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:17px 14px;background:var(--soft);border-radius:8px;margin-top:19px;color:var(--green)}
+.cash-remainder>span{font-size:11px}
+.cash-remainder>strong{font-size:22px;letter-spacing:-.5px;font-weight:500}
+.cash-remainder.has-shortfall{background:var(--negative-bg);color:var(--negative)}
+.decision-result-actions{display:flex;gap:10px}
+.decision-result-actions>.primary{flex:1}
+.life-no-budget{border:1px solid var(--line);border-radius:13px;padding:44px 34px;background:var(--soft);display:flex;align-items:flex-start;flex-direction:column;gap:17px}
+.decision-symbol{width:40px;height:40px;border:1px solid var(--line);background:var(--white);border-radius:12px;display:grid;place-items:center;color:var(--green)}
+.life-no-budget h2{font-family:Georgia,serif;font-size:27px;font-weight:400;line-height:1.25}
+.life-no-budget p{font-size:12px;line-height:1.8;color:var(--muted)}
+.life-no-budget small{font-size:10px;line-height:1.7;color:var(--muted)}
+.life-compare,.life-snapshots{margin-top:24px}
+.decision-table-wrap{position:relative;overflow:auto;max-height:440px;max-width:100%}
+.decision-table-wrap table{border-collapse:collapse;width:100%;font-size:11px;text-align:left;min-width:510px}
+.decision-table-wrap th{padding:9px 12px;border-bottom:1px solid var(--line);font-size:9px;letter-spacing:.2px;color:var(--muted);font-weight:500;white-space:nowrap}
+.decision-table-wrap td{padding:16px 12px;border-bottom:1px solid var(--line);vertical-align:middle}
+.decision-table-wrap tr:last-child td{border-bottom:0}
+.decision-table-wrap td>strong{font-size:11px;display:block}
+.decision-table-wrap td>small{font-size:9px;color:var(--muted);display:block;margin-top:4px;max-width:310px}
+.decision-table-wrap th:first-child,.decision-table-wrap td:first-child{padding-left:0}
+.decision-negative{color:var(--negative)}
+.decision-empty-copy{font-size:11px;line-height:1.8;color:var(--muted)}
+.snapshot-list{display:grid}
+.snapshot-list article{display:flex;align-items:center;gap:12px;border-top:1px solid var(--line);padding:16px 0}
+.snapshot-list article:first-child{border-top:0;padding-top:0}
+.snapshot-list article:last-child{padding-bottom:0}
+.snapshot-list article>span{color:var(--green)}
+.snapshot-list article>div{flex:1;min-width:0}
+.snapshot-list strong{font-size:12px;font-weight:550;overflow-wrap:anywhere}
+.snapshot-list p{font-size:10px;line-height:1.7;color:var(--muted);margin-top:4px}
+.decision-local-notice{display:flex;gap:11px;align-items:flex-start;background:var(--soft);border:1px solid var(--line);border-radius:9px;padding:13px 16px;margin-bottom:22px;color:var(--muted)}
+.decision-local-notice>.icon{height:16px;width:16px;margin-top:1px}
+.decision-local-notice p{font-size:10px;line-height:1.8}
+.decision-local-notice strong{color:var(--ink)}
+.together-summary{display:flex;justify-content:space-between;align-items:center;gap:22px;padding:23px;background:var(--hero);border:1px solid var(--line);border-radius:12px;margin-bottom:20px}
+.together-summary h3{font-family:Georgia,serif;font-size:25px;font-weight:400;line-height:1.3;margin:10px 0 6px;color:var(--green)}
+.together-summary p{font-size:11px;color:var(--muted);max-width:500px}
+.together-summary .form-field{min-width:180px;margin:0}
+.participant-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.participant-grid>.participant-card:only-child{max-width:580px;grid-column:1/-1;width:100%}
+.person-heading{display:flex;align-items:center;gap:12px;margin-bottom:21px}
+.person-avatar{width:38px;height:38px;display:grid;place-items:center;background:var(--sage);border:1px solid var(--line);color:var(--green);border-radius:50%;font-family:Georgia,serif;font-size:21px;flex:none}
+.person-heading>div{flex:1;min-width:0}
+.person-heading h3{font-size:14px;overflow-wrap:anywhere}
+.person-heading small{font-size:9px;color:var(--muted)}
+.fit-point{display:flex;align-items:flex-start;gap:9px;margin:14px 0}
+.fit-point>.icon{width:15px;height:15px;color:var(--muted);margin-top:2px}
+.fit-point.fits>.icon{color:var(--green)}
+.fit-point.tradeoff>.icon{color:var(--negative)}
+.fit-point p{font-size:11px;line-height:1.7}
+.fit-point strong{display:block;font-weight:550}
+.fit-point span{display:block;color:var(--muted);font-size:10px}
+.person-review{border-top:1px solid var(--line);padding-top:16px;margin-top:20px}
+.person-review p{font-size:11px;line-height:1.8;margin-top:9px;color:var(--muted);white-space:pre-wrap;overflow-wrap:anywhere}
+.decision-private{font-size:9px;color:var(--muted);padding-top:14px;margin-top:16px;border-top:1px solid var(--line)}
+.shared-budget-summary{padding:14px;border-radius:7px;background:var(--soft);margin-top:16px}
+.shared-budget-summary>span,.shared-budget-summary>small{font-size:9px;color:var(--muted);display:block;line-height:1.7}
+.shared-budget-summary>strong{font-size:17px;color:var(--green);display:block;font-weight:500;margin:4px 0}
+.decision-remove-person{font-size:9px;margin-top:12px}
+.together-work{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:20px;margin:22px 0}
+.opinion-options{border:0;padding:0;margin:0 0 20px;display:flex;gap:8px}
+.opinion-options label{position:relative;flex:1;cursor:pointer}
+.opinion-options input{position:absolute;opacity:0;width:1px;height:1px}
+.opinion-options span{display:block;border:1px solid var(--line);border-radius:7px;padding:10px 6px;text-align:center;font-size:10px;color:var(--muted)}
+.opinion-options input:checked+span{background:var(--sage);border-color:var(--line-strong);color:var(--green)}
+.opinion-options input:focus-visible+span{outline:2px solid var(--focus);outline-offset:3px}
+.decision-inline-actions{display:flex;align-items:center;gap:15px;margin-top:16px}
+.privacy-card{background:var(--soft)}
+.privacy-card h3{font-size:18px;font-family:Georgia,serif;font-weight:400;margin:15px 0 10px}
+.privacy-card>p:not(.decision-micro){font-size:11px;color:var(--muted);line-height:1.8}
+.tour-brief-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px;margin-bottom:24px}
+.tour-brief-grid .decision-card{padding:21px}
+.tour-brief-grid .eyebrow{font-size:8px;letter-spacing:1px}
+.tour-brief-grid h3{font-family:Georgia,serif;font-size:20px;line-height:1.3;font-weight:400;margin:15px 0}
+.brief-point{display:flex;gap:8px;font-size:10px;line-height:1.8;color:var(--muted);margin-top:12px}
+.brief-point>.icon{height:13px;width:13px;margin-top:3px;color:var(--green)}
+.brief-source{display:block;font-size:8px;color:var(--muted);margin-top:16px}
+.tour-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:23px;align-items:start}
+.tour-progress{display:block;width:100%;height:4px;appearance:none;border:0;background:var(--soft);border-radius:8px;margin:0 0 8px;color:var(--green)}
+.tour-progress::-webkit-progress-bar{background:var(--soft);border-radius:8px}
+.tour-progress::-webkit-progress-value{background:var(--green);border-radius:8px}
+.tour-progress::-moz-progress-bar{background:var(--green);border-radius:8px}
+.tour-question{display:flex;align-items:flex-start;gap:12px;padding:18px 0;width:100%;text-align:left;border-bottom:1px solid var(--line)}
+.tour-question>.icon{height:13px;width:13px;margin-top:5px;color:var(--muted);margin-left:auto}
+.tour-question>span:nth-child(2){flex:1;min-width:0}
+.question-check{display:grid;place-items:center;height:22px;width:22px;border:1px solid var(--line);border-radius:50%;background:var(--paper);color:var(--muted);flex:none;margin-top:2px}
+.question-check>.icon{height:12px;width:12px}
+.tour-question.resolved .question-check{background:var(--sage);border-color:var(--line-strong);color:var(--green)}
+.tour-question strong{display:block;font-size:11px;font-weight:500;line-height:1.7;overflow-wrap:anywhere}
+.tour-question em{display:block;font-size:9px;color:var(--muted);margin-top:7px;overflow-wrap:anywhere}
+.tour-question small{display:block;font-size:10px;color:var(--muted);margin-top:7px;line-height:1.7;overflow-wrap:anywhere}
+.tour-question:hover strong{color:var(--green)}
+.tour-add-question{display:flex;align-items:flex-end;gap:12px;margin-top:22px}
+.tour-add-question .form-field{flex:1;margin:0;min-width:0}
+.tour-add-question .btn{height:42px}
+.tour-notes .form-field{margin-bottom:20px}
+.tour-note-tip{margin-top:26px;border-top:1px solid var(--line);padding-top:20px}
+.tour-note-tip p{font-size:10px;color:var(--muted);line-height:1.8;margin-top:9px}
+.decision-bottom-note{display:flex;gap:7px;align-items:flex-start;font-size:9px;line-height:1.8;color:var(--muted);margin-top:30px}
+.decision-bottom-note>.icon{width:13px;height:13px;margin-top:2px}
+.detail-actions{flex-wrap:wrap}
+@media(min-width:1100px){.decision-page{padding-top:5px}.decision-property{padding-right:15px}}
+@media(max-width:1100px){.decision-property{gap:16px}.decision-property>img{width:135px;height:135px}.decision-property-copy h2{font-size:22px}.decision-property-side>strong{font-size:23px}.decision-card{padding:19px}.decision-specs{gap:9px}.life-outcome{padding:21px}.life-outcome>strong{font-size:42px}.tour-brief-grid{grid-template-columns:1fr}.tour-brief-grid .decision-card{padding:20px}.tour-brief-grid h3{margin:10px 0}.tour-grid{grid-template-columns:1fr}.tour-notes textarea{min-height:140px}}
+@media(max-width:960px){.life-grid,.together-work{grid-template-columns:1fr}.life-results{position:static}.life-no-budget{grid-row:1}.life-grid:has(.life-no-budget) .life-results{grid-row:1}.decision-heading h1{font-size:33px}.participant-grid{grid-template-columns:1fr}.participant-grid>.participant-card:only-child{max-width:none}.decision-property>img{width:110px;height:115px}.decision-property-side>div{gap:9px}.decision-property-side .text-button{display:none}.decision-property-side{padding:7px}.decision-tabs{gap:23px}.decision-tab-number{display:none}.together-summary{align-items:flex-start;flex-direction:column}.together-summary .form-field{width:100%}.life-grid:not(:has(.life-no-budget)) .life-results{grid-row:1}.life-inputs{grid-template-columns:1fr}.household-card{grid-column:1/-1}}
+@media(max-width:780px){.decision-heading h1{font-size:36px}.decision-property{gap:18px}.decision-property>img{width:125px;height:122px}.decision-property-side>strong{font-size:24px}.decision-property-side .text-button{display:inline-flex}.decision-profile{min-width:145px}.decision-heading{margin-top:2px}.decision-home-selector{max-width:none}.decision-section-heading{margin-top:2px}.decision-tabs{gap:30px}.decision-tabs button{font-size:12px}.tour-brief-grid{grid-template-columns:1fr}.decision-page{padding-bottom:40px}.life-outcome>strong{font-size:50px}.life-inputs{display:grid;grid-template-columns:1fr}.life-results{grid-template-columns:1fr}.decision-local-notice{padding:12px}}
+@media(max-width:560px){.decision-heading{display:block;margin-bottom:22px}.decision-heading h1{font-size:34px;line-height:1.15}.decision-heading .eyebrow{font-size:7px;letter-spacing:1.15px}.decision-heading>div>p{font-size:11px;line-height:1.7;max-width:280px}.decision-profile{margin-top:20px;display:flex;flex-direction:row;align-items:center;justify-content:space-between;gap:16px;border-top:1px solid var(--line);padding-top:14px}.decision-profile select{width:172px;padding-top:8px;padding-bottom:8px;font-size:11px}.decision-property{display:grid;grid-template-columns:90px 1fr;gap:12px;padding:10px;align-items:start}.decision-property>img{width:90px;height:120px;grid-row:1}.decision-property-copy{padding:1px 0}.decision-property-copy h2{font-size:22px;margin:7px 0}.decision-property-copy>p{font-size:10px}.decision-specs{font-size:9px;margin-top:10px;gap:9px}.decision-specs>span:last-child{display:none}.decision-property-side{grid-column:1/-1;padding:9px 2px 2px;border-top:1px solid var(--line);display:grid;grid-template-columns:1fr auto;text-align:left;align-items:center;gap:1px}.decision-property-side>strong{font-size:23px}.decision-property-side>span{grid-row:2;font-size:9px}.decision-property-side>div{grid-column:2;grid-row:1/3;margin-top:0;gap:12px}.decision-property-side .text-button{font-size:10px}.decision-property .decision-stamp{font-size:7px;padding:3px 5px;white-space:normal}.decision-tabs{gap:0;justify-content:space-between;margin-top:20px;margin-bottom:24px}.decision-tabs button{font-size:10px;gap:6px;padding:14px 0}.decision-tabs .icon{height:14px;width:14px}.decision-section-heading{align-items:flex-start;flex-direction:column;gap:12px}.decision-section-heading h2{font-size:22px;max-width:320px}.decision-section-heading p{font-size:11px;line-height:1.8}.decision-card{padding:19px}.decision-card-heading h3{font-size:15px}.decision-card-heading p{font-size:10px}.decision-form-grid{gap:16px 12px}.decision-page .form-field>span{font-size:10px}.decision-page .form-field input{font-size:14px;padding:11px}.life-no-budget{padding:28px 23px}.life-no-budget h2{font-size:26px}.life-no-budget p{font-size:12px}.life-outcome{padding:24px}.life-outcome>strong{font-size:47px}.life-outcome-top{margin-bottom:25px}.decision-line{font-size:12px}.household-values strong{font-size:23px}.decision-bottom-note{font-size:9px}.snapshot-list article{gap:8px;flex-wrap:wrap}.snapshot-list article>div{min-width:150px}.together-summary h3{font-size:24px}.together-summary{padding:20px}.person-heading h3{font-size:16px}.fit-point p{font-size:12px}.fit-point span{font-size:11px}.tour-brief-grid h3{font-size:22px}.brief-point,.tour-brief-grid .decision-empty-copy{font-size:11px}.tour-question strong{font-size:12px}.tour-add-question{display:block}.tour-add-question .btn{margin-top:12px}.opinion-options span{font-size:11px}.decision-money-field input{min-width:0}.decision-check-row{gap:15px}.tour-notes textarea{min-height:160px}.decision-page select{font-size:13px}}
+@media(prefers-reduced-motion:no-preference){#decision-panel{animation:decision-in .24s ease-out}@keyframes decision-in{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}.decision-property,.decision-card{transition:border-color .18s ease,background-color .18s ease}.cash-remainder{transition:background-color .2s ease}}
+
 </style>
 </head>
 <body>
@@ -1600,10 +1810,168 @@ const seedProperties = fixtureRows.map((r, index) => ({
 }));
 
 return {seedProperties};})();
+__modules["decision-engine.js"]=(()=>{
+const { mortgagePayment } = __modules["finance.js"];
+const stages = ['Considering', 'Want to tour', 'Need answers', 'Final shortlist'];
+const stressNames = { baseline: 'My everyday plan', income: 'Less income', expenses: 'Higher expenses', repair: 'Unexpected repair' };
+const emptyPriorities = () => ({ city: '', type: '', maxPrice: 0, minBeds: 0, minSqft: 0, outdoor: false, light: false, notes: '' });
+const newParticipant = (id = 'person-me', name = 'You') => ({ id, name, budget: null, priorities: emptyPriorities(), shareBudget: false, life: {} });
+const freshDecisions = () => ({ version: 1, currentPropertyId: 'sample-1', activeParticipantId: 'person-me', participants: [newParticipant()], homes: {}, stressInputs: { incomeDrop: 20, expenseIncrease: 300, repairCost: 5000 }, snapshots: [] });
+const emptyDecisionHome = () => ({ stage: 'Considering', reviews: {}, questions: {}, visit: { date: '', notes: '', author: '' } });
+const activeParticipant = (d) => d.participants.find(p => p.id === d.activeParticipantId) || d.participants[0];
+const exampleBudget = () => ({ income: 7000, expenses: 1600, savings: 800, cash: 110000, cushion: 600, example: true });
+const defaultLifeInputs = (p) => ({ downPercent: 20, interestRate: 6.5, years: 30, closingPercent: 3, taxAnnual: p.taxAnnual, insuranceMonthly: p.insuranceMonthly, hoaMonthly: p.hoaMonthly, mortgageInsurance: 0, utilities: 250, maintenance: Math.round(p.price * .01 / 12), moving: 1500, repairs: 0 });
+const lifeFor = (p, who) => who.life[p.id] || defaultLifeInputs(p);
+const numeric = (value, min, max) => typeof value === 'number' && Number.isFinite(value) && value >= min && value <= max;
+const record = (value) => !!value && typeof value === 'object' && !Array.isArray(value);
+const text = (value, max = 100) => typeof value === 'string' && value.length <= max;
+const safeKey = (key) => /^[a-zA-Z0-9][a-zA-Z0-9-]{0,149}$/.test(key) && !['constructor', 'prototype', '__proto__'].includes(key);
+const finiteFields = (v, limits) => Object.entries(limits).every(([k, [min, max]]) => numeric(v[k], min, max));
+const lifeLimits = { downPercent: [0, 100], interestRate: [0, 30], years: [1, 50], closingPercent: [0, 30], taxAnnual: [0, 1000000], insuranceMonthly: [0, 100000], hoaMonthly: [0, 100000], mortgageInsurance: [0, 100000], utilities: [0, 100000], maintenance: [0, 100000], moving: [0, 10000000], repairs: [0, 10000000] };
+function validBudget(v) { return record(v) && finiteFields(v, { income: [0, 1000000], expenses: [0, 1000000], savings: [0, 1000000], cash: [0, 1000000000], cushion: [0, 1000000] }) && typeof v.example === 'boolean'; }
+function validLife(v) { return record(v) && finiteFields(v, lifeLimits) && Number.isInteger(v.years); }
+function validStress(v) { return record(v) && finiteFields(v, { incomeDrop: [0, 100], expenseIncrease: [0, 1000000], repairCost: [0, 100000000] }); }
+function validPriorities(v) { return record(v) && text(v.city, 100) && ['', 'Single-family', 'Condo', 'Townhouse', 'Duplex'].includes(String(v.type)) && finiteFields(v, { maxPrice: [0, 100000000], minBeds: [0, 100], minSqft: [0, 1000000] }) && typeof v.outdoor === 'boolean' && typeof v.light === 'boolean' && text(v.notes, 2000); }
+/** Pure, unrounded owner-occupant model. No rental income, tax savings, appreciation, or eligibility claims. */
+function calculateLife(price, b, a, kind = 'baseline', stress = { incomeDrop: 20, expenseIncrease: 300, repairCost: 5000 }) {
+    if (!numeric(price, 1, 100000000) || !validBudget(b) || !validLife(a) || !validStress(stress) || !Object.hasOwn(stressNames, kind))
+        throw new RangeError('Check the household budget and ownership assumptions.');
+    const down = price * a.downPercent / 100, closing = price * a.closingPercent / 100;
+    const mortgage = mortgagePayment(price - down, a.interestRate, a.years);
+    const pmi = down === price ? 0 : a.mortgageInsurance;
+    const tax = a.taxAnnual / 12;
+    const housing = mortgage + tax + a.insuranceMonthly + a.hoaMonthly + pmi + a.utilities + a.maintenance;
+    const incomeLoss = kind === 'income' ? b.income * stress.incomeDrop / 100 : 0;
+    const expenseStress = kind === 'expenses' ? stress.expenseIncrease : 0;
+    const repairStress = kind === 'repair' ? stress.repairCost : 0;
+    const income = b.income - incomeLoss, expenses = b.expenses + expenseStress;
+    const leftover = income - housing - expenses - b.savings;
+    const upfront = down + closing + a.moving + a.repairs;
+    return { mortgage, tax, insurance: a.insuranceMonthly, hoa: a.hoaMonthly, pmi, utilities: a.utilities, maintenance: a.maintenance, housing, income, expenses, savings: b.savings, leftover, cushionGap: leftover - b.cushion, down, closing, moving: a.moving, initialRepairs: a.repairs, upfront, cashRemaining: b.cash - upfront - repairStress, repairStress, expenseStress, incomeLoss };
+}
+/** An absent feature means unverified, not false. Aggregate duplex figures never prove per-unit capacity. */
+function assessFit(p, req) {
+    const out = [];
+    const add = (label, fit, detail) => out.push({ label, status: fit ? 'fits' : 'tradeoff', detail });
+    if (req.maxPrice)
+        add('Purchase price', p.price <= req.maxPrice, `$${p.price.toLocaleString('en-US')} asking price against your $${req.maxPrice.toLocaleString('en-US')} limit.`);
+    if (req.city)
+        add('City', p.city.toLowerCase() === req.city.trim().toLowerCase(), `${p.city}, ${p.state}; requested ${req.city}.`);
+    if (req.type)
+        add('Property type', p.type === req.type, `${p.type}; requested ${req.type}.`);
+    if (req.minBeds) {
+        if (p.type === 'Duplex')
+            out.push({ label: 'Bedrooms per unit', status: 'unknown', detail: `${p.beds} bedrooms combined across the duplex; your ${req.minBeds}-bedroom requirement cannot be verified for one unit.` });
+        else
+            add('Bedrooms', p.beds >= req.minBeds, `${p.beds} bedrooms; you requested at least ${req.minBeds}.`);
+    }
+    if (req.minSqft) {
+        if (p.type === 'Duplex')
+            out.push({ label: 'Floor area per unit', status: 'unknown', detail: `${p.sqft.toLocaleString('en-US')} sq ft combined; no per-unit size to check against your ${req.minSqft.toLocaleString('en-US')} sq ft minimum.` });
+        else
+            add('Floor area', p.sqft >= req.minSqft, `${p.sqft.toLocaleString('en-US')} sq ft; you requested at least ${req.minSqft.toLocaleString('en-US')}.`);
+    }
+    const tags = p.tags.join(' ').toLowerCase();
+    if (req.outdoor)
+        out.push(/outdoor|garden|terrace/.test(tags) ? { label: 'Outdoor space', status: 'fits', detail: `Listed feature: ${p.tags.filter(x => /outdoor|garden|terrace/i.test(x)).join(', ')}. Condition and exclusive use are not verified.` } : { label: 'Outdoor space', status: 'unknown', detail: 'Outdoor space is not specified in this listing; ask before relying on it.' });
+    if (req.light)
+        out.push(/natural light|light-filled/.test(tags) ? { label: 'Natural light', status: 'fits', detail: 'The demo listing mentions natural light. Verify the light during your visit.' } : { label: 'Natural light', status: 'unknown', detail: 'Natural light is not specified in this listing.' });
+    if (req.notes.trim())
+        out.push({ label: 'Other priorities', status: 'unknown', detail: `Review manually: ${req.notes.trim()}` });
+    return out;
+}
+function sharedFit(p, people) {
+    const sets = people.map(w => assessFit(p, w.priorities));
+    if (sets.some(s => !s.length))
+        return { met: false, status: 'Add priorities', detail: 'Every participant needs at least one priority before common fit can be checked.' };
+    const all = sets.flat(), bad = all.filter(s => s.status === 'tradeoff').length, unknown = all.filter(s => s.status === 'unknown').length;
+    if (bad)
+        return { met: false, status: 'Trade-offs to discuss', detail: `${bad} stated requirement${bad === 1 ? ' is' : 's are'} not met${unknown ? `; ${unknown} still need checking` : ''}.` };
+    if (unknown)
+        return { met: false, status: 'Needs verification', detail: `${unknown} requirement${unknown === 1 ? ' is' : 's are'} unverified; known numerical requirements are met.` };
+    return { met: true, status: 'Matches stated priorities', detail: `Meets the recorded criteria for all ${people.length} participant${people.length === 1 ? '' : 's'}. This is not an overall home rating.` };
+}
+const baseQuestions = [
+    ['roof', 'When was the roof last replaced or inspected, and are records available?'],
+    ['systems', 'How old are the heating, cooling, plumbing, and electrical systems?'],
+    ['condition', 'Are there inspection reports, known defects, water intrusion, or major past repairs?'],
+    ['utilities', 'Can you provide recent utility bills and explain what they include?'],
+    ['costs', 'What taxes, insurance, fees, and upfront costs should I verify for this purchase?']
+];
+function tourQuestions(p, req, home) {
+    const items = [...baseQuestions];
+    if (p.hoaMonthly > 0 || p.type === 'Condo' || p.type === 'Townhouse')
+        items.push(['hoa', 'What do the association fees cover, and are there rules, reserves, or upcoming assessments?']);
+    if (req.outdoor || p.tags.some(x => /outdoor|garden|terrace/i.test(x)))
+        items.push(['outdoor', 'Is the outdoor space private or shared, and who handles its maintenance?']);
+    if (req.light)
+        items.push(['light', 'How does natural light change throughout the day? Can I visit at another time?']);
+    if (p.type === 'Duplex')
+        items.push(['units', 'What are the bedrooms, floor area, entrances, and occupancy details for each individual unit?']);
+    if (req.notes.trim())
+        items.push(['priorities', `Can we verify these additional priorities: ${req.notes.trim()}?`]);
+    const questions = items.map(([id, question]) => home.questions[id] || { id, text: question, answer: '', source: '', resolved: false, updatedBy: '', updatedAt: 0, custom: false });
+    // Preserve answered or custom questions when a participant changes their priorities.
+    Object.values(home.questions).forEach(q => { if (!questions.some(x => x.id === q.id))
+        questions.push(q); });
+    return questions;
+}
+function pruneDecisions(d, propertyIds) {
+    d.currentPropertyId = propertyIds.has(d.currentPropertyId) ? d.currentPropertyId : 'sample-1';
+    d.homes = Object.fromEntries(Object.entries(d.homes).filter(([id]) => propertyIds.has(id)));
+    d.participants.forEach(p => p.life = Object.fromEntries(Object.entries(p.life).filter(([id]) => propertyIds.has(id))));
+    d.snapshots = d.snapshots.filter(s => propertyIds.has(s.propertyId));
+    return d;
+}
+/** Strictly validate untrusted backup data; missing extension is migrated from Haven 1.0–1.3. */
+function parseDecisions(value) {
+    if (value === undefined)
+        return freshDecisions();
+    const fail = () => { throw new Error('The backup contains invalid home-decision data.'); };
+    if (!record(value) || value.version !== 1 || !text(value.currentPropertyId, 150) || !safeKey(value.currentPropertyId) || !text(value.activeParticipantId, 150) || !validStress(value.stressInputs))
+        return fail();
+    if (!Array.isArray(value.participants) || value.participants.length < 1 || value.participants.length > 8)
+        return fail();
+    for (const p of value.participants) {
+        if (!record(p) || !text(p.id, 150) || !safeKey(p.id) || !text(p.name, 40) || !p.name.trim() || !(p.budget === null || validBudget(p.budget)) || !validPriorities(p.priorities) || typeof p.shareBudget !== 'boolean' || !record(p.life) || Object.keys(p.life).length > 560)
+            return fail();
+        if (!Object.entries(p.life).every(([k, v]) => safeKey(k) && validLife(v)))
+            return fail();
+    }
+    const personIds = new Set(value.participants.map(p => p.id));
+    if (personIds.size !== value.participants.length || !personIds.has(value.activeParticipantId))
+        return fail();
+    if (!record(value.homes) || Object.keys(value.homes).length > 560)
+        return fail();
+    for (const [key, home] of Object.entries(value.homes)) {
+        if (!safeKey(key) || !record(home) || !stages.includes(home.stage) || !record(home.reviews) || Object.keys(home.reviews).length > 8 || !record(home.questions) || Object.keys(home.questions).length > 80 || !record(home.visit) || !text(home.visit.date, 16) || !/^(?:\d{4}-\d{2}-\d{2}T\d{2}:\d{2})?$/.test(home.visit.date) || !text(home.visit.notes, 5000) || !text(home.visit.author, 150) || home.visit.author !== '' && !personIds.has(home.visit.author))
+            return fail();
+        for (const [id, r] of Object.entries(home.reviews)) {
+            if (!personIds.has(id) || !record(r) || !['Interested', 'Unsure', 'Not for me'].includes(String(r.stance)) || !text(r.note, 3000) || !numeric(r.updatedAt, 0, Number.MAX_SAFE_INTEGER))
+                return fail();
+        }
+        for (const [id, q] of Object.entries(home.questions)) {
+            if (!safeKey(id) || !record(q) || q.id !== id || !text(q.text, 2200) || !q.text.trim() || !text(q.answer, 4000) || !text(q.source, 500) || typeof q.resolved !== 'boolean' || typeof q.custom !== 'boolean' || !text(q.updatedBy, 150) || q.updatedBy !== '' && !personIds.has(q.updatedBy) || !numeric(q.updatedAt, 0, Number.MAX_SAFE_INTEGER) || q.resolved && (!q.answer.trim() || !q.source.trim()))
+                return fail();
+        }
+    }
+    if (!Array.isArray(value.snapshots) || value.snapshots.length > 50)
+        return fail();
+    for (const s of value.snapshots) {
+        if (!record(s) || !text(s.id, 150) || !safeKey(s.id) || !text(s.name, 100) || !s.name.trim() || !text(s.propertyId, 150) || !safeKey(s.propertyId) || !personIds.has(s.participantId) || !numeric(s.savedAt, 0, Number.MAX_SAFE_INTEGER) || !numeric(s.price, 1, 100000000) || !validBudget(s.budget) || !validLife(s.inputs) || !Object.hasOwn(stressNames, String(s.stress)) || !validStress(s.stressInputs))
+            return fail();
+    }
+    if (new Set(value.snapshots.map(s => s.id)).size !== value.snapshots.length)
+        return fail();
+    return structuredClone(value);
+}
+
+return {stages,stressNames,emptyPriorities,newParticipant,freshDecisions,emptyDecisionHome,activeParticipant,exampleBudget,defaultLifeInputs,lifeFor,lifeLimits,validBudget,validLife,validStress,validPriorities,calculateLife,assessFit,sharedFit,tourQuestions,pruneDecisions,parseDecisions};})();
 __modules["storage.js"]=(()=>{
+const { freshDecisions, parseDecisions } = __modules["decision-engine.js"];
 const { validateAssumptions } = __modules["finance.js"];
 const STORAGE_KEY = 'haven.workspace.v1';
-const freshWorkspace = () => ({ version: 1, savedIds: [], compareIds: [], customProperties: [], notes: {}, searches: [], scenarios: [] });
+const freshWorkspace = () => ({ version: 1, decisions: freshDecisions(), savedIds: [], compareIds: [], customProperties: [], notes: {}, searches: [], scenarios: [] });
 const isRecord = (x) => !!x && typeof x === 'object' && !Array.isArray(x);
 const shortString = (x, max = 500) => typeof x === 'string' && x.length <= max;
 function validProperty(x) {
@@ -1657,7 +2025,7 @@ function parseWorkspace(raw) {
     if (ids.some(id => !/^custom-[A-Za-z0-9-]+$/.test(id)))
         throw new Error('Custom property IDs must use the custom- prefix and letters, numbers, or hyphens.');
     const result = w;
-    return { ...result, savedIds: [...new Set(result.savedIds)], compareIds: [...new Set(result.compareIds)].slice(0, 3), customProperties: result.customProperties.map(p => ({ ...p, custom: true })) };
+    return { ...result, decisions: parseDecisions(w.decisions), savedIds: [...new Set(result.savedIds)], compareIds: [...new Set(result.compareIds)].slice(0, 3), customProperties: result.customProperties.map(p => ({ ...p, custom: true })) };
 }
 function loadWorkspace() {
     try {
@@ -2623,7 +2991,7 @@ function mountAssistant(callbacks) {
     }
     function card(match) {
         const p = match.property;
-        return `<article class="assistant-property" data-recommendation="${e(p.id)}"><div class="assistant-property-top">${propertyImage(p)}<div><span class="assistant-card-kind">${e(p.type)} · Fictional</span><button class="assistant-property-title" data-chat-details="${e(p.id)}">${e(p.name)}</button><span class="assistant-card-location">${e(p.city)}, ${e(p.state)}</span><strong>${money(p.price)}</strong></div></div><div class="assistant-card-specs"><span>${p.beds} beds</span><span>${p.baths} baths</span><span>${number(p.sqft)} sq ft</span></div><div class="assistant-fit"><strong>Why this fits</strong><ul>${match.reasons.map(reason => `<li>${icon('check')}<span>${e(reason)}</span></li>`).join('')}</ul></div>${match.caveats.map(text => `<p class="assistant-caveat">${icon('info')}<span>${e(text)}</span></p>`).join('')}<div class="assistant-card-actions"><button data-chat-details="${e(p.id)}">View home ${icon('diagonal')}</button><button data-chat-analyze="${e(p.id)}">Run numbers ${icon('calculator')}</button><button data-chat-save="${e(p.id)}" aria-label="Save ${e(p.name)}" aria-pressed="false">${icon('heart')}Save</button></div></article>`;
+        return `<article class="assistant-property" data-recommendation="${e(p.id)}"><div class="assistant-property-top">${propertyImage(p)}<div><span class="assistant-card-kind">${e(p.type)} · Fictional</span><button class="assistant-property-title" data-chat-details="${e(p.id)}">${e(p.name)}</button><span class="assistant-card-location">${e(p.city)}, ${e(p.state)}</span><strong>${money(p.price)}</strong></div></div><div class="assistant-card-specs"><span>${p.beds} beds</span><span>${p.baths} baths</span><span>${number(p.sqft)} sq ft</span></div><div class="assistant-fit"><strong>Why this fits</strong><ul>${match.reasons.map(reason => `<li>${icon('check')}<span>${e(reason)}</span></li>`).join('')}</ul></div>${match.caveats.map(text => `<p class="assistant-caveat">${icon('info')}<span>${e(text)}</span></p>`).join('')}<div class="assistant-card-actions"><button data-chat-details="${e(p.id)}">View home ${icon('diagonal')}</button><button data-chat-analyze="${e(p.id)}">Run numbers ${icon('calculator')}</button><button data-chat-save="${e(p.id)}" aria-label="Save ${e(p.name)}" aria-pressed="false">${icon('heart')}Save</button></div>${callbacks.explore ? `<button class="assistant-workspace-link" data-chat-explore="${e(p.id)}">Explore this home’s decision workspace ${icon('arrow')}</button>` : ''}</article>`;
     }
     function append(role, text, matches = [], welcome = false) {
         const node = document.createElement('div');
@@ -2693,7 +3061,7 @@ function mountAssistant(callbacks) {
             const status = await res.json();
             if (status.available !== true)
                 return;
-            host.querySelector('#assistant-provider').innerHTML = `<p>A server-side AI connection is available. Enabling it sends your chat and search preferences to OpenAI. Workspace notes, backups, and saved scenarios are never sent.</p><button type="button" id="assistant-ai-toggle" aria-pressed="false">Enable connected AI</button>`;
+            host.querySelector('#assistant-provider').innerHTML = `<p>A server-side AI connection is available. Enabling it sends your chat and search preferences to OpenAI. Household budgets, participant profiles, tour answers, workspace notes, backups, and saved scenarios are never attached to AI requests. Anything you type into this chat is part of the conversation sent when connected AI is enabled.</p><button type="button" id="assistant-ai-toggle" aria-pressed="false">Enable connected AI</button>`;
             host.querySelector('#assistant-ai-toggle').addEventListener('click', event => {
                 if (busy)
                     return;
@@ -2818,6 +3186,10 @@ function mountAssistant(callbacks) {
             toggle(false, false);
             callbacks.analyze(button.dataset.chatAnalyze);
         }
+        if (button.dataset.chatExplore) {
+            toggle(false, false);
+            callbacks.explore?.(button.dataset.chatExplore);
+        }
         if (button.dataset.chatSave) {
             callbacks.save(button.dataset.chatSave);
             refresh();
@@ -2836,10 +3208,10 @@ const { escapeHTML: e, money, signedMoney, number, percent, icon, propertyImage,
 const PAGE_SIZE = 12;
 const allProperties = (s) => [...s.workspace.customProperties, ...seedProperties];
 const findProperty = (s, id) => allProperties(s).find(p => p.id === id);
-const pageNames = { discover: 'Discover', saved: 'Saved homes', compare: 'Compare', calculator: 'Deal calculator', custom: 'My properties' };
+const pageNames = { discover: 'Discover', saved: 'Saved homes', compare: 'Compare', calculator: 'Deal calculator', custom: 'My properties', decision: 'Home workspace' };
 function shell(s, content) {
     const nav = (page, symbol, count = '') => `<button class="nav-item ${s.page === page ? 'active' : ''}" data-action="navigate" data-page="${page}" ${s.page === page ? 'aria-current="page"' : ''}>${icon(symbol)}<span>${pageNames[page]}</span>${count ? `<span class="nav-count" data-count="${count}">${count === 'saved' ? s.workspace.savedIds.length : s.workspace.compareIds.length}</span>` : ''}</button>`;
-    return `<a class="skip-link" href="#main">Skip to content</a><div class="sidebar-backdrop" data-action="close-menu"></div><aside class="sidebar" aria-label="Main navigation"><button class="brand" data-action="navigate" data-page="discover" aria-label="Haven home"><svg viewBox="0 0 36 40" aria-hidden="true"><path d="M3 21 18 6l15 15v16H21V23h-6v14H3Z" fill="currentColor"/><path d="m5 13 13-13 13 13" fill="none" stroke="currentColor" stroke-width="3"/></svg><span>haven<span class="brand-dot">.</span></span></button><div class="sidebar-kicker">A PLACE TO SEE THE POTENTIAL</div><div class="nav-label">YOUR NEXT MOVE</div><nav>${nav('discover', 'compass')}${nav('saved', 'heart', 'saved')}${nav('compare', 'compare', 'compare')}${nav('calculator', 'calculator')}</nav><div class="nav-divider"></div><div class="nav-label">WORKSPACE</div><nav>${nav('custom', 'folder')}<button class="nav-item" data-action="about">${icon('help')}<span>About this project</span></button></nav><div class="sidebar-bottom"><div class="sidebar-note"><span class="note-symbol">${icon('leaf')}</span><h3>A little clarity.<br>A better investment.</h3><p>Look beyond the listing.<br>Make the numbers your own.</p><button data-action="navigate" data-page="calculator">Run the numbers ${icon('arrow')}</button></div><button class="workspace-button" data-action="workspace"><span class="avatar">H</span><span><strong>Your workspace</strong><small>${s.storageAvailable ? 'Saved on this device' : 'Session-only mode'}</small></span>${icon('down')}</button></div></aside><div class="app-body"><header class="topbar"><div class="breadcrumb"><button class="icon-button mobile-menu" data-action="menu" aria-label="Open navigation">${icon('menu')}</button>${icon('home')}<span>Workspace</span>${icon('chevron')}<strong>${pageNames[s.page]}</strong></div><div class="topbar-actions">${appearanceControl()}<button class="demo-pill" data-action="about"><span></span>Demo workspace</button><button class="btn small" data-action="add-property" aria-label="Add property">${icon('plus')}<span>Add property</span></button></div></header><main id="main" tabindex="-1">${s.storageNotice ? `<div class="notice warning">${icon('info')}<span>${e(s.storageNotice)}</span><button class="text-button" data-action="export-backup">Export backup</button></div>` : ''}${content}</main><footer class="app-footer"><span><strong>haven.</strong> A little more perspective.</span><button data-action="about">Fictional listings. Transparent assumptions. ${icon('diagonal')}</button></footer></div>${compareTray(s)}`;
+    return `<a class="skip-link" href="#main">Skip to content</a><div class="sidebar-backdrop" data-action="close-menu"></div><aside class="sidebar" aria-label="Main navigation"><button class="brand" data-action="navigate" data-page="discover" aria-label="Haven home"><svg viewBox="0 0 36 40" aria-hidden="true"><path d="M3 21 18 6l15 15v16H21V23h-6v14H3Z" fill="currentColor"/><path d="m5 13 13-13 13 13" fill="none" stroke="currentColor" stroke-width="3"/></svg><span>haven<span class="brand-dot">.</span></span></button><div class="sidebar-kicker">A PLACE TO SEE THE POTENTIAL</div><div class="nav-label">YOUR NEXT MOVE</div><nav>${nav('discover', 'compass')}${nav('saved', 'heart', 'saved')}${nav('compare', 'compare', 'compare')}${nav('calculator', 'calculator')}</nav><div class="nav-divider"></div><div class="nav-label">WORKSPACE</div><nav>${nav('decision', 'home')}${nav('custom', 'folder')}<button class="nav-item" data-action="about">${icon('help')}<span>About this project</span></button></nav><div class="sidebar-bottom"><div class="sidebar-note"><span class="note-symbol">${icon('leaf')}</span><h3>A little clarity.<br>A better investment.</h3><p>Look beyond the listing.<br>Make the numbers your own.</p><button data-action="navigate" data-page="calculator">Run the numbers ${icon('arrow')}</button></div><button class="workspace-button" data-action="workspace"><span class="avatar">H</span><span><strong>Your workspace</strong><small>${s.storageAvailable ? 'Saved on this device' : 'Session-only mode'}</small></span>${icon('down')}</button></div></aside><div class="app-body"><header class="topbar"><div class="breadcrumb"><button class="icon-button mobile-menu" data-action="menu" aria-label="Open navigation">${icon('menu')}</button>${icon('home')}<span>Workspace</span>${icon('chevron')}<strong>${pageNames[s.page]}</strong></div><div class="topbar-actions">${appearanceControl()}<button class="demo-pill" data-action="about"><span></span>Demo workspace</button><button class="btn small" data-action="add-property" aria-label="Add property">${icon('plus')}<span>Add property</span></button></div></header><main id="main" tabindex="-1">${s.storageNotice ? `<div class="notice warning">${icon('info')}<span>${e(s.storageNotice)}</span><button class="text-button" data-action="export-backup">Export backup</button></div>` : ''}${content}</main><footer class="app-footer"><span><strong>haven.</strong> A little more perspective.</span><button data-action="about">Fictional listings. Transparent assumptions. ${icon('diagonal')}</button></footer></div>${compareTray(s)}`;
 }
 function compareTray(s) {
     const chosen = s.workspace.compareIds.map(id => findProperty(s, id)).filter((p) => !!p);
@@ -2885,7 +3257,7 @@ function resultsPagination(s) {
 function propertyCard(p, s) {
     const saved = s.workspace.savedIds.includes(p.id), compared = s.workspace.compareIds.includes(p.id);
     const m = calculate(defaultAssumptions(p));
-    return `<article class="property-card" data-property="${e(p.id)}"><div class="property-media"><button class="image-link" data-action="details" data-id="${e(p.id)}" aria-label="View ${e(p.name)}">${propertyImage(p)}</button><span class="property-type">${e(p.type)}</span><button class="save-button ${saved ? 'is-saved' : ''}" data-action="save-toggle" data-id="${e(p.id)}" aria-label="${saved ? 'Unsave' : 'Save'} ${e(p.name)}" aria-pressed="${saved}">${icon('heart')}</button>${p.custom ? '<span class="user-property-badge">Your property</span>' : ''}</div><div class="property-body"><div class="property-price-row"><strong>${money(p.price)}</strong><span class="property-status"><span></span>${p.custom ? 'Your entry' : 'Sample listing'}</span></div><button class="property-title" data-action="details" data-id="${e(p.id)}">${e(p.name)}</button><p class="property-location">${e(p.neighborhood)} · ${e(p.city)}, ${e(p.state)}</p><div class="property-specs"><span>${icon('bed')}<strong>${p.beds}</strong> beds</span><span>${icon('bath')}<strong>${p.baths}</strong> baths</span><span>${icon('area')}<strong>${number(p.sqft)}</strong> sq ft</span></div><div class="property-numbers"><div><span>${p.custom ? 'Monthly rent input' : 'Sample monthly rent'}</span><strong>${money(p.rent)}<small>/mo</small></strong></div><div><span>Modelled cash flow</span><strong class="${m.cashflow >= 0 ? 'positive' : 'negative'}">${signedMoney(m.cashflow)}<small>/mo</small></strong></div></div><div class="card-actions"><button class="compare-button ${compared ? 'is-compared' : ''}" data-action="compare-toggle" data-id="${e(p.id)}" aria-pressed="${compared}">${icon(compared ? 'check' : 'plus')}<span>${compared ? 'Added to compare' : 'Compare'}</span></button><button class="analyze-button" data-action="analyze" data-id="${e(p.id)}">Run the numbers ${icon('arrow')}</button></div></div></article>`;
+    return `<article class="property-card" data-property="${e(p.id)}"><div class="property-media"><button class="image-link" data-action="details" data-id="${e(p.id)}" aria-label="View ${e(p.name)}">${propertyImage(p)}</button><span class="property-type">${e(p.type)}</span><button class="save-button ${saved ? 'is-saved' : ''}" data-action="save-toggle" data-id="${e(p.id)}" aria-label="${saved ? 'Unsave' : 'Save'} ${e(p.name)}" aria-pressed="${saved}">${icon('heart')}</button>${p.custom ? '<span class="user-property-badge">Your property</span>' : ''}</div><div class="property-body"><div class="property-price-row"><strong>${money(p.price)}</strong><span class="property-status"><span></span>${p.custom ? 'Your entry' : 'Sample listing'}</span></div><button class="property-title" data-action="details" data-id="${e(p.id)}">${e(p.name)}</button><p class="property-location">${e(p.neighborhood)} · ${e(p.city)}, ${e(p.state)}</p><div class="property-specs"><span>${icon('bed')}<strong>${p.beds}</strong> beds</span><span>${icon('bath')}<strong>${p.baths}</strong> baths</span><span>${icon('area')}<strong>${number(p.sqft)}</strong> sq ft</span></div><div class="property-numbers"><div><span>${p.custom ? 'Monthly rent input' : 'Sample monthly rent'}</span><strong>${money(p.rent)}<small>/mo</small></strong></div><div><span>Modelled cash flow</span><strong class="${m.cashflow >= 0 ? 'positive' : 'negative'}">${signedMoney(m.cashflow)}<small>/mo</small></strong></div></div><div class="card-actions"><button class="compare-button ${compared ? 'is-compared' : ''}" data-action="compare-toggle" data-id="${e(p.id)}" aria-pressed="${compared}">${icon(compared ? 'check' : 'plus')}<span>${compared ? 'Added to compare' : 'Compare'}</span></button><button class="analyze-button" data-action="analyze" data-id="${e(p.id)}">Run the numbers ${icon('arrow')}</button></div></div><button class="card-decision-link" data-action="decision-open" data-id="${p.id}">Explore your life here ${icon('arrow')}</button></article>`;
 }
 function compareView(s) {
     const properties = s.workspace.compareIds.map(id => findProperty(s, id)).filter((p) => !!p);
@@ -2899,7 +3271,7 @@ function compareView(s) {
 function detailView(p, s) {
     const m = calculate(defaultAssumptions(p));
     const saved = s.workspace.savedIds.includes(p.id);
-    return `<div class="detail-image">${propertyImage(p)}</div><div class="detail-content"><div class="detail-top"><div><span class="eyebrow">${e(p.type)} · ${p.custom ? 'YOUR PROPERTY' : 'FICTIONAL SAMPLE'}</span><h2 id="dialog-title">${e(p.name)}</h2><p>${e(p.address)} · ${e(p.city)}, ${e(p.state)}</p></div><strong>${money(p.price)}</strong></div><div class="detail-specs"><span>${icon('bed')}${p.beds} bedrooms</span><span>${icon('bath')}${p.baths} bathrooms</span><span>${icon('area')}${number(p.sqft)} sq ft</span><span>${icon('home')}Built ${p.yearBuilt}</span></div><p class="detail-description">${e(p.description)}</p><div class="feature-tags">${p.tags.map(t => `<span>${icon('check')}${e(t)}</span>`).join('')}</div><div class="detail-finance"><div><small>Monthly rent input</small><strong>${money(p.rent)}</strong></div><div><small>Modelled cash flow</small><strong class="${m.cashflow >= 0 ? 'positive' : 'negative'}">${signedMoney(m.cashflow)}</strong></div><div><small>Modelled cap rate</small><strong>${percent(m.capRate)}</strong></div></div><p class="small-print">20% down · 6.5% sample interest rate · 30-year loan. All amounts are illustrative. ${p.type === 'Duplex' ? 'Rent includes both units.' : ''}</p><label class="notes-label" for="property-notes">Your notes<span>A place for questions, ideas, and things to check.</span></label><textarea id="property-notes" maxlength="10000" rows="3" placeholder="What stands out? What needs a closer look?">${e(s.workspace.notes[p.id] || '')}</textarea><div class="notes-actions"><span>Private to this browser.</span><button class="text-button" data-action="save-note" data-id="${e(p.id)}">Save note ${icon('check')}</button></div><div class="detail-actions"><button class="btn ${saved ? 'is-on' : ''}" data-action="save-toggle" data-id="${e(p.id)}">${icon('heart')}${saved ? 'Saved' : 'Save property'}</button>${p.custom ? `<button class="btn" data-action="edit-property" data-id="${e(p.id)}">Edit</button><button class="icon-button danger" data-action="delete-property" data-id="${e(p.id)}" aria-label="Delete property">${icon('trash')}</button>` : ''}<button class="btn primary" data-action="analyze" data-id="${e(p.id)}">Run the numbers ${icon('arrow')}</button></div></div>`;
+    return `<div class="detail-image">${propertyImage(p)}</div><div class="detail-content"><div class="detail-top"><div><span class="eyebrow">${e(p.type)} · ${p.custom ? 'YOUR PROPERTY' : 'FICTIONAL SAMPLE'}</span><h2 id="dialog-title">${e(p.name)}</h2><p>${e(p.address)} · ${e(p.city)}, ${e(p.state)}</p></div><strong>${money(p.price)}</strong></div><div class="detail-specs"><span>${icon('bed')}${p.beds} bedrooms</span><span>${icon('bath')}${p.baths} bathrooms</span><span>${icon('area')}${number(p.sqft)} sq ft</span><span>${icon('home')}Built ${p.yearBuilt}</span></div><p class="detail-description">${e(p.description)}</p><div class="feature-tags">${p.tags.map(t => `<span>${icon('check')}${e(t)}</span>`).join('')}</div><div class="detail-finance"><div><small>Monthly rent input</small><strong>${money(p.rent)}</strong></div><div><small>Modelled cash flow</small><strong class="${m.cashflow >= 0 ? 'positive' : 'negative'}">${signedMoney(m.cashflow)}</strong></div><div><small>Modelled cap rate</small><strong>${percent(m.capRate)}</strong></div></div><p class="small-print">20% down · 6.5% sample interest rate · 30-year loan. All amounts are illustrative. ${p.type === 'Duplex' ? 'Rent includes both units.' : ''}</p><label class="notes-label" for="property-notes">Your notes<span>A place for questions, ideas, and things to check.</span></label><textarea id="property-notes" maxlength="10000" rows="3" placeholder="What stands out? What needs a closer look?">${e(s.workspace.notes[p.id] || '')}</textarea><div class="notes-actions"><span>Private to this browser.</span><button class="text-button" data-action="save-note" data-id="${e(p.id)}">Save note ${icon('check')}</button></div><div class="detail-actions"><button class="btn primary" data-action="decision-open" data-id="${p.id}">${icon('home')}Explore this home</button><button class="btn ${saved ? 'is-on' : ''}" data-action="save-toggle" data-id="${e(p.id)}">${icon('heart')}${saved ? 'Saved' : 'Save property'}</button>${p.custom ? `<button class="btn" data-action="edit-property" data-id="${e(p.id)}">Edit</button><button class="icon-button danger" data-action="delete-property" data-id="${e(p.id)}" aria-label="Delete property">${icon('trash')}</button>` : ''}<button class="btn primary" data-action="analyze" data-id="${e(p.id)}">Run the numbers ${icon('arrow')}</button></div></div>`;
 }
 function propertyForm(p) {
     const field = (name, label, value = '', type = 'text', extras = '') => `<label class="form-field"><span>${label}</span><input name="${name}" type="${type}" value="${e(value)}" ${extras}></label>`;
@@ -2955,7 +3327,319 @@ function amortizationTable(a) {
 }
 
 return {calculatorView,calculatorResults,sensitivityTable};})();
+__modules["decision-views.js"]=(()=>{
+const { activeParticipant, lifeFor, calculateLife, emptyDecisionHome, assessFit, sharedFit, tourQuestions, stages, stressNames, lifeLimits } = __modules["decision-engine.js"];
+const { escapeHTML: e, money, number, icon, propertyImage } = __modules["ui.js"];
+const { propertyPickerView } = __modules["property-picker.js"];
+const stamp = (text, kind = '') => `<span class="decision-stamp ${kind}">${e(text)}</span>`;
+const line = (label, value, cl = '') => `<div class="decision-line ${cl}"><span>${label}</span><strong>${value}</strong></div>`;
+const noBudget = () => `<div class="life-no-budget"><span class="decision-symbol">${icon('leaf')}</span><h2>Make this about your life.</h2><p>Set a household budget to see what’s left after housing, everyday expenses, and your savings goal.</p><button class="btn primary" data-action="decision-budget">Set up my budget ${icon('arrow')}</button><button class="text-button" data-action="decision-example">Explore with a sample budget</button><small>Nothing connects to a bank. Your inputs stay in this browser.</small></div>`;
+function decisionView(s, properties) {
+    const d = s.workspace.decisions, p = properties.find(p => p.id === d.currentPropertyId) || properties[0], who = activeParticipant(d);
+    const tabs = [['life', 'Your Life Here', 'leaf'], ['together', 'Together', 'chat'], ['tour', 'Before You Tour', 'list']];
+    const saved = s.workspace.savedIds.includes(p.id);
+    return `<section class="decision-page"><div class="decision-heading"><div><span class="eyebrow">A LITTLE CLARITY FOR YOUR NEXT MOVE</span><h1>Picture your life here<span>.</span></h1><p>The numbers, the people, the questions. One place to decide.</p></div><label class="decision-profile"><span>LOCAL PROFILE</span><select id="decision-person" aria-label="Active participant">${d.participants.map(x => `<option value="${e(x.id)}" ${x.id === who.id ? 'selected' : ''}>${e(x.name)}</option>`).join('')}</select></label></div>
+  <div class="decision-home-selector">${propertyPickerView(p).replace('EXPLORING A SCENARIO FOR', 'YOUR HOME DECISION').replace('Property to analyze', 'Home to explore')}</div>
+  <section class="decision-property" aria-label="Selected home">${propertyImage(p)}<div class="decision-property-copy">${stamp(p.custom ? 'Your entry · Unverified' : 'Fictional demo home')}<h2>${e(p.name)}</h2><p>${e(p.city)}, ${e(p.state)} · ${e(p.neighborhood)}</p><div class="decision-specs"><span>${icon('bed')}${p.beds} beds</span><span>${icon('area')}${number(p.sqft)} sq ft</span><span>${e(p.type)}</span></div></div><div class="decision-property-side"><strong>${money(p.price)}</strong><span>Asking price · ${p.custom ? 'user-entered' : 'demo data'}</span><div><button class="btn small ${saved ? 'is-on' : ''}" data-action="save-toggle" data-id="${e(p.id)}" aria-pressed="${saved}">${icon('heart')}${saved ? 'Saved' : 'Save home'}</button><button class="text-button" data-action="details" data-id="${e(p.id)}">Listing ${icon('diagonal')}</button></div></div></section>
+  ${p.type === 'Duplex' ? `<p class="decision-disclosure">${icon('info')}Duplex bedrooms and area are combined totals. This planner covers the whole purchase; it does not assume rental income or a per-unit layout.</p>` : ''}
+  <div class="decision-tabs" role="tablist" aria-label="Home decision tools">${tabs.map(([key, label, symbol], i) => `<button id="decision-tab-${key}" role="tab" aria-selected="${s.decisionTab === key}" aria-controls="decision-panel" tabindex="${s.decisionTab === key ? '0' : '-1'}" data-action="decision-tab" data-tab="${key}"><span class="decision-tab-number">0${i + 1}</span>${icon(symbol)}${label}</button>`).join('')}</div>
+  <section id="decision-panel" role="tabpanel" aria-labelledby="decision-tab-${s.decisionTab}">${s.decisionTab === 'life' ? lifeView(s, p, who, properties) : s.decisionTab === 'together' ? togetherView(s, p, who, properties) : tourView(s, p, who)}</section>
+  <p class="decision-bottom-note">${icon('info')}Fictional listings. Educational estimates, not financial advice. Saved locally; profiles are not secure accounts or live collaboration.</p></section>`;
+}
+function budgetForm(who) {
+    const b = who.budget;
+    const fields = [['income', 'Monthly take-home income', 'After taxes; the amount available to your household.'], ['expenses', 'Other monthly expenses', 'Exclude housing, savings, and this home’s utilities to avoid double counting.'], ['savings', 'Monthly savings goal', 'The amount you want to set aside each month.'], ['cash', 'Cash available for this move', 'The total cash you want to include before upfront purchase costs.'], ['cushion', 'Monthly breathing-room target', 'A comparison target, not another expense.']];
+    return `<form id="decision-budget-form"><div class="modal-heading"><span class="eyebrow">YOUR LIFE, YOUR NUMBERS</span><h2 id="dialog-title">${e(who.name)}’s household plan.</h2><p>Set this once, then compare homes with the same budget. All amounts are in US dollars.</p></div>${b?.example ? '<p class="notice warning">You are editing sample values. Only save them as your own after replacing them.</p>' : ''}<div class="decision-form-grid">${fields.map(([key, label, hint]) => `<label class="form-field ${key === 'cushion' ? 'full' : ''}"><span>${label}</span><div class="decision-money-field"><span>$</span><input type="number" name="${key}" min="0" max="${key === 'cash' ? 1000000000 : 1000000}" step="0.01" required inputmode="decimal" value="${b ? b[key] : ''}"></div><small>${hint}</small></label>`).join('')}</div><label class="decision-checkbox"><input name="example" type="checkbox" ${b?.example ? 'checked' : ''}><span>These are sample figures, not my personal finances.</span></label><p class="decision-disclosure">Not shown in Together by default. Stored on this device and included in full workspace backups. Anyone with access to this browser can switch profiles.</p><p class="decision-error" id="decision-form-error" role="alert"></p><div class="modal-actions"><button class="btn" type="button" data-action="close-dialog">Cancel</button><button class="btn primary" type="submit">Save household plan ${icon('check')}</button></div></form>`;
+}
+const lifeLabels = { downPercent: 'Down payment (%)', interestRate: 'Sample interest rate (%)', years: 'Loan term (years)', closingPercent: 'Closing costs (%)', taxAnnual: 'Property tax ($ / year)', insuranceMonthly: 'Insurance ($ / month)', hoaMonthly: 'Association fees ($ / month)', mortgageInsurance: 'Mortgage insurance ($ / month)', utilities: 'Utilities ($ / month)', maintenance: 'Maintenance reserve ($ / month)', moving: 'Moving costs ($)', repairs: 'Initial repairs ($)' };
+function lifeField(key, a, source) {
+    return `<label class="form-field"><span>${lifeLabels[key]}</span><input id="life-${key}" name="${key}" data-life="${key}" type="number" required min="${lifeLimits[key][0]}" max="${lifeLimits[key][1]}" step="${key === 'years' ? 1 : 0.01}" inputmode="decimal" value="${a[key]}"><small>${source}</small></label>`;
+}
+function lifeView(s, p, who, properties) {
+    const a = lifeFor(p, who), b = who.budget, d = s.workspace.decisions;
+    const customized = !!who.life[p.id];
+    const source = (field) => customized ? 'Your saved scenario input' : ['taxAnnual', 'insuranceMonthly', 'hoaMonthly'].includes(field) ? (p.custom ? 'User-entered property input' : 'Fictional listing input') : field === 'maintenance' ? 'Sample: 1% of price / 12, rounded' : field === 'interestRate' ? 'Illustrative assumption; not a rate quote' : field === 'mortgageInsurance' ? 'Starts at $0; add a quote if applicable' : 'Editable sample assumption';
+    return `<div class="decision-section-heading"><div><h2>A home that leaves room for living.</h2><p>See the whole month, not just the mortgage.</p></div>${b ? `<button class="btn small" data-action="decision-budget">${icon('sliders')}Edit household plan</button>` : ''}</div>
+ <div class="life-grid"><div class="life-inputs">${b ? `<section class="decision-card household-card"><div class="decision-card-heading"><h3>${e(who.name)}’s household plan</h3>${stamp(b.example ? 'Sample budget' : 'Your inputs')}</div><div class="household-values"><div><span>Take-home / month</span><strong>${money(b.income)}</strong></div><div><span>Other expenses / month</span><strong>${money(b.expenses)}</strong></div><div><span>Savings goal / month</span><strong>${money(b.savings)}</strong></div><div><span>Cash for your move</span><strong>${money(b.cash)}</strong></div></div><p class="decision-micro">${icon('info')}Budget details aren’t shown in Together. Local profiles are not private accounts.</p></section>` : ''}
+ <section class="decision-card"><div class="decision-card-heading"><div><h3>Make the assumptions yours.</h3><p>Saved for this home and this profile.</p></div><button class="text-button" data-action="decision-reset-inputs">Reset</button></div><form id="decision-life-form" novalidate><details class="decision-accordion" open><summary>Purchase & financing ${icon('down')}</summary><div class="decision-form-grid">${['downPercent', 'interestRate', 'years', 'closingPercent'].map(k => lifeField(k, a, source(k))).join('')}</div></details><details class="decision-accordion"><summary>Monthly ownership costs ${icon('down')}</summary><div class="decision-form-grid">${['taxAnnual', 'insuranceMonthly', 'hoaMonthly', 'mortgageInsurance', 'utilities', 'maintenance'].map(k => lifeField(k, a, source(k))).join('')}</div></details><details class="decision-accordion"><summary>Moving & initial repairs ${icon('down')}</summary><div class="decision-form-grid">${['moving', 'repairs'].map(k => lifeField(k, a, source(k))).join('')}</div></details><p id="decision-life-error" class="decision-error" role="alert" hidden></p><p class="decision-micro">Valid changes save automatically. Estimated costs are not verified bills.</p></form></section>
+ <section class="decision-card stress-card"><div class="decision-card-heading"><div><h3>Make room for a what-if.</h3><p>Test one change at a time against the same plan.</p></div>${icon('sliders')}</div><div class="stress-tabs" role="group" aria-label="Budget stress scenario">${['baseline', 'income', 'expenses', 'repair'].map(k => `<button data-action="decision-stress" data-kind="${k}" aria-pressed="${s.decisionStress === k}">${k === 'baseline' ? 'Everyday' : k === 'income' ? 'Income drop' : k === 'expenses' ? 'Higher expenses' : 'A repair'}</button>`).join('')}</div>${s.decisionStress === 'baseline' ? '<p class="decision-micro">Your entered income and costs, with no additional shock.</p>' : `<label class="form-field stress-value"><span>${s.decisionStress === 'income' ? 'Take-home income decrease (%)' : s.decisionStress === 'expenses' ? 'Additional non-housing expenses ($ / month)' : 'One-time repair paid from remaining cash ($)'}</span><input id="decision-stress-value" type="number" min="0" max="${s.decisionStress === 'income' ? 100 : s.decisionStress === 'expenses' ? 1000000 : 100000000}" step="0.01" value="${s.decisionStress === 'income' ? d.stressInputs.incomeDrop : s.decisionStress === 'expenses' ? d.stressInputs.expenseIncrease : d.stressInputs.repairCost}"></label>`}<p class="decision-micro">A one-time repair changes cash remaining, not your recurring monthly expenses.</p></section></div>
+ <div id="decision-life-results" class="life-results" aria-live="polite" aria-atomic="false">${lifeResults(s, p, who)}</div></div>
+ ${b ? `<section class="decision-card life-compare"><div class="decision-card-heading"><div><h3>Your shortlist, one household plan.</h3><p>Baseline comparison of ${s.workspace.savedIds.length} saved home${s.workspace.savedIds.length === 1 ? '' : 's'}, using this profile’s assumptions. Ordered by monthly money remaining.</p></div></div>${s.workspace.savedIds.length ? `<div class="decision-table-wrap"><table><thead><tr><th>Home</th><th>Housing / mo</th><th>Left / mo</th><th>Cash remaining</th><th><span class="sr-only">Open</span></th></tr></thead><tbody>${properties.filter(x => s.workspace.savedIds.includes(x.id)).map(x => ({ p: x, m: calculateLife(x.price, b, lifeFor(x, who)) })).sort((a, b) => b.m.leftover - a.m.leftover).map(({ p: x, m }) => `<tr><td><strong>${e(x.name)}</strong><small>${e(x.city)} · ${money(x.price)}</small></td><td>${money(m.housing)}</td><td class="${m.leftover < 0 ? 'decision-negative' : ''}">${money(m.leftover)}</td><td class="${m.cashRemaining < 0 ? 'decision-negative' : ''}">${money(m.cashRemaining)}</td><td><button class="text-button" data-action="decision-open" data-id="${e(x.id)}">Explore ${icon('arrow')}</button></td></tr>`).join('')}</tbody></table></div>` : '<p class="decision-empty-copy">Save a few homes to see them here. Your budget follows you across the entire collection.</p>'}</section>${snapshotsView(s, who)}` : ''}`;
+}
+function lifeResults(s, p, who) {
+    if (!who.budget)
+        return noBudget();
+    const b = who.budget, a = lifeFor(p, who), m = calculateLife(p.price, b, a, s.decisionStress, s.workspace.decisions.stressInputs);
+    const costRows = [['Mortgage principal & interest', m.mortgage], ['Property tax', m.tax], ['Home insurance', m.insurance], ['Association fees', m.hoa], ['Mortgage insurance', m.pmi], ['Utilities', m.utilities], ['Maintenance reserve', m.maintenance]];
+    return `<section class="life-outcome"><div class="life-outcome-top"><span>${e(stressNames[s.decisionStress])}</span>${stamp(b.example ? 'Sample budget' : 'Your inputs')}</div><span class="life-outcome-label">After housing, expenses & savings</span><strong id="life-leftover">${money(m.leftover)}<small>/ month</small></strong><p>${m.leftover < 0 ? 'Your modeled spending exceeds your take-home income.' : 'A little breathing room, made visible.'}</p><div class="life-cushion">${icon(m.cushionGap >= 0 ? 'check' : 'info')}<span>${money(Math.abs(m.cushionGap))} ${m.cushionGap >= 0 ? 'above' : 'below'} your ${money(b.cushion)} monthly cushion target.</span></div></section>
+ <section class="decision-card life-breakdown"><div class="decision-card-heading"><h3>Your month, at a glance.</h3>${stamp('Estimate')}</div>${line('Take-home income', money(m.income))}${line('Total housing costs', money(m.housing))}${line('Other living expenses', money(m.expenses))}${line('Savings goal', money(m.savings))}${line('Left for you', money(m.leftover), 'decision-line-total')}<details class="decision-accordion"><summary>What’s inside housing costs ${icon('down')}</summary><div class="housing-items">${costRows.map(([label, v]) => line(e(label), money(v))).join('')}</div></details>${a.downPercent < 20 && m.pmi === 0 ? `<p class="decision-disclosure">${icon('info')}Mortgage insurance is $0 in this estimate. With less than 20% down, a lender may require it; enter a quote if applicable. This is not loan approval.</p>` : ''}</section>
+ <section class="decision-card move-card"><div class="decision-card-heading"><h3>Before you get the keys.</h3>${icon('home')}</div>${line('Down payment', money(m.down))}${line('Estimated closing costs', money(m.closing))}${line('Moving + initial repairs', money(m.moving + m.initialRepairs))}${line('Total upfront', money(m.upfront), 'decision-line-total')}${m.repairStress ? line('Additional repair shock', money(m.repairStress)) : ''}<div class="cash-remainder ${m.cashRemaining < 0 ? 'has-shortfall' : ''}"><span>${m.cashRemaining < 0 ? 'Additional cash needed' : 'Cash left after your move'}${m.repairStress ? ' & repair' : ''}</span><strong id="life-cash">${money(Math.abs(m.cashRemaining))}</strong></div><p class="decision-micro">${m.cashRemaining < 0 ? 'Your entered available cash does not cover this scenario. No borrowing to cover the gap is assumed.' : 'Based on the cash amount you entered, not a bank balance or a lender determination.'}</p></section>
+ <div class="decision-result-actions"><button class="btn primary" data-action="decision-save-snapshot">Save this scenario ${icon('plus')}</button><button class="btn" data-action="decision-export-life" aria-label="Export life scenario">${icon('download')}Export</button></div><p class="decision-micro">Snapshot exports contain budget details. They are separate from the shareable tour brief.</p>`;
+}
+function snapshotsView(s, who) {
+    const items = s.workspace.decisions.snapshots.filter(x => x.participantId === who.id);
+    return `<section class="decision-card life-snapshots"><div class="decision-card-heading"><div><h3>Perspectives worth keeping.</h3><p>Private to this profile’s view. Snapshots preserve price, budget, and every assumption.</p></div>${stamp(`${items.length} saved`)}</div>${items.length ? `<div class="snapshot-list">${items.map(x => { const m = calculateLife(x.price, x.budget, x.inputs, x.stress, x.stressInputs); return `<article><span>${icon('folder')}</span><div><strong>${e(x.name)}</strong><p>${money(m.leftover)} left / month · ${e(stressNames[x.stress])} · Price snapshot ${money(x.price)}</p></div><button class="text-button" data-action="decision-load-snapshot" data-id="${e(x.id)}">Load</button><button class="icon-button" data-action="decision-delete-snapshot" data-id="${e(x.id)}" aria-label="Delete ${e(x.name)}">${icon('x')}</button></article>`; }).join('')}</div>` : '<p class="decision-empty-copy">Save a scenario to return to the same numbers later.</p>'}</section>`;
+}
+function participantForm(person, cities = []) {
+    const w = person, req = w?.priorities;
+    return `<form id="decision-participant-form" data-id="${e(w?.id || '')}"><div class="modal-heading"><span class="eyebrow">GOOD DECISIONS START WITH LISTENING</span><h2 id="dialog-title">${w ? 'Edit priorities.' : 'Make room for someone.'}</h2><p>A local demo profile—not an account or invitation. These stated priorities will be visible in Together.</p></div><label class="form-field"><span>Name</span><input name="name" required maxlength="40" value="${e(w?.name || '')}" placeholder="e.g. Alex"></label><div class="decision-form-grid"><label class="form-field"><span>City (optional)</span><input name="city" list="decision-cities" maxlength="100" value="${e(req?.city || '')}" placeholder="Any city"><datalist id="decision-cities">${cities.map(city => `<option value="${e(city)}"></option>`).join('')}</datalist></label><label class="form-field"><span>Property type</span><select name="type">${['', 'Single-family', 'Condo', 'Townhouse', 'Duplex'].map(t => `<option value="${t}" ${req?.type === t ? 'selected' : ''}>${t || 'Any type'}</option>`).join('')}</select></label><label class="form-field"><span>Maximum purchase price ($)</span><input name="maxPrice" type="number" min="0" max="100000000" step="1" value="${req?.maxPrice || ''}" placeholder="No limit"></label><label class="form-field"><span>Minimum bedrooms</span><input name="minBeds" type="number" min="0" max="100" step="1" value="${req?.minBeds || ''}" placeholder="Any"></label><label class="form-field"><span>Minimum floor area (sq ft)</span><input name="minSqft" type="number" min="0" max="1000000" step="1" value="${req?.minSqft || ''}" placeholder="Any"></label></div><div class="decision-check-row"><label class="decision-checkbox"><input name="outdoor" type="checkbox" ${req?.outdoor ? 'checked' : ''}>Outdoor space</label><label class="decision-checkbox"><input name="light" type="checkbox" ${req?.light ? 'checked' : ''}>Natural light</label></div><label class="form-field"><span>Other priorities to discuss</span><textarea name="notes" rows="2" maxlength="2000" placeholder="These are kept as discussion points, not automatically inferred.">${e(req?.notes || '')}</textarea></label><p class="decision-error" id="decision-form-error" role="alert"></p><div class="modal-actions"><button type="button" class="btn" data-action="close-dialog">Cancel</button><button type="submit" class="btn primary">${w ? 'Save priorities' : 'Add participant'} ${icon('check')}</button></div></form>`;
+}
+function togetherView(s, p, who, properties) {
+    const d = s.workspace.decisions, home = d.homes[p.id] || emptyDecisionHome(), fit = sharedFit(p, d.participants), review = home.reviews[who.id];
+    const saved = properties.filter(x => s.workspace.savedIds.includes(x.id));
+    return `<div class="decision-section-heading"><div><h2>A home you can get behind. Together.</h2><p>Make space for each person’s priorities, without losing your own.</p></div><button class="btn" data-action="decision-add-person" ${d.participants.length >= 8 ? 'disabled' : ''}>${icon('plus')}Add participant</button></div><div class="decision-local-notice">${icon('info')}<p><strong>Local collaboration demo.</strong> Switch profiles to try different perspectives on this device. No invitations, accounts, or cross-device sync. Anyone using this browser can access all profiles.</p></div>
+ <div class="together-summary"><div><span class="eyebrow">WHERE YOU STAND</span><h3>${fit.status}</h3><p>${e(fit.detail)}</p></div><label class="form-field"><span>This home’s shared stage</span><select id="decision-stage">${stages.map(stage => `<option ${home.stage === stage ? 'selected' : ''}>${stage}</option>`).join('')}</select></label></div>
+ <div class="participant-grid">${d.participants.map(person => { const points = assessFit(p, person.priorities), r = home.reviews[person.id], shared = person.shareBudget && person.budget ? calculateLife(p.price, person.budget, lifeFor(p, person)) : null; return `<article class="decision-card participant-card" data-person-card="${e(person.id)}"><div class="person-heading"><span class="person-avatar">${e(person.name.slice(0, 1).toUpperCase())}</span><div><h3>${e(person.name)}</h3><small>${person.id === who.id ? 'Active local profile' : 'Local participant'}</small></div><button class="icon-button" data-action="decision-edit-person" data-id="${e(person.id)}" aria-label="Edit ${e(person.name)}’s priorities">${icon('sliders')}</button></div><div class="person-fit">${points.length ? points.map(point => `<div class="fit-point ${point.status}">${icon(point.status === 'fits' ? 'check' : 'info')}<p><strong>${e(point.label)}</strong><span>${e(point.detail)}</span></p></div>`).join('') : '<p class="decision-empty-copy">No priorities yet. Add must-haves to make this comparison meaningful.</p>'}</div>${r ? `<div class="person-review">${stamp(r.stance)}<p>${e(r.note || 'No note added.')}</p></div>` : '<p class="decision-micro">No opinion recorded for this home yet.</p>'}${shared ? `<div class="shared-budget-summary"><span>Explicitly shared budget summary${person.budget?.example ? ' · sample budget' : ''}</span><strong>${money(shared.leftover)} left / month</strong><small>Baseline, after this profile’s housing, expenses, and savings. Raw budget inputs are not shown here.</small></div>` : '<p class="decision-private">Budget not shared in this view.</p>'}${d.participants.length > 1 ? `<button class="text-button decision-remove-person" data-action="decision-remove-person" data-id="${e(person.id)}">Remove profile</button>` : ''}</article>`; }).join('')}</div>
+ <div class="together-work"><section class="decision-card"><div class="decision-card-heading"><div><h3>${e(who.name)}’s take.</h3><p>Your note is visible to everyone in this local workspace.</p></div></div><form id="decision-review-form"><fieldset class="opinion-options"><legend class="sr-only">Your opinion of this home</legend>${['Interested', 'Unsure', 'Not for me'].map((stance, i) => `<label><input type="radio" name="stance" value="${stance}" ${(review?.stance === stance || !review && i === 1) ? 'checked' : ''}><span>${stance}</span></label>`).join('')}</fieldset><label class="form-field"><span>What’s on your mind?</span><textarea name="note" maxlength="3000" rows="3" placeholder="What works? What would you want to know?">${e(review?.note || '')}</textarea></label><div class="decision-inline-actions"><button class="btn primary" type="submit">Save my take ${icon('check')}</button>${review ? '<button type="button" class="text-button" data-action="decision-clear-review">Remove my take</button>' : ''}</div></form></section><section class="decision-card privacy-card"><span class="decision-symbol">${icon('home')}</span><h3>Your numbers. Your choice.</h3><p>Raw income, expenses, and savings are not displayed in Together. You can choose to show only your calculated monthly amount remaining.</p><label class="decision-checkbox"><input id="decision-share-budget" type="checkbox" ${who.shareBudget ? 'checked' : ''} ${!who.budget ? 'disabled' : ''}><span>Share my calculated budget summary here</span></label>${!who.budget ? '<button class="text-button" data-action="decision-budget">Set up a budget first</button>' : ''}<p class="decision-micro">This controls presentation, not security. Profiles share one browser, and full backups include all budgets.</p></section></div>
+ <section class="decision-card together-shortlist"><div class="decision-card-heading"><div><h3>A shared shortlist, not a shared guess.</h3><p>All saved homes, compared against every participant’s recorded priorities.</p></div>${stamp(`${saved.length} saved`)}</div>${saved.length ? `<div class="decision-table-wrap"><table><thead><tr><th>Home</th><th>Common fit</th><th>Stage</th><th></th></tr></thead><tbody>${saved.map(x => { const common = sharedFit(x, d.participants); return `<tr><td><strong>${e(x.name)}</strong><small>${e(x.city)} · ${money(x.price)}</small></td><td>${e(common.status)}<small>${e(common.detail)}</small></td><td>${e(d.homes[x.id]?.stage || 'Considering')}</td><td><button class="text-button" data-action="decision-open" data-id="${e(x.id)}">Explore ${icon('arrow')}</button></td></tr>`; }).join('')}</tbody></table></div>` : '<p class="decision-empty-copy">Save homes from Discover or the property header to build your shared shortlist.</p>'}</section>`;
+}
+function tourView(s, p, who) {
+    const home = s.workspace.decisions.homes[p.id] || emptyDecisionHome(), questions = tourQuestions(p, who.priorities, home), done = questions.filter(q => q.resolved).length;
+    const fit = assessFit(p, who.priorities), fits = fit.filter(x => x.status === 'fits'), tradeoffs = fit.filter(x => x.status === 'tradeoff'), unknown = fit.filter(x => x.status === 'unknown');
+    return `<div class="decision-section-heading"><div><h2>Walk in with better questions.</h2><p>A decision brief for ${e(who.name)}. Based on recorded facts, not an inspection.</p></div><button class="btn" data-action="decision-export-tour">${icon('download')}Export tour brief</button></div><div class="tour-brief-grid"><section class="decision-card"><span class="eyebrow">01 / WHY IT FITS</span><h3>Start with what you know.</h3>${fits.length ? fits.map(x => `<p class="brief-point">${icon('check')}<span>${e(x.detail)}</span></p>`).join('') : `<p class="brief-point">${icon('home')}<span>${money(p.price)} · ${e(p.city)}, ${e(p.state)} · ${p.beds} beds · ${number(p.sqft)} sq ft${p.type === 'Duplex' ? ' (combined)' : ''}.</span></p><p class="decision-micro">Add your priorities in Together to check personal fit.</p>`}<small class="brief-source">Source: ${p.custom ? 'your unverified entry' : 'fictional listing data'}</small></section><section class="decision-card"><span class="eyebrow">02 / THE TRADE-OFFS</span><h3>Be honest about the gaps.</h3>${tradeoffs.length ? tradeoffs.map(x => `<p class="brief-point">${icon('info')}<span>${e(x.detail)}</span></p>`).join('') : '<p class="decision-empty-copy">No conflicts found against your entered numerical requirements. This does not mean the home has no drawbacks.</p>'}</section><section class="decision-card"><span class="eyebrow">03 / STILL UNKNOWN</span><h3>Don’t fill in the blanks.</h3>${unknown.map(x => `<p class="brief-point">${icon('help')}<span>${e(x.detail)}</span></p>`).join('')}<p class="decision-empty-copy">Roof age, system condition, inspection findings, and actual utility bills are not provided. Answers below are user-recorded—not independently verified.</p></section></div>
+ <div class="tour-grid"><section class="decision-card tour-checklist"><div class="decision-card-heading"><div><h3>Take these questions with you.</h3><p>${done} of ${questions.length} questions have recorded answers and sources.</p></div>${stamp(`${done}/${questions.length}`)}</div><progress class="tour-progress" value="${done}" max="${questions.length}" aria-label="Questions with recorded answers">${done}/${questions.length}</progress><div class="tour-question-list">${questions.map(q => `<button class="tour-question ${q.resolved ? 'resolved' : ''}" data-action="decision-question" data-id="${e(q.id)}"><span class="question-check">${q.resolved ? icon('check') : icon('plus')}</span><span><strong>${e(q.text)}</strong>${q.answer ? `<small>${e(q.answer.slice(0, 180))}${q.answer.length > 180 ? '…' : ''}</small>` : ''}<em>${q.resolved ? 'Recorded answer' : 'Needs an answer'}${q.source ? ` · ${e(q.source)}` : ''}</em></span>${icon('chevron')}</button>`).join('')}</div><form id="decision-question-add" class="tour-add-question"><label class="form-field"><span>Something else on your mind?</span><input name="question" required maxlength="500" placeholder="Add your own question…"></label><button class="btn small" type="submit">${icon('plus')}Add question</button></form><p class="decision-micro">Recording an answer is not a professional verification or inspection.</p></section>
+ <section class="decision-card tour-notes"><div class="decision-card-heading"><div><h3>Leave a little room for notes.</h3><p>Shared locally with all participants.</p></div>${icon('list')}</div><form id="decision-visit-form"><label class="form-field"><span>Planned visit (optional)</span><input name="date" type="datetime-local" value="${e(home.visit.date)}"><small>A local planning note, not a calendar event or appointment booking.</small></label><label class="form-field"><span>Tour notes</span><textarea name="notes" maxlength="5000" rows="7" placeholder="What did you notice? Which answers need following up?">${e(home.visit.notes)}</textarea></label>${home.visit.author ? `<p class="decision-micro">Last edited by ${e(s.workspace.decisions.participants.find(x => x.id === home.visit.author)?.name || 'a local participant')}.</p>` : ''}<button class="btn primary" type="submit">Save visit notes ${icon('check')}</button></form><div class="tour-note-tip"><span class="eyebrow">GOOD TO KNOW</span><p>The brief export includes property facts, priorities, tour notes, questions, and recorded sources. It never includes household budgets.</p></div></section></div>`;
+}
+
+return {decisionView,budgetForm,lifeResults,participantForm};})();
+__modules["decision-workspace.js"]=(()=>{
+const { activeParticipant, lifeFor, calculateLife, emptyDecisionHome, exampleBudget, newParticipant, assessFit, tourQuestions, validBudget, validLife, validStress, validPriorities, stages, stressNames, lifeLimits } = __modules["decision-engine.js"];
+const { budgetForm, participantForm, lifeResults } = __modules["decision-views.js"];
+const { escapeHTML: e, money, icon, toast, uid, downloadFile } = __modules["ui.js"];
+const { toCSV } = __modules["finance.js"];
+function mountDecisionWorkspace(env) {
+    const { state: s } = env;
+    const d = () => s.workspace.decisions;
+    const person = () => activeParticipant(d());
+    const current = () => env.properties().find(p => p.id === d().currentPropertyId) || env.properties()[0];
+    const home = () => d().homes[current().id] ??= emptyDecisionHome();
+    const save = (message) => { env.commit(message); env.render(); };
+    const select = (id) => { if (!env.properties().some(x => x.id === id))
+        return; d().currentPropertyId = id; env.commit(); env.navigate('decision'); };
+    const open = (id) => { if (!env.properties().some(x => x.id === id))
+        return; d().currentPropertyId = id; env.commit(); env.navigate('decision'); };
+    const formError = (form, message) => { const el = form.querySelector('.decision-error'); if (el)
+        el.textContent = message;
+    else
+        toast(message, true); };
+    function questionDialog(id) {
+        const q = tourQuestions(current(), person().priorities, home()).find(q => q.id === id);
+        if (!q)
+            return;
+        env.openDialog(`<form id="decision-answer-form" data-id="${e(id)}"><div class="modal-heading"><span class="eyebrow">A QUESTION WORTH ASKING</span><h2 id="dialog-title">${q.resolved ? 'Revisit the answer.' : 'Fill in a blank.'}</h2><p>${e(q.text)}</p></div><label class="form-field"><span>What did you learn?</span><textarea name="answer" rows="4" maxlength="4000" placeholder="Record the answer without treating it as independently verified.">${e(q.answer)}</textarea></label><label class="form-field"><span>Source or reference</span><input name="source" maxlength="500" value="${e(q.source)}" placeholder="e.g. Seller’s note, inspection page 4, your tour observation"><small>Free-text reference only. Documents and links are not fetched or uploaded.</small></label><label class="decision-checkbox"><input type="checkbox" name="resolved" ${q.resolved ? 'checked' : ''}><span>Mark as answered (requires an answer and source)</span></label><p class="decision-disclosure">Answers are shared with local participants. A recorded answer is not a professional verification.</p><p class="decision-error" role="alert"></p><div class="modal-actions">${q.custom ? `<button type="button" class="text-button" data-action="decision-delete-question" data-id="${e(id)}">Delete question</button>` : ''}<button type="button" class="btn" data-action="close-dialog">Cancel</button><button type="submit" class="btn primary">Save answer ${icon('check')}</button></div></form>`);
+    }
+    function syncLife(saveInputs = true) {
+        if (s.page !== 'decision' || s.decisionTab !== 'life')
+            return true;
+        const inputs = [...document.querySelectorAll('[data-life]')];
+        if (!inputs.length)
+            return true;
+        const a = { ...lifeFor(current(), person()) };
+        let bad;
+        inputs.forEach(input => { const key = input.dataset.life; const val = input.value.trim() ? Number(input.value) : NaN; a[key] = val; const valid = Number.isFinite(val) && val >= lifeLimits[key][0] && val <= lifeLimits[key][1] && (key !== 'years' || Number.isInteger(val)); input.setAttribute('aria-invalid', String(!valid)); if (!valid && !bad)
+            bad = input; });
+        const stressInput = document.querySelector('#decision-stress-value');
+        const stress = { ...d().stressInputs };
+        if (stressInput) {
+            const key = s.decisionStress === 'income' ? 'incomeDrop' : s.decisionStress === 'expenses' ? 'expenseIncrease' : 'repairCost';
+            stress[key] = stressInput.value.trim() ? Number(stressInput.value) : NaN;
+            stressInput.setAttribute('aria-invalid', String(!validStress(stress)));
+            if (!validStress(stress) && !bad)
+                bad = stressInput;
+        }
+        const valid = validLife(a) && validStress(stress);
+        const err = document.querySelector('#decision-life-error');
+        if (err) {
+            err.hidden = valid;
+            err.textContent = valid ? '' : 'Enter a valid value in each highlighted field. Results below retain the last valid inputs; saving and exporting are paused.';
+        }
+        document.getElementById('decision-life-results')?.classList.toggle('results-stale', !valid);
+        document.querySelectorAll('[data-action="decision-save-snapshot"], [data-action="decision-export-life"]').forEach(x => x.disabled = !valid);
+        if (!valid)
+            return false;
+        if (saveInputs) {
+            person().life[current().id] = a;
+            d().stressInputs = stress;
+            env.commit();
+        }
+        const el = document.querySelector('#decision-life-results');
+        if (el)
+            el.innerHTML = lifeResults(s, current(), person());
+        // Keep the selected row in the shortlist comparison numerically fresh without replacing inputs.
+        const rows = document.querySelectorAll('.life-compare tbody tr');
+        const b = person().budget;
+        if (b && rows.length) {
+            const sorted = env.properties().filter(x => s.workspace.savedIds.includes(x.id)).map(p => ({ p, m: calculateLife(p.price, b, lifeFor(p, person())) })).sort((a, b) => b.m.leftover - a.m.leftover);
+            const body = document.querySelector('.life-compare tbody');
+            if (body)
+                body.innerHTML = sorted.map(({ p, m }) => `<tr><td><strong>${e(p.name)}</strong><small>${e(p.city)} · ${money(p.price)}</small></td><td>${money(m.housing)}</td><td class="${m.leftover < 0 ? 'decision-negative' : ''}">${money(m.leftover)}</td><td class="${m.cashRemaining < 0 ? 'decision-negative' : ''}">${money(m.cashRemaining)}</td><td><button class="text-button" data-action="decision-open" data-id="${e(p.id)}">Explore ${icon('arrow')}</button></td></tr>`).join('');
+        }
+        return true;
+    }
+    function exportLife() {
+        if (!syncLife() || !person().budget)
+            return;
+        const p = current(), b = person().budget, a = lifeFor(p, person()), m = calculateLife(p.price, b, a, s.decisionStress, d().stressInputs);
+        const rows = [['HAVEN — YOUR LIFE HERE'], ['Data', p.custom ? 'User-entered property; unverified' : 'Fictional demo property'], ['Property', p.name], ['City', p.city], ['Generated', new Date().toISOString()], ['Profile', person().name], ['Budget source', b.example ? 'Explicit sample budget' : 'User-entered budget'], ['Privacy', 'This file contains budget details. It is not the shared tour brief.'], ['Disclaimer', 'Illustrative owner-occupant model, not financial advice or loan approval. No rent, tax savings, appreciation, or financing to cover cash shortfalls is assumed.'], ['Scenario', stressNames[s.decisionStress]], ['Price ($)', p.price], [], ['HOUSEHOLD BUDGET'], ...Object.entries(b).map(([key, value]) => [key, String(value)]), [], ['OWNERSHIP INPUTS'], ...Object.entries(a).map(([key, v]) => [key, v]), [], ['STRESS INPUTS — only the selected scenario applies'], ...Object.entries(d().stressInputs).map(([key, v]) => [key, v]), [], ['RESULTS'], ...Object.entries(m).map(([key, v]) => [key, v])];
+        downloadFile(`haven-life-${p.id}.csv`, toCSV(rows), 'text/csv;charset=utf-8');
+        toast('Life scenario exported. This file includes budget details.');
+    }
+    function exportTour() {
+        const p = current(), w = person(), h = home(), qs = tourQuestions(p, w.priorities, h), fit = assessFit(p, w.priorities);
+        const content = [`HAVEN · KNOW BEFORE YOU TOUR`, p.name, `${p.city}, ${p.state} · ${p.address}`, `Source: ${p.custom ? 'user-entered property, unverified' : 'fictional demo listing'}`, `Asking price: ${money(p.price)} | ${p.beds} beds | ${p.sqft} sq ft${p.type === 'Duplex' ? ' (combined across units; not per unit)' : ''}`, `Generated: ${new Date().toISOString()}`, `Priorities profile: ${w.name}`, `Shared stage: ${h.stage}`, '', 'WHY IT FITS / TRADE-OFFS / UNKNOWNS', ...(fit.length ? fit.map(x => `${x.status.toUpperCase()}: ${x.detail}`) : ['No priorities entered. No personal fit conclusion.']), 'Roof age, building condition, system ages, and actual utility bills are not provided.', '', 'QUESTIONS & USER-RECORDED ANSWERS', ...qs.flatMap(q => [`${q.resolved ? '[Recorded answer]' : '[Open]'} ${q.text}`, `Answer: ${q.answer || 'Not recorded'}`, `Source: ${q.source || 'Unknown'}`, `Recorded by: ${d().participants.find(p => p.id === q.updatedBy)?.name || 'Not recorded'}`, '']), 'VISIT NOTES', `Planned visit (local time as entered; not a booking): ${h.visit.date || 'Not scheduled'}`, h.visit.notes || 'No visit notes.', '', 'This brief excludes household budgets and budget scenarios. Answers are recorded by users, not independently verified. No inspection or professional advice is implied.'].join('\n');
+        downloadFile(`haven-tour-${p.id}.txt`, content, 'text/plain;charset=utf-8');
+        toast('Tour brief exported without household budgets.');
+    }
+    let pendingSnapshot = null;
+    const actions = {
+        'decision-open': b => open(b.dataset.id || current().id),
+        'decision-tab': b => { const tab = b.dataset.tab; if (!['life', 'together', 'tour'].includes(tab))
+            return; s.decisionTab = tab; env.render(); document.getElementById(`decision-tab-${tab}`)?.focus({ preventScroll: true }); },
+        'decision-budget': () => env.openDialog(budgetForm(person())),
+        'decision-example': () => { person().budget = exampleBudget(); save('Sample household budget loaded. Replace these values with your own when ready.'); },
+        'decision-reset-inputs': () => { delete person().life[current().id]; save('Restored the fictional listing inputs and sample ownership assumptions.'); },
+        'decision-stress': b => { if (!syncLife())
+            return toast('Correct the highlighted inputs before changing scenarios.', true); s.decisionStress = b.dataset.kind; env.render(); document.querySelector(`[data-action="decision-stress"][data-kind="${s.decisionStress}"]`)?.focus({ preventScroll: true }); },
+        'decision-export-life': exportLife,
+        'decision-save-snapshot': () => {
+            if (!syncLife() || !person().budget)
+                return;
+            if (d().snapshots.length >= 50)
+                return toast('This workspace can hold 50 life scenarios. Remove one first.', true);
+            env.openDialog(`<form id="decision-snapshot-form"><div class="modal-heading"><span class="eyebrow">KEEP THIS PERSPECTIVE</span><h2 id="dialog-title">Save your life here.</h2><p>This snapshot includes your budget, purchase price, ownership inputs, and selected what-if. It is not shared in Together.</p></div><label class="form-field"><span>Scenario name</span><input name="name" required maxlength="100" value="${e(`${current().name} · ${stressNames[s.decisionStress]}`.slice(0, 100))}"></label><p class="decision-error" role="alert"></p><div class="modal-actions"><button class="btn" type="button" data-action="close-dialog">Cancel</button><button class="btn primary" type="submit">Save scenario</button></div></form>`);
+        },
+        'decision-load-snapshot': b => { const x = d().snapshots.find(x => x.id === b.dataset.id && x.participantId === person().id); if (!x)
+            return; pendingSnapshot = x; const m = calculateLife(x.price, x.budget, x.inputs, x.stress, x.stressInputs), p = env.properties().find(p => p.id === x.propertyId); env.openDialog(`<div class="modal-heading"><span class="eyebrow">A SAVED PERSPECTIVE</span><h2 id="dialog-title">${e(x.name)}</h2><p>This exact snapshot uses a ${money(x.price)} purchase price and leaves ${money(m.leftover)} each month, with ${money(m.cashRemaining)} cash remaining.</p><p>Applying it replaces this profile’s household budget and the home’s ownership inputs. The live planner will use the home’s <strong>current ${money(p?.price || x.price)} price</strong>, which may differ from this snapshot.</p></div><div class="modal-actions"><button class="btn" data-action="close-dialog">Keep current inputs</button><button class="btn primary" data-action="decision-apply-snapshot">Apply to current home</button></div>`); },
+        'decision-apply-snapshot': () => { const x = pendingSnapshot; if (!x || x.participantId !== person().id)
+            return; person().budget = structuredClone(x.budget); person().life[x.propertyId] = structuredClone(x.inputs); d().currentPropertyId = x.propertyId; d().stressInputs = structuredClone(x.stressInputs); s.decisionStress = x.stress; s.decisionTab = 'life'; pendingSnapshot = null; env.closeDialog(); save('Saved inputs applied. The current property price is used.'); },
+        'decision-delete-snapshot': b => { const x = d().snapshots.find(x => x.id === b.dataset.id && x.participantId === person().id); if (!x)
+            return; env.openDialog(`<div class="modal-heading"><h2 id="dialog-title">Remove this perspective?</h2><p>${e(x.name)} will be permanently removed. Your current household plan is unchanged.</p></div><div class="modal-actions"><button class="btn" data-action="close-dialog">Keep it</button><button class="btn" data-action="decision-confirm-snapshot-delete" data-id="${e(x.id)}">Remove scenario</button></div>`); },
+        'decision-confirm-snapshot-delete': b => { d().snapshots = d().snapshots.filter(x => x.id !== b.dataset.id || x.participantId !== person().id); env.closeDialog(); save('Life scenario removed.'); },
+        'decision-add-person': () => { if (d().participants.length >= 8)
+            return toast('Up to eight local profiles are supported.', true); env.openDialog(participantForm(undefined, [...new Set(env.properties().map(p => p.city))].sort())); },
+        'decision-edit-person': b => { const w = d().participants.find(x => x.id === b.dataset.id); if (w)
+            env.openDialog(participantForm(w, [...new Set(env.properties().map(p => p.city))].sort())); },
+        'decision-remove-person': b => { const w = d().participants.find(x => x.id === b.dataset.id); if (!w || d().participants.length <= 1)
+            return; env.openDialog(`<div class="modal-heading"><h2 id="dialog-title">Remove ${e(w.name)}’s profile?</h2><p>Their priorities, budget, ownership scenarios, and home reviews will be removed. Shared tour answers and notes are kept without the removed author attribution. Export a full workspace backup first to keep a copy.</p></div><div class="modal-actions"><button class="btn" data-action="close-dialog">Keep profile</button><button class="btn" data-action="decision-confirm-person-delete" data-id="${e(w.id)}">Remove profile</button></div>`); },
+        'decision-confirm-person-delete': b => { const id = b.dataset.id; if (!id || d().participants.length <= 1)
+            return; d().participants = d().participants.filter(x => x.id !== id); if (d().activeParticipantId === id)
+            d().activeParticipantId = d().participants[0].id; d().snapshots = d().snapshots.filter(x => x.participantId !== id); Object.values(d().homes).forEach(h => { delete h.reviews[id]; Object.values(h.questions).forEach(q => { if (q.updatedBy === id)
+            q.updatedBy = ''; }); if (h.visit.author === id)
+            h.visit.author = ''; }); env.closeDialog(); save('Local profile removed.'); },
+        'decision-clear-review': () => { delete home().reviews[person().id]; save('Your take was removed for this home.'); },
+        'decision-question': b => questionDialog(b.dataset.id),
+        'decision-delete-question': b => { const q = home().questions[b.dataset.id]; if (!q?.custom)
+            return; env.openDialog(`<div class="modal-heading"><h2 id="dialog-title">Remove this question?</h2><p>${e(q.text)} and its recorded answer will be removed.</p></div><div class="modal-actions"><button class="btn" data-action="close-dialog">Keep question</button><button class="btn" data-action="decision-confirm-question-delete" data-id="${e(q.id)}">Remove question</button></div>`); },
+        'decision-confirm-question-delete': b => { if (home().questions[b.dataset.id]?.custom)
+            delete home().questions[b.dataset.id]; env.closeDialog(); save('Question removed.'); },
+        'decision-export-tour': exportTour
+    };
+    document.addEventListener('click', event => { const b = event.target instanceof Element ? event.target.closest('[data-action]') : null; if (!b || b instanceof HTMLButtonElement && b.disabled)
+        return; const action = actions[b.dataset.action]; if (action) {
+        event.preventDefault();
+        action(b);
+    } });
+    document.addEventListener('input', event => { const input = event.target; if (input instanceof HTMLInputElement && (input.dataset.life || input.id === 'decision-stress-value'))
+        syncLife(); });
+    document.addEventListener('change', event => {
+        const el = event.target;
+        if (!(el instanceof HTMLSelectElement || el instanceof HTMLInputElement))
+            return;
+        if (el.id === 'decision-person' && d().participants.some(x => x.id === el.value)) {
+            d().activeParticipantId = el.value;
+            save();
+        }
+        if (el.id === 'decision-stage' && stages.includes(el.value)) {
+            home().stage = el.value;
+            save('Shared stage updated.');
+        }
+        if (el.id === 'decision-share-budget' && el instanceof HTMLInputElement && person().budget) {
+            person().shareBudget = el.checked;
+            save(el.checked ? 'Only your calculated budget summary is now visible in Together.' : 'Your budget summary is no longer shown in Together.');
+        }
+    });
+    document.addEventListener('keydown', event => { const el = event.target; if (!(el instanceof HTMLElement) || !el.matches('.decision-tabs [role="tab"]') || !['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key))
+        return; event.preventDefault(); const tabs = ['life', 'together', 'tour']; const index = event.key === 'Home' ? 0 : event.key === 'End' ? 2 : (tabs.indexOf(s.decisionTab) + (event.key === 'ArrowRight' ? 1 : 2)) % 3; s.decisionTab = tabs[index]; env.render(); document.getElementById(`decision-tab-${s.decisionTab}`)?.focus({ preventScroll: true }); });
+    document.addEventListener('submit', event => {
+        const form = event.target;
+        if (!(form instanceof HTMLFormElement) || !form.id.startsWith('decision-'))
+            return;
+        event.preventDefault();
+        if (!form.reportValidity())
+            return;
+        const fd = new FormData(form), str = (k) => String(fd.get(k) || '').trim(), num = (k) => str(k) === '' ? 0 : Number(str(k)), bool = (k) => fd.get(k) === 'on';
+        if (form.id === 'decision-budget-form') {
+            const b = { income: num('income'), expenses: num('expenses'), savings: num('savings'), cash: num('cash'), cushion: num('cushion'), example: bool('example') };
+            if (!validBudget(b))
+                return formError(form, 'Check all budget amounts. Use nonnegative, finite numbers.');
+            person().budget = b;
+            env.closeDialog();
+            save('Household plan saved for this profile.');
+        }
+        if (form.id === 'decision-participant-form') {
+            if (!str('name'))
+                return formError(form, 'Add a name for this local profile.');
+            const req = { city: str('city'), type: str('type'), maxPrice: num('maxPrice'), minBeds: num('minBeds'), minSqft: num('minSqft'), outdoor: bool('outdoor'), light: bool('light'), notes: str('notes') };
+            if (!validPriorities(req))
+                return formError(form, 'Check your priorities and numeric limits.');
+            let w = d().participants.find(x => x.id === form.dataset.id);
+            if (!w) {
+                if (d().participants.length >= 8)
+                    return;
+                w = newParticipant('person-' + uid(), str('name'));
+                d().participants.push(w);
+            }
+            w.name = str('name');
+            w.priorities = req;
+            env.closeDialog();
+            save('Local participant priorities saved.');
+        }
+        if (form.id === 'decision-review-form') {
+            home().reviews[person().id] = { stance: str('stance'), note: str('note'), updatedAt: Date.now() };
+            save('Your take is saved for this home.');
+        }
+        if (form.id === 'decision-question-add') {
+            if (!str('question'))
+                return toast('Write a question first.', true);
+            if (Object.keys(home().questions).length >= 70)
+                return toast('This home has reached its custom question limit.', true);
+            const id = 'question-' + uid();
+            home().questions[id] = { id, text: str('question'), answer: '', source: '', resolved: false, updatedBy: person().id, updatedAt: Date.now(), custom: true };
+            save('Question added to this home’s checklist.');
+            document.querySelector('#decision-question-add input')?.focus({ preventScroll: true });
+        }
+        if (form.id === 'decision-answer-form') {
+            const q = tourQuestions(current(), person().priorities, home()).find(q => q.id === form.dataset.id);
+            if (!q)
+                return;
+            if (bool('resolved') && (!str('answer') || !str('source')))
+                return formError(form, 'Add both an answer and a source before marking this question answered.');
+            home().questions[q.id] = { ...q, answer: str('answer'), source: str('source'), resolved: bool('resolved'), updatedBy: person().id, updatedAt: Date.now() };
+            env.closeDialog();
+            save('Answer recorded. Its source remains user-supplied.');
+        }
+        if (form.id === 'decision-visit-form') {
+            home().visit = { date: str('date'), notes: str('notes'), author: person().id };
+            save('Tour notes saved locally. No booking or invitation was sent.');
+        }
+        if (form.id === 'decision-snapshot-form') {
+            if (!str('name'))
+                return formError(form, 'Give this scenario a name.');
+            if (!person().budget || d().snapshots.length >= 50)
+                return;
+            d().snapshots.unshift({ id: 'life-' + uid(), name: str('name'), propertyId: current().id, participantId: person().id, savedAt: Date.now(), price: current().price, budget: structuredClone(person().budget), inputs: structuredClone(lifeFor(current(), person())), stress: s.decisionStress, stressInputs: { ...d().stressInputs } });
+            env.closeDialog();
+            save('Your life scenario is saved.');
+        }
+    });
+    return { open, select };
+}
+
+return {mountDecisionWorkspace};})();
 __modules["app.js"]=(()=>{
+const { decisionView } = __modules["decision-views.js"];
+const { mountDecisionWorkspace } = __modules["decision-workspace.js"];
+const { pruneDecisions } = __modules["decision-engine.js"];
 const { initializeAppearance } = __modules["theme.js"];
 const { bindPropertyPicker } = __modules["property-picker.js"];
 const { mountAssistant } = __modules["assistant-widget.js"];
@@ -2968,15 +3652,16 @@ const { calculatorView, calculatorResults } = __modules["calculator.js"];
 const { bindCardMotion, revealedCards, pageMotion, dialogMotion, trayMotion, favoriteMotion, filterMotion, motionAllowed } = __modules["motion.js"];
 initializeAppearance();
 const initial = loadWorkspace();
-const pages = ['discover', 'saved', 'compare', 'calculator', 'custom'];
+const pages = ['discover', 'saved', 'compare', 'calculator', 'custom', 'decision'];
 const initialPage = location.hash.slice(1);
 const state = {
     page: pages.includes(initialPage) ? initialPage : 'discover',
     filters: { ...defaultFilters }, sort: 'featured', layout: 'grid', moreFilters: false, visibleCount: PAGE_SIZE,
     calculatorPropertyId: seedProperties[0].id, assumptions: defaultAssumptions(seedProperties[0]),
     workspace: initial.workspace, storageAvailable: initial.available, storageNotice: initial.notice,
-    scenarioName: ''
+    scenarioName: '', decisionTab: 'life', decisionStress: 'baseline'
 };
+let decisionWorkspace = null;
 let assistant = null;
 let pendingImport = null;
 let pendingDeleteId = '';
@@ -2986,7 +3671,7 @@ let lastFocus = null;
 function normalizeWorkspace(w) {
     const ids = new Set([...seedProperties, ...w.customProperties].map(p => p.id));
     return {
-        ...w, savedIds: w.savedIds.filter(id => ids.has(id)), compareIds: w.compareIds.filter(id => ids.has(id)).slice(0, 3),
+        ...w, decisions: pruneDecisions(w.decisions, ids), savedIds: w.savedIds.filter(id => ids.has(id)), compareIds: w.compareIds.filter(id => ids.has(id)).slice(0, 3),
         scenarios: w.scenarios.filter(s => ids.has(s.propertyId)),
         notes: Object.fromEntries(Object.entries(w.notes).filter(([id]) => ids.has(id)))
     };
@@ -3004,11 +3689,11 @@ function render(intent = 'update') {
         type: active.dataset.type, layout: active.dataset.layout, filter: active.dataset.filter
     } : null;
     calculatorValid = validateAssumptions(state.assumptions).length === 0;
-    const view = state.page === 'compare' ? compareView(state) : state.page === 'calculator' ? calculatorView(state) : browseView(state);
+    const view = state.page === 'decision' ? decisionView(state, allProperties(state)) : state.page === 'compare' ? compareView(state) : state.page === 'calculator' ? calculatorView(state) : browseView(state);
     document.getElementById('app').innerHTML = shell(state, view);
     document.body.classList.toggle('has-tray', state.workspace.compareIds.length > 0 && ['discover', 'saved', 'custom'].includes(state.page));
     bindImageFallbacks();
-    bindPropertyPicker(allProperties(state), findProperty(state, state.calculatorPropertyId), analyze);
+    bindPropertyPicker(allProperties(state), findProperty(state, state.page === 'decision' ? state.workspace.decisions.currentPropertyId : state.calculatorPropertyId), id => state.page === 'decision' ? decisionWorkspace?.select(id) : analyze(id));
     assistant?.refresh();
     updateMobileNavigation();
     bindCardMotion(keep);
@@ -3020,7 +3705,7 @@ function render(intent = 'update') {
         const replacement = focusKey.id ? document.getElementById(focusKey.id) : [...document.querySelectorAll('#app [data-action], #app [data-filter]')].find(el => el.dataset.action === focusKey.action && el.dataset.id === focusKey.value && el.dataset.type === focusKey.type && el.dataset.layout === focusKey.layout && el.dataset.filter === focusKey.filter);
         replacement?.focus({ preventScroll: true });
     }
-    document.title = `Haven · ${state.page === 'calculator' ? 'Deal calculator' : state.page === 'saved' ? 'Saved homes' : state.page === 'compare' ? 'Compare properties' : state.page === 'custom' ? 'My properties' : 'Good places. Better possibilities.'}`;
+    document.title = `Haven · ${state.page === 'decision' ? 'Your home decision' : state.page === 'calculator' ? 'Deal calculator' : state.page === 'saved' ? 'Saved homes' : state.page === 'compare' ? 'Compare properties' : state.page === 'custom' ? 'My properties' : 'Good places. Better possibilities.'}`;
 }
 function updateMobileNavigation() {
     const sidebar = document.querySelector('.sidebar');
@@ -3116,10 +3801,10 @@ function showDetails(id) {
     openDialog(detailView(p, state), 'detail-modal');
 }
 function aboutDialog() {
-    openDialog(`<div class="modal-heading"><span class="eyebrow">MEET HAVEN</span><h2 id="dialog-title">A little more perspective.</h2><p>A local-first property workspace, built to explore the whole decision — not just the asking price.</p></div><div class="about-sections"><section><h3>A real app. A sample world.</h3><p>The ${seedProperties.length} starter properties span ${new Set(seedProperties.map(p => p.city)).size} cities. Their addresses, neighborhood labels, prices, rents, and costs are fictional fixtures. City names provide context only. Artwork and optional photography are illustrative. There is no live listing feed, valuation model, authentication, or connected bank account.</p></section><section><h3>Open assumptions. No mystery scores.</h3><p>Listing cards and comparisons use 20% down, 6.5% sample interest, 30 years, 5% vacancy, 5% maintenance, 8% management, 3% capital reserves, and 3% closing costs. Initial repairs and mortgage insurance start at zero. Taxes, property insurance, HOA, and rent come from each entry.</p><p><strong>NOI</strong> is rent after vacancy, less operating expenses. It excludes financing and capital reserves. <strong>Cap rate</strong> is annual NOI divided by purchase price. <strong>Cash flow</strong> also subtracts mortgage principal and interest, mortgage insurance, and capital reserves. <strong>Cash-on-cash return</strong> divides annual cash flow by the down payment, closing costs, and initial repairs.</p></section><section><h3>One browser. Your workspace.</h3><p>Saved properties, comparisons, custom entries, notes, searches, and saved scenarios stay in browser storage. Nothing is synced to an account. Private browsing, clearing storage, or using a different URL may remove or separate saved data. Export a backup for portability.</p></section><section><h3>A little help finding home</h3><p>Ask Haven is available from every page. Its local demo matcher asks about city, purchase budget, property type, and must-haves, then explains matches from the 60 fictional starter homes. It is not a live AI model in local mode. An optional server-side AI connection can be enabled through the chat disclosure when configured. Unverified features stay labeled unverified; chat clears on refresh, while saved homes remain in your workspace.</p><p>The calculator property picker supports typing, live suggestions, and keyboard navigation. It searches both demo and custom properties; your scenario changes only after you choose a property.</p></section><section><h3>The edges of the model</h3><p>The calculator assumes a fixed-rate, fully amortizing loan. It does not model tax benefits, appreciation, rent growth, selling costs, variable rates, financing eligibility, zoning, or lender-specific rules. It is educational software, not financial advice.</p></section><label class="photo-toggle"><input type="checkbox" id="use-photos" ${document.documentElement.dataset.photos === 'true' ? 'checked' : ''}><span>Use illustrative photography<small>Optional Unsplash images need an internet connection. Loading them contacts the image provider; property inputs are not sent. Original artwork remains the offline fallback.</small></span></label></div><div class="modal-actions"><button class="btn" data-action="workspace">Manage workspace</button><button class="btn primary" data-action="close-dialog">Back to exploring ${icon('arrow')}</button></div>`, 'info-modal');
+    openDialog(`<div class="modal-heading"><span class="eyebrow">MEET HAVEN</span><h2 id="dialog-title">A little more perspective.</h2><p>A local-first property workspace, built to explore the whole decision — not just the asking price.</p></div><div class="about-sections"><section><h3>A real app. A sample world.</h3><p>The ${seedProperties.length} starter properties span ${new Set(seedProperties.map(p => p.city)).size} cities. Their addresses, neighborhood labels, prices, rents, and costs are fictional fixtures. City names provide context only. Artwork and optional photography are illustrative. There is no live listing feed, valuation model, authentication, or connected bank account.</p></section><section><h3>Open assumptions. No mystery scores.</h3><p>Listing cards and comparisons use 20% down, 6.5% sample interest, 30 years, 5% vacancy, 5% maintenance, 8% management, 3% capital reserves, and 3% closing costs. Initial repairs and mortgage insurance start at zero. Taxes, property insurance, HOA, and rent come from each entry.</p><p><strong>NOI</strong> is rent after vacancy, less operating expenses. It excludes financing and capital reserves. <strong>Cap rate</strong> is annual NOI divided by purchase price. <strong>Cash flow</strong> also subtracts mortgage principal and interest, mortgage insurance, and capital reserves. <strong>Cash-on-cash return</strong> divides annual cash flow by the down payment, closing costs, and initial repairs.</p></section><section><h3>One browser. Your workspace.</h3><p>Saved properties, comparisons, custom entries, notes, searches, and saved scenarios stay in browser storage. Nothing is synced to an account. Private browsing, clearing storage, or using a different URL may remove or separate saved data. Export a backup for portability.</p></section><section><h3>A little help finding home</h3><p>Ask Haven is available from every page. Its local demo matcher asks about city, purchase budget, property type, and must-haves, then explains matches from the 60 fictional starter homes. It is not a live AI model in local mode. An optional server-side AI connection can be enabled through the chat disclosure when configured. Unverified features stay labeled unverified; chat clears on refresh, while saved homes remain in your workspace.</p><p>The calculator property picker supports typing, live suggestions, and keyboard navigation. It searches both demo and custom properties; your scenario changes only after you choose a property.</p></section><section><h3>A place for the whole decision</h3><p>Your Life Here models a household budget and ownership costs, with explicit sample assumptions and one-at-a-time stress tests. Together uses local participant profiles, not secure accounts or online collaboration. Before You Tour tracks unknowns, answers, sources, and visit notes. Budgets are not shown in Together unless you explicitly share a calculated summary. Anyone with this browser or a full workspace backup can access all profiles.</p><p>Live AI remains optional and is not activated. New decision-workspace data is not added to AI requests. No real listing feed, bank connection, invitation, or booking service is provided.</p></section><section><h3>The edges of the model</h3><p>The calculator assumes a fixed-rate, fully amortizing loan. It does not model tax benefits, appreciation, rent growth, selling costs, variable rates, financing eligibility, zoning, or lender-specific rules. It is educational software, not financial advice.</p></section><label class="photo-toggle"><input type="checkbox" id="use-photos" ${document.documentElement.dataset.photos === 'true' ? 'checked' : ''}><span>Use illustrative photography<small>Optional Unsplash images need an internet connection. Loading them contacts the image provider; property inputs are not sent. Original artwork remains the offline fallback.</small></span></label></div><div class="modal-actions"><button class="btn" data-action="workspace">Manage workspace</button><button class="btn primary" data-action="close-dialog">Back to exploring ${icon('arrow')}</button></div>`, 'info-modal');
 }
 function workspaceDialog() {
-    openDialog(`<div class="modal-heading"><span class="eyebrow">MAKE YOURSELF AT HOME</span><h2 id="dialog-title">Your workspace.</h2><p>${state.storageAvailable ? 'Your changes are stored in this browser. A backup lets you take them with you.' : 'Browser storage is unavailable. Export a backup before closing this page.'}</p></div><div class="workspace-stats"><div><strong>${state.workspace.savedIds.length}</strong><span>saved homes</span></div><div><strong>${state.workspace.customProperties.length}</strong><span>your properties</span></div><div><strong>${state.workspace.scenarios.length}</strong><span>scenarios</span></div></div><div class="workspace-options"><button data-action="export-backup">${icon('download')}<span><strong>Export a backup</strong><small>Download your workspace as a JSON file.</small></span>${icon('chevron')}</button><button data-action="import-backup">${icon('upload')}<span><strong>Import a backup</strong><small>Restore a Haven file. Review it before replacing anything.</small></span>${icon('chevron')}</button><button data-action="reset-workspace" class="danger">${icon('reset')}<span><strong>Start fresh</strong><small>Clear this workspace, leaving the sample listings intact.</small></span>${icon('chevron')}</button></div><p class="small-print">A backup contains your custom properties, saved IDs, notes, searches, and saved scenarios. Unsaved calculator edits are not included.</p>`, 'info-modal');
+    openDialog(`<div class="modal-heading"><span class="eyebrow">MAKE YOURSELF AT HOME</span><h2 id="dialog-title">Your workspace.</h2><p>${state.storageAvailable ? 'Your changes are stored in this browser. A backup lets you take them with you.' : 'Browser storage is unavailable. Export a backup before closing this page.'}</p></div><div class="workspace-stats"><div><strong>${state.workspace.savedIds.length}</strong><span>saved homes</span></div><div><strong>${state.workspace.customProperties.length}</strong><span>your properties</span></div><div><strong>${state.workspace.scenarios.length}</strong><span>scenarios</span></div></div><div class="workspace-options"><button data-action="export-backup">${icon('download')}<span><strong>Export a backup</strong><small>Download your workspace as a JSON file.</small></span>${icon('chevron')}</button><button data-action="import-backup">${icon('upload')}<span><strong>Import a backup</strong><small>Restore a Haven file. Review it before replacing anything.</small></span>${icon('chevron')}</button><button data-action="reset-workspace" class="danger">${icon('reset')}<span><strong>Start fresh</strong><small>Clear this workspace, leaving the sample listings intact.</small></span>${icon('chevron')}</button></div><p class="small-print">A full backup includes every local profile’s household budget, priorities, reviews, life scenarios, tour answers, custom properties, saved homes, notes, searches, and investment scenarios. Treat it as sensitive. Tour brief exports omit household budgets. Unsaved investment calculator edits are not included.</p>`, 'info-modal');
 }
 function updateCalculator() {
     const next = { ...state.assumptions };
@@ -3316,6 +4001,8 @@ const actions = {
             return;
         state.workspace = normalizeWorkspace(pendingImport);
         pendingImport = null;
+        state.decisionTab = 'life';
+        state.decisionStress = 'baseline';
         state.calculatorPropertyId = seedProperties[0].id;
         state.assumptions = defaultAssumptions(seedProperties[0]);
         calculatorValid = true;
@@ -3323,8 +4010,8 @@ const actions = {
         commit('Your workspace has been restored.');
         render();
     },
-    'reset-workspace': () => openDialog(`<div class="modal-heading"><span class="eyebrow">A FRESH START</span><h2 id="dialog-title">Clear your workspace?</h2><p>Your saved homes, comparisons, notes, custom properties, searches, and scenarios will be removed. The fictional starter listings will stay. Export a backup first to keep a copy.</p></div><div class="modal-actions"><button class="btn" data-action="export-backup">Export backup</button><button class="btn" data-action="close-dialog">Cancel</button><button class="btn danger-fill" data-action="confirm-reset">Clear workspace</button></div>`),
-    'confirm-reset': () => { state.workspace = freshWorkspace(); state.assumptions = defaultAssumptions(seedProperties[0]); state.calculatorPropertyId = seedProperties[0].id; state.filters = { ...defaultFilters }; calculatorValid = true; commit('A fresh start. Your sample properties are ready.'); navigate('discover'); }
+    'reset-workspace': () => openDialog(`<div class="modal-heading"><span class="eyebrow">A FRESH START</span><h2 id="dialog-title">Clear your workspace?</h2><p>All local profiles, budgets, priorities, reviews, tour answers, life scenarios, saved homes, comparisons, notes, custom properties, searches, and investment scenarios will be removed. The fictional starter listings will stay. Export a backup first to keep a copy.</p></div><div class="modal-actions"><button class="btn" data-action="export-backup">Export backup</button><button class="btn" data-action="close-dialog">Cancel</button><button class="btn danger-fill" data-action="confirm-reset">Clear workspace</button></div>`),
+    'confirm-reset': () => { state.workspace = freshWorkspace(); state.decisionTab = 'life'; state.decisionStress = 'baseline'; state.assumptions = defaultAssumptions(seedProperties[0]); state.calculatorPropertyId = seedProperties[0].id; state.filters = { ...defaultFilters }; calculatorValid = true; commit('A fresh start. Your sample properties are ready.'); navigate('discover'); }
 };
 document.addEventListener('click', event => {
     const target = event.target instanceof Element ? event.target.closest('[data-action]') : null;
@@ -3466,8 +4153,9 @@ window.addEventListener('popstate', () => { const page = location.hash.slice(1);
     closeDialog();
     render('page');
 } });
+decisionWorkspace = mountDecisionWorkspace({ state, properties: () => allProperties(state), render: () => render(), commit, navigate, openDialog, closeDialog });
 render('page');
-assistant = mountAssistant({ properties: seedProperties, isSaved: id => state.workspace.savedIds.includes(id), details: showDetails, analyze, save: id => { const button = document.createElement('button'); button.dataset.id = id; actions['save-toggle'](button); } });
+assistant = mountAssistant({ properties: seedProperties, isSaved: id => state.workspace.savedIds.includes(id), details: showDetails, analyze, explore: id => decisionWorkspace?.open(id), save: id => { const button = document.createElement('button'); button.dataset.id = id; actions['save-toggle'](button); } });
 
 return {};})();
 })();

@@ -1,8 +1,9 @@
+import { freshDecisions, parseDecisions } from './decision-engine.js';
 import type { Workspace, Property, Filters, Assumptions } from './types.js';
 import { validateAssumptions } from './finance.js';
 
 export const STORAGE_KEY = 'haven.workspace.v1';
-export const freshWorkspace = (): Workspace => ({ version: 1, savedIds: [], compareIds: [], customProperties: [], notes: {}, searches: [], scenarios: [] });
+export const freshWorkspace = (): Workspace => ({ version: 1, decisions: freshDecisions(), savedIds: [], compareIds: [], customProperties: [], notes: {}, searches: [], scenarios: [] });
 const isRecord = (x: unknown): x is Record<string, unknown> => !!x && typeof x === 'object' && !Array.isArray(x);
 const shortString = (x: unknown, max = 500): x is string => typeof x === 'string' && x.length <= max;
 export function validProperty(x: unknown): x is Property {
@@ -42,7 +43,7 @@ export function parseWorkspace(raw: string): Workspace {
   if (!Array.isArray(w.scenarios) || w.scenarios.length > 100 || !w.scenarios.every(s => isRecord(s) && shortString(s.id,150) && shortString(s.name,100) && shortString(s.propertyId,150) && typeof s.savedAt === 'number' && Number.isFinite(s.savedAt) && isRecord(s.assumptions) && validateAssumptions(s.assumptions as unknown as Assumptions).length === 0)) throw new Error('The backup contains invalid scenarios.');
   if (ids.some(id => !/^custom-[A-Za-z0-9-]+$/.test(id))) throw new Error('Custom property IDs must use the custom- prefix and letters, numbers, or hyphens.');
   const result = w as unknown as Workspace;
-  return { ...result, savedIds: [...new Set(result.savedIds)], compareIds: [...new Set(result.compareIds)].slice(0,3), customProperties: result.customProperties.map(p => ({ ...p, custom: true })) };
+  return { ...result, decisions: parseDecisions(w.decisions), savedIds: [...new Set(result.savedIds)], compareIds: [...new Set(result.compareIds)].slice(0,3), customProperties: result.customProperties.map(p => ({ ...p, custom: true })) };
 }
 export function loadWorkspace(): { workspace: Workspace; available: boolean; notice: string } {
   try {
